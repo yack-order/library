@@ -1,0 +1,95 @@
+
+
+# Disallowed Archive Files
+# ------------------------
+# General Archive formats
+*.7z
+*.ace
+*.arc
+*.arj
+*.bz
+*.bz2
+*.cab
+*.gz
+*.gzip
+*.lha
+*.lzh
+*.lz
+*.lzma
+*.lzo
+*.rar
+*.sit
+*.sitx
+*.tar
+*.tgz
+*.xz
+*.zip
+*.zoo
+*.zst
+
+# Split archive parts (using glob patterns)
+*.[0-9][0-9][0-9]      # Matches .001, .002, ..., .999
+*.r[0-9][0-9]          # Matches .r00, .r01, ..., .r99
+*.z[0-9][0-9]          # Matches .z01, .z02, ..., .z99
+
+
+# Disallowed Audio Formats
+# --------------------------
+# Audio files should not be allowed to prevent copyright infringement.
+# Source: https://en.wikipedia.org/wiki/Audio_file_format
+
+# Uncompressed audio formats
+*.aiff
+*.au
+*.raw
+*.rf64
+*.sln
+*.voc
+*.vox
+*.wav
+
+# Lossless compressed audio formats
+*.alac
+*.ape
+*.flac
+*.tta
+*.wv
+
+# Lossy compressed audio formats
+*.3gp
+*.aa
+*.aac
+*.aax
+*.act
+*.amr
+*.awb
+*.dss
+*.dvf
+*.gsm
+*.iklax
+*.ivs
+*.m4a
+*.m4b
+*.m4p
+*.mmf
+*.movpkg
+*.mp1
+*.mp2
+*.mp3
+*.mpc
+*.msv
+*.nmf
+*.ogg
+*.oga
+*.mogg
+*.opus
+*.ra
+*.rm
+*.webm
+*.wma
+
+
+# Exemptions
+# ----------------------
+# Preview files should adhere to fair-use copyright exemptions.
+!preview.*       # Re-include files starting with "preview."
