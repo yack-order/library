@@ -92,4 +92,5 @@
 # Exemptions
 # ----------------------
 # Preview files should adhere to fair-use copyright exemptions.
-!preview.*       # Re-include files starting with "preview."
+!*_audio_preview.*       # card_title_audio_preview.* comes from the store dumps
+!*preview.*              # preview.* comes from the playlist dumps
