@@ -1,0 +1,562 @@
+{
+    "props": {
+        "pageProps": {
+            "card": {
+                "slug": "let-s-go-pistachio",
+                "title": "Let's Go, Pistachio",
+                "userId": "yoto",
+                "clubAvailability": [],
+                "sortkey": "let-s-go-pistachio",
+                "content": {
+                    "version": "1",
+                    "activity": "yoto_Player",
+                    "config": {
+                        "resumeTimeout": 2592000
+                    },
+                    "availability": "",
+                    "cover": {
+                        "imageL": "https://card-content.yotoplay.com/yoto/pub/UfMzK5LJo9IZd1f64_0InZG1wZ4qjCD2_1yHxFuU5EU"
+                    },
+                    "playbackType": "linear",
+                    "editSettings": {
+                        "transcodeAudioUploads": true,
+                        "autoOverlayLabels": "disabled"
+                    },
+                    "chapters": [
+                        {
+                            "key": "01",
+                            "title": "The Hat Song.mp3",
+                            "displayOverlay": "",
+                            "duration": 218,
+                            "hasStreams": false,
+                            "fileSize": 3532720,
+                            "overlayLabelOverride": "1",
+                            "overlayLabel": "1",
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/UXyGb6nM9iMv0lHPff6JflOKDPLpSWSdkXynPBkkbwo"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "01",
+                                    "title": "The Hat Song",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 218,
+                                    "fileSize": 3532720,
+                                    "channels": "stereo",
+                                    "overlayLabelOverride": "1",
+                                    "overlayLabel": "1",
+                                    "events": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/0tSqGKCnYEcYQnJMqLyGTwNu0QoOdCgZNUdBL1fKZ8g?Expires=1736263464&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vMHRTcUdLQ25ZRWNZUW5KTXFMeUdUd051MFFvT2RDZ1pOVWRCTDFmS1o4ZyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczNjI2MzQ2NH19fV19&Signature=FpRMCNz1Q1DlPkqzPf~iAbZ8Hykc3eS~cC9FcMwywlU5ifSqAUtlWDxn-63J7FxekgOHoZgTQlOp6AdtFy7IiBmCJmsF31RTd1SbGs6AwIbKmCFpsoCAEfudRauAxYm3b76FzlaYHorR~PDZ6TZOjRkyRhQdjj257b7TeMuCmvKATDBlD2xmc9VlxukOKne7dv6uT-Puegz-~jvc8BP7ptDdIJnt7ZokHh5zuOFnGkKtys1FdtF72VnE4jTNY3k74PBQxGoFT5-0uk~7wizpkfqI0aaHEU0L00upj7OKA4E0w7XxiRPMofAe0VXco9fJDBv61QNhET~0KDoBazQCxw__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=0tSqGKCnYEcYQnJMqLyGTwNu0QoOdCgZNUdBL1fKZ8g"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "02",
+                            "title": "The Smilers.mp3",
+                            "displayOverlay": "",
+                            "duration": 218,
+                            "hasStreams": false,
+                            "fileSize": 3530461,
+                            "overlayLabelOverride": "2",
+                            "overlayLabel": "2",
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/QdBWqN48HeUlu0v-FeJfaDmYaf6-N3fpCuUG1mupOcg"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "02",
+                                    "title": "The Smilers",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 218,
+                                    "fileSize": 3530461,
+                                    "channels": "stereo",
+                                    "overlayLabelOverride": "2",
+                                    "overlayLabel": "2",
+                                    "events": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/PXfZQxaiprhx554IJfGLPKnMv8xMGsgjx9fewKDMFus?Expires=1736263464&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vUFhmWlF4YWlwcmh4NTU0SUpmR0xQS25Ndjh4TUdzZ2p4OWZld0tETUZ1cyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczNjI2MzQ2NH19fV19&Signature=HO-iOJpFxp6jk9LRqWFoKJZMjC9CClORsqB0dqKF07uQV-RY~ib-aiKRUUpkLX7CRUKXS7oeM918xuwsceoH0d0qAi0Ruoma93TQzmM4t8eumlOYLszd2ofK1tEk7QMhgJxqWjZ6KvwBqBI00~8NlpoKaVKoew6ahqhpO20ne2xzttXqtAnfFS8hmueqoEbK1gYFlvxCFjOMjQ1gdj40~wLgYVY9i5xDkVUKjyEWrGj1OoTGOt3ks4-orDtxCn6Vue0~Ox-daXm94z~beBtvuWDBZ2bbU1jPAMc4aYAVB5x~sSM4RxDpNrZh7peAp2TakFOOWOlNrO4BBnD5CMwfGQ__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=PXfZQxaiprhx554IJfGLPKnMv8xMGsgjx9fewKDMFus"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "03",
+                            "title": "She's So Bright.mp3",
+                            "displayOverlay": "",
+                            "duration": 180,
+                            "hasStreams": false,
+                            "fileSize": 2919991,
+                            "overlayLabelOverride": "3",
+                            "overlayLabel": "3",
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/4LXEzZRFayU051rsU4e3dfPFuaI7MXD9wEqNzEjWAjM"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "03",
+                                    "title": "She's So Bright",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 180,
+                                    "fileSize": 2919991,
+                                    "channels": "stereo",
+                                    "overlayLabelOverride": "3",
+                                    "overlayLabel": "3",
+                                    "events": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/sx3JWy1dHwcJCWoxKb2n8Wse_fvgB84RdQbyUUNRbEI?Expires=1736263464&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vc3gzSld5MWRId2NKQ1dveEtiMm44V3NlX2Z2Z0I4NFJkUWJ5VVVOUmJFSSIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczNjI2MzQ2NH19fV19&Signature=YROmR9MwBCMp8eZ2mkDx2udLLJecpKSacMhKh3zCZ83Ls38qJyD9cQXXmkig3lS9Ilk-x~0ygCakC5sGL6Y9RZbAvpoDU3ZcVq0IyHpau8ifDnVHtSNSaySB5bOpUjpZm0vxSjnMoMcr7sl5bcxVHS7fWAvZwVmX8OpW21VXgnfPU6fKrsC~3t2CKmSypsX2wi8ucIggtdXEwggrj60qVjgQj7wtOVMEG3Rd1L5f86HWuB-GKCwizOnCvlv2doVB~ze25IAK32YoW37rXlLqWN8ukiSgQm4QJpGLAtihDkEcpcM2oqjSF-JMBJWu3tOlMKBypNktMDQ~ZW7i9NrWpg__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=sx3JWy1dHwcJCWoxKb2n8Wse_fvgB84RdQbyUUNRbEI"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "04",
+                            "title": "Growing Like a Stringbean.mp3",
+                            "displayOverlay": "",
+                            "duration": 191,
+                            "hasStreams": false,
+                            "fileSize": 3091622,
+                            "overlayLabelOverride": "4",
+                            "overlayLabel": "4",
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/lmsZ6G--zde73d_m9zqYC74_0CUikQVy9AYqjLIfVQg"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "04",
+                                    "title": "Growing Like a Stringbean",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 191,
+                                    "fileSize": 3091622,
+                                    "channels": "stereo",
+                                    "overlayLabelOverride": "4",
+                                    "overlayLabel": "4",
+                                    "events": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/MsYzvdbRidKMJ4lDfkQslx_Ya0e2MhvQFxsRuh4fsOQ?Expires=1736263464&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vTXNZenZkYlJpZEtNSjRsRGZrUXNseF9ZYTBlMk1odlFGeHNSdWg0ZnNPUSIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczNjI2MzQ2NH19fV19&Signature=onlfe8jWNeFj-RWWz~P7wPulazEs9o-0bmfbbgNot4LZyoXTvfNzp11gHPGXtk2O2nK4MjQa49TaYqw9~Xj-WbgLv5jxJa0iwsY6IsqZFykZ2hYysOPahuvkNRfM~r3VpQNCtR-AbeE3MeAPgEKgkCu~pAZ6x3qeQ6fFb3JDNL~Cl5Bj~6UTK3WdkpZKYpBpukRFXpACDMe7AxU-va1GlucQ4aFs52NlgADr514Z1FQxCiHzqbmPgAZnvWvJ1kZpxjM1qDDc8~FIYGi7A-zzw7IIGBSvSbEgJJnkZncDwBk6VuYiCc~He8sCSfg0w-FNS3O6JwYY2DJsm2kxQCQC2A__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=MsYzvdbRidKMJ4lDfkQslx_Ya0e2MhvQFxsRuh4fsOQ"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "05",
+                            "title": "Peanut Pinenut.mp3",
+                            "displayOverlay": "",
+                            "duration": 82,
+                            "hasStreams": false,
+                            "fileSize": 1332108,
+                            "overlayLabelOverride": "5",
+                            "overlayLabel": "5",
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/jf8lKv6M5aEB2LR_AkuNDEj0o30x70v0ynbvbLOcd9k"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "05",
+                                    "title": "Peanut, Pinenut",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 82,
+                                    "fileSize": 1332108,
+                                    "channels": "stereo",
+                                    "overlayLabelOverride": "5",
+                                    "overlayLabel": "5",
+                                    "events": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/cQoqL8IC5LQ0U7cIQ_4GQ0wbdyR4PsNBLY-WdXGHS0s?Expires=1736263464&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vY1FvcUw4SUM1TFEwVTdjSVFfNEdRMHdiZHlSNFBzTkJMWS1XZFhHSFMwcyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczNjI2MzQ2NH19fV19&Signature=nntenSnnGdYK5dXnv9RYvRvcHfCN-j5LoXnmZsPEPMujjK9jOaKPB2BNO~Gm3h7zMf4xn0-IE0fAigqYV1UENBxqJ158~r0X8gMmkHAUlx0K3yjkliElF4PEmBG5xK6I6KS1XCDVtp5fpcccU0Ugi-WMorR-m9NZIGJIdoyDe3Q0RkBjW6LTp0~T0l0TFXnAcUFZL-4juyy7i1hRpV4IAaWXS3tA1g0OtmrF-cCBjs6Yc-bJxTEYCGcUmRSjqXxPRDZgFE03PVO0oKRQ~XwyzeL~3NudDRPMAZ-EZ6WiZxRrSw7a4KK5sld-elo14E9F2LvgkdT6mFOg0rIwJTafuA__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=cQoqL8IC5LQ0U7cIQ_4GQ0wbdyR4PsNBLY-WdXGHS0s"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "06",
+                            "title": "Let's Go Pistachio.mp3",
+                            "displayOverlay": "",
+                            "duration": 180,
+                            "hasStreams": false,
+                            "fileSize": 2924135,
+                            "overlayLabelOverride": "6",
+                            "overlayLabel": "6",
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/1hBteBB8GBQQy9kWkIH9UqHEaJaOkNcXpnY2z4XUMR0"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "06",
+                                    "title": "Let's Go, Pistachio",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 180,
+                                    "fileSize": 2924135,
+                                    "channels": "stereo",
+                                    "overlayLabelOverride": "6",
+                                    "overlayLabel": "6",
+                                    "events": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/06LWjbYoAO6-7n5B8zhvrqW7MnVTpsuQqOfmKFpAsFg?Expires=1736263464&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vMDZMV2piWW9BTzYtN241Qjh6aHZycVc3TW5WVHBzdVFxT2ZtS0ZwQXNGZyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczNjI2MzQ2NH19fV19&Signature=tMsxkqIaXwW9gsUCpjHDhLjiauxY7ivi4C1aCwxHkvux6uPyl1jV2t8yAhnxae1c~evPhToXniVShm72N~mVCBwAP9Mp7P5B-ZlE7lTUnk5oOwTjDbKJQ1eqskRRjAgVoYeSPnuoCHO0sJbRSL5wnMxekt~D4V1wpRklvykdpVtn2bah0475EU3IRo798cuqpYlOz2ZEnrwr9zSnp4m~ZVbMh1W-bQi9WurWk-HcYPxs2bmT5NHP8Tk5t-28iCyfU-tLQmkyH8mAvTnR46q9QdZLD5wxWk1NMbNlRde3VY9eMwLRrUWNnZ~kfrvHzjAvFXrDKw2eA8Y~rz6J~jhsWg__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=06LWjbYoAO6-7n5B8zhvrqW7MnVTpsuQqOfmKFpAsFg"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "07",
+                            "title": "Jumpin Beans.mp3",
+                            "displayOverlay": "",
+                            "duration": 75,
+                            "hasStreams": false,
+                            "fileSize": 1225596,
+                            "overlayLabelOverride": "7",
+                            "overlayLabel": "7",
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/-SXokZLc1BL1LgWmMUD4lYr2dvbA_T5cXAq11orfVDc"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "07",
+                                    "title": "Jumpin' Beans",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 75,
+                                    "fileSize": 1225596,
+                                    "channels": "stereo",
+                                    "overlayLabelOverride": "7",
+                                    "overlayLabel": "7",
+                                    "events": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/SKq1hPn8R60RYe4IVt-GKHT2kRAFoUQLCx6EoOCaQ_c?Expires=1736263464&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vU0txMWhQbjhSNjBSWWU0SVZ0LUdLSFQya1JBRm9VUUxDeDZFb09DYVFfYyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczNjI2MzQ2NH19fV19&Signature=tq5QWoc-lLMo2RUS-ldDTna8EC1kG2xsp2aEiAP~aHjWMHLMtDg1BqLCOXuGTTCHGYSZCJfiayqXI5Cf8YyeIWamM-CQvntIxqsZrDdyMUNcGYsfeeaAmFSfA3eNikh6ZME5uDT~CXnApW2zEDF5px5pTA0Zbvm5A2awgr1jfgkDNYQCrVpA3uN9kWRf~7uhGKKAxyPW0Vu~H0dSm9smNSrJZRImR8Z9w~Ucde91uvBn48282BRo~5Xottj8Gx7NdGmzvSlVkBNEreezNvpR0EvnBm6itFawQ7EP8zJL5jjYVjwAewMjTe5Tsqd33I8yYoFW2AcGTZO5VCIaBBu7mw__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=SKq1hPn8R60RYe4IVt-GKHT2kRAFoUQLCx6EoOCaQ_c"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "08",
+                            "title": "Tinkle Tinkle Toot.mp3",
+                            "displayOverlay": "",
+                            "duration": 131,
+                            "hasStreams": false,
+                            "fileSize": 2126625,
+                            "overlayLabelOverride": "8",
+                            "overlayLabel": "8",
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/-UusrkFz2ChQFpB8IU09To5dvd8SVPiRoK7YzFvb-zo"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "08",
+                                    "title": "Tinkle Tinkle Toot",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 131,
+                                    "fileSize": 2126625,
+                                    "channels": "stereo",
+                                    "overlayLabelOverride": "8",
+                                    "overlayLabel": "8",
+                                    "events": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/WYTFPcfxtqe4mdUDMGVWW2p0kGxBF_ah4eJkcnZ94fo?Expires=1736263464&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vV1lURlBjZnh0cWU0bWRVRE1HVldXMnAwa0d4QkZfYWg0ZUprY25aOTRmbyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczNjI2MzQ2NH19fV19&Signature=FhEnpFcj1kdD1cccUcyzPXQNUcm40GGF22mKd3aPBvv4oLppQpTIyMSkDcyV7y34AnIDaYPCefIrtN~BoiLv5phpEeryU64PyWkxetGPZH2xb-wlFtyWpOmjhF5v8d1RvAxbtZB-roOMrgc-3jtdkWRdQLRnrRe-rjAYfCNjyDlpNbaJQIFBX8lvkerZaHMQ-dLDBsHo7lag6hSg0y~FvpjkA2azHrcR81w85GhrPjX5Zho27JrNise4l3EEq6r9Eq3bVWTMegkP1MnVv1Fgedim3sqPM29PVqYGko-xzUXPMfoDHSGmYyNbDxDmaey4wSfAqQ5lpOhjPBY5uWu-0w__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=WYTFPcfxtqe4mdUDMGVWW2p0kGxBF_ah4eJkcnZ94fo"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "09",
+                            "title": "I'm Proud of You.mp3",
+                            "displayOverlay": "",
+                            "duration": 106,
+                            "hasStreams": false,
+                            "fileSize": 1712987,
+                            "overlayLabelOverride": "9",
+                            "overlayLabel": "9",
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/AT8w5RNZjHe_fot4cUzkNyExTfH3pjz3BlWtsiRLlAM"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "09",
+                                    "title": "I'm Proud of You",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 106,
+                                    "fileSize": 1712987,
+                                    "channels": "stereo",
+                                    "overlayLabelOverride": "9",
+                                    "overlayLabel": "9",
+                                    "events": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/VwEsb7dQlHBWK2JwCbE2edzEV0d0rG1eVJBBeho583s?Expires=1736263464&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vVndFc2I3ZFFsSEJXSzJKd0NiRTJlZHpFVjBkMHJHMWVWSkJCZWhvNTgzcyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczNjI2MzQ2NH19fV19&Signature=hyyerjNXPNIxX4GJ90V3i~CAHm7isSKOUhwPsnRzmHkwCNNZgquPSWJrO9CUUrQ642TGdZymOS6DLDZbutNrlZsCokUADfUmXzuhxoZqOyImHtFqig3fI7KGuR8axnBzsYJ-jPi0xOQUYimUxK~CuNkWnhaYiWycnql4W6m0xoX5AFkWBX9B~SNBIVT810kXl6EEXG8615-NWP6JkqO4x1rjd23cgaNe8VedXTvR1xRtWMW0IvMmWb~VJJrf7UR9-AC2hOjHrolMgy2O82sZtGN4vuzr8WsCEomAMdDlQ5RSD7x0VS3wBhNfKZAf6a-IrygczyJVhdQG~ZiVBFSayw__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=VwEsb7dQlHBWK2JwCbE2edzEV0d0rG1eVJBBeho583s"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "10",
+                            "title": "Tonight I'll Be Brushing One Less Tooth.mp3",
+                            "displayOverlay": "",
+                            "duration": 138,
+                            "hasStreams": false,
+                            "fileSize": 2238049,
+                            "overlayLabelOverride": "10",
+                            "overlayLabel": "10",
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/f9TA_TLfqchnVN1yHfJZG1RNWmpwqIXmCoj4pk4mAFs"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "10",
+                                    "title": "Tonight I'll Be Brushing One Less Tooth",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 138,
+                                    "fileSize": 2238049,
+                                    "channels": "stereo",
+                                    "overlayLabelOverride": "10",
+                                    "overlayLabel": "10",
+                                    "events": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/cEqI0qfCt9X8YrCEg34vvCzXsfOHsYHrfbOyaft_CIM?Expires=1736263464&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vY0VxSTBxZkN0OVg4WXJDRWczNHZ2Q3pYc2ZPSHNZSHJmYk95YWZ0X0NJTSIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczNjI2MzQ2NH19fV19&Signature=FpOk5dn~8DxnlICURLoMtlrSueZbzpMusdgafM02PPapes142NElMC7owY9sxuY~0VQqlkFIHESpkjy~dd7eK9ONYNWgimwHVI4dtfAbBYbhs42W9A0LaIZWbvbxDHLnJfzpAQKrI4~LmC9~C~cEjEveqY31YJwH3y74C38nJDUOjJ4X4~BdZuCVn9xW97LezyMTYB1QlYR2IUY~PtUKcsGiVs4dOuLpFWEhR52mNoskiJr9twFzYXXOV1mXKp6NfSqjcIjV5OrQ2XFzBkbornEJxLYYJQfQzllLad6pin1CGWQadf3EHIANTRefyAoPkRepmxeqCnh7E-gIECnEDw__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=cEqI0qfCt9X8YrCEg34vvCzXsfOHsYHrfbOyaft_CIM"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "11",
+                            "title": "The Waiting Song.mp3",
+                            "displayOverlay": "",
+                            "duration": 117,
+                            "hasStreams": false,
+                            "fileSize": 1894393,
+                            "overlayLabelOverride": "11",
+                            "overlayLabel": "11",
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/MnCIi11bM8I3e-wiyT_QOLxAL97IgbARWPWVELMZ8-Y"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "11",
+                                    "title": "The Waiting Song",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 117,
+                                    "fileSize": 1894393,
+                                    "channels": "stereo",
+                                    "overlayLabelOverride": "11",
+                                    "overlayLabel": "11",
+                                    "events": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/1t94KKHhqhN-0dPBf5aQPUnn_DkiLjeC9bQEJt6H1nU?Expires=1736263464&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vMXQ5NEtLSGhxaE4tMGRQQmY1YVFQVW5uX0RraUxqZUM5YlFFSnQ2SDFuVSIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczNjI2MzQ2NH19fV19&Signature=kml5wkMYUseK8DLtN4JmNK-qsXxEfus-XZiQAL7jSF58GbOO0Nca5TNTNkWHbrIbGlheKD-WNjIHPDl7J07fkl4W79bTqL9SYNKKI7jM1JuJgUiyxml2DGGLHBLmGUcLnusziAfAPze5Sq64Edfpi9C40ESSGOElGr1Q5EdPPFiHgTLfpHb4fx0rDiRxWjv7-xc0OPZkV8znwJPGqu7sxVt-s9AMs6wKJhqPB1qrHTiiUenqFSmOHLf-V86SdFbjb~NqO89im2e1K1EWQ5w1FhDGCbOhPl-cw6AuLbCnBPVeXm3H7aCCzNlCQlEZDw9Nl2XWRXA4Rsw96tedYRHJcw__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=1t94KKHhqhN-0dPBf5aQPUnn_DkiLjeC9bQEJt6H1nU"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "12",
+                            "title": "Kickin it with My Chicken.mp3",
+                            "displayOverlay": "",
+                            "duration": 98,
+                            "hasStreams": false,
+                            "fileSize": 1583536,
+                            "overlayLabelOverride": "12",
+                            "overlayLabel": "12",
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/5zoc-Cil-NzGdf73iVBBqhkmv2NxiANLYUESdkqmLJc"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "12",
+                                    "title": "Kickin' It with My Chicken",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 98,
+                                    "fileSize": 1583536,
+                                    "channels": "stereo",
+                                    "overlayLabelOverride": "12",
+                                    "overlayLabel": "12",
+                                    "events": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/HIXaS4VCe0wgWc9gJJoZvVB9A4ZGN4n9AJwBUpo1JPs?Expires=1736263465&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vSElYYVM0VkNlMHdnV2M5Z0pKb1p2VkI5QTRaR040bjlBSndCVXBvMUpQcyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczNjI2MzQ2NX19fV19&Signature=rqU3IXVnWefczQuT77WvrCapBntCN9sDo-gChGWQPfS4SXZkSauPPn0cNogj2wfmQYk3TGyybi3E2E4usmAtJngru6pTqsH~6IUSjTHZdGPQ~s5O7wPbqmznpC7LjEQxVEybYhCqyH21~T0Ls2zTND0GxibWWCcFQs9E32OEBhYQxnWFZOtA4GPuuER2PErMEn07KQecinGxForDiftrw6BnLtQNHO5V4danqrYy-nTGela1z7REMmukStGEn9IPHZSwbsAASN96gFlNh4wwvDguSPs-hwpsRKMiDNpMdTbpEd0924j-fdnoN97YuxySDmGQgupgKBwhZsz-ZbJkYQ__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=HIXaS4VCe0wgWc9gJJoZvVB9A4ZGN4n9AJwBUpo1JPs"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "13",
+                            "title": "Can't Find My Appendix.mp3",
+                            "displayOverlay": "",
+                            "duration": 202,
+                            "hasStreams": false,
+                            "fileSize": 3277161,
+                            "overlayLabelOverride": "13",
+                            "overlayLabel": "13",
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/RqiU49vjcPnS_KGbVqR483w48jcppOkpA57kuv-renI"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "13",
+                                    "title": "Can't Find My Appendix",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 202,
+                                    "fileSize": 3277161,
+                                    "channels": "stereo",
+                                    "overlayLabelOverride": "13",
+                                    "overlayLabel": "13",
+                                    "events": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/_y5Udz6xdpkkGZd8R8f7ex5wl8UjT3SjBEGNt9KXgm0?Expires=1736263465&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vX3k1VWR6NnhkcGtrR1pkOFI4ZjdleDV3bDhValQzU2pCRUdOdDlLWGdtMCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczNjI2MzQ2NX19fV19&Signature=K4835-Vl2DslG9migQPLJ4rrfyLMT2qdV21Rx~ROT8kxmKbN38em0ep90AhZmMpB67Gc7H7hgvqGAhpT6QuWxtYbuNo1aIwc9FG6MKNlp3SazfmfpSabewuvUohOQd1pW3TuMkAq8tlEd~ATR22CkK8FpNtphg1FqXuMpJJ8sMeSy3pPyJlaoxwO~a0JCvrEzHzBJPq3LVr7LiCl4k2T49hBgWd~mqTg7ou2oH2HMOC6YPy9shr5N6cuP7c8L6cHpWFc7pGV8kJkRLYS8K~54lOei8Rdr~qOKNSq6lz5DT6NkdH9VhXnKZ~veG9BbUC-3TfsudcWDmui5RiLAYFEXA__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=_y5Udz6xdpkkGZd8R8f7ex5wl8UjT3SjBEGNt9KXgm0"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "14",
+                            "title": "I'll Be a Butterfly.mp3",
+                            "displayOverlay": "",
+                            "duration": 222,
+                            "hasStreams": false,
+                            "fileSize": 3596708,
+                            "overlayLabelOverride": "14",
+                            "overlayLabel": "14",
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/-dqnVAv-Xedyc3BQMUdthvpIB9KW_jv5Tm1vdjAWsW4"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "14",
+                                    "title": "I'll Be a Butterfly",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 222,
+                                    "fileSize": 3596708,
+                                    "channels": "stereo",
+                                    "overlayLabelOverride": "14",
+                                    "overlayLabel": "14",
+                                    "events": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/AMec1PwVhTm7ndF3fYol_N5rxZIkqMr4zEzTzq8Jb-E?Expires=1736263465&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vQU1lYzFQd1ZoVG03bmRGM2ZZb2xfTjVyeFpJa3FNcjR6RXpUenE4SmItRSIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczNjI2MzQ2NX19fV19&Signature=ezymJlziei5s-1g6a7m2n8~DDlJIFDax6YRX3yWbmm~a-F4PtN0cTZXozfGHGm5Wnzih6ErnnpWq2P1Q1y0mWm~P5i-s~q~HfJ1bYGfw8h3Nhh0CTs4jhhwQb5DkO89qp1dmZvdApFpyT7u1OkqyOFcxEShLItJa6HUV93B5PLVMvDsnxQvAGcaYpEubbcIK2Nogao0tKvUO2pZaEz5QYiGCN6sRVK11RCzacZz0o~~LDkxkqUkjHy7aRgp3gqLbrk~kAfd1lG9zJ~HvB-5La3T-v6p~Aq2Dtk9XBtFfK4LuA4NzDiROl~gZBiChLQrfpuW8Deh2oCt3nPczRIABXg__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=AMec1PwVhTm7ndF3fYol_N5rxZIkqMr4zEzTzq8Jb-E"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "15",
+                            "title": "We're Almost There.mp3",
+                            "displayOverlay": "",
+                            "duration": 103,
+                            "hasStreams": false,
+                            "fileSize": 1665944,
+                            "overlayLabelOverride": "15",
+                            "overlayLabel": "15",
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/MGkhSB850Px5FZGmW2EpIQv9DbxUKwudmqQrh1uzkKI"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "15",
+                                    "title": "We're Almost There",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 103,
+                                    "fileSize": 1665944,
+                                    "channels": "stereo",
+                                    "overlayLabelOverride": "15",
+                                    "overlayLabel": "15",
+                                    "events": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/8-0Urx0l5kCXFRhRx6avvPXA7eU8y36k_Pc8rJxtRvs?Expires=1736263465&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vOC0wVXJ4MGw1a0NYRlJoUng2YXZ2UFhBN2VVOHkzNmtfUGM4ckp4dFJ2cyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczNjI2MzQ2NX19fV19&Signature=Jgk6uDpBj3AYB61LcUdlMlDET2SwPImghD7a6sTEPmR9f5~RfcyoZRV1mLl4V0kDHEiW~dgAzn-GpRnpNAQlA12Jyq7xh5bySVlQHWgNK8V2FvlndmNCCpv49CWlVgEIEfrGIDo9tRUZL4i4HECuny3QsDYgP2-ES7HhhhoVOPTw3yWBsKeyd~zcj6PwFalBQfhQ-pG2TRTQ6as8B05gnJljJ5Jye7t9iZ8ddAhzyHg8YY9nINpS0VaMrmBqloeZm11No2U8TzBxQkcWrBz7Sc~NSomq~d9HHYGmxnYjeXrR~NFfFvV7YdYjmVtPVDjt-bScWbctZo99U--yfWMGGw__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=8-0Urx0l5kCXFRhRx6avvPXA7eU8y36k_Pc8rJxtRvs"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "metadata": {
+                    "note": "Marketplace",
+                    "author": "Kelli Welli",
+                    "description": "NAPPA AWARD WINNER: “Let’s Go, Pistachio!” is Kelli Welli’s 2nd full album for kids and the people who love them. \n\nKelli Welli's been called “The Pixar of Children’s songwriters” for her award-winning songwriting and commitment to keeping even the silliest of songs super smart, with full respect for kids’ brains. Wide-ranging, hilarious, sometimes reflective and deeply sweet. Always genuine.",
+                    "category": "music",
+                    "cover": {
+                        "imageL": "https://card-content.yotoplay.com/yoto/pub/UfMzK5LJo9IZd1f64_0InZG1wZ4qjCD2_1yHxFuU5EU"
+                    },
+                    "media": {
+                        "duration": 2261,
+                        "fileSize": 36652036,
+                        "hasStreams": false
+                    },
+                    "languages": [
+                        "en-us"
+                    ],
+                    "status": {
+                        "name": "complete",
+                        "updatedAt": "2024-09-16T12:41:47.585Z"
+                    }
+                },
+                "cardId": "7cTKi",
+                "createdAt": "2024-06-27T17:12:37.714Z",
+                "updatedAt": "2024-09-16T12:43:13.801Z"
+            },
+            "__ni18n_server__": {
+                "resources": {
+                    "en": {
+                        "translation": {
+                            "web_share_player_content_created_by": "created by",
+                            "web_share_player_download_app_store": "Download on the App Store",
+                            "web_share_player_download_app_tip_desktop": "Download the free Yoto App and scan this code",
+                            "web_share_player_download_app_tip_generic": "Unlock a world of stories, music, activities, sleep sounds, podcasts and radio",
+                            "web_share_player_download_app_tip_mobile": "Download the free Yoto App and tap the share link again",
+                            "web_share_player_download_app_tip_nfc_tap": "Download the free Yoto App and tap the card on your mobile",
+                            "web_share_player_download_app_title_add_card": "Want to add this card to your Yoto library?",
+                            "web_share_player_download_app_title_generic": "Download the free Yoto App",
+                            "web_share_player_download_google_play": "Get it on Google Play",
+                            "web_share_player_invalid_link_desc": "It might contain a typo or is no longer available.",
+                            "web_share_player_invalid_link_title": "Unrecognized link",
+                            "web_share_player_link_preview_description": "Listen and add to your Yoto library",
+                            "web_share_player_link_preview_num_of_episodes": "Number of episodes",
+                            "web_share_player_link_preview_running_time": "Running time",
+                            "web_share_player_link_preview_shared_by": "Shared by",
+                            "web_share_player_not_found_heading": "Uh oh, I’ve got a bad feeling about this...",
+                            "web_share_player_not_found_page_title": "Not found",
+                            "web_share_player_not_found_text": "We can’t find the content you’re looking for. You might have followed an expired or invalid link.",
+                            "web_share_player_sharing_paused_desc": "We’ve frozen this link because it may be breaking our <1>sharing policy</1>. The playlist’s creator can email hello@yotoplay.com to request a manual review.",
+                            "web_share_player_sharing_paused_title": "Sharing paused",
+                            "web_share_player_sharing_policy_url": "https://support.yotoplay.com/en-US/friends-and-family-safe-sharing-policy-11561"
+                        }
+                    },
+                    "fr": {
+                        "translation": {
+                            "web_share_player_content_created_by": "Créé par",
+                            "web_share_player_download_app_store": "Télécharger dans l'App Store",
+                            "web_share_player_download_app_tip_desktop": "Téléchargez l'appli Yoto gratuite, puis scannez ce code",
+                            "web_share_player_download_app_tip_generic": "Un univers audio fascinant : histoires, musique, bruits blancs, podcasts et radio",
+                            "web_share_player_download_app_tip_mobile": "Téléchargez l'appli Yoto gratuite, puis appuyez de nouveau sur le lien partagé",
+                            "web_share_player_download_app_tip_nfc_tap": "Téléchargez l'appli Yoto gratuite et tapez la carte sur votre téléphone pour l'écouter",
+                            "web_share_player_download_app_title_add_card": "Souhaitez-vous ajouter cette carte dans votre audiothèque ?",
+                            "web_share_player_download_app_title_generic": "Téléchargez l'appli Yoto gratuitement",
+                            "web_share_player_download_google_play": "Disponible sur Google Play",
+                            "web_share_player_invalid_link_title": "Lien non reconnu",
+                            "web_share_player_link_preview_description": "Écouter et ajouter dans votre audiothèque",
+                            "web_share_player_link_preview_num_of_episodes": "Nombre d'épisodes",
+                            "web_share_player_link_preview_running_time": "Temps d'écoute",
+                            "web_share_player_link_preview_shared_by": "Partagé par",
+                            "web_share_player_not_found_heading": "Aïe, aïe, aïe… Ça, on ne l’avait pas prévu !",
+                            "web_share_player_not_found_page_title": "Non trouvé",
+                            "web_share_player_not_found_text": "Nous ne trouvons pas le contenu audio que vous cherchez. Vous avez peut-être ouvert un lien invalide ou un lien expiré.",
+                            "web_share_player_sharing_paused_desc": "Nous avons gelé ce lien car il pourrait enfreindre notre <1>politique de partage<\\/1>. Le créateur du contenu peut nous contacter sur bonjour@yotoplay.com pour revoir le contenu.",
+                            "web_share_player_sharing_paused_title": "Partage en pause",
+                            "web_share_player_sharing_policy_url": "https://support.yotoplay.com/fr-FR/partager-du-contenu-audio-avec-vos-proches-11561"
+                        }
+                    }
+                },
+                "ns": [
+                    "translation"
+                ],
+                "lng": "en"
+            },
+            "isPhysicalCard": true,
+            "deviceLocale": "en",
+            "deviceType": "desktop",
+            "contentId": "7cTKi"
+        },
+        "__N_SSP": true
+    },
+    "page": "/p/[contentId]",
+    "buildId": "V3pEs2QsEdVL4U035yoUs",
+    "isFallback": false,
+    "gssp": true,
+    "scriptLoader": [],
+    "officiality": {
+        "version": 1.2,
+        "date": "2025-01-07_09-24-24",
+        "creator": null
+    }
+}

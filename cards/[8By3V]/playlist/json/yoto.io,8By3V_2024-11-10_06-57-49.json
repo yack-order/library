@@ -1,0 +1,746 @@
+{
+    "props": {
+        "pageProps": {
+            "card": {
+                "slug": "my-teacher-is-an-alien",
+                "title": "My Teacher is an Alien",
+                "userId": "yoto",
+                "sortkey": "my-teacher-is-an-alien",
+                "content": {
+                    "version": "1",
+                    "activity": "yoto_Player",
+                    "config": {
+                        "resumeTimeout": 2592000
+                    },
+                    "availability": "",
+                    "cover": {
+                        "imageL": "https://card-content.yotoplay.com/yoto/pub/Nw_2LsmGCeUvTu1TxKb3MqgeqS9ZHjxsNAm5W9Qchtg"
+                    },
+                    "playbackType": "linear",
+                    "editSettings": {
+                        "transcodeAudioUploads": true,
+                        "autoOverlayLabels": "chapters-offset-1"
+                    },
+                    "chapters": [
+                        {
+                            "key": "00",
+                            "title": "Theme Song",
+                            "displayOverlay": "",
+                            "duration": 196,
+                            "hasStreams": false,
+                            "fileSize": 3185067,
+                            "overlayLabel": "",
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/lnmPTJUF28L3aWAQtiXg5IpsCIDB4UjoBhgl0XhgUAs"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "00",
+                                    "title": "Theme Song",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 196,
+                                    "fileSize": 3185067,
+                                    "channels": "stereo",
+                                    "overlayLabel": "",
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/1f-MDAV0BGaN6KmdGhEuc8wvZr5y2EDLxuBFnnkXS7o?Expires=1731243469&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vMWYtTURBVjBCR2FONkttZEdoRXVjOHd2WnI1eTJFREx4dUJGbm5rWFM3byIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczMTI0MzQ2OX19fV19&Signature=Mf85PFtD12ps-zXbbzFhVa~oPz3j2GZy7bla5QisekCropHg46WzMBx-QrS2EkfxBx6UnORuj~Gx3WEfqLzZAFZYcdUYUlXGkp6o~6k2mhcmdB~dGmWkYTX1zCUce7Ja~qFrA1CxMIkr6KpOE3872GbJpHrxDEtRH1x-5HJcTJ4H461UZCKWBJLO2soUmfbgtTXeeNEGw7NXCb0zr8yBKc-4CgKWBgwnk6vppzDop0pLnUnqHd49Ilfs6Xnz8L-42h~PfrKni82qPs~I3Lc3EzKD0B1WQYSaYOSJYUdvEqSZkO8v6n0ym-IPH6iAY~mJ5H~iUdWp0i2By1i9X~JWRg__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=1f-MDAV0BGaN6KmdGhEuc8wvZr5y2EDLxuBFnnkXS7o"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "01",
+                            "title": "Chapter 1",
+                            "displayOverlay": "",
+                            "duration": 466,
+                            "hasStreams": false,
+                            "fileSize": 7561430,
+                            "overlayLabel": "1",
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/ahsUSrHJbY-6lZFjn7JR7XbZ3GF3aVVx5Glnzi0Qvxg"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "01",
+                                    "title": "Missing: One Sixth-Grade Teacher",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 466,
+                                    "fileSize": 7561430,
+                                    "channels": "stereo",
+                                    "overlayLabel": "1",
+                                    "events": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/oTqOzsgev_XKGk276UfXp0oSj9lGMgw4IxN54Y8e2lE?Expires=1731243469&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vb1RxT3pzZ2V2X1hLR2syNzZVZlhwMG9TajlsR01ndzRJeE41NFk4ZTJsRSIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczMTI0MzQ2OX19fV19&Signature=Sx5H8eHOcgLpvHgD1PkDRlehedCXugUx7XZIFBOY9E~CD5DF~ianW955EwT7EMPAP5Kxczq6p-1Vu1BundkhGHoMhXW8LPum1B-iaEL0L6HbE14kl41SY0LIUPJw3OxiruLSKAj4g6HxpcD-pFIBmXibaHbg~TW9-wfFFBp~OiwEvEFoUM7HTlZZcjj13iF21zvLRwsmA1CMsbo0p9yFfh2858fJplxgvtIhxro-y2y1SbqmR4-yP7OffeRX1rNO16iQhW3z7zCRRc1GJ7CnOh2pWFG0VSiLXSBP2DLJMwT~IoGCG8L~44BBfazhkNny78ZWGQPGhaa-sdEzgca86w__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=oTqOzsgev_XKGk276UfXp0oSj9lGMgw4IxN54Y8e2lE"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "02",
+                            "title": "Chapter 2",
+                            "displayOverlay": "",
+                            "duration": 508,
+                            "hasStreams": false,
+                            "fileSize": 8238115,
+                            "overlayLabel": "2",
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/KDKX5CKKUUsq1blsw7i3tvORtK3gKj67mZMdkG2x4Pc"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "02",
+                                    "title": "Note of Doom",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 508,
+                                    "fileSize": 8238115,
+                                    "channels": "stereo",
+                                    "overlayLabel": "2",
+                                    "events": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/87xsvO8MYN7rno30hTuhgGt55eImKJiH55TTnpozuN8?Expires=1731243469&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vODd4c3ZPOE1ZTjdybm8zMGhUdWhnR3Q1NWVJbUtKaUg1NVRUbnBvenVOOCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczMTI0MzQ2OX19fV19&Signature=IXVopBvnA~mnyi01sl6vaYYKUT-fMdKWZ0wOhavVamloFz6cMV8Jhn1nE7qSEFeHkGklzqoqgjf7FCiVw~OyYbDWzHwn12Trxb5OVw3Ld~4xTTqlKw2~NXF-y8QSyRnfmuPXrkZBPPxRSstlJjSg4cdDfO0JbJp1tZqsKEWMXOZ4eHyzsISBRwT2QXKhZioPk2Z7g~1jGjl1t5crBy0c7nWFR41OzfAt1rhGP5BqdQOuUUj2S8h5eAhaXOIQbQrvywSia-tvQ6ct~8cnSNUBXXZvf1IFpW2pk6I8cII4~7lqg1FTPQ0Hhx5CvBy6yfM-5NuXBcPXjlThMQwGYcNlAg__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=87xsvO8MYN7rno30hTuhgGt55eImKJiH55TTnpozuN8"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "03",
+                            "title": "Chapter 3",
+                            "displayOverlay": "",
+                            "duration": 453,
+                            "hasStreams": false,
+                            "fileSize": 7347277,
+                            "overlayLabel": "3",
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/HcDJR9_KPEaBE0yJ1cTc4Dc4DatW0rbm-hUkD9rdHGk"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "03",
+                                    "title": "An Unearthly Noise",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 453,
+                                    "fileSize": 7347277,
+                                    "channels": "stereo",
+                                    "overlayLabel": "3",
+                                    "events": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/-mQ0O3qBtl59d26GLMEd5qEGz3jIMJSNg3_IyfhLplY?Expires=1731243469&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vLW1RME8zcUJ0bDU5ZDI2R0xNRWQ1cUVHejNqSU1KU05nM19JeWZoTHBsWSIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczMTI0MzQ2OX19fV19&Signature=D0VO7HwdwSYBX6dS8amgr9vVEi9OI8D6vy-r0mMMG-fX2By2p1fhHdddDMvWTCwGha2oFIw1YrEIIQqEGqw5GJnI1xYOq8L3Tiz~MY77X-wygzH~nBpaZpuiN36QTQe27DPiqgAHdAjCXQo0gMz34iV16hL7U~Vv0~o34FzF~B0v56gyq6L4ep~pv9wpRKD2-OTcyaSf6Gl-uiuexzWCdPofQMBF2et~AuIDHJd8wZA1w6IKOMFqlcuPZQFMNmX1Ug3juVgpGFEgM7kYlnviwnJAzTb9A-4ttMw~C9kDuEYh8r7EjmeZFKQzhilDsNRnqoiu5d9H22rNaKQ0rgKo9g__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=-mQ0O3qBtl59d26GLMEd5qEGz3jIMJSNg3_IyfhLplY"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "04",
+                            "title": "Chapter 4",
+                            "displayOverlay": "",
+                            "duration": 434,
+                            "hasStreams": false,
+                            "fileSize": 7033003,
+                            "overlayLabel": "4",
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/6USncifKsQ5GzdcnCdlbJ-gYnCT2juatLPeLorO74uY"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "04",
+                                    "title": "Brock's Home",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 434,
+                                    "fileSize": 7033003,
+                                    "channels": "stereo",
+                                    "overlayLabel": "4",
+                                    "events": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/HNVYxqtgTug9BvHEQTo-zf-yihugz2KEQTxN_2kCL7g?Expires=1731243469&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vSE5WWXhxdGdUdWc5QnZIRVFUby16Zi15aWh1Z3oyS0VRVHhOXzJrQ0w3ZyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczMTI0MzQ2OX19fV19&Signature=jO6oR-POq2bhIbp6r7F9WtTV32FlqYvidlCo99IwAv1lRw913zWbtk9R72SPNfWXZh1jOj7~TsyGcUxEd8j138h~KJZe3a-0qimdWZTCn8Z9um7uNtbFRMrOfI7vfVQ0k7KWABj~Jtl6rb3QvCD6N6nUUQfd6nw5rj358QIYw-z6YJwb2-~GGFZHvH60XmShnf-1sybW0P5mgnD-yE-z6Y86rkolUhIE32L3t7zpI8Zh0gvQiVmxs~GqNIoKDtQYozgnssHzDgjavJYjmxL8K7DQ6vINKPTpLWOUfef3b~ujUIb~XUHniPjiNZTtPtAsGC5lzL76pfIdJ5b7AITYzw__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=HNVYxqtgTug9BvHEQTo-zf-yihugz2KEQTxN_2kCL7g"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "05",
+                            "title": "Chapter 5",
+                            "displayOverlay": "",
+                            "duration": 416,
+                            "hasStreams": false,
+                            "fileSize": 6752594,
+                            "overlayLabel": "5",
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/4oEyvHdzVXfMfcS-IKlPJx_fV3j3z8zTmX8JvfDUEF0"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "05",
+                                    "title": "How Strong is an Alien's Nose?",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 416,
+                                    "fileSize": 6752594,
+                                    "channels": "stereo",
+                                    "overlayLabel": "5",
+                                    "events": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/AfxIvrq3Gzz2gW-kAiscY397kxwJR1D5GSJGCL3tkmk?Expires=1731243469&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vQWZ4SXZycTNHenoyZ1cta0Fpc2NZMzk3a3h3SlIxRDVHU0pHQ0wzdGttayIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczMTI0MzQ2OX19fV19&Signature=hzYmJJm0pkIxXnGyJ~yZZR-J0IebONG3I3kdyDZfk4m7VZFmefMnxc8~PalW32QfESzdF4aT3GSnofgMVyr~l0JUWwFkF6UaKCvrNAP8pDQcodsvjDlRxT6tyskxXAcPktPMysDZQyHpAY2lFRJ9nCQrgs3NvcDsKnaT5lTMHozmUnOy1GyqGqm-AS9pSNAsWhGgF6X7-GdhoHTP7xl2bUrhhX5JAgF0g3lOR7v6Fcoy9oL0TiTU2lCjPiI3EFfc~qwrw0~ED7o8XOUdajxd6znWcwp9cA4mBpFuoj5Be57ctri1yq-i9tVPvU77-KNR93Rhx5nNaR3V1Wr8SIaD4A__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=AfxIvrq3Gzz2gW-kAiscY397kxwJR1D5GSJGCL3tkmk"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "06",
+                            "title": "Chapter 6",
+                            "displayOverlay": "",
+                            "duration": 458,
+                            "hasStreams": false,
+                            "fileSize": 7431197,
+                            "overlayLabel": "6",
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/UAQO5kbImNTPRcr2yywpPlR_MmzZtVsmhRUg6t5a_9s"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "06",
+                                    "title": "Drafting Peter",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 458,
+                                    "fileSize": 7431197,
+                                    "channels": "stereo",
+                                    "overlayLabel": "6",
+                                    "events": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/GVsqYwtQnEwzmsVzIOhQA162p6CI6cK7XMGMCznVDU8?Expires=1731243469&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vR1ZzcVl3dFFuRXd6bXNWeklPaFFBMTYycDZDSTZjSzdYTUdNQ3puVkRVOCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczMTI0MzQ2OX19fV19&Signature=W3d9QedUMBDk0q2OjLd1yz4emc2kX7fAFoS0ovVQm0d7BC2MzKk7~hN1VMd8F-I~L2e~Cb6e4KCmP5ZDP0lsGwGSiof88cY7BbBjiEGibIMscgunTQyZYeB1nIMsBNKfc48g30BnoW7wCKmZ~7q8m2YgoYS1Pvxx97wDZpydSu4UQuRpyZMfw7NnX~ZKrv8nf74s4Kfo5ule8yLmg7oFdqpHzqBRZqAfdZutuvqIO5YzNiGP7UeZjICNFJKX3W8ts3tYVg423hP770BJ0Xyze5tuulGUlUlaFX3zH~Va35xgJVyWB-yfdGaelEgUpqH8dZjxwBgxoes6wTccaMdE3w__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=GVsqYwtQnEwzmsVzIOhQA162p6CI6cK7XMGMCznVDU8"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "07",
+                            "title": "Chapter 7",
+                            "displayOverlay": "",
+                            "duration": 455,
+                            "hasStreams": false,
+                            "fileSize": 7384148,
+                            "overlayLabel": "7",
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/bXAXGUuG1XkGsMVBEU78kcelQ4tVZf-1wCPiEzyZ7EU"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "07",
+                                    "title": "Night Expedition",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 455,
+                                    "fileSize": 7384148,
+                                    "channels": "stereo",
+                                    "overlayLabel": "7",
+                                    "events": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/ORZtaJ7iimQ-APeI7ZZbLf_CV3yiMxVZeC0G_0nC0a0?Expires=1731243469&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vT1JadGFKN2lpbVEtQVBlSTdaWmJMZl9DVjN5aU14VlplQzBHXzBuQzBhMCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczMTI0MzQ2OX19fV19&Signature=XaImipm2QAgP9gMJZ7O6JBaLJ1dLRnfVMq4KUCeuxf3Vs6JsPl~D8yimneZJZmN69vA172iaOS~XfX1BtipMD9QObDFEZV70~w9U7ERxWzDMZIxTdBAEuPiVTg~lZ2WCq~Sy-Kri28Ckqv5fpSGjpu9VXHvJIKqPvDtp-lpVyvC2NdE~qHWkn~Qi-YmeSmzVyki65oEFNH5n3wT4sHZJtogI6GKkuRGQnq3WkcKcMmdSjsEvVLNbAyJlDnrdF2DpaUwTyT-H68P43tBso5ZlCG~iLqp-Xq0fOgfO5VHO22zrQdclw0U9JMZQoYb3qJyv0EbwkDXivX5CzMoL8L5KpQ__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=ORZtaJ7iimQ-APeI7ZZbLf_CV3yiMxVZeC0G_0nC0a0"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "08",
+                            "title": "Chapter 8",
+                            "displayOverlay": "",
+                            "duration": 475,
+                            "hasStreams": false,
+                            "fileSize": 7704071,
+                            "overlayLabel": "8",
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/dbdrlOu93S2fLJJWbfvjBn-GFMXizMWHeRfpc5_zJEo"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "08",
+                                    "title": "The Alien's Lair",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 475,
+                                    "fileSize": 7704071,
+                                    "channels": "stereo",
+                                    "overlayLabel": "8",
+                                    "events": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/6CM2Y6r9PFuo-SiXSFmph8-iZ4HZg5SRpaniQfXG3wM?Expires=1731243469&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vNkNNMlk2cjlQRnVvLVNpWFNGbXBoOC1pWjRIWmc1U1JwYW5pUWZYRzN3TSIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczMTI0MzQ2OX19fV19&Signature=rr3AXYsS95adP3h9ZkMaH~jTbFVoFYKhwtFO3DdD1DdQiONj-h4jhEb12AncGqH3O1C~86UyBCUQjV9BTRelGXAWGCrms-p5Vx7fzwb8EX0phrIkwfKQ1plc1GzRiweJPMFxNjunHU8~wdCmyJZVbVHbLnPS7BPZ7wbZdu32kFEBy78dyK1Srz82BGN-G7-fRF60tZmOkTrFWo~3zM8Ou0pS3Kzd~5fFA1NDwBoMucIgeccn32kCPZNOkfuZJMVNqjHyuO1SBXT23f4vOuWKc25NKv0qAeuCJHrweuK04GDcxIAlEHoj-ylkXNE8lzZG6mFjUG2lz~2u7j1tgz3eyQ__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=6CM2Y6r9PFuo-SiXSFmph8-iZ4HZg5SRpaniQfXG3wM"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "09",
+                            "title": "Chapter 9",
+                            "displayOverlay": "",
+                            "duration": 452,
+                            "hasStreams": false,
+                            "fileSize": 7320559,
+                            "overlayLabel": "9",
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/pYhdY68onwE8EbRSsHzWdQDBWwwwXJcTcdvHww4IcO8"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "09",
+                                    "title": "The Force Field in the Attic",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 452,
+                                    "fileSize": 7320559,
+                                    "channels": "stereo",
+                                    "overlayLabel": "9",
+                                    "events": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/dHnLnarzA_psuFHWq-2lywSl_Yd205CTK_bROBhN0Lk?Expires=1731243469&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vZEhuTG5hcnpBX3BzdUZIV3EtMmx5d1NsX1lkMjA1Q1RLX2JST0JoTjBMayIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczMTI0MzQ2OX19fV19&Signature=bwvgcRZHotfXiUQP451FlZGd3hUM1xTbttpeHr5gL0~6tWqs1sx~IELU~0iFc1mrrvIdvcnaYIY5pvgOjiHyXUh8xeprrO~-JHL15FKDrtEDVmRW1WfgEq-g1-OeZISzsLKIFV4aA~8IxSNxPDd8PyqCES8CSDR1lsCKgR5L82qC74CO0oGmo-Wk7zly94Iu0b7vsi2fFSwrS~RWngU-0nDp-zz8aZVUlKUA23ArPK6WGzs51uSOQqIqr4WsWqHRdojtHm701xnUFeoRZhT3b2jBumJNtFNCGW-3Hty-nqULdU6AZOUaG26-wqMkohapIeWPeBM1BVHPWlWXwtpB4w__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=dHnLnarzA_psuFHWq-2lywSl_Yd205CTK_bROBhN0Lk"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "10",
+                            "title": "Chapter 10",
+                            "displayOverlay": "",
+                            "duration": 513,
+                            "hasStreams": false,
+                            "fileSize": 8313012,
+                            "overlayLabel": "10",
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/HQWYp__oZLsYY0S8tKr3YiKLVp5w38pr9btd-VJDsc8"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "10",
+                                    "title": "Solo Effort",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 513,
+                                    "fileSize": 8313012,
+                                    "channels": "stereo",
+                                    "overlayLabel": "10",
+                                    "events": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/ADhIX3K3M92Bk5XuSM6xh-sWaA-CeO4OxqgdpUn3LGs?Expires=1731243469&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vQURoSVgzSzNNOTJCazVYdVNNNnhoLXNXYUEtQ2VPNE94cWdkcFVuM0xHcyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczMTI0MzQ2OX19fV19&Signature=bbbKe8bLOw1arkViys7EWo94JLUk6U7eDRgaReB3ZGKcFJ-8CnJeJRXY5xjOVbDIdHkX32yUT3Aqqo58vmDOiyUxkv5CIvYiSxujA8DqLz0yl1t4C~m4Ze-mqmPWRfNUI9XA6KLETOzbQCA76Oa5-mhdqyq4vSeTarmJRm3vvw2gC8w2I0LQ54PvQCHk~~7KsVzcrVCyyswu~gwIJDJ2yzDdTbJgmfqarnIIvlXPynY4txv~P-ySslTiZchkEB0bjgQkN6KiWJfOwAhabjsmssbZEN~Fr4PdUYj1VU4D8ZhLNpDDSbIkgzjNBKKNlQkJYQJtfecV0Hmmmz8GoskGNA__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=ADhIX3K3M92Bk5XuSM6xh-sWaA-CeO4OxqgdpUn3LGs"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "11",
+                            "title": "Chapter 11",
+                            "displayOverlay": "",
+                            "duration": 420,
+                            "hasStreams": false,
+                            "fileSize": 6806447,
+                            "overlayLabel": "11",
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/qUsWqKmpNQiwfHySqzw6OZauR7yj4MW1LgRTD58TJpk"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "11",
+                                    "title": "Parent Conference",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 420,
+                                    "fileSize": 6806447,
+                                    "channels": "stereo",
+                                    "overlayLabel": "11",
+                                    "events": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/1e4b4sE7mn2KG6qRmJXsvl22ONZdR6LBzKkLhAnoSyI?Expires=1731243469&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vMWU0YjRzRTdtbjJLRzZxUm1KWHN2bDIyT05aZFI2TEJ6S2tMaEFub1N5SSIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczMTI0MzQ2OX19fV19&Signature=s1w6RBRebZx7RRwxv66IaPSHCy2YI3xSYz~puQcuQ~6KcMLpZX2IziDIaa7POm0U-Gi7TDJ5PwADqe5pPsZfxQl2mbpk-Z-~99YSPFmGE-5gqYQNInwrJE7SZbtIBvGdZV63cl-EZbFeMQND8DfFtoQ3kyAvmAm1vNygbLIqpzvdXXITF2spmGUd8OPVH~FXKh220N0qqOOqRMuUTP7g5dhRl5TaGMf8So-0SyEXiwUQpvHO3CkNNGBjvTRWrz-HRk6fcbPts2HAIPJjvDZW1mWprDEXXRb-Ua~jFGHLKko1JSeMq2sIknV7Xd6aJA3xUK8-pcV1Jx63lJMx9YMgEw__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=1e4b4sE7mn2KG6qRmJXsvl22ONZdR6LBzKkLhAnoSyI"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "12",
+                            "title": "Chapter 12",
+                            "displayOverlay": "",
+                            "duration": 342,
+                            "hasStreams": false,
+                            "fileSize": 5553137,
+                            "overlayLabel": "12",
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/ZpMNxXD3HAi3bAdGUy02s8l7TFvKZZWhvLxh7xdEhXw"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "12",
+                                    "title": "Things Get Weirder",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 342,
+                                    "fileSize": 5553137,
+                                    "channels": "stereo",
+                                    "overlayLabel": "12",
+                                    "events": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/H-N9td0IkOcj5cF7v9ZCUVZIvXLfEWCsK82t7RL4edo?Expires=1731243469&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vSC1OOXRkMElrT2NqNWNGN3Y5WkNVVlpJdlhMZkVXQ3NLODJ0N1JMNGVkbyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczMTI0MzQ2OX19fV19&Signature=DxtvyuHInrbEbub~JSyUUUGlZTGgtBgpAng9Lv~CdUvm9VmP2cWDRAAKvz766TWnxujaiBb04NL8Uzc1FxwpOqEoMryzXkTK737u7yb0HzLxWWyCmdN6bFE0B1yPH25k6OVaUYggZJnfHA~olEAY2RoPw3KChVlLuFKmGH~ShRp2HYr6Sr90vi7FFUd6uULIsrb0COaG5Mdrq392ZcUmkXOievqK7obmuBAG8mTlyP3mnSfbVaknsYRmqIi8Th6b0ckcjcBeLCHJ0pEfu6YG4rC3USqmL8RAyElggktx5CfViu-QGj3eXdA8U0RHa4I9J8UXAx1pnr~YX1bBAg-gdA__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=H-N9td0IkOcj5cF7v9ZCUVZIvXLfEWCsK82t7RL4edo"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "13",
+                            "title": "Chapter 13",
+                            "displayOverlay": "",
+                            "duration": 461,
+                            "hasStreams": false,
+                            "fileSize": 7466588,
+                            "overlayLabel": "13",
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/Dw6-IJ8OYAOSzDt5ic_PCBq7AEOBZkuay7iAAnOHfFY"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "13",
+                                    "title": "Rumors",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 461,
+                                    "fileSize": 7466588,
+                                    "channels": "stereo",
+                                    "overlayLabel": "13",
+                                    "events": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/k4prVweuHYPyfD3d2zxK01kaycpzLvAP7kyHxRKE7eQ?Expires=1731243469&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vazRwclZ3ZXVIWVB5ZkQzZDJ6eEswMWtheWNwekx2QVA3a3lIeFJLRTdlUSIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczMTI0MzQ2OX19fV19&Signature=sjRuMBmuqpxNXBLh0LZwHgOmG04~oxwda-mzYpYyCapVOUEtAy-S44Nbtf~AvCeih~BW9yah51fvDPlIU7~p7wqjSv6A0Y1V6d5kco-aG75zQnvBcCjrLlIfBktcvZzU8u9rlAnViQv7fqc5rsEtbb-5oLPody0SSBtafboe~XkOyvUV3ULcpvTilhNkGr-IzeAW2zPPcS28L69DWPkORZxtlViv6ymr-OyqIxQK0Nf8gPqGMxl5S28iLQivYBNHVYfQS22bwIDokEJV0Jc3mnBPQaT5kAQJpsAZgNZDuAzAofFkYctweXCn8YCqtUf3ZOsC1hVg8~ed1MI-tpbqzA__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=k4prVweuHYPyfD3d2zxK01kaycpzLvAP7kyHxRKE7eQ"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "14",
+                            "title": "Chapter 14",
+                            "displayOverlay": "",
+                            "duration": 384,
+                            "hasStreams": false,
+                            "fileSize": 6230979,
+                            "overlayLabel": "14",
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/YQASw4f4FRpE5TTU_X-EerT9kD9GWqfa78zNWsaBVkI"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "14",
+                                    "title": "What Can Duncan Dougal Do?",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 384,
+                                    "fileSize": 6230979,
+                                    "channels": "stereo",
+                                    "overlayLabel": "14",
+                                    "events": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/zsWzfq3TMYszWZHrqFERHD8a7_8p782N1_TriiWcE9o?Expires=1731243469&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8venNXemZxM1RNWXN6V1pIcnFGRVJIRDhhN184cDc4Mk4xX1RyaWlXY0U5byIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczMTI0MzQ2OX19fV19&Signature=ZRhfnjf5OHJhDRyVYvLLTSzv0aOyr6TwsyEMqe6AsQQzaY5E~jkhfqdxaLG7Vz~3Q6P-v8CZ-7KLG0vwtCPEN0z9QCmPMsYMQ-6aC4smI86UPZU7JzxjeDg7iOUSE8gRdb7m3m2EuIhwcCqNU2Fb23d-MiE2BLuluIiHQ4KpVgvKlI7gYX~9KaglBd6xjBguR~Q30ehvzQsCVE9ggoXz8vyrWM58ABNAOJF8MMEMTVrkHFToHuQ4VCM-BMaO-m3epz6gyrRvzI0t99hH-xBp4LM7zCqSr8WMzx9hM0aPgwKaAWSXug40sqOeqcin3X1eeJiqmdeL3AHRHwq9lCg6gw__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=zsWzfq3TMYszWZHrqFERHD8a7_8p782N1_TriiWcE9o"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "15",
+                            "title": "Chapter 15",
+                            "displayOverlay": "",
+                            "duration": 348,
+                            "hasStreams": false,
+                            "fileSize": 5638187,
+                            "overlayLabel": "15",
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/UYVkBeC2UTTjY8Gr4pouKARnoQSKPc8d2QIfPa_czmI"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "15",
+                                    "title": "Hooky for Three",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 348,
+                                    "fileSize": 5638187,
+                                    "channels": "stereo",
+                                    "overlayLabel": "15",
+                                    "events": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/KA0p4pvcMcrRX_qmoC-80wt8hnoaZ7bo0KFfXgqGOeo?Expires=1731243469&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vS0EwcDRwdmNNY3JSWF9xbW9DLTgwd3Q4aG5vYVo3Ym8wS0ZmWGdxR09lbyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczMTI0MzQ2OX19fV19&Signature=u2LbeFCRGDuMMLxEOE606GvKsR-D4WJ27E96JXZTSBCHJvEnkhBsP6srjPQDOz1c8UGiAe9ORsYzLNEZzeZA~Ib2dgI2UAdcAK-YJ0eG-fmxdtIZwaxoB64UyGX4niPxNSJAWIyUxc6gKN-aRqYb0wFBpBknmtLATojYXBty6VRSA7AiNlf6k9iSq1ycHmUp3w~5pskDcwxxoHlnN7CR73xB9B5rBggltQFOtM-9DtYPyxOzQqYi4gNGYaTm4UYubEzp76UyKzSYEx8Er63hWZEnSovLSpl9U3DUNutmDCzORGm1DayXWLCdnfNNnTIoBukRHjFiPaj25LetQ2N-mA__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=KA0p4pvcMcrRX_qmoC-80wt8hnoaZ7bo0KFfXgqGOeo"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "16",
+                            "title": "Chapter 16",
+                            "displayOverlay": "",
+                            "duration": 375,
+                            "hasStreams": false,
+                            "fileSize": 6077043,
+                            "overlayLabel": "16",
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/ygs6XGKT_UB2Ig8_U8EWcNZAzs2rAOEemjKHIe7h8e8"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "16",
+                                    "title": "Duncan's Disaster",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 375,
+                                    "fileSize": 6077043,
+                                    "channels": "stereo",
+                                    "overlayLabel": "16",
+                                    "events": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/nNLRgfqR01F8mhjHlYaUQ8ZLi6Aqg5cEEuo29k4hWfQ?Expires=1731243469&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vbk5MUmdmcVIwMUY4bWhqSGxZYVVROFpMaTZBcWc1Y0VFdW8yOWs0aFdmUSIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczMTI0MzQ2OX19fV19&Signature=SK2f0r3enMRS7tC~bWxO5OV6lkrGWZ-5u24wnE4RJP3H~CksJLzkkmyq5h7O-Bpt8ljSKlGhtX-f-32ResAL3y1HJk09uvbnD8ooW9ZxNcGmo5YG5Rh4dWtJ6uLpfhX7kb9XKtNosmmz~H-~eNH10TzHgq0Q09BHlooQB-ABOsMnoOPf3o58V7UFArL4v3MNj420R3aRNR5ZN-FcFOAiloPy5S4FdD5Tj~aRcKXgo6BVtU7xL5V5uQOl5WbfI4hoegEwmtXrHrI~4zeEqEJpj5BshBtUx-Thh4LlONrqvF3XMnObzW3hY2N6EGjeABJiUkJJVvf~sqEHzogHLPZRlA__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=nNLRgfqR01F8mhjHlYaUQ8ZLi6Aqg5cEEuo29k4hWfQ"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "17",
+                            "title": "Chapter 17",
+                            "displayOverlay": "",
+                            "duration": 360,
+                            "hasStreams": false,
+                            "fileSize": 5842923,
+                            "overlayLabel": "17",
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/qKst1_CCXVXcKa1J-aseabnbs-cVx2crmHG13jbHrY4"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "17",
+                                    "title": "Teacher Conference",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 360,
+                                    "fileSize": 5842923,
+                                    "channels": "stereo",
+                                    "overlayLabel": "17",
+                                    "events": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/fWTn0bwpF47dn2M7rZ4kH9_ZCd_3VL2CyoEMFTzU5Dk?Expires=1731243469&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vZldUbjBid3BGNDdkbjJNN3JaNGtIOV9aQ2RfM1ZMMkN5b0VNRlR6VTVEayIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczMTI0MzQ2OX19fV19&Signature=IHQP3Q554NsQwHOCHXxaG3r3r7MAq0INWalNA-fFbhkwxfH6xCzrCQfsJDJVgMG8Vq9KM0DOo3H8icm4E9yZ23LUwqpKmNseFNxBIIu4F2ZVxUuYLLY-7tQ5IebyBlNu5diqUuJ1GU-eN4ncPWhqQ6CimVOU6SYu3rnirBZOCJXKKpcpZR~1YEsrzEg6I9UunEAD5XvAEXfAb--vz8fTy7r~MHhBmOxF4ilBzROX7KcYj30EWdueuPa0mZ73EddE2zYvwUzYgqLvPFtGrb7qIOSrFMMUg4dHdpqwrzZDE4~wOim8v6AcmBpEfmRfEQYgnHfu4QVAcKFVvnYijpItCg__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=fWTn0bwpF47dn2M7rZ4kH9_ZCd_3VL2CyoEMFTzU5Dk"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "18",
+                            "title": "Chapter 18",
+                            "displayOverlay": "",
+                            "duration": 270,
+                            "hasStreams": false,
+                            "fileSize": 4375499,
+                            "overlayLabel": "18",
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/yJK_y1CPjbEEaLc205nElBNZSdKD4EhfRDqQfEjUsk4"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "18",
+                                    "title": "Concert Concerns",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 270,
+                                    "fileSize": 4375499,
+                                    "channels": "stereo",
+                                    "overlayLabel": "18",
+                                    "events": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/mbNn76GZg-RsDVa3EA0R9m-lwv88wUyA6tGbQVj10Qg?Expires=1731243469&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vbWJObjc2R1pnLVJzRFZhM0VBMFI5bS1sd3Y4OHdVeUE2dEdiUVZqMTBRZyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczMTI0MzQ2OX19fV19&Signature=gBixsdXe3nLyHepzKB6yXDmle6LVMprvENlvqTzk7Agqr0oDn9JQ3Z7nXDBPA4zjRN9wVvLZQxeCRRW33-EGYCxNQCGC7u6~bDuiy8EbWQgLYEjjuCVKzo-ESWgtn6UmMKPcoR5PphSuSi-YRyu1hOhdv1haIhRIlT0~dA~tbzPjdRLEz-rt1SGhuibPv7v14oPsWy2ID-PEmUOzIVIdIYMO2DuBK25YdJlgz7bafWl~u2PRLGKo05SzuNfQxL5nFlaguP0bwBMVkb3aNtfvwYbpK4NNKd~B5H8lQJN8EfU7DfjD5xiWvDuoETMwbYZRUn5JLcZRNWQxvY6CUTo~kg__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=mbNn76GZg-RsDVa3EA0R9m-lwv88wUyA6tGbQVj10Qg"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "19",
+                            "title": "Chapter 19",
+                            "displayOverlay": "",
+                            "duration": 450,
+                            "hasStreams": false,
+                            "fileSize": 7299832,
+                            "overlayLabel": "19",
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/bRc-UYOPwxE2Ic99sEUOj_mCK_TITyetciE37aPzOGc"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "19",
+                                    "title": "Peter's Choice",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 450,
+                                    "fileSize": 7299832,
+                                    "channels": "stereo",
+                                    "overlayLabel": "19",
+                                    "events": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/-Nayhs_ewHP4BupqU3uOWwPd_PCyl4jS-kKD4HCIaM0?Expires=1731243469&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vLU5heWhzX2V3SFA0QnVwcVUzdU9Xd1BkX1BDeWw0alMta0tENEhDSWFNMCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczMTI0MzQ2OX19fV19&Signature=GT1PhWh6apuI~zH7UJtWo8Csch3tqZf9V1mvLzOiHnUgxcDOnnQTSYt26dOj-2amW1it~PSdSvbZefNVdoHl7iwzlJOMvKiWIv-RQ6ijA4rTJ0k3NcG8RGdbCnMzmZXvVfA3haV3G3JueCc3NsV7OW~Fkpy-L6md0A~PIEHMnsE546pYIe495xgpCp-6flrG-WvEDsZKGL1dA-U8ad7wWwHnOqsPA8HXad3sWTkTUx8B5Ue6irqqmldIqXeMwqkfxGTMUbG2YmfFNaNkvATkzIY6GZ1PShF2P7f~ROpNorTPWAKe3P0qOIixY3TAT5FvElCaoZJYKC3lg4dTfNZArA__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=-Nayhs_ewHP4BupqU3uOWwPd_PCyl4jS-kKD4HCIaM0"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "20",
+                            "title": "Chapter 20",
+                            "displayOverlay": "",
+                            "duration": 597,
+                            "hasStreams": false,
+                            "fileSize": 9684872,
+                            "overlayLabel": "20",
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/SlSjnv6hh1DeiZgJyM3ljnPe0PdD107LWE9gNYr_7Sc"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "20",
+                                    "title": "Hiccolo Power",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 597,
+                                    "fileSize": 9684872,
+                                    "channels": "stereo",
+                                    "overlayLabel": "20",
+                                    "events": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/R_HFDXKqsRONvCTiMNrRXkcGubcOIp6GdP9Li5ZDg2Y?Expires=1731243469&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vUl9IRkRYS3FzUk9OdkNUaU1OclJYa2NHdWJjT0lwNkdkUDlMaTVaRGcyWSIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczMTI0MzQ2OX19fV19&Signature=xLL5SYH6jPniMixqLtCPf2roCaEWsVKAHDE7R4xIlEJYjJ8dY95iys9z335NStY6T~kWXAIKH-j~tL-7rUHM8DFYnSD496KD4koDFN7UEXbBVvHL~S4OSDAWiR2aJwvLZsztTBBbAk5paF0DRIhNkIfEdO1USywVQpg3mjBhs7uBBjis4V3lx3vpXtFzcWJkxAQynA2bEjyvIVXVHnp5gIz57yNjTy7ZaGPGwe~pB4t26TPS78jIAXZ0FRvq7qoGj6TF~vWi5a1EN6-apvi4R6U7y2N9SJN58nCv1BVQNGFgei2wXE-Ac6c5NAAfFbpuwQS0YL5D~Q5Yac7Hgnbjvg__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=R_HFDXKqsRONvCTiMNrRXkcGubcOIp6GdP9Li5ZDg2Y"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "21",
+                            "title": "Chapter 21",
+                            "displayOverlay": "",
+                            "duration": 347,
+                            "hasStreams": false,
+                            "fileSize": 5623532,
+                            "overlayLabel": "21",
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/ILRZgKX0iv-2ANm1h1-SPQIwxZHJ6k89yFdRGD1_X4I"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "21",
+                                    "title": "Out of this World",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 347,
+                                    "fileSize": 5623532,
+                                    "channels": "stereo",
+                                    "overlayLabel": "21",
+                                    "events": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/gla679E9j90afuWJdXm2LQa0xQ_8tCs0As_o57pwxp0?Expires=1731243469&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vZ2xhNjc5RTlqOTBhZnVXSmRYbTJMUWEweFFfOHRDczBBc19vNTdwd3hwMCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczMTI0MzQ2OX19fV19&Signature=wppLB3WaKv8azIITS~N0rFn-ahi5jNh9rlXRbeFW6T3bDyXjOu2ViKXyix0Qrh4x5~7dvWaSaeMZm8hEYigC-bCl17e7u-rwMnAiUBDnA~jeQF6n-GBU0lCSI7AhIjebLI9NVHrHEMvhR~9FbX6LmWaQ82pu20aNCQ-U2M95g20G0B9SRIs3rTTHVeFFDYPvB6k3bvtt-LUl1PXTvXl4Hs1wHc766P2ZhMwIijOY5GvlFlkBhYcq2gxmMSJysUgJrzl21WwIcIImIQHjfBC7s0O9~pQfroSBXhFPqlCZbCHbiIYGBn~q5vWrX~GGOQ9o4sKSH~bjZhGff1Rg6ipFrg__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=gla679E9j90afuWJdXm2LQa0xQ_8tCs0As_o57pwxp0"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "22",
+                            "title": "Credits",
+                            "displayOverlay": "",
+                            "duration": 96,
+                            "hasStreams": false,
+                            "fileSize": 1562162,
+                            "overlayLabel": "22",
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/0rUE6JRWsPW5CV2idrp9mH1tYK528FGSKESyym65jyo"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "22",
+                                    "title": "Credits",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 96,
+                                    "fileSize": 1562162,
+                                    "channels": "stereo",
+                                    "overlayLabel": "22",
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/QnlR56xBhn0HvTNq-PpJqxmFj8TtfR8I2zttBbU88Io?Expires=1731243469&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vUW5sUjU2eEJobjBIdlROcS1QcEpxeG1GajhUdGZSOEkyenR0QmJVODhJbyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczMTI0MzQ2OX19fV19&Signature=TBKDXg4Zf-i2T0pPG47yVa5LLe2W91EhApdRFz4FKwyqr1NHyvAoU3sjLiCEG2iHs~YGuzO-U228cHEB~OdqU6m5D76JNi-9ack4j8OpBS0F9FwMNOVTPgA8~csnkp~5pVZkm9EPY98ybPC5SQxSdEcFUbxiwurhYASl-HyOzwHnEV-AHMvL3CcQ7lN6UeSVWq5ULptWTWNDIw4j~VzJzPcW1x-ZLDusRq4GXxXJLH~zhxXEF8Vrpz2d5d4vkFCBMDdKSwfYbq-kJ-OCzX37FADilpg~WNVayT4sdxYrpi19kL0-6mG-cWf1d-omQubQfzuVfiu~6p-3x0PGK6oXfw__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=QnlR56xBhn0HvTNq-PpJqxmFj8TtfR8I2zttBbU88Io"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "metadata": {
+                    "category": "stories",
+                    "author": "Bruce Coville",
+                    "description": "The whole situation began when Duncan Dougal was hiding out in a dumpster (it’s a long and smelly story). Stuck in the garbage, he discovered proof that even though the kids drove off the alien named Broxholm the year before, there is still an alien-in-disguise working as one of their 7th grade teachers! But which teacher is it? That’s the mystery Duncan must solve to protect the school – and himself.",
+                    "previewAudio": "https://cdn.shopify.com/s/files/1/0051/8845/2401/files/my-teacher-is-an-alien.mp3",
+                    "cover": {
+                        "imageL": "https://card-content.yotoplay.com/yoto/pub/Nw_2LsmGCeUvTu1TxKb3MqgeqS9ZHjxsNAm5W9Qchtg"
+                    },
+                    "media": {
+                        "duration": 9276,
+                        "fileSize": 150431674,
+                        "hasStreams": false
+                    },
+                    "languages": [
+                        "en"
+                    ],
+                    "status": {
+                        "name": "live",
+                        "updatedAt": "2023-09-14T15:40:39.739Z"
+                    }
+                },
+                "cardId": "8By3V",
+                "createdAt": "2022-07-26T15:56:54.038Z",
+                "updatedAt": "2023-09-14T16:09:18.916Z",
+                "clubAvailability": []
+            },
+            "__ni18n_server__": {
+                "resources": {
+                    "en": {
+                        "translation": {
+                            "web_share_player_content_created_by": "created by",
+                            "web_share_player_download_app_store": "Download on the App Store",
+                            "web_share_player_download_app_tip_desktop": "Download the free Yoto App and scan this code",
+                            "web_share_player_download_app_tip_generic": "Unlock a world of stories, music, activities, sleep sounds, podcasts and radio",
+                            "web_share_player_download_app_tip_mobile": "Download the free Yoto App and tap the share link again",
+                            "web_share_player_download_app_tip_nfc_tap": "Download the free Yoto App and tap the card on your mobile",
+                            "web_share_player_download_app_title_add_card": "Want to add this card to your Yoto library?",
+                            "web_share_player_download_app_title_generic": "Download the free Yoto App",
+                            "web_share_player_download_google_play": "Get it on Google Play",
+                            "web_share_player_invalid_link_desc": "It might contain a typo or is no longer available.",
+                            "web_share_player_invalid_link_title": "Unrecognized link",
+                            "web_share_player_link_preview_description": "Listen and add to your Yoto library",
+                            "web_share_player_link_preview_num_of_episodes": "Number of episodes",
+                            "web_share_player_link_preview_running_time": "Running time",
+                            "web_share_player_link_preview_shared_by": "Shared by",
+                            "web_share_player_not_found_heading": "Uh oh, I’ve got a bad feeling about this...",
+                            "web_share_player_not_found_page_title": "Not found",
+                            "web_share_player_not_found_text": "We can’t find the content you’re looking for. You might have followed an expired or invalid link.",
+                            "web_share_player_sharing_paused_desc": "We’ve frozen this link because it may be breaking our <1>sharing policy</1>. The playlist’s creator can email hello@yotoplay.com to request a manual review.",
+                            "web_share_player_sharing_paused_title": "Sharing paused",
+                            "web_share_player_sharing_policy_url": "https://support.yotoplay.com/en-US/friends-and-family-safe-sharing-policy-11561"
+                        }
+                    },
+                    "fr": {
+                        "translation": {
+                            "web_share_player_content_created_by": "Créé par",
+                            "web_share_player_download_app_store": "Télécharger dans l'App Store",
+                            "web_share_player_download_app_tip_desktop": "Téléchargez l'appli Yoto gratuite, puis scannez ce code",
+                            "web_share_player_download_app_tip_generic": "Un univers audio fascinant : histoires, musique, bruits blancs, podcasts et radio",
+                            "web_share_player_download_app_tip_mobile": "Téléchargez l'appli Yoto gratuite, puis appuyez de nouveau sur le lien partagé",
+                            "web_share_player_download_app_tip_nfc_tap": "Téléchargez l'appli Yoto gratuite et tapez la carte sur votre téléphone pour l'écouter",
+                            "web_share_player_download_app_title_add_card": "Souhaitez-vous ajouter cette carte dans votre audiothèque ?",
+                            "web_share_player_download_app_title_generic": "Téléchargez l'appli Yoto gratuitement",
+                            "web_share_player_download_google_play": "Disponible sur Google Play",
+                            "web_share_player_invalid_link_title": "Lien non reconnu",
+                            "web_share_player_link_preview_description": "Écouter et ajouter dans votre audiothèque",
+                            "web_share_player_link_preview_num_of_episodes": "Nombre d'épisodes",
+                            "web_share_player_link_preview_running_time": "Temps d'écoute",
+                            "web_share_player_link_preview_shared_by": "Partagé par",
+                            "web_share_player_not_found_heading": "Aïe, aïe, aïe… Ça, on ne l’avait pas prévu !",
+                            "web_share_player_not_found_page_title": "Non trouvé",
+                            "web_share_player_not_found_text": "Nous ne trouvons pas le contenu audio que vous cherchez. Vous avez peut-être ouvert un lien invalide ou un lien expiré.",
+                            "web_share_player_sharing_paused_desc": "Nous avons gelé ce lien car il pourrait enfreindre notre <1>politique de partage<\\/1>. Le créateur du contenu peut nous contacter sur bonjour@yotoplay.com pour revoir le contenu.",
+                            "web_share_player_sharing_paused_title": "Partage en pause",
+                            "web_share_player_sharing_policy_url": "https://support.yotoplay.com/fr-FR/partager-du-contenu-audio-avec-vos-proches-11561"
+                        }
+                    }
+                },
+                "ns": [
+                    "translation"
+                ],
+                "lng": "en"
+            },
+            "isPhysicalCard": true,
+            "deviceLocale": "en",
+            "deviceType": "desktop",
+            "contentId": "8By3V"
+        },
+        "__N_SSP": true
+    },
+    "page": "/p/[contentId]",
+    "buildId": "V3pEs2QsEdVL4U035yoUs",
+    "isFallback": false,
+    "gssp": true,
+    "scriptLoader": [],
+    "officiality": {
+        "version": "1.1",
+        "date": "2024-11-10_06-57-49",
+        "creator": "Yoto"
+    }
+}

@@ -1,0 +1,826 @@
+{
+    "props": {
+        "pageProps": {
+            "card": {
+                "title": "Yoto Icon Communicator- US English Female V1.0",
+                "content": {
+                    "activity": "yoto_Player",
+                    "restricted": true,
+                    "version": "1",
+                    "playbackType": "linear",
+                    "config": {
+                        "resumeTimeout": 0,
+                        "onlineOnly": false
+                    },
+                    "editSettings": {
+                        "autoOverlayLabels": "disabled"
+                    },
+                    "chapters": [
+                        {
+                            "key": "00",
+                            "title": "Boot Sound",
+                            "overlayLabel": "",
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "fileSize": 18137,
+                            "duration": 1,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/gCgNJrpHZ186Hd1ttD-k0R2Cf38FbPW3riwe27WAiJA"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "01",
+                                    "title": "Boot Sound",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "overlayLabel": "",
+                                    "duration": 1,
+                                    "fileSize": 18137,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/ImVB1DMGZQe1hvo1K8DATlFvdak2wup3Mtp39URXrcQ?Expires=1737751105&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tLzFUYktXNXRSN1JIQ185SlZYSU8tTlVjeDVURS04STJsdmpaMGFlcVhFTVUwfi9JbVZCMURNR1pRZTFodm8xSzhEQVRsRnZkYWsyd3VwM010cDM5VVJYcmNRIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzM3NzUxMTA1fX19XX0_&Signature=H~u9OqS0C3broJUiCO9DRuN7-YIICJI3~T7p50btLE~betMFa8q-b8Y8YbtoQRfDogwEK13E7GyUEqzl-dBWjQN4eFf~FYrB6PMYExpmYPTINadDYCUbAfaaxErO1JJoBghFtpwm4djcxD0eIdoAklz363nZ0lp6qDhgUKLbX5zAB17XHPEilunn9ao5I7j1M-87xvCkjm1t7ch6qigorPbF-TrSqo1XeewjAJvKx4Q8jgYL1f-3aaygaDK7XaLEKHwHgFIeP9D-p61xYbVk00XFqiucEwMQD~JNVvAzQGs1rdBAohVufrp-HUDDi6eFROUMQx9GUMxt-DHd1IXPKA__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=ImVB1DMGZQe1hvo1K8DATlFvdak2wup3Mtp39URXrcQ",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/gCgNJrpHZ186Hd1ttD-k0R2Cf38FbPW3riwe27WAiJA"
+                                    },
+                                    "events": {
+                                        "onEnd": {
+                                            "cmd": "stop"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "01",
+                            "title": "Hello!",
+                            "overlayLabel": "",
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "fileSize": 11022,
+                            "duration": 1,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/vrvStO3jWUlswHdBGscVRDTSDmrgT7kR1rSD42Ha4Jg"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "01",
+                                    "title": "Hello!",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "overlayLabel": "",
+                                    "duration": 1,
+                                    "fileSize": 11022,
+                                    "channels": "mono",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/H19dwF2CnBqHA_8yn5mStsWAiCnXmRFRK-rbqlg_RGk?Expires=1737751105&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tLzFUYktXNXRSN1JIQ185SlZYSU8tTlVjeDVURS04STJsdmpaMGFlcVhFTVUwfi9IMTlkd0YyQ25CcUhBXzh5bjVtU3RzV0FpQ25YbVJGUkstcmJxbGdfUkdrIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzM3NzUxMTA1fX19XX0_&Signature=STOQ5uD9ALavXPXCRmThnfMYTG48Qy9OUuL1WKR4uYEcbjT3HHy327oe8E1O2H96gLI~j2MNaYFAUMJAbpPeX~jkIZRnQ9Ebp~KgbKCtJF5FKtFO1MzX85wL0GO1XKEdfmc8sUAw38HnKwyXXYj7DCqzc~sK9r31B0P6DkzPbBx~Bq2NGKOlVsJH4dIZAUMsjKlZ0S9yhA2uy1T6t1iWdfR03N2AiLsVgq5doJnM~g4rJlEKY1rsjJREcMNJzR4DXjvgP7l7tmFhKVYK2XP3mmsHn6InK97nBeqIebG2zgEkW4SF0tC41cKFVj5RIH7k2DbmBV4cJnzkAGoaoAwt9A__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=H19dwF2CnBqHA_8yn5mStsWAiCnXmRFRK-rbqlg_RGk",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/vrvStO3jWUlswHdBGscVRDTSDmrgT7kR1rSD42Ha4Jg"
+                                    },
+                                    "events": {
+                                        "onEnd": {
+                                            "cmd": "stop"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "02",
+                            "title": "I love you",
+                            "overlayLabel": "",
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "fileSize": 12722,
+                            "duration": 1,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/8owtYg1gh9GZWt_UQdGfeeIr85Tt0VK8Z5vn2oTQtqI"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "01",
+                                    "title": "I love you",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "overlayLabel": "",
+                                    "duration": 1,
+                                    "fileSize": 12722,
+                                    "channels": "mono",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/G5PSjJjlrf27DpuJ_wM7iWy-PrsfPZ_AgARnXOwebQc?Expires=1737751105&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tLzFUYktXNXRSN1JIQ185SlZYSU8tTlVjeDVURS04STJsdmpaMGFlcVhFTVUwfi9HNVBTakpqbHJmMjdEcHVKX3dNN2lXeS1QcnNmUFpfQWdBUm5YT3dlYlFjIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzM3NzUxMTA1fX19XX0_&Signature=hRGa0ihbceIF8JNKsB-seDPllEsQ2Med1sISxmnuglTyHGHreEX4yDyAJQJ3yRn678z01iHm0uzfbgkv9C1OJ2mvWqEgteZfK5FYnooASSNqaUFvf5ezuF7wSa4Y~DT11GOr-3v~tPgoyWxpv-DVS9vlK~Pb~wOC3qU5cLm6gK2RcWpLLgfU274Vv27gKx4lumzWGkve2nyJykVw9EYRsKBUiVIgHzdJ5gz4h2-qu-TVt6Gpi0VJGPc5q1lwYw8Dwsp68NtCfLk5-meWgisZVtnLn-j-rPdK8jmpcMQpZTainDmLkW4BcpTSeFysvHCcwvT3swHiNvWylLvwFpz70A__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=G5PSjJjlrf27DpuJ_wM7iWy-PrsfPZ_AgARnXOwebQc",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/8owtYg1gh9GZWt_UQdGfeeIr85Tt0VK8Z5vn2oTQtqI"
+                                    },
+                                    "events": {
+                                        "onEnd": {
+                                            "cmd": "stop"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "03",
+                            "title": "I am angry",
+                            "overlayLabel": "",
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "fileSize": 18387,
+                            "duration": 1,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/TusqgmmdGv6SS2KLoM1GA-0zyeL24pQfS07GuDIRRl8"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "01",
+                                    "title": "I am angry",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "overlayLabel": "",
+                                    "duration": 1,
+                                    "fileSize": 18387,
+                                    "channels": "mono",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/4R7PIpU993yfKcyecRizqjjnk49nUBsG6ULZ6cYP3rA?Expires=1737751105&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tLzFUYktXNXRSN1JIQ185SlZYSU8tTlVjeDVURS04STJsdmpaMGFlcVhFTVUwfi80UjdQSXBVOTkzeWZLY3llY1JpenFqam5rNDluVUJzRzZVTFo2Y1lQM3JBIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzM3NzUxMTA1fX19XX0_&Signature=O5J7tdkNKYI3fPzhEA66VhCGbtv4JtoDWJVb-TESS3V80c54q7dZyxBeOvpNNwYn0O4konxqGVxt6LTq0V92lpqDdVY20nAybxcM6QzGAteqy8FsgUC5~naZhn92VGH9GvwrHDYMS26hzV8xTAhbe9G4Yzptru49UaWtjfX~116EhRy~eyolo5IRQlS~XcaEb9Dv2IfyXLKUPxiDj3DexNFfuk~ouVkDJ6et56DagUCqPqC-KRx-P-ZHvJqSnTe725p0k9QIMd44LeVdlujSSA7l901moUOe6fsGwwyHBpIOUfc4LehTJfLl2khiiFK9GRS64PVI51O5Eh9kHCwHcA__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=4R7PIpU993yfKcyecRizqjjnk49nUBsG6ULZ6cYP3rA",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/TusqgmmdGv6SS2KLoM1GA-0zyeL24pQfS07GuDIRRl8"
+                                    },
+                                    "events": {
+                                        "onEnd": {
+                                            "cmd": "stop"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "04",
+                            "title": "I am happy",
+                            "overlayLabel": "",
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "fileSize": 16680,
+                            "duration": 1,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/rHe3irfzAJDE1Xpuau9gT8K2Vr2v4iNWKKSGaG6kNkM"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "01",
+                                    "title": "I am happy",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "overlayLabel": "",
+                                    "duration": 1,
+                                    "fileSize": 16680,
+                                    "channels": "mono",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/ipkadGse1EJbVapMOgHZt7PUX5N25S2SSJqnflywnyo?Expires=1737751105&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tLzFUYktXNXRSN1JIQ185SlZYSU8tTlVjeDVURS04STJsdmpaMGFlcVhFTVUwfi9pcGthZEdzZTFFSmJWYXBNT2dIWnQ3UFVYNU4yNVMyU1NKcW5mbHl3bnlvIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzM3NzUxMTA1fX19XX0_&Signature=pQMcUOs-OFMpfGxMI0-Eifw55GXxU0eycpdqweUxH4TxpPWD5AAfnLmo66Z1oVRSbMFG2zUsAZVKGvRBiMuuWMA~eEJGjVxXbOkLknlQED7fPFYEmBUHlQOnH9LAGe8Ixg1NS5TkwebjSP01fu5bvT7IPTMH5uvKPsRoMiGNF0Jqxd7LmV5T3AcbYyr9xaBWeKtYLbnjB9TR3gTTozHIHaE-CkV4ez2kMqZMJmpTobIYtged8XvgiPoZ6xrGANAHR3Pf3F4A6QHU8fxCqJkjxD1hxrgu~7VOhGeMlc3yubUtN~2OwmMg4bqrNznFrMX6pBbF7MH2wgEHWivJTYvy6g__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=ipkadGse1EJbVapMOgHZt7PUX5N25S2SSJqnflywnyo",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/rHe3irfzAJDE1Xpuau9gT8K2Vr2v4iNWKKSGaG6kNkM"
+                                    },
+                                    "events": {
+                                        "onEnd": {
+                                            "cmd": "stop"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "05",
+                            "title": "I am silly",
+                            "overlayLabel": "",
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "fileSize": 19804,
+                            "duration": 1,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/3hauXhhWEzTn-gWMufk2-hfm6jD_ZfV8VuTu0Ep_oaQ"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "01",
+                                    "title": "I am silly",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "overlayLabel": "",
+                                    "duration": 1,
+                                    "fileSize": 19804,
+                                    "channels": "mono",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/AZCWsSymGliTfHCNpKSdVxc8PE9djiEoegNqyDb8gnQ?Expires=1737751105&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tLzFUYktXNXRSN1JIQ185SlZYSU8tTlVjeDVURS04STJsdmpaMGFlcVhFTVUwfi9BWkNXc1N5bUdsaVRmSENOcEtTZFZ4YzhQRTlkamlFb2VnTnF5RGI4Z25RIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzM3NzUxMTA1fX19XX0_&Signature=BnUtL62HjeKVgt059xOr7e0~8Hb2dhZBtRSKmbSnSQcDIvHYtEQDjn7YkbWTT29B628zn6-gcfb4zSni8PxOTYYd6vd0zzsXtA5oyVNj0siGDXOeX69i4-mvZCKjnvlptE1FbYH9zkhAhgUEgzU3z938ZS6DL9FbWQ9Cr~V9AIq3d614Q05Jl2IoX0XTaR3xOUjS3zcynd7acMPf54FYd26j2pUJ2sfAJ24yDImsF86uIP5A9WHygjeWpqoktycntfOYkFNa8Qd3wpxqMmefH5hDStIxuB6B3crgH8LeNvq4RD65zHPPe2~Pxnpzt3t2kcWmdLXP2ZZ5QECL64SvLQ__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=AZCWsSymGliTfHCNpKSdVxc8PE9djiEoegNqyDb8gnQ",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/3hauXhhWEzTn-gWMufk2-hfm6jD_ZfV8VuTu0Ep_oaQ"
+                                    },
+                                    "events": {
+                                        "onEnd": {
+                                            "cmd": "stop"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "06",
+                            "title": "I am tired",
+                            "overlayLabel": "",
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "fileSize": 17821,
+                            "duration": 1,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/wc40alFA4I6isIqMUG0g3AZHHPl7RZGHf9sr76_Jw4U"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "01",
+                                    "title": "I am tired",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "overlayLabel": "",
+                                    "duration": 1,
+                                    "fileSize": 17821,
+                                    "channels": "mono",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/GX9VS6B_YwyQSR6AEk8QNeNW0vY_E3C4NAO4a1kELA8?Expires=1737751105&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tLzFUYktXNXRSN1JIQ185SlZYSU8tTlVjeDVURS04STJsdmpaMGFlcVhFTVUwfi9HWDlWUzZCX1l3eVFTUjZBRWs4UU5lTlcwdllfRTNDNE5BTzRhMWtFTEE4IiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzM3NzUxMTA1fX19XX0_&Signature=hFHvMNaBNyRhn4aksuL~l1id2leQpuI1IKZjK~4jmy4LcfftWJpm~Be2ny-OtyNplsz-j3jtsTB3GbzvCGP1zJ5sFgbAA9uPUUQMMWdCzZBMuJes6R-E-2zrSFvEtKhjz3X8nB1jFlYq8UZg-3H~r8emcl-0BylP1zkZseaWIZmxU-wjPj7dgOznXIcDEFQ5ytSdeQrHf6ZqVHoFjLdp7-NIHOYV4m6SakDHoM5m17CE8cT5jU1TrzoI3LYwbcBLkQJqdxz15oIeoAPZT2MWwms4ec2SCLNNK6XPbAmMI9sz87RBM-fvs3qvG0DIoUnDTam6VbRivLLA0~LDe7UwDw__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=GX9VS6B_YwyQSR6AEk8QNeNW0vY_E3C4NAO4a1kELA8",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/wc40alFA4I6isIqMUG0g3AZHHPl7RZGHf9sr76_Jw4U"
+                                    },
+                                    "events": {
+                                        "onEnd": {
+                                            "cmd": "stop"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "07",
+                            "title": "That is really funny",
+                            "overlayLabel": "",
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "fileSize": 25186,
+                            "duration": 2,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/Rhqpi_X9vknR3M_8Yw9IG0zbzHWHRJS0m6zPXSS8hMw"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "01",
+                                    "title": "That is really funny",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "overlayLabel": "",
+                                    "duration": 2,
+                                    "fileSize": 25186,
+                                    "channels": "mono",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/JsIhiU_T14oJdCXsPP5P1gvP90BnkQdC3jxS_NLi2K8?Expires=1737751105&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tLzFUYktXNXRSN1JIQ185SlZYSU8tTlVjeDVURS04STJsdmpaMGFlcVhFTVUwfi9Kc0loaVVfVDE0b0pkQ1hzUFA1UDFndlA5MEJua1FkQzNqeFNfTkxpMks4IiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzM3NzUxMTA1fX19XX0_&Signature=Mfr0N3IZF-SqhigBKP-K-o1kJq9FsBoKgdkM8Oi0rcR9EmtVYMOASrj6dLzmcmu3nR81aMc7HnYYxB9n6bREc7rJdETOVfTX329ovsCbRj0u1-KjqKzs9-UvqdXBRGVlY6GNBQbHs~okFiWXTsF0-M~gJLzAld7ZtUN3ST2isIxi8jnAxXHHydCxWrIZtXF73ZZeDPvR9iOr-0vuJNC56E0KSuDvCCsQGw0362RgUdw-TzCec4CtKZYG45cscoXlG71c2-5E0mypCR0GzPjNw8x1zMy-Z-pekPfBByI~b10jF3NOgIJp4~P33PJYmJLGt9OyDwoft1g-sGopTbx8rA__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=JsIhiU_T14oJdCXsPP5P1gvP90BnkQdC3jxS_NLi2K8",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/Rhqpi_X9vknR3M_8Yw9IG0zbzHWHRJS0m6zPXSS8hMw"
+                                    },
+                                    "events": {
+                                        "onEnd": {
+                                            "cmd": "stop"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "08",
+                            "title": "no",
+                            "overlayLabel": "",
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "fileSize": 12155,
+                            "duration": 1,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/VKIzaHcSpkJGkRJTAW2R6iZ-3TBpPhv1i_tcWbG8XTc"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "01",
+                                    "title": "no",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "overlayLabel": "",
+                                    "duration": 1,
+                                    "fileSize": 12155,
+                                    "channels": "mono",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/n2rRoXfTXbC84DCihx903yywx5f_xmF2D8AVgZnx3ow?Expires=1737751105&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tLzFUYktXNXRSN1JIQ185SlZYSU8tTlVjeDVURS04STJsdmpaMGFlcVhFTVUwfi9uMnJSb1hmVFhiQzg0RENpaHg5MDN5eXd4NWZfeG1GMkQ4QVZnWm54M293IiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzM3NzUxMTA1fX19XX0_&Signature=sNXX2qxjGt0KXqAMGCPCWfoUb6Jf-fhczgeqMEaQbMMbv~5F9tSMvPlIq-ZFzwu9VjuCphGj8z6uTUAEpC7QCy-5YSkMPbvhc6SYTRgoJGmaUvdhD0gGeN6Oog0DK5xHQ7JbDJUEViqhRzD84F~gjGNxBWi3fKegR2u0SsO7iwq6pD5AdHooAB~4j7xz6ghcRsRhbtmzmLjblyGlf8CGG7oL-h0b~e4UkyKYGBMAymcRKzhYewfBRSDRD5oS7sj4ccEefJsQD6jjleGO3NU7ZOxxXjkuL6n5cPaWp3DwWob8i~uYEu4iTjd6Fu63bkVYtcV0-1EuCgXKlYo3FhPUww__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=n2rRoXfTXbC84DCihx903yywx5f_xmF2D8AVgZnx3ow",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/VKIzaHcSpkJGkRJTAW2R6iZ-3TBpPhv1i_tcWbG8XTc"
+                                    },
+                                    "events": {
+                                        "onEnd": {
+                                            "cmd": "stop"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "09",
+                            "title": "yes",
+                            "overlayLabel": "",
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "fileSize": 10456,
+                            "duration": 1,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/va0l02lfUbSAzb9JqRWRlUAyiD84vUQTqeAqW1j6bqg"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "01",
+                                    "title": "yes",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "overlayLabel": "",
+                                    "duration": 1,
+                                    "fileSize": 10456,
+                                    "channels": "mono",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/ZIT-2dL1CdsJASBX8tB__dGXZjE9tUMZNylGWricCaA?Expires=1737751105&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tLzFUYktXNXRSN1JIQ185SlZYSU8tTlVjeDVURS04STJsdmpaMGFlcVhFTVUwfi9aSVQtMmRMMUNkc0pBU0JYOHRCX19kR1haakU5dFVNWk55bEdXcmljQ2FBIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzM3NzUxMTA1fX19XX0_&Signature=fwlY5Ml257LvjkjIMeq4Gu~Ww7SPwSM92WjsPv3oYa3keLE3Izw7t8-FwLps3pXWE2uPsOjTwLrBVJ9DsJqoCFSVM0djD0NTPU09qC0Oi8reOzmLdaLjY~lWvNp8AtGzTA~iHuUKYylM7tasRW7oWNphfe~ey8DjogLwYjpU9aLh6a0fbyXEciHjfy~mjWJf~rtnfS12m1ePfv-rLERJMXIDQ-yvfmMTv8BUEHplaFzJ66wvw5RWCtMaH8RBu9i7SF6ZzC9bd9HEfVqIhu~BqKn9xLFwkf~iBKrIHx8diz2th1qm75ic78bYF~NzcnR4TqSh5h9GpBjPn0Cytx5C2g__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=ZIT-2dL1CdsJASBX8tB__dGXZjE9tUMZNylGWricCaA",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/va0l02lfUbSAzb9JqRWRlUAyiD84vUQTqeAqW1j6bqg"
+                                    },
+                                    "events": {
+                                        "onEnd": {
+                                            "cmd": "stop"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "10",
+                            "title": "what time",
+                            "overlayLabel": "",
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "fileSize": 13288,
+                            "duration": 1,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/eMJVhip9PiO49iVRxVC4jPRsOKbP_Rld8O0KFc7qHFQ"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "01",
+                                    "title": "what time",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "overlayLabel": "",
+                                    "duration": 1,
+                                    "fileSize": 13288,
+                                    "channels": "mono",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/Pcp0LuRwM2yCLmTBn_eyviQi0pHq2JWaxbqYR2fr5gQ?Expires=1737751105&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tLzFUYktXNXRSN1JIQ185SlZYSU8tTlVjeDVURS04STJsdmpaMGFlcVhFTVUwfi9QY3AwTHVSd00yeUNMbVRCbl9leXZpUWkwcEhxMkpXYXhicVlSMmZyNWdRIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzM3NzUxMTA1fX19XX0_&Signature=HFdzFg1s8j5hRRER4kKHkbuvaSRZVG7uycfeiW9wugYKSB6cniV9q6FrZTZGzxy4RXiX-FaxuxwaPhRm04W92D4eE7KiqaEy1-I1idMSNOOFgRTQ-253iGcbz3PZTe9PDdQ0TolubHht6N8BDuaPggwPlOIBr-lZDICaKmviRaO3MQ5OV3HziI40wbrKdd3igYvsbj8WDtn98b2Z2ZLq9Okf41vnu3z8AG7iRM4SwP0hkK6iARipCEO1qNftIg0hunQe71oDGVbN9Ij27mShahHrvSXg9Sxt9nVpXvF-dpEgMmvsaqUk1x6vr1LseNxPs0ek3SX7G2h20QhdSaHHpA__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=Pcp0LuRwM2yCLmTBn_eyviQi0pHq2JWaxbqYR2fr5gQ",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/eMJVhip9PiO49iVRxVC4jPRsOKbP_Rld8O0KFc7qHFQ"
+                                    },
+                                    "events": {
+                                        "onEnd": {
+                                            "cmd": "stop"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "11",
+                            "title": "lets go",
+                            "overlayLabel": "",
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "fileSize": 13288,
+                            "duration": 1,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/KA0VtlHabIvzc8Wc9gDafVphNgKQ6ekr1sMyb3pR-c8"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "01",
+                                    "title": "lets go",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "overlayLabel": "",
+                                    "duration": 1,
+                                    "fileSize": 13288,
+                                    "channels": "mono",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/z2DmtTItOXh5rBB-Ym-dK-adVu7pC4dWiPtnadMVMKs?Expires=1737751105&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tLzFUYktXNXRSN1JIQ185SlZYSU8tTlVjeDVURS04STJsdmpaMGFlcVhFTVUwfi96MkRtdFRJdE9YaDVyQkItWW0tZEstYWRWdTdwQzRkV2lQdG5hZE1WTUtzIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzM3NzUxMTA1fX19XX0_&Signature=dmlp6NsrothAqgZ7ougviOP2BiS81X~XkYBngKGP5FNWmTJhK60w0dXSs6U5FzoTD2eb7cRJbDjfn9RcgNAuaWPWziCdbB7bnlzINE9qsTSvbCF3sA~OiDzXx79J5CTWXjGDduT3mbPdyIXgv4vxLna5JRD69oSB5y2BDCqFw6WRNKiMZui4CnZf5QBoDzdyPRdqorEXf-YGToZjdfa~alu36rf2XRTZXFh0qfFIkaFaGdt79~5TGianQtdLZfXy6wakV5d7icwRUSPHEZ~NmEEOHHFf-MR~Z0itDuZI8WP80Dg-tz1TEoIrIehW5bAHExSt29LonRCcoUhHk7MsYA__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=z2DmtTItOXh5rBB-Ym-dK-adVu7pC4dWiPtnadMVMKs",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/KA0VtlHabIvzc8Wc9gDafVphNgKQ6ekr1sMyb3pR-c8"
+                                    },
+                                    "events": {
+                                        "onEnd": {
+                                            "cmd": "stop"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "12",
+                            "title": "I need to go to the bathroom",
+                            "overlayLabel": "",
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "fileSize": 20654,
+                            "duration": 2,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/WE-Xcw_QHXKexgheRFxX3TSh7o2MNzNebeoULRnbi4s"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "01",
+                                    "title": "I need to go to the bathroom",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "overlayLabel": "",
+                                    "duration": 2,
+                                    "fileSize": 20654,
+                                    "channels": "mono",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/slQa5PuFg-U-I6EXopHFPJh0lIl8G3oPkZlRCMpXbpg?Expires=1737751105&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tLzFUYktXNXRSN1JIQ185SlZYSU8tTlVjeDVURS04STJsdmpaMGFlcVhFTVUwfi9zbFFhNVB1RmctVS1JNkVYb3BIRlBKaDBsSWw4RzNvUGtabFJDTXBYYnBnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzM3NzUxMTA1fX19XX0_&Signature=OGk-bADZN78DKTJyl2IaEHzy6Fr7~f3N1T6WcP0-EooA2bR4VTDoVpmVeKmlg8e8Dit~bwOrk9cbtit9M6rYsWpL60lpBlRe0INnow8ntazzWwWP4PatVBAJMrVrBJkRWXredLrlCfOJyGgCHhM2zxs7ApjOoz-SaW6fLth8ZCnDsfWJUb2mU14wYWayc99dsANFTaOoxZVumx8KYGQUqPbauoFpfWTl8TpgfelP25eGOJbxfdh37Nef7DkIH73bHq~YVNJ199fwNJB13sXIXliXnZuIaAcYFPZeZT-KifsvOGG8a5XVy76rSMvEpx5CHkUDpPYmElfVbYvP2sF0JQ__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=slQa5PuFg-U-I6EXopHFPJh0lIl8G3oPkZlRCMpXbpg",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/WE-Xcw_QHXKexgheRFxX3TSh7o2MNzNebeoULRnbi4s"
+                                    },
+                                    "events": {
+                                        "onEnd": {
+                                            "cmd": "stop"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "13",
+                            "title": "I like my music",
+                            "overlayLabel": "",
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "fileSize": 17821,
+                            "duration": 1,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/_WWpLHoOj6iqeREcGkJnGlsis2QSF6znM0UPFdXTjf8"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "01",
+                                    "title": "I like my music",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "overlayLabel": "",
+                                    "duration": 1,
+                                    "fileSize": 17821,
+                                    "channels": "mono",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/C4Pum8Ydrw9EgSAsZNRwO7HkOEHzY-dXZH0LFYJxOOc?Expires=1737751105&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tLzFUYktXNXRSN1JIQ185SlZYSU8tTlVjeDVURS04STJsdmpaMGFlcVhFTVUwfi9DNFB1bThZZHJ3OUVnU0FzWk5Sd083SGtPRUh6WS1kWFpIMExGWUp4T09jIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzM3NzUxMTA1fX19XX0_&Signature=wPni~K9IhoL~pMlJ7XClx2BG55bisDxrtwps-j6GiN7GBVem2C56rXEQyH~e-OVFrvlfaEh45EqPFEnwX~hbDvXaIB6I12P1QQ5A2UWzbF47b4kj4rJy2YI7pLChtnmrY2o~xu026YcqdD1NwEBGCAGxinmI8QughZHOv9t8F23kij2ZEt967En~2ibtLEukSSaQ4YWeyiV3DnotOTpCO-AlQIzpwKCosF2LxyjQpol-h-OcdRqaZQzhkMVvy7JbFAcdJyk~95fgPQ5e0x6oFmfINUS6eYbhZMS8vSaGfnFJZEvO7~xHiYBw8PqGN8dPWZF4j6RprQ0sf82M5Uwxsg__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=C4Pum8Ydrw9EgSAsZNRwO7HkOEHzY-dXZH0LFYJxOOc",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/_WWpLHoOj6iqeREcGkJnGlsis2QSF6znM0UPFdXTjf8"
+                                    },
+                                    "events": {
+                                        "onEnd": {
+                                            "cmd": "stop"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "14",
+                            "title": "I like my book",
+                            "overlayLabel": "",
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "fileSize": 17254,
+                            "duration": 1,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/uiqaZz3Q_kM359pgiMaIkK-grc19uo4tRK5bSAMro7o"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "01",
+                                    "title": "I like my book",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "overlayLabel": "",
+                                    "duration": 1,
+                                    "fileSize": 17254,
+                                    "channels": "mono",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/Xcpixm0MFtGmmuHcyrqxoOaWd-VvbxwSihgnpndxidg?Expires=1737751105&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tLzFUYktXNXRSN1JIQ185SlZYSU8tTlVjeDVURS04STJsdmpaMGFlcVhFTVUwfi9YY3BpeG0wTUZ0R21tdUhjeXJxeG9PYVdkLVZ2Ynh3U2loZ25wbmR4aWRnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzM3NzUxMTA1fX19XX0_&Signature=Fcuh5wD8PfoKhGgv7ijpO4JE1oN2FZYzCAP-EfoprQjx4VuYvXLxBbXW5VDCScKTDaRCeO3amUDqvMlHr7CRFY67135Iqh1jkaXfNCTrRbwmH-WnHqXwA5TEMz5V9hWHbN3WpTVNrJnhTLjPDcSVgZp8ARfZEbXdrrksrMCfpgMSlBofI7a4y7Ecp3tk1DNz3nwg1iLqFH1TkgnTtldkvfXEIIxPC9CHYSgUHYXK9BkeaKlpzIgj-pD0fG26F9a34Szx4NRXM6TiuhTpOOMrcf6W2suG0L~eaFbRigIChr4m4oV5aIvHQRBxfwsbUvkkqFjrjHhS8CdQRqbbYmg7HA__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=Xcpixm0MFtGmmuHcyrqxoOaWd-VvbxwSihgnpndxidg",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/uiqaZz3Q_kM359pgiMaIkK-grc19uo4tRK5bSAMro7o"
+                                    },
+                                    "events": {
+                                        "onEnd": {
+                                            "cmd": "stop"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "15",
+                            "title": "I need more books",
+                            "overlayLabel": "",
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "fileSize": 17254,
+                            "duration": 1,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/OW3pqI0S_pLSLpK5dSktn-8V-AbZjIcs3mVz5TIQDEU"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "01",
+                                    "title": "I need more books",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "overlayLabel": "",
+                                    "duration": 1,
+                                    "fileSize": 17254,
+                                    "channels": "mono",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/OQFR_HxNfHiTdOQMvF_wt5c-fpcDHJzY74kPWg4E-4A?Expires=1737751105&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tLzFUYktXNXRSN1JIQ185SlZYSU8tTlVjeDVURS04STJsdmpaMGFlcVhFTVUwfi9PUUZSX0h4TmZIaVRkT1FNdkZfd3Q1Yy1mcGNESEp6WTc0a1BXZzRFLTRBIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzM3NzUxMTA1fX19XX0_&Signature=bxL2nUV3v2QvPmypcpJIyn5MoV7rZpfpXWlqXjlDCx1ZyHQqJTsz5RFU~dnFWCd9qFh8UIDrZPkw4VKzlXQw-6jqqFab7nOfCuIHKReP10qi9mXFi7bFLV1MkhB0Q1Sl3UwsL~dGe91L9Y-rlgRGym-0V0uNZWlyK5fLuSTbwnQbqC-fGQDeBArrE6HQdHu8zepCDg~iFuMCCsyc5IMfGq8gBoaC3B1MhEuiUr~JPB7Ish6Mm0xq1Cvz1JH7mzq~Pfw8QbRuhmZZytVKakst4KFi7yqEnyTM96WjG3BAOAPCeXzZzHjz6GvD4oTNB8pk9lo1cxzppKImQhwo1mArgQ__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=OQFR_HxNfHiTdOQMvF_wt5c-fpcDHJzY74kPWg4E-4A",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/OW3pqI0S_pLSLpK5dSktn-8V-AbZjIcs3mVz5TIQDEU"
+                                    },
+                                    "events": {
+                                        "onEnd": {
+                                            "cmd": "stop"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "16",
+                            "title": "I need water",
+                            "overlayLabel": "",
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "fileSize": 15555,
+                            "duration": 1,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/kFoTKPEHT9iUN8mJqVNOXvT_S2U3kW26KsIA5WYVr2U"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "01",
+                                    "title": "I need water",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "overlayLabel": "",
+                                    "duration": 1,
+                                    "fileSize": 15555,
+                                    "channels": "mono",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/gYabwttGThUnj5R1YoJ4UTGa-lgjq5lpqOT8tc5BLHY?Expires=1737751105&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tLzFUYktXNXRSN1JIQ185SlZYSU8tTlVjeDVURS04STJsdmpaMGFlcVhFTVUwfi9nWWFid3R0R1RoVW5qNVIxWW9KNFVUR2EtbGdqcTVscHFPVDh0YzVCTEhZIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzM3NzUxMTA1fX19XX0_&Signature=LkRNj3MbR0pFocGyUlYNFx0AhoKXtg~l~Jdhlhl8sTuFi5d-SwQYBxGcvx5zcCtudlHmHZz6rrl~eg6oYg3W3a8lNuU1Fx3eDbZiHMGmWoq2QAh5701G1xAIUqa9spnyBSoxLqTWQAOQnWWyAAtS1qq24PbMZ2FU51XFfOEBJjtk~m8bEcJrNZ50y86s2AaXsotkFfibKc9lGENjT6mGgcEu2ATGyFESu3g2HnYGaExa8m79JUnTj8DGHP0K3os4vd7M57OZvTO1Ob0D1SPNSzrGb69r~LBEIW1~alOZzccA3jb4s-Alimx4Izmi6XOk-WrUyDCbv9Noh~uxLq3ieA__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=gYabwttGThUnj5R1YoJ4UTGa-lgjq5lpqOT8tc5BLHY",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/kFoTKPEHT9iUN8mJqVNOXvT_S2U3kW26KsIA5WYVr2U"
+                                    },
+                                    "events": {
+                                        "onEnd": {
+                                            "cmd": "stop"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "17",
+                            "title": "I need a snack",
+                            "overlayLabel": "",
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "fileSize": 18387,
+                            "duration": 1,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/sL1t6wVOAhYLng93doVmxW5Z9VpzZt2rNwlXKulGQk0"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "01",
+                                    "title": "I need a snack",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "overlayLabel": "",
+                                    "duration": 1,
+                                    "fileSize": 18387,
+                                    "channels": "mono",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/wN36x7qVfTOCqpOvxXMMf3FJ4CuVjW9pA7iI7-Tq7lg?Expires=1737751105&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tLzFUYktXNXRSN1JIQ185SlZYSU8tTlVjeDVURS04STJsdmpaMGFlcVhFTVUwfi93TjM2eDdxVmZUT0NxcE92eFhNTWYzRko0Q3VWalc5cEE3aUk3LVRxN2xnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzM3NzUxMTA1fX19XX0_&Signature=C-ekfuT00tUZ1Oreu8eiJxD25lHp8oifvFXx4gdvzrEWHY3lHXeCTtMdSCe53wOkv2EF~O9gwSohD3C4Nxrnmo8YC1sOed2IYUGCWjD4WrUqJvgxo2iS0aAcXn~pl6bNsslpTuySkwwqbLkI2pIc5LcvwiiwqRGOLopRRFjiDqQ9eIZ7tGFoeumEegRhbrczMM67qKHTAahJFevLutbLW-A4G1YEghE-c-D1z-~EkRWyz0y-6RVBWnlPSP0tbF6G7BvLjWWOKqqd8nFM2kR00ikspQbQBj2vB3atgpXrNgFPta0pFXDVM~F8J4tzxJ0uHDCKVRUqilRxU4MdPeypfw__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=wN36x7qVfTOCqpOvxXMMf3FJ4CuVjW9pA7iI7-Tq7lg",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/sL1t6wVOAhYLng93doVmxW5Z9VpzZt2rNwlXKulGQk0"
+                                    },
+                                    "events": {
+                                        "onEnd": {
+                                            "cmd": "stop"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "18",
+                            "title": "I want a treat",
+                            "overlayLabel": "",
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "fileSize": 18954,
+                            "duration": 1,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/zIeHMsgOWq6VPfHDXK7PPOxsDjD9rxsxY9U4AKLCUwc"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "01",
+                                    "title": "I want a treat",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "overlayLabel": "",
+                                    "duration": 1,
+                                    "fileSize": 18954,
+                                    "channels": "mono",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/9CgusekgMDaLBl8oJLv7Fdby2KBsc9wT-CPRBnyX_0E?Expires=1737751105&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tLzFUYktXNXRSN1JIQ185SlZYSU8tTlVjeDVURS04STJsdmpaMGFlcVhFTVUwfi85Q2d1c2VrZ01EYUxCbDhvSkx2N0ZkYnkyS0JzYzl3VC1DUFJCbnlYXzBFIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzM3NzUxMTA1fX19XX0_&Signature=G8a-XUaA1q011W7E8LVyNnqOIjWXdBRt5fmYBYWP05qYzy8A1W4kCm65WuGN4EzP146GmgY0nNxFMwFFdCQ1bR7NEYkm9mvsEWtOpkqGsrUivpdQzLV7XZV2Ek~uk1QakC3lDny8akSyIUALMlTgTp~ZmhA0ArgsaqdmriZQ3iDeoh~Sf1Ys9-xz0ixL8p-yGb-QPyVVChGc3gN6aQy-SCxhUGgo7mJqPJxoJ4avOts5~CDsB9isiQIjdZl3xLuPTUs8Fr1QedWFlEPk~ElH8n5Mkcw2hNIepLgoeLviYb1tG5mlXgF99Qcl38qfhR0ihpmzN2fXENm3ahe0zDgnBg__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=9CgusekgMDaLBl8oJLv7Fdby2KBsc9wT-CPRBnyX_0E",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/zIeHMsgOWq6VPfHDXK7PPOxsDjD9rxsxY9U4AKLCUwc"
+                                    },
+                                    "events": {
+                                        "onEnd": {
+                                            "cmd": "stop"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "19",
+                            "title": "I want to eat a meal",
+                            "overlayLabel": "",
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "fileSize": 22920,
+                            "duration": 2,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/u9D8_PmJJUykXhK3YwMHcyhOf8tMNK-vFjLsTViZl7A"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "01",
+                                    "title": "I want to eat a meal",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "overlayLabel": "",
+                                    "duration": 2,
+                                    "fileSize": 22920,
+                                    "channels": "mono",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/x2_8JVqg7e_8ErsdNyxrN0krPzOxUHXM_GtbjhXdHWw?Expires=1737751105&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tLzFUYktXNXRSN1JIQ185SlZYSU8tTlVjeDVURS04STJsdmpaMGFlcVhFTVUwfi94Ml84SlZxZzdlXzhFcnNkTnl4ck4wa3JQek94VUhYTV9HdGJqaFhkSFd3IiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzM3NzUxMTA1fX19XX0_&Signature=QOUfr5gMtgFQYxxlHfwfMYpMG~iPTorknRSw-d-5e9E3AClfstxj~BTPTCMCBdeeuVP-bmsR2OVKaAYQZvUJkVvNhXsckfQo-s4L16PjsLfOR5ABgZoBHq9P5HSVQRjeTpekeaG0UueF2fs336oWQp1pICsVydtToz2r-9MFhdpNHqg4hgYwnoMK72USqlmTPb~Yu4ZLpY6-vR1YRj8p4HlWEgHz0gD5Iv0OaWeA04GZfXohbmLvYEjLJjUN0lkDk-dE9JKGH9EBxV5mGPh9bBojg3i9CTbVGJBTpd8ABL1IiCoRJ7w-FVQMVIJq3I2yCUNakdS-ajMsZOOXTpm4Qw__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=x2_8JVqg7e_8ErsdNyxrN0krPzOxUHXM_GtbjhXdHWw",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/u9D8_PmJJUykXhK3YwMHcyhOf8tMNK-vFjLsTViZl7A"
+                                    },
+                                    "events": {
+                                        "onEnd": {
+                                            "cmd": "stop"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "metadata": {
+                    "description": "Does your child use or need a communication device?   Let their Yoto be their voice!\nYour child can scroll through the emoji and push the button to \"speak\" what they need.  It does need to be fully downloaded to your player to work properly.\nThis card has a few phrases that are helpful around the home and to the use of Yoto.  ",
+                    "cover": {
+                        "imageL": "https://card-content.yotoplay.com/1TbKW5tR7RHC_9JVXIO-NUcx5TE-8I2lvjZ0aeqXEMU0~/pub/DkgtT-X2K4ribPyED3kE67-F1W7Mj3qSJaJ35_jKv40"
+                    },
+                    "media": {
+                        "duration": 23,
+                        "readableDuration": "0h 0m 23s",
+                        "fileSize": 337745,
+                        "readableFileSize": 0.3,
+                        "hasStreams": false
+                    }
+                },
+                "cardId": "exuSI",
+                "userId": "auth0|REDACTED",
+                "createdAt": "2024-06-17T22:31:16.872Z",
+                "updatedAt": "2024-06-19T18:26:47.538Z",
+                "creatorEmail": "Rae",
+                "shareLinkCreatedAt": "2024-06-18T10:00:05.401Z",
+                "slug": "2QpSD2ZdbwVw8Z8kqBEH93",
+                "shareLimit": 0,
+                "readOnly": false,
+                "shareCount": 32,
+                "sortkey": "2QpSD2ZdbwVw8Z8kqBEH93",
+                "shareLinkUrl": "https://share.yoto.co/s/2QpSD2ZdbwVw8Z8kqBEH93",
+                "sharing": {
+                    "linkCreatedAt": "2024-06-18T10:00:05.401Z",
+                    "linkUrl": "https://share.yoto.co/s/2QpSD2ZdbwVw8Z8kqBEH93",
+                    "shareCount": 32,
+                    "shareLimit": 0
+                }
+            },
+            "__ni18n_server__": {
+                "resources": {
+                    "en": {
+                        "translation": {
+                            "web_share_player_content_created_by": "created by",
+                            "web_share_player_download_app_store": "Download on the App Store",
+                            "web_share_player_download_app_tip_desktop": "Download the free Yoto App and scan this code",
+                            "web_share_player_download_app_tip_generic": "Unlock a world of stories, music, activities, sleep sounds, podcasts and radio",
+                            "web_share_player_download_app_tip_mobile": "Download the free Yoto App and tap the share link again",
+                            "web_share_player_download_app_tip_nfc_tap": "Download the free Yoto App and tap the card on your mobile",
+                            "web_share_player_download_app_title_add_card": "Want to add this card to your Yoto library?",
+                            "web_share_player_download_app_title_generic": "Download the free Yoto App",
+                            "web_share_player_download_google_play": "Get it on Google Play",
+                            "web_share_player_invalid_link_desc": "It might contain a typo or is no longer available.",
+                            "web_share_player_invalid_link_title": "Unrecognized link",
+                            "web_share_player_link_preview_description": "Listen and add to your Yoto library",
+                            "web_share_player_link_preview_num_of_episodes": "Number of episodes",
+                            "web_share_player_link_preview_running_time": "Running time",
+                            "web_share_player_link_preview_shared_by": "Shared by",
+                            "web_share_player_not_found_heading": "Uh oh, I’ve got a bad feeling about this...",
+                            "web_share_player_not_found_page_title": "Not found",
+                            "web_share_player_not_found_text": "We can’t find the content you’re looking for. You might have followed an expired or invalid link.",
+                            "web_share_player_sharing_paused_desc": "We’ve frozen this link because it may be breaking our <1>sharing policy</1>. The playlist’s creator can email hello@yotoplay.com to request a manual review.",
+                            "web_share_player_sharing_paused_title": "Sharing paused",
+                            "web_share_player_sharing_policy_url": "https://support.yotoplay.com/en-US/friends-and-family-safe-sharing-policy-11561"
+                        }
+                    },
+                    "fr": {
+                        "translation": {
+                            "web_share_player_content_created_by": "Créé par",
+                            "web_share_player_download_app_store": "Télécharger dans l'App Store",
+                            "web_share_player_download_app_tip_desktop": "Téléchargez l'appli Yoto gratuite, puis scannez ce code",
+                            "web_share_player_download_app_tip_generic": "Un univers audio fascinant : histoires, musique, bruits blancs, podcasts et radio",
+                            "web_share_player_download_app_tip_mobile": "Téléchargez l'appli Yoto gratuite, puis appuyez de nouveau sur le lien partagé",
+                            "web_share_player_download_app_tip_nfc_tap": "Téléchargez l'appli Yoto gratuite et tapez la carte sur votre téléphone pour l'écouter",
+                            "web_share_player_download_app_title_add_card": "Souhaitez-vous ajouter cette carte dans votre audiothèque ?",
+                            "web_share_player_download_app_title_generic": "Téléchargez l'appli Yoto gratuitement",
+                            "web_share_player_download_google_play": "Disponible sur Google Play",
+                            "web_share_player_invalid_link_title": "Lien non reconnu",
+                            "web_share_player_link_preview_description": "Écouter et ajouter dans votre audiothèque",
+                            "web_share_player_link_preview_num_of_episodes": "Nombre d'épisodes",
+                            "web_share_player_link_preview_running_time": "Temps d'écoute",
+                            "web_share_player_link_preview_shared_by": "Partagé par",
+                            "web_share_player_not_found_heading": "Aïe, aïe, aïe… Ça, on ne l’avait pas prévu !",
+                            "web_share_player_not_found_page_title": "Non trouvé",
+                            "web_share_player_not_found_text": "Nous ne trouvons pas le contenu audio que vous cherchez. Vous avez peut-être ouvert un lien invalide ou un lien expiré.",
+                            "web_share_player_sharing_paused_desc": "Nous avons gelé ce lien car il pourrait enfreindre notre <1>politique de partage<\\/1>. Le créateur du contenu peut nous contacter sur bonjour@yotoplay.com pour revoir le contenu.",
+                            "web_share_player_sharing_paused_title": "Partage en pause",
+                            "web_share_player_sharing_policy_url": "https://support.yotoplay.com/fr-FR/partager-du-contenu-audio-avec-vos-proches-11561"
+                        }
+                    }
+                },
+                "ns": [
+                    "translation"
+                ],
+                "lng": "en"
+            },
+            "deviceLocale": "en",
+            "deviceType": "desktop",
+            "shareToken": "2QpSD2ZdbwVw8Z8kqBEH93"
+        },
+        "__N_SSP": true
+    },
+    "page": "/s/[token]",
+    "buildId": "V3pEs2QsEdVL4U035yoUs",
+    "isFallback": false,
+    "gssp": true,
+    "scriptLoader": [],
+    "officiality": {
+        "version": 1.2,
+        "date": "2025-01-24_14-38-34",
+        "creator": "Yoto (Space)"
+    }
+}

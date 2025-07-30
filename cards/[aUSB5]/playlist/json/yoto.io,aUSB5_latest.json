@@ -1,0 +1,908 @@
+{
+    "props": {
+        "pageProps": {
+            "card": {
+                "content": {
+                    "version": "1",
+                    "activity": "yoto_Player",
+                    "config": {
+                        "resumeTimeout": 2592000,
+                        "shuffle": [
+                            {
+                                "start": 8,
+                                "limit": 3,
+                                "end": 10
+                            }
+                        ]
+                    },
+                    "availability": "",
+                    "cover": {
+                        "imageL": "https://card-content.yotoplay.com/yoto/pub/sV-oQOYWrbFM08f4Xwbq-qbI6H9wj_Bl8rc8iTqVrbA"
+                    },
+                    "playbackType": "interactive",
+                    "editSettings": {
+                        "transcodeAudioUploads": true,
+                        "interactiveContent": true
+                    },
+                    "chapters": [
+                        {
+                            "key": "Track1",
+                            "title": "Introduction",
+                            "displayOverlay": "",
+                            "duration": 78,
+                            "hasStreams": false,
+                            "fileSize": 1259051,
+                            "availableFrom": null,
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "display": {},
+                            "tracks": [
+                                {
+                                    "key": "Track1",
+                                    "title": "Introduction",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 78,
+                                    "fileSize": 1259051,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/1CKz9GSVfoJQbGTN5wW0jQ3JiXO7NTr7sOqmf_j9oUo?Expires=1748718220&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vMUNLejlHU1Zmb0pRYkdUTjV3VzBqUTNKaVhPN05UcjdzT3FtZl9qOW9VbyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc0ODcxODIyMH19fV19&Signature=s1T0TrQqkRSBtBOR9NnJYFYN~CJgLp5DQfCv7gM1Z8WW-jBGbvtOljO2j0DAY1m2ZYNHtoxT5Ri2XAzIIFVEYstdmG5~J8No6E3iyUc7LhXXjNEGIO7x0vSGgicyzRGbFCAmulwSfs1q9bDzoDhv-pThLUCXBZ5Vylqbl318UE89w14esCNFPhaADei681esEx2mH20iRgqgKJ2A3h6XtVQigrIdMULmC8bhNdsdnY265brV4NExvgzlVTx~fdemv8-KvQrdT~Cf1bMRku2JSbfoxNL~SdM7vpcopoqSUYgrj43X1OC-ySi4zHRv7TjmaBKsThS~hy-4rmEr2y2nhw__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=1CKz9GSVfoJQbGTN5wW0jQ3JiXO7NTr7sOqmf_j9oUo",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/yoto/IA1DeUTl3FopOJWJQMFxbqBaO5rLRuDcexB6gO69FIU"
+                                    },
+                                    "events": {
+                                        "onEnd": {
+                                            "cmd": "stop"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "Track2",
+                            "title": "Cherche et trouve",
+                            "displayOverlay": "",
+                            "duration": 47,
+                            "hasStreams": false,
+                            "fileSize": 755501,
+                            "availableFrom": null,
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "display": {},
+                            "tracks": [
+                                {
+                                    "key": "Track2",
+                                    "title": "Cherche et trouve",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 47,
+                                    "fileSize": 755501,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/LcD8-fmWwIqPczFUH6bn814-GvLObxrM0cNOsLw3nwM?Expires=1748718220&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vTGNEOC1mbVd3SXFQY3pGVUg2Ym44MTQtR3ZMT2J4ck0wY05Pc0x3M253TSIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc0ODcxODIyMH19fV19&Signature=vM9CwG98iOplYFvgRYsSECc3jzpuiDhLZ5EzX76emHtj3SYW5hEi3GmkK0mjMJdhulEFdt5ORzG1xRtR95HvgNDIavq6kKC6NmtNw3U~bPn3CCyGtB-6W-6vVmChySwjmBnE4Kzr~AlP~IZPcXk6M-BykaCbaOTFYvyE7E95K300J8XMXgIUTLLQSx1xccHg0HoEEqaexlHzcCKHrnEitZW53UJjHPjX9WGcupZeamWYjBEy3tupagFWo3qwe4zxfHls6R24YNoSb~y9rzDewuCc3yO7rRsrEAfZHnaTPelHGCXihttq4RXmtqbnk~IyUuPPcrpJsXbMEofN3ed47w__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=LcD8-fmWwIqPczFUH6bn814-GvLObxrM0cNOsLw3nwM",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/yoto/bgzidTdJhP0wiVWbpm-YJvyBYTF3bK4mvA6oz1vFMiE"
+                                    },
+                                    "events": {
+                                        "onEnd": {
+                                            "cmd": "stop"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "Track3",
+                            "title": "Bravo !",
+                            "displayOverlay": "",
+                            "duration": 17,
+                            "hasStreams": false,
+                            "fileSize": 283484,
+                            "availableFrom": null,
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "display": {},
+                            "tracks": [
+                                {
+                                    "key": "Track3",
+                                    "title": "Bravo !",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 17,
+                                    "fileSize": 283484,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "events": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/SMQlVfS4rJJbUJt8H3wsaPOzodczicm-5SA7yYNbTR4?Expires=1748718220&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vU01RbFZmUzRySkpiVUp0OEgzd3NhUE96b2RjemljbS01U0E3eVlOYlRSNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc0ODcxODIyMH19fV19&Signature=BomIS3CIBRr0KJiWMSq4S447YpXg1zTSJnhr4PSYnIAiQWEClCFNbWO77Nz4wAyLOB8oxI65ty8XiJFj6X5RIPR06CVW30x0p2iN2MeG1~v91gZSCJcE7iyLrU5GgydMsTblP2x-4amywwARF-h8dpS2nBIUjtoM-99IMN~iU1sLcPc7542l4FnsCDgp3NGwE1Du9q4Nd8oTBI3JKWsken6SIh-05tD0VRQxrTVgb7ciI9VTu71Lkd6MeqUgvFn8bZD-1Fup9wtUJGCFdK8BipruecmC33vtzHwKhZzj90bm~3ZSGgf7wH6eiBrgj8OKcoN1OpEtr1wqWx6TB-kDTw__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=SMQlVfS4rJJbUJt8H3wsaPOzodczicm-5SA7yYNbTR4",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/yoto/gqOyi8LXjgJ_ChnhOZzaeoY0pFrqDDvwMh_gnWZ8djM"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "Track4",
+                            "title": "Ce qui est jaune",
+                            "displayOverlay": "",
+                            "duration": 60,
+                            "hasStreams": false,
+                            "fileSize": 965492,
+                            "availableFrom": null,
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "display": {},
+                            "tracks": [
+                                {
+                                    "key": "Track4",
+                                    "title": "Ce qui est jaune",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 60,
+                                    "fileSize": 965492,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "events": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/5XS84vcCWeiCINh7fAcV9evFACb4Mt7HZ9UZgLNjyZ8?Expires=1748718220&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vNVhTODR2Y0NXZWlDSU5oN2ZBY1Y5ZXZGQUNiNE10N0haOVVaZ0xOanlaOCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc0ODcxODIyMH19fV19&Signature=StSLQFbOhSxJOOyQxRwc6Xd4QkYAFz~LrIx7uG4ogQjo3O-joTYcZ37byGM64W263IiME81AQBpbNI5Ck2gSFT6BEqLVNMH09LxCQyu-9YGX8aAxFSq-hMljM9zHHBUHGLeEDs0arwRB3DTE7F09pJFfNSbAdxRjFqTQTZqpi9Xc1TwZVLlB8btKYMY3WmooP-5Mz48uL29DNZa6zrdwjN6fiKivsc-HlfUZTGMlCTTo2qFW9VTkW66WmEVGEbCDOeXklhs1ClgP-TPIw0-jdyxwgxGQJkv4KKlPEOp-Ua1fzTrm75x0qE7vU3sv7YqoAjVjX-2aMdsi7R5ghM0OrQ__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=5XS84vcCWeiCINh7fAcV9evFACb4Mt7HZ9UZgLNjyZ8",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/yoto/jYOIugtXQPSvucgWUgoTYHpzUSsp167PqgJI9n512j0"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "Track5",
+                            "title": "Ce qui est jaune",
+                            "displayOverlay": "",
+                            "duration": 15,
+                            "hasStreams": false,
+                            "fileSize": 246083,
+                            "availableFrom": null,
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "display": {},
+                            "tracks": [
+                                {
+                                    "key": "Track5",
+                                    "title": "Ce qui est jaune",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 15,
+                                    "fileSize": 246083,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "events": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/xlpKlaRmEJTVwlQdJpfwYZZj5b9PF5S4a86KmjKWmB4?Expires=1748718220&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8veGxwS2xhUm1FSlRWd2xRZEpwZndZWlpqNWI5UEY1UzRhODZLbWpLV21CNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc0ODcxODIyMH19fV19&Signature=Y~g75e7B7AEktksHM-sbRRdDvD3iMtQ0LlXKHgqCFgHzBMWi3tR7FWxL1aka3Emp2dT5p1noOHbPCqwr76jnuXlFvs~JTmtFpe7NIRS3YA9hQpdpM1IjV41Nvgj600WgY8AVbIglqyBTiVYvttRprvSfF0Fvn9JqJIn5f9TMr-Z2pZhIRQC-o0YcoDK2nzj1guB6qUf2QO0NSLEtp9OPPJ0G6~uvta9TMY~kvxRX-PPS5eIiHoV87Hdt002EXPUbVVW4enVCg2SCfwv2whLxNGjjB5sg-SJPET5Mk56Xtp-lE3GKnQwOEXCYSHV9QBHZrsLAYdAVFGZV6CsPR30rcA__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=xlpKlaRmEJTVwlQdJpfwYZZj5b9PF5S4a86KmjKWmB4",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/yoto/CV0RAMWv25Xs4jryAqQKog47XDJM9ty15Fsx3IXq0P4"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "Track6",
+                            "title": "Ce qui est jaune",
+                            "displayOverlay": "",
+                            "duration": 31,
+                            "hasStreams": false,
+                            "fileSize": 495880,
+                            "availableFrom": null,
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "display": {},
+                            "tracks": [
+                                {
+                                    "key": "Track6",
+                                    "title": "Ce qui est jaune",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 31,
+                                    "fileSize": 495880,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "events": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/Z3YVmXqNgkAqbIy6v6BXcKqdLEPx4eubSynrFjKn2kI?Expires=1748718220&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vWjNZVm1YcU5na0FxYkl5NnY2QlhjS3FkTEVQeDRldWJTeW5yRmpLbjJrSSIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc0ODcxODIyMH19fV19&Signature=SiX~-Igrnq1GXqgdI0ZhnDTMTeawiqBRIgWliDTLzd3~vTb4~BC85Iu7ZMZ8kROK1ECSUksmYg83Ed5Qi43lJVctoazgwuh2WGKkjQ1vdcwEMBVWtI8ll2MgPTdmbep3cRXHHbiP1B2Td08~Rc3uEDkQ7CmAuCXRFOVMRtHoxSukcumYa2CM~QiGB-gHkDYBWVwE58tKxqwB6j~pMpa6DuTv7qtBmyNCSI917JV4nD4ESFZyzYxeThSUGJrBLty7ACGlaABxZejKlHeV7NvrRh6dqwYVaibH7UawAlz0dSCAl2CXBaDFDN8jLp3b5yGsDL1gqZFZzDSoTtBXK677nA__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=Z3YVmXqNgkAqbIy6v6BXcKqdLEPx4eubSynrFjKn2kI",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/yoto/Kedwx3AqrRLdx8Nf1x9nXDwVkCHDwE4uWKz-ezhKLZc"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "Track7",
+                            "title": "Jeu de devinettes",
+                            "displayOverlay": "",
+                            "duration": 24,
+                            "hasStreams": false,
+                            "fileSize": 386077,
+                            "availableFrom": null,
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "display": {},
+                            "tracks": [
+                                {
+                                    "key": "Track7",
+                                    "title": "Jeu de devinettes",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 24,
+                                    "fileSize": 386077,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "events": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/vFIz_vCgxf5MHLqw2vk6gF6xS49Tz_bFoPPtrRgPN3s?Expires=1748718220&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vdkZJel92Q2d4ZjVNSExxdzJ2azZnRjZ4UzQ5VHpfYkZvUFB0clJnUE4zcyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc0ODcxODIyMH19fV19&Signature=cowGcYweCxklpmbc3JbyqZZQYYbOOOJMxV1zo-bjuMHrJYGsWN76V7BY7l7lij4bMTW2dadsTP3C8spp3ymbzd-JuFZFZ~wNCYnEY1WwN8nv7itjuojKJ7KL1SKdKUr3~2zwxoe5Vxo71By7JCuPw7ERN98J8aMmaLNvf-e0ihMi-swWYp15gGsRXoZXDO~zJwOriJazV7NzrJAkx6BJV5fsylKBgnCQbiOiXhf2eKG91Od2D~KKnensDm5BA621dWvUHREAJRuemDkJw45~SYwYlxn4wKUk-wybwESrIFxQRcQt9aBrQC2MBY6EAVUjWlhgs-YAoksRUVU-nLlbIw__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=vFIz_vCgxf5MHLqw2vk6gF6xS49Tz_bFoPPtrRgPN3s",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/yoto/fqAuu4nSrOwNU-xbNVsGG-Om_PEe3S161UJ-nTXeBIQ"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "Track8",
+                            "title": "Devinette",
+                            "displayOverlay": "",
+                            "duration": 31,
+                            "hasStreams": false,
+                            "fileSize": 493716,
+                            "availableFrom": null,
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "display": {},
+                            "tracks": [
+                                {
+                                    "key": "Track8",
+                                    "title": "Question",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 24,
+                                    "fileSize": 387111,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/D378QoE_7DRn4jspPmTMgqcaQaZx_orXj3wb0XHIdGg?Expires=1748718220&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vRDM3OFFvRV83RFJuNGpzcFBtVE1ncWNhUWFaeF9vclhqM3diMFhISWRHZyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc0ODcxODIyMH19fV19&Signature=FxnP8FbJ91wd0Wr~TJu7ovPBPEaIsAK3QQ07UCXUDw-MlaRuOOEWOXBeUx7nyTV9DV3MhN54GUj3Yk9F9RoaxBKG~saKIMnSy4u8yErSsbruXDGCrK4leZmcT0gxLidLEyoBIp0veo-nr831VDnQtwv-kGvO2PxKB7iFMOBSN2oL-DsZsoFcEplbq6~cVQkTzqSYrT~zlqmAz89vmoGXdwAVB1fwecHfiE6WRyCAQcyjd6EDcGjznQTHpnfbT-fw~gfXBQKoDlHmO3jK8M7LJx452un1zZkKVpKtRa9GajpUcGZm8BdmpqJuDi99W~SsGhCNYNwGhtd7Tawc3l4dRA__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=D378QoE_7DRn4jspPmTMgqcaQaZx_orXj3wb0XHIdGg",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/yoto/C2xTZEhu3BB2vkQhUrtqGaGnkG4pCt7n-auG8tnrgjw"
+                                    },
+                                    "events": {
+                                        "onEnd": {
+                                            "cmd": "stop"
+                                        }
+                                    }
+                                },
+                                {
+                                    "key": "Track9",
+                                    "title": "Réponse",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 7,
+                                    "fileSize": 106605,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "events": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/jpkG0k-fQQtwKaP2C7nDoWSNH7VFkq5JD-D0WKR0Mpc?Expires=1748718220&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vanBrRzBrLWZRUXR3S2FQMkM3bkRvV1NOSDdWRmtxNUpELUQwV0tSME1wYyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc0ODcxODIyMH19fV19&Signature=Uobvli~4QpPbIUIWNBDHlWDsbQy48Ik50w4q3tAmBhcRMAi6LNclf5BQxZKtb5bT-uDQhGIR69aMhbJRy~mBmkHL7UsvKf~vQ02jlSV0MVBarqzM3LdVPqua8MD7ETETNrB6W0u7zsVQSEDlVM2PwS0G7hRutCyuuXBVfYAl28TONgY5CKKjvbP-9oJWluFo88XDJEXhvPmQpAIELQkflxK0W86iMRzhT08jn6EwQ7AruW8exIW6279-ZNGX-ji8kKvfisW67DricVjpjpN8UjjJpQB-Gn3po3XDAzccEMv-vzQ4A8enY0H2EtcmoOUhQ-T9rPXc9Kz6LQMrA1RdAw__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=jpkG0k-fQQtwKaP2C7nDoWSNH7VFkq5JD-D0WKR0Mpc",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/yoto/SNrQLCmUE9h4ZnYsa-ao141NMPAsYaSQcLU6IfdK72A"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "Track10",
+                            "title": "Devinette",
+                            "displayOverlay": "",
+                            "duration": 35,
+                            "hasStreams": false,
+                            "fileSize": 573380,
+                            "availableFrom": null,
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "display": {},
+                            "tracks": [
+                                {
+                                    "key": "Track10",
+                                    "title": "Question",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 23,
+                                    "fileSize": 379458,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/ttNS3vw8j6JmEM8DtIVnRD0MVPnJGLqxK-sq73fV014?Expires=1748718220&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vdHROUzN2dzhqNkptRU04RHRJVm5SRDBNVlBuSkdMcXhLLXNxNzNmVjAxNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc0ODcxODIyMH19fV19&Signature=k2SgjedWC9o2voPhkpKWBbEPSn7aukocAMXFjWYIoolM2TdVtrrCxyGqg4262Sd3qnjnu22UqPJBmPyOeICStDyhim1k1AgguvCe596oXAQlG7wb9HXDqHNMgcTudbkyfxiBPptjtOKF2QTa3b7a9sWGL0N5gN8P5cW9ZaTh-62Cgdx97pjGOj3pD0PZ5Qd4AyiiH4-yipf2a5VxCLlkLsAIZ~PDqeS22wCNeO2bskoGG3WKkq1oCNd8V84eeJgTOvqOEzjvVR3clkuUy4W7XE3XhaZKhTQUwlQGrGEhr3PzPY6LvPV83I4XbCYBX9apsvGEyVs3wiPsTYpj~LvVZA__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=ttNS3vw8j6JmEM8DtIVnRD0MVPnJGLqxK-sq73fV014",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/yoto/C2xTZEhu3BB2vkQhUrtqGaGnkG4pCt7n-auG8tnrgjw"
+                                    },
+                                    "events": {
+                                        "onEnd": {
+                                            "cmd": "stop"
+                                        }
+                                    }
+                                },
+                                {
+                                    "key": "Track11",
+                                    "title": "Réponse",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 12,
+                                    "fileSize": 193922,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "events": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/Mmr0Ob80FeJf-eKccY9KAmdtQltvZ8G_oNii0iZRg9Y?Expires=1748718220&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vTW1yME9iODBGZUpmLWVLY2NZOUtBbWR0UWx0dlo4R19vTmlpMGlaUmc5WSIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc0ODcxODIyMH19fV19&Signature=LhBfVAQg6PWxrriLvkn34ErzqcPr38w0ILmSpDzCmll-fCGF6vYe~kB~SRQl6eURaPsphR5QNzPwZdt7ZP~cwisWSH1kd3W2I0lNam~e6RxJNAcgNFIayGTKLn2AY4P~OB~vdO0hUYbN2rfc-gFiIEJm0vyMdmlaMTSuAaGrzmOXoJh8o4DwLW0sGKAZHVZ~KzdFPXcRspMpaeXFtbfb8R9EpufU7vn4N6ihq-Kmv7RmGncchZJ40Phy2ZMKjmQr5DeZyQCbgASniR~B2k8KDblc53CTMN8ZwJL59HZ8u0yxMyAt4Jd4i-yAoo3uUradlMEXmzA~kaTIrfJJHhRuUA__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=Mmr0Ob80FeJf-eKccY9KAmdtQltvZ8G_oNii0iZRg9Y",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/yoto/7ETlTuabOiyPJSMnmOX0hAXzxNM18Pasn8bw2PpSIkk"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "Track12",
+                            "title": "Devinette",
+                            "displayOverlay": "",
+                            "duration": 44,
+                            "hasStreams": false,
+                            "fileSize": 702340,
+                            "availableFrom": null,
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "display": {},
+                            "tracks": [
+                                {
+                                    "key": "Track12",
+                                    "title": "Question",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 30,
+                                    "fileSize": 477931,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/fR0YXsWY98gDpyFcGORbHmQnbgHYtILTme_n6jmdccs?Expires=1748718220&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vZlIwWVhzV1k5OGdEcHlGY0dPUmJIbVFuYmdIWXRJTFRtZV9uNmptZGNjcyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc0ODcxODIyMH19fV19&Signature=v605ALyERErrFDECJ7pLTiuls4wsnJK-3QgOW7LG5BXhfrkHkYnOgqF7G0sE8PMG3183bBAadvMZiG3B4gz6YWd9p~qSPb~MgeOwebdQRheRjgzmVB4cy84AHSUfH1WVXASJgfCX1Fzjm8yo8lVd5W7FY0pazEiUpSEKk6Qi4xRCeQ64TudzoclimNH8HNKu1wyM8ELIRe6o8l14Z2MSzrEyfufKpUt3SryFwGs~s6aZhzVZ698Cqg015jD2PoJLndbqu0G4noBGIoXFyxlq2q98Fu0MH2LpFRYTDtWrZFHV2svELSakAQpPQP3VAURtnbQH~c16kWjWfee5wguOGA__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=fR0YXsWY98gDpyFcGORbHmQnbgHYtILTme_n6jmdccs",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/yoto/C2xTZEhu3BB2vkQhUrtqGaGnkG4pCt7n-auG8tnrgjw"
+                                    },
+                                    "events": {
+                                        "onEnd": {
+                                            "cmd": "stop"
+                                        }
+                                    }
+                                },
+                                {
+                                    "key": "Track13",
+                                    "title": "Réponse",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 14,
+                                    "fileSize": 224409,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "events": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/_Qd-wNiUE2DmxtUttCK3bxaYSAD8alFrTnXLlbFPaJo?Expires=1748718220&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vX1FkLXdOaVVFMkRteHRVdHRDSzNieGFZU0FEOGFsRnJUblhMbGJGUGFKbyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc0ODcxODIyMH19fV19&Signature=M8l94Qi7re5GYeuzJcRbbt7~7iQ3pdLWAspYY-Dcdx7lnM557Gz6uxykdMuZe4CLMvpRAklSAOvV~I0gQfye1mif1JBjgJxn4OdIm7o24TKP5iJOiWwWZ5RlEeJec5PYC9J0NfXXm6UDeiA~IF4jSggQy8nMixS6VUbgrHn4H2~faMDcy4HltzZZpe6I7cbKLHzLLlokVLJ3ogy-u85Tez6tUD-FYfQYLWEIY7Hgi6ZB4UBoPi8cmUBNKWUk8bPNEUT5iPri1b9kwpKyAduWRHOJXSnqUixlOSNWd0I1jtDWqVXdNkVD1osqK6Pv27Jl5Zl83qOflTugtT3DUNI7og__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=_Qd-wNiUE2DmxtUttCK3bxaYSAD8alFrTnXLlbFPaJo",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/yoto/rBLJOHSCbcDtwwtcBiqT06t2TxgnQkP_3QiIzGHCGHs"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "Track14",
+                            "title": "Devinette",
+                            "displayOverlay": "",
+                            "duration": 34,
+                            "hasStreams": false,
+                            "fileSize": 546824,
+                            "availableFrom": null,
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "display": {},
+                            "tracks": [
+                                {
+                                    "key": "Track14",
+                                    "title": "Question",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 24,
+                                    "fileSize": 381531,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/tAEsD286AojaT8EUqUEyU7jaRbrxzmUySqVTN8-uY6w?Expires=1748718220&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vdEFFc0QyODZBb2phVDhFVXFVRXlVN2phUmJyeHptVXlTcVZUTjgtdVk2dyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc0ODcxODIyMH19fV19&Signature=vbbtk5tLyPEEBF2gYO17MSGSY2fFYOyFEkOrQP90MDuwXD7WomeMWKqQNhTnvltw7yTencclWSFmF1V9LDEo6oaHMVlmOJqqrgdcG22cGzmakl1komZWemm1WheLC5m6-tBcFoSpNhoeJEwv294LaCRVmqpIYoGHnXfinL6p4F~Jgz1FWCuCVl6CTnDSldSnKS3JyEyZ9ee3dvjlOfIYswi1BEBIW1beh92LmlVBpnflhkv1pn1Xg7xLf5uZ9RCPnNafMjvJZLqAn-LLMZdVVvmYlrUfpHvEt1dusTxVhnK3OhWwpGDMLcaZpX3LK~QGYslXbtUJr49W6ZBxvWfzug__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=tAEsD286AojaT8EUqUEyU7jaRbrxzmUySqVTN8-uY6w",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/yoto/C2xTZEhu3BB2vkQhUrtqGaGnkG4pCt7n-auG8tnrgjw"
+                                    },
+                                    "events": {
+                                        "onEnd": {
+                                            "cmd": "stop"
+                                        }
+                                    }
+                                },
+                                {
+                                    "key": "Track15",
+                                    "title": "Réponse",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 10,
+                                    "fileSize": 165293,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "events": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/jnBHROn0j_Imp-2xHpFFrGQBdb4hj0VGThv6VgSLYmc?Expires=1748718220&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vam5CSFJPbjBqX0ltcC0yeEhwRkZyR1FCZGI0aGowVkdUaHY2VmdTTFltYyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc0ODcxODIyMH19fV19&Signature=XsjoOjdcyMrM6hKMdjFfyhYVr5TgQ9JX0Kc4VuUd5NBGOygjA1HF0axy8hggA5TzxFSTigEY7rXIeXoa5hhgx2ifa1ymWuLtiORHX2UIrjeJmPTPUuL8kxakvfn9q7snT6S9y~~QmudQ-p-OStTJUWiDMeTWSZhD70TeZQY8EPhZTFfmnyhLPOPs4k8x-z2rid-gNAATm4NgpU1uIIVNA3FrX7ZxyBPN9G6jpeUHmReOqWC1nHx~iqMR3ivPXe2eCZ6Ib51E8FaqPjJIgrInvHObokLa37NespH-8xyBcGgTUeeGNJQF1OSJOU3js6X9BJJySnHr~Y3ik61z3zN1eQ__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=jnBHROn0j_Imp-2xHpFFrGQBdb4hj0VGThv6VgSLYmc",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/yoto/_HDISCDWOa48mHj1ZW-TymAZhdSiiYRg5WWAdOmoD6c"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "Track16",
+                            "title": "Devinette",
+                            "displayOverlay": "",
+                            "duration": 61,
+                            "hasStreams": false,
+                            "fileSize": 983058,
+                            "availableFrom": null,
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "display": {},
+                            "tracks": [
+                                {
+                                    "key": "Track16",
+                                    "title": "Question",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 27,
+                                    "fileSize": 433005,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/wdBSyeZzjm6FUcwRZFUNrFuhDNGaQeH0ltejQF5T3yw?Expires=1748718220&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vd2RCU3llWnpqbTZGVWN3UlpGVU5yRnVoRE5HYVFlSDBsdGVqUUY1VDN5dyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc0ODcxODIyMH19fV19&Signature=Zi9v~IRWDNfKtufHczo5Eq4n6yLTkkncxrZahow818X9hoEWnIz3LXVtncnV1~bgl0iG4EhdplCWzzHJJD7Drce8ZYh8mo2B63nxU~B8UZpqihk59m5yP0hKyAmy9Nzci1w7xDY~NmOrK7quCICEdneD6ibpA962jc3c04bKHJgb89jSHw44XZg3v82Xb2Iqlep8cmJ2tk~MHST7~t6sbX5Y~24wutDDQJlKn5949IddJyeDpaSbtMUZhB5TZKtuCRsLyzvO0Mj6RawbcVe8VoI2qYQQgR654SN-JSSHX8nL9lJxu6tD~4NXDFaP1G8hpMl8x3V~y8Esqe5m3jHAzA__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=wdBSyeZzjm6FUcwRZFUNrFuhDNGaQeH0ltejQF5T3yw",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/yoto/C2xTZEhu3BB2vkQhUrtqGaGnkG4pCt7n-auG8tnrgjw"
+                                    },
+                                    "events": {
+                                        "onEnd": {
+                                            "cmd": "stop"
+                                        }
+                                    }
+                                },
+                                {
+                                    "key": "Track17",
+                                    "title": "Réponse",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 34,
+                                    "fileSize": 550053,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "events": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/dSdIOdGd6CweeJtizq7kOmnAEiPQrzFaoGZgR4thseI?Expires=1748718220&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vZFNkSU9kR2Q2Q3dlZUp0aXpxN2tPbW5BRWlQUXJ6RmFvR1pnUjR0aHNlSSIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc0ODcxODIyMH19fV19&Signature=gj6~Ug-DMKpIJ0fyH8Zq7erH05qzwKKSjmzYxNBzKKbsq2w~aHZq5flm5P~E76S8zydmcRCmEYGDi4fAVYax0L0evwls4mb8RVhbNbglVpwS7bCi-ROYbbv7FdudxMntKG5uAJY7xO5gFQAw1mGeb8Ip-fl9p~eHe0dk-hdNEM2142BEccMyBLYeOWyG4kjasCQaNUjUWWAnby6X1f2z7WV9JHjk46LouAlJF5y~yrmdepHqG9LoKWrq6SnP7deo20PfBJmP2S5BRmm5FM-sVcsZuNoHXPtqbrirsgr0RQdp-6Q7h3CxEGUX7YVZLQ74gVvCboVSWkysS0aFw0rc6Q__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=dSdIOdGd6CweeJtizq7kOmnAEiPQrzFaoGZgR4thseI",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/yoto/FL28Kq-drgLjOiQ_R3u6SjEmFvwke8aiLn8zbXkQzJg"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "Track18",
+                            "title": "Yayoi Kusama",
+                            "displayOverlay": "",
+                            "duration": 86,
+                            "hasStreams": false,
+                            "fileSize": 1395428,
+                            "availableFrom": null,
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "display": {},
+                            "tracks": [
+                                {
+                                    "key": "Track18",
+                                    "title": "Yayoi Kusama",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 86,
+                                    "fileSize": 1395428,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/0A_1snyBo0FS_9UINaPgCrdVIANCUtq1T5LMTrRU7Y4?Expires=1748718220&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vMEFfMXNueUJvMEZTXzlVSU5hUGdDcmRWSUFOQ1V0cTFUNUxNVHJSVTdZNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc0ODcxODIyMH19fV19&Signature=c2f1241uItpix2as8FD9TrPJ9BkFsM0HXv9DR9mYXvR~LGH0QfSjozpgf-rkfO1fw5C80d-TVqyeGhYoik0YLyrb4VFKWs6cFrEuiM1QAhYVA7YUA2AmAUb6t5YJgx81CUv9Mp4aE4da4b5oYKPdIO0Elro7Fwt4XM4xxJ--ulLy5TmEdMVh6Mk-GIOgJGOJxFmNng54-LTq0fglEdc1GrQZRsrCiJj-KXwbgiMsNVViPHthOHun6OqSgDHCy3pANhJ4KG9k0b6YvfI1UY8y~FuK-xv9LnbSZPhY7PhTDoVZ~owI1BTdV2jgI3QeCIetfnsoi6FNvzFAdwvdo-jifA__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=0A_1snyBo0FS_9UINaPgCrdVIANCUtq1T5LMTrRU7Y4",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/yoto/Fcg9fEJJVJmmXPfyKxsRIL0MQ5uRzsbI9oJ2yuzNZ0s"
+                                    },
+                                    "events": {
+                                        "onEnd": {
+                                            "cmd": "stop"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "Track19",
+                            "title": "Yayoi Kusama",
+                            "displayOverlay": "",
+                            "duration": 66,
+                            "hasStreams": false,
+                            "fileSize": 1069507,
+                            "availableFrom": null,
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "display": {},
+                            "tracks": [
+                                {
+                                    "key": "Track19",
+                                    "title": "Yayoi Kusama",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 66,
+                                    "fileSize": 1069507,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "events": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/N5C3Q4tEWF3wXvBMSzeBD67QDWMjoPT5hkXIgsvftdU?Expires=1748718220&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vTjVDM1E0dEVXRjN3WHZCTVN6ZUJENjdRRFdNam9QVDVoa1hJZ3N2ZnRkVSIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc0ODcxODIyMH19fV19&Signature=jBOy8q5kH0E~Ph4JorRSvhQrkNenNuIRyVtptgVLOc98XerWJ0bYQJpKtHVe5ouWqZSBVZpMfVhlT68BiCOsLIyvTFODNTdf4bSw1qRh1dCKTX3hMjFHX8h0j2SrifBnvR9rZUHXOw6EMFb0o7WoFYZg-lCc-9bAHGWu8coSDTmRpp86RiB2p6pH0nZVpjaBuTf9tprQBw7m2S~Yj2jlM6YeyISmKC9aNOonDbNjyp89hFJF6yacBnGjRmf2jQXj-Uozb4WiOLOkU7CoT4seRD063aIx4FdwvQXyL8T3npirShzorqmMuCtCnXI671LMW34C5U8hdkcio5uVyFY4tQ__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=N5C3Q4tEWF3wXvBMSzeBD67QDWMjoPT5hkXIgsvftdU",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/yoto/3LqazrW1I3TZBXY62njKg6C1Qccg89EFdCItguxvgbM"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "Track20",
+                            "title": "Dessine à la manière de Yayoi Kusama",
+                            "displayOverlay": "",
+                            "duration": 39,
+                            "hasStreams": false,
+                            "fileSize": 623657,
+                            "availableFrom": null,
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "display": {},
+                            "tracks": [
+                                {
+                                    "key": "Track20",
+                                    "title": "Dessine à la manière de Yayoi Kusama",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 39,
+                                    "fileSize": 623657,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/C98vp71mEwQP4Vit6gPis72M4BSjnXfes2zuvZL5KZg?Expires=1748718220&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vQzk4dnA3MW1Fd1FQNFZpdDZnUGlzNzJNNEJTam5YZmVzMnp1dlpMNUtaZyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc0ODcxODIyMH19fV19&Signature=eUZ88jSTC1BtIsZkGjGoPvQTrmSIzN8vvinRg3qCgTrIH0vnjOqzBw12O1Xl75v8kLDzNsyPIoVVnurf4h7DXMpSsE43uUl3bdVmuB62Gzlvlz28BjkRDxf3FMkMEZHrUH1-65OgbmOciKCbEy7T5OpnqA0BQLNhfTyvqg0pzrG48xtFf5FZ7NLdgg2A4qHtNN4p0RjotEah42WWhqf1R1PgE84-hD6b2q03CXmxCWC1zLrploSeVgU6spC5anfn0W6yGNuwh7zP3CfRyo3l1ZSo4mVNSWudRBbjEWkMYP~DcOkt9eZsWTlE83n5qAxe1SJlnrv49rlkdlVH1sLn4w__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=C98vp71mEwQP4Vit6gPis72M4BSjnXfes2zuvZL5KZg",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/yoto/q39cC7SW1Ku-AhD6G3Kqu5q3ifM65_kGVjyK_TPNBmo"
+                                    },
+                                    "events": {
+                                        "onEnd": {
+                                            "cmd": "stop"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "Track21",
+                            "title": "Dessine à la manière de Yayoi Kusama",
+                            "displayOverlay": "",
+                            "duration": 63,
+                            "hasStreams": false,
+                            "fileSize": 1012088,
+                            "availableFrom": null,
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "display": {},
+                            "tracks": [
+                                {
+                                    "key": "Track21",
+                                    "title": "Dessine à la manière de Yayoi Kusama",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 63,
+                                    "fileSize": 1012088,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "events": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/AE3Qe5wo7b3qzhuQPKWXG_xP7MYL9-co7RSmhqAz1d8?Expires=1748718220&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vQUUzUWU1d283YjNxemh1UVBLV1hHX3hQN01ZTDktY283UlNtaHFBejFkOCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc0ODcxODIyMH19fV19&Signature=wGbavSlayBJDUn9CF0TxLXbkA498Ey3sa2pf6mOYsbJyi2YxN8Qm1RdSunrLz25~H4fr9j8~li1ZHbTEUwFN5rl-SCbWjKSDwRCpERABlpSDH9gTbRNm-FNaMyep9kbkbzICrg~EqlraSxr4ipsPZDwnSUlipwmehzOe7uyF9UEYQhPZoOUsPvoBtCG5GcBB3BqMeuAsMEAiJQlXfjQu9baFJ7-JWuFK-IeKAfGEPBxyb0idLbBRw63xEcbMG2CLjJ-1ZiqE-Xtl911I95yf4g9RUbFBE9b35xKctPR6X99NGRlac6DsMUihZ4aHw~vB04uF8Q7i3L16fiS8L89AuQ__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=AE3Qe5wo7b3qzhuQPKWXG_xP7MYL9-co7RSmhqAz1d8",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/yoto/q39cC7SW1Ku-AhD6G3Kqu5q3ifM65_kGVjyK_TPNBmo"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "Track22",
+                            "title": "Dessine à la manière de Yayoi Kusama",
+                            "displayOverlay": "",
+                            "duration": 46,
+                            "hasStreams": false,
+                            "fileSize": 739892,
+                            "availableFrom": null,
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "display": {},
+                            "tracks": [
+                                {
+                                    "key": "Track22",
+                                    "title": "Dessine à la manière de Yayoi Kusama",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 46,
+                                    "fileSize": 739892,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "events": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/J15xRmW4fik-vfkRwvzGbq_vx5gs72unioxap-4Uc3w?Expires=1748718220&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vSjE1eFJtVzRmaWstdmZrUnd2ekdicV92eDVnczcydW5pb3hhcC00VWMzdyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc0ODcxODIyMH19fV19&Signature=R1zC-lSNH2Y982~llP50mumpGYn9kJdUVEEBdQCnslbycqZMCMhUv1W7FYWSlrghV9nDRz2b-uSxQzvFq4csFtCogNTER7Cg7nYucU3CkPfPminZJ9iLudRpRa7Y97MXqMauGw61UVK7l3lu-wmQWdR4VEBhGpoFhYzYmNj83nwxm4OQQa7crku0xv8G1m-JGKhs7m4bZ7LHkIPKllxiLYTff6s6d3~6EzktFw9IbDZHKM~nTL6UCxIa83hNRg0aVTEaPxdk6Td4IqgO1qsHnxci9zKyw4OjC0fp05yCCvxlnXV8rU1Ct4FNdMY43SCUT4RVrNbt6wGVx3an~Npc0g__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=J15xRmW4fik-vfkRwvzGbq_vx5gs72unioxap-4Uc3w",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/yoto/q39cC7SW1Ku-AhD6G3Kqu5q3ifM65_kGVjyK_TPNBmo"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "Track23",
+                            "title": "Dessine à la manière de Yayoi Kusama",
+                            "displayOverlay": "",
+                            "duration": 55,
+                            "hasStreams": false,
+                            "fileSize": 892264,
+                            "availableFrom": null,
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "display": {},
+                            "tracks": [
+                                {
+                                    "key": "Track23",
+                                    "title": "Dessine à la manière de Yayoi Kusama",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 55,
+                                    "fileSize": 892264,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "events": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/lr-s3cwj4nlg42gggt5Jexq_9xoyotLrYs57rKoAvuk?Expires=1748718220&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vbHItczNjd2o0bmxnNDJnZ2d0NUpleHFfOXhveW90THJZczU3cktvQXZ1ayIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc0ODcxODIyMH19fV19&Signature=VzE29k524iYLjS4K62nhOV3pIwlo5yyqidRp~jguZqLo-aGtz-xHdl6pDi0SzKFW0kU-fxE8dCbgQO4uScHy9Tx3LjJd2fX~vRFR37c8ObwbNtRUSQ8Jlp38AKLZXg5XtAKXwt6CkxCAFSJEEcVwjDe-YFvF07x2oR19pbyTxz7SbzxB~GBpCxcap7ENoz9-Q0~nc0TXNm716cFhvgShdHJT~4uSxeFvTG3A48mdiXYToBEmun2~Aw~4xg~~NNlugx4t5iQuyjkv54DLMX04YE2nrZEVdcoqd5cFPEv~5u~mwvQC4pXFCh2eWZ1CnKg7gqcs~6HoZJE5NFr0z8Ij4g__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=lr-s3cwj4nlg42gggt5Jexq_9xoyotLrYs57rKoAvuk",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/yoto/3LqazrW1I3TZBXY62njKg6C1Qccg89EFdCItguxvgbM"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "Track24",
+                            "title": "Dessine à la manière de Yayoi Kusama",
+                            "displayOverlay": "",
+                            "duration": 46,
+                            "hasStreams": false,
+                            "fileSize": 739892,
+                            "availableFrom": null,
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "display": {},
+                            "tracks": [
+                                {
+                                    "key": "Track24",
+                                    "title": "Dessine à la manière de Yayoi Kusama",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 46,
+                                    "fileSize": 739892,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "events": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/J15xRmW4fik-vfkRwvzGbq_vx5gs72unioxap-4Uc3w?Expires=1748718220&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vSjE1eFJtVzRmaWstdmZrUnd2ekdicV92eDVnczcydW5pb3hhcC00VWMzdyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc0ODcxODIyMH19fV19&Signature=R1zC-lSNH2Y982~llP50mumpGYn9kJdUVEEBdQCnslbycqZMCMhUv1W7FYWSlrghV9nDRz2b-uSxQzvFq4csFtCogNTER7Cg7nYucU3CkPfPminZJ9iLudRpRa7Y97MXqMauGw61UVK7l3lu-wmQWdR4VEBhGpoFhYzYmNj83nwxm4OQQa7crku0xv8G1m-JGKhs7m4bZ7LHkIPKllxiLYTff6s6d3~6EzktFw9IbDZHKM~nTL6UCxIa83hNRg0aVTEaPxdk6Td4IqgO1qsHnxci9zKyw4OjC0fp05yCCvxlnXV8rU1Ct4FNdMY43SCUT4RVrNbt6wGVx3an~Npc0g__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=J15xRmW4fik-vfkRwvzGbq_vx5gs72unioxap-4Uc3w",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/yoto/3LqazrW1I3TZBXY62njKg6C1Qccg89EFdCItguxvgbM"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "Track25",
+                            "title": "Dessine à la manière de Yayoi Kusama",
+                            "displayOverlay": "",
+                            "duration": 25,
+                            "hasStreams": false,
+                            "fileSize": 405371,
+                            "availableFrom": null,
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "display": {},
+                            "tracks": [
+                                {
+                                    "key": "Track25",
+                                    "title": "Dessine à la manière de Yayoi Kusama",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 25,
+                                    "fileSize": 405371,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "events": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/7fX4GBp0fgS1jKE1LZ9fAphxyyQdmQi3Ku_2rO5ztbs?Expires=1748718220&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vN2ZYNEdCcDBmZ1MxaktFMUxaOWZBcGh4eXlRZG1RaTNLdV8yck81enRicyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc0ODcxODIyMH19fV19&Signature=vYZlale6T-q-bZGaYQsu5JCskGRwDWY2quMIwbDiKD8dDQy5R3j3cLRpMlT7RH3C3g7Mtud5RQkFPkmbgB93oKWrD4YjU-cfZaen2Y4Zg5psmPVFGrBlFqhBgY51npoymPPUQktndpYeCh3zEluqhIvB5jPPzsZ8OdO4809IIHeTpnaiCXrr04LMFEB1Hl07-xMM6tVv3C4Zf7GQahdWUNW1wpTwLkLGAdHegzKb-N3r8UxT3W-ZnpZthoCkPbl7ZhZ0XUIjSoZjUgf3yRp2ew0auGqbZYClwQsSkudKZNsctnklIIJ~oiDRjs-PCDiZx1FgV9c7AgFogqzO~~uJ2w__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=7fX4GBp0fgS1jKE1LZ9fAphxyyQdmQi3Ku_2rO5ztbs",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/yoto/3LqazrW1I3TZBXY62njKg6C1Qccg89EFdCItguxvgbM"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "Track26",
+                            "title": "Conclusion",
+                            "displayOverlay": "",
+                            "duration": 52,
+                            "hasStreams": false,
+                            "fileSize": 840491,
+                            "availableFrom": null,
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "display": {},
+                            "tracks": [
+                                {
+                                    "key": "Track26",
+                                    "title": "Conclusion",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 52,
+                                    "fileSize": 840491,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "events": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/5FVQ-SZO_38L2FwcAWb1ALEKfzhbXcZjaS_D71hjDDA?Expires=1748718220&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vNUZWUS1TWk9fMzhMMkZ3Y0FXYjFBTEVLZnpoYlhjWmphU19ENzFoakREQSIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc0ODcxODIyMH19fV19&Signature=lcVbqMdnEkwTzrZi66u1cV96XyBnkDc3lEx1lqj8UeXlusvgPo3GUGSpIvwqsTe6xx-kRmd5YR7rz6At-8a2jeXAbzLZqSZmwCwuS7Lietgj6ZBG1gl3Of2K41lVsYtxOlLLem~uFXt-Wauzd0cNH5d77DbXl8VtiA615SBy8rUIO2s98ORO-JSIjBg0fy74Sl2BcST6O6enxSdJZ1Yr-IozFRvT7WZXgLpzq9VrxqyHGftu1tX5EzDTTuoBiL~bC59REx7Q89Dc8zujM8UUs6S2JuHaQ7UdzQszOsC-BZF2jbNrnfECZpfSLMdZXx7vgTKzo7fcLDYPiNaJqhhsxA__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=5FVQ-SZO_38L2FwcAWb1ALEKfzhbXcZjaS_D71hjDDA",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/yoto/jHxaJgBPvzhZkM8BFfyN4dU267O-2gSBSvOrEhX6OU4"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "metadata": {
+                    "author": "Yoto",
+                    "category": "activities",
+                    "seriestitle": "Les couleurs sont un jeu",
+                    "description": "Bienvenue dans l’univers du jaune ! \nPlace à la couleur du soleil, des poussins et des bananes ! Dans cette carte, votre enfant va explorer le jaune sous toutes ses formes, s’amuser et créer autour de cette teinte lumineuse et joyeuse.\n\nÀ la recherche du jaune !\nRegardons autour de nous : quels objets jaunes pouvons-nous trouver ? Une fleur ? Un jouet ? Un joli citron dans la cuisine ? Cette couleur pétillante est partout autour de nous !\n\nUn jeu de devinettes tout en jaune !\nQuel fruit jaune est tout rond et peut être très acide ? Et lequel a une couronne et pousse sous les tropiques ? Votre enfant devra deviner des fruits jaunes emblématiques en s’amusant !\n\nÀ vos crayons !\nSortons les feuilles et les crayons pour une activité Dessine avec moi ! Cette fois, cap sur un univers rempli de citrouilles jaunes ! On dessine leur forme, on ajoute des pois, et pourquoi pas, un décor imaginé par votre enfant.\n\nUn chef-d’œuvre à découvrir : Citrouille de Yayoi Kusama\nDirection le Japon pour découvrir Yayoi Kusama, une artiste fascinante qui adore les couleurs vives, les pois et surtout… les citrouilles ! Elle a créé d’énormes sculptures de citrouilles jaunes couvertes de pois noirs, à la fois joyeuses et intrigantes.\n\nPrêts et prêtes à explorer le jaune sous toutes ses nuances ? C’est parti !\n\nÀ découvrir :  la carte entière  \nDisponibilité : jusqu'au 30 mai \nCarte sur l’e-shop : 21 pistes\nPour les 3 à 6 ans",
+                    "note": "Free version",
+                    "cover": {
+                        "imageL": "https://card-content.yotoplay.com/yoto/pub/sV-oQOYWrbFM08f4Xwbq-qbI6H9wj_Bl8rc8iTqVrbA"
+                    },
+                    "media": {
+                        "duration": 909,
+                        "fileSize": 14669584,
+                        "hasStreams": false
+                    },
+                    "status": {
+                        "name": "complete",
+                        "updatedAt": "2025-04-17T12:21:18.552Z"
+                    },
+                    "languages": [
+                        "fr",
+                        "fr-fr"
+                    ]
+                },
+                "slug": "le-jaune-couleur-primaire",
+                "title": "Le jaune, couleur primaire ",
+                "userId": "yoto",
+                "sortkey": "le-jaune-couleur-primaire-free",
+                "clubAvailability": [
+                    {
+                        "store": "dev"
+                    }
+                ],
+                "cardId": "aUSB5",
+                "createdAt": "2025-04-17T12:20:53.090Z",
+                "updatedAt": "2025-04-17T12:27:03.455Z",
+                "availability": "free"
+            },
+            "__ni18n_server__": {
+                "resources": {
+                    "en": {
+                        "translation": {
+                            "web_share_player_content_created_by": "created by",
+                            "web_share_player_download_app_store": "Download on the App Store",
+                            "web_share_player_download_app_tip_desktop": "Download the free Yoto App and scan this code",
+                            "web_share_player_download_app_tip_generic": "Unlock a world of stories, music, activities, sleep sounds, podcasts and radio",
+                            "web_share_player_download_app_tip_mobile": "Download the free Yoto App and tap the share link again",
+                            "web_share_player_download_app_tip_nfc_tap": "Download the free Yoto App and tap the card on your mobile",
+                            "web_share_player_download_app_title_add_card": "Want to add this card to your Yoto library?",
+                            "web_share_player_download_app_title_generic": "Download the free Yoto App",
+                            "web_share_player_download_google_play": "Get it on Google Play",
+                            "web_share_player_invalid_link_desc": "It might contain a typo or is no longer available.",
+                            "web_share_player_invalid_link_title": "Unrecognized link",
+                            "web_share_player_link_preview_description": "Listen and add to your Yoto library",
+                            "web_share_player_link_preview_num_of_episodes": "Number of episodes",
+                            "web_share_player_link_preview_running_time": "Running time",
+                            "web_share_player_link_preview_shared_by": "Shared by",
+                            "web_share_player_not_found_heading": "Uh oh, I’ve got a bad feeling about this...",
+                            "web_share_player_not_found_page_title": "Not found",
+                            "web_share_player_not_found_text": "We can’t find the content you’re looking for. You might have followed an expired or invalid link.",
+                            "web_share_player_sharing_paused_desc": "We’ve frozen this link because it may be breaking our <1>sharing policy</1>. The playlist’s creator can email hello@yotoplay.com to request a manual review.",
+                            "web_share_player_sharing_paused_title": "Sharing paused",
+                            "web_share_player_sharing_policy_url": "https://support.yotoplay.com/en-US/friends-and-family-safe-sharing-policy-11561"
+                        }
+                    },
+                    "fr": {
+                        "translation": {
+                            "web_share_player_content_created_by": "Créé par",
+                            "web_share_player_download_app_store": "Télécharger dans l'App Store",
+                            "web_share_player_download_app_tip_desktop": "Téléchargez l'appli Yoto gratuite, puis scannez ce code",
+                            "web_share_player_download_app_tip_generic": "Un univers audio fascinant : histoires, musique, bruits blancs, podcasts et radio",
+                            "web_share_player_download_app_tip_mobile": "Téléchargez l'appli Yoto gratuite, puis appuyez de nouveau sur le lien partagé",
+                            "web_share_player_download_app_tip_nfc_tap": "Téléchargez l'appli Yoto gratuite et tapez la carte sur votre téléphone pour l'écouter",
+                            "web_share_player_download_app_title_add_card": "Souhaitez-vous ajouter cette carte dans votre audiothèque ?",
+                            "web_share_player_download_app_title_generic": "Téléchargez l'appli Yoto gratuitement",
+                            "web_share_player_download_google_play": "Disponible sur Google Play",
+                            "web_share_player_invalid_link_title": "Lien non reconnu",
+                            "web_share_player_link_preview_description": "Écouter et ajouter dans votre audiothèque",
+                            "web_share_player_link_preview_num_of_episodes": "Nombre d'épisodes",
+                            "web_share_player_link_preview_running_time": "Temps d'écoute",
+                            "web_share_player_link_preview_shared_by": "Partagé par",
+                            "web_share_player_not_found_heading": "Aïe, aïe, aïe… Ça, on ne l’avait pas prévu !",
+                            "web_share_player_not_found_page_title": "Non trouvé",
+                            "web_share_player_not_found_text": "Nous ne trouvons pas le contenu audio que vous cherchez. Vous avez peut-être ouvert un lien invalide ou un lien expiré.",
+                            "web_share_player_sharing_paused_desc": "Nous avons gelé ce lien car il pourrait enfreindre notre <1>politique de partage<\\/1>. Le créateur du contenu peut nous contacter sur bonjour@yotoplay.com pour revoir le contenu.",
+                            "web_share_player_sharing_paused_title": "Partage en pause",
+                            "web_share_player_sharing_policy_url": "https://support.yotoplay.com/fr-FR/partager-du-contenu-audio-avec-vos-proches-11561"
+                        }
+                    }
+                },
+                "ns": [
+                    "translation"
+                ],
+                "lng": "en"
+            },
+            "isPhysicalCard": true,
+            "deviceLocale": "en",
+            "deviceType": "desktop",
+            "contentId": "aUSB5"
+        },
+        "__N_SSP": true
+    },
+    "page": "/p/[contentId]",
+    "buildId": "V3pEs2QsEdVL4U035yoUs",
+    "isFallback": false,
+    "gssp": true,
+    "scriptLoader": [],
+    "officiality": {
+        "version": 1.2,
+        "date": "2025-05-31_14-03-40",
+        "creator": "Free"
+    }
+}

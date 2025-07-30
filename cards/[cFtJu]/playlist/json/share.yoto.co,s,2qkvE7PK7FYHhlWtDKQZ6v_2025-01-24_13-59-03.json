@@ -1,0 +1,418 @@
+{
+    "props": {
+        "pageProps": {
+            "card": {
+                "title": "Moo Music - The Top Ten",
+                "content": {
+                    "hidden": false,
+                    "activity": "yoto_Player",
+                    "version": "1",
+                    "playbackType": "linear",
+                    "editSettings": {
+                        "transcodeAudioUploads": true
+                    },
+                    "config": {
+                        "resumeTimeout": 2592000,
+                        "onlineOnly": false,
+                        "shuffle": [
+                            {
+                                "start": 0,
+                                "end": 9,
+                                "limit": 10
+                            }
+                        ]
+                    },
+                    "chapters": [
+                        {
+                            "key": "00",
+                            "title": "Wake Up Good Morning",
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "fileSize": 1548437,
+                            "duration": 95,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/1ncPMuhiO6cR7WQVgeHPnv0jfgnfy4bgXavKI_pKI9-M~/VCipqGhZiCIBI_tky0ppmM4rHw3TMCavzQbi8XO6dKM"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "01",
+                                    "title": "Wake Up Good Morning",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "duration": 95,
+                                    "fileSize": 1548437,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/1ncPMuhiO6cR7WQVgeHPnv0jfgnfy4bgXavKI_pKI9-M~/TukyB7xa_xhpvoYC-wOkqFM81XAR6pkWoqantGlzb2w?Expires=1737748743&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tLzFuY1BNdWhpTzZjUjdXUVZnZUhQbnYwamZnbmZ5NGJnWGF2S0lfcEtJOS1Nfi9UdWt5Qjd4YV94aHB2b1lDLXdPa3FGTTgxWEFSNnBrV29xYW50R2x6YjJ3IiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzM3NzQ4NzQzfX19XX0_&Signature=foffBqTtl7CooSsjuHRqYncdlu-8sFp3YEOQTieOShkGrZEbpAJcusQa5G2RLZU2cYUpeKXNtHXHyTG3beaP8~SVvoZhteChbPBA6vabRJ6eSSR8yktzweU4LrIpVrBPwys3aDwKAYcoP-6Zddvo4SaSh3C~Gzbk8BlC9BM0JI7lebSHcBMcDm8e7L9I~lZqzi-jxsknSiJ4A7DAIVygiWjVirIHfWCXe5wV2SNUAMXzw2IvZL2H~nKezMgnHIAeZwXlBezeademTUWANoxNTrtGxCz5fMxov5LxNqMI6WnW0goOfcdpm3AO13h~V8rJU0N2IVFd5gFpbM1NlmnubA__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=TukyB7xa_xhpvoYC-wOkqFM81XAR6pkWoqantGlzb2w",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/1ncPMuhiO6cR7WQVgeHPnv0jfgnfy4bgXavKI_pKI9-M~/VCipqGhZiCIBI_tky0ppmM4rHw3TMCavzQbi8XO6dKM"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "01",
+                            "title": "Bubbles Are Fun",
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "fileSize": 1740381,
+                            "duration": 107,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/1ncPMuhiO6cR7WQVgeHPnv0jfgnfy4bgXavKI_pKI9-M~/McIfRpNCoXTtmm3yiHeGScfg7k3gJvAGtIijRar24-8"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "01",
+                                    "title": "Bubbles Are Fun",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "duration": 107,
+                                    "fileSize": 1740381,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/1ncPMuhiO6cR7WQVgeHPnv0jfgnfy4bgXavKI_pKI9-M~/qiIYNswBhw2mWcKu8fDF933dCogXmC7MEKoZS8hJLus?Expires=1737748743&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tLzFuY1BNdWhpTzZjUjdXUVZnZUhQbnYwamZnbmZ5NGJnWGF2S0lfcEtJOS1Nfi9xaUlZTnN3Qmh3Mm1XY0t1OGZERjkzM2RDb2dYbUM3TUVLb1pTOGhKTHVzIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzM3NzQ4NzQzfX19XX0_&Signature=tuFliVTpFlBj-5JURIyD0QEbV~QBHoNrLts3XhD0aVnIObr4~vn1~kAbCpBOWqP38Fm1lIFwd5rBTcK3OhetG9ajkch6~SAfr0lOFd7FcGIdmj-a99EFLReVIlZ59yNBvL-i929N5s6k~4S47Wozz3J~mx4VuYVebmVhVRDBa~faQrTQj158XNzU7QkZg1v7nQD7C1mXe7oGXU7Jpghi5B~moeaE-ImrugsghVNmzU4ZNakFaIIPU2IPgA2xW-3pX3QQKiP4gRRyYXVLfxcXk6ZmFCbCI3ikKcYpivww36y2DIrZbZ6lqVwYGbVDJvz0xn7CdrNZqeX0Jeyl8F93xA__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=qiIYNswBhw2mWcKu8fDF933dCogXmC7MEKoZS8hJLus",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/1ncPMuhiO6cR7WQVgeHPnv0jfgnfy4bgXavKI_pKI9-M~/McIfRpNCoXTtmm3yiHeGScfg7k3gJvAGtIijRar24-8"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "02",
+                            "title": "Sleep Wake Up",
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "fileSize": 1682798,
+                            "duration": 104,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/1ncPMuhiO6cR7WQVgeHPnv0jfgnfy4bgXavKI_pKI9-M~/GAvCuUCyEJhyYiZ6fJFfIBHkyblyHBvTlhsz4UantDM"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "01",
+                                    "title": "Sleep Wake Up",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "duration": 104,
+                                    "fileSize": 1682798,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/1ncPMuhiO6cR7WQVgeHPnv0jfgnfy4bgXavKI_pKI9-M~/KifXkUrhWxzbmeYtsCn5VXAymosnxU3gxOlFTDC6uIc?Expires=1737748743&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tLzFuY1BNdWhpTzZjUjdXUVZnZUhQbnYwamZnbmZ5NGJnWGF2S0lfcEtJOS1Nfi9LaWZYa1VyaFd4emJtZVl0c0NuNVZYQXltb3NueFUzZ3hPbEZUREM2dUljIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzM3NzQ4NzQzfX19XX0_&Signature=H43XQs4NzN3BdpdpAz1Bw6x~bv6S2800uMD9IwC0hscBae~YD7YwSp4jLq8S-RzhFfR9QZ9FxXZZbhmTal5Bq3w1QqkE0QCaXMONaaD0Jv32EKob~C7i--1LjwD~YTYI75Acow5YlHgOyebAXRk-Kb~gbIDnWMshIGsmpwdbmqx3Gf5-bU~ZtY4phKHZzZmU13LreT6Nccy8qx7hhn4Jk9shguv5kOD8MZA2SpSBllWxH3Jry6vf9feL~qb35OnSOzEwocr2B0ZcEZ~ClcpieraWvw9J5iDRs2ujDD7M0omOOUznnp5U6olJ2zvssZ7YdN2wh4CHEsR0Q1QbZFGr4Q__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=KifXkUrhWxzbmeYtsCn5VXAymosnxU3gxOlFTDC6uIc",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/1ncPMuhiO6cR7WQVgeHPnv0jfgnfy4bgXavKI_pKI9-M~/GAvCuUCyEJhyYiZ6fJFfIBHkyblyHBvTlhsz4UantDM"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "03",
+                            "title": "Take Me To The Park",
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "fileSize": 1893184,
+                            "duration": 117,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/1ncPMuhiO6cR7WQVgeHPnv0jfgnfy4bgXavKI_pKI9-M~/HutrXmuIFzb3BL5D7PVJXGxmLNzautwF5bMoCQ5CDCc"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "01",
+                                    "title": "Take Me To The Park",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "duration": 117,
+                                    "fileSize": 1893184,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/1ncPMuhiO6cR7WQVgeHPnv0jfgnfy4bgXavKI_pKI9-M~/hS6z4NlbXqUIyQuOt2qQmJhAaLN3CqCYIj1LYHz1Wvo?Expires=1737748743&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tLzFuY1BNdWhpTzZjUjdXUVZnZUhQbnYwamZnbmZ5NGJnWGF2S0lfcEtJOS1Nfi9oUzZ6NE5sYlhxVUl5UXVPdDJxUW1KaEFhTE4zQ3FDWUlqMUxZSHoxV3ZvIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzM3NzQ4NzQzfX19XX0_&Signature=m5SdSaTPqDlW95czTr3Re45y~6iTj8FFMZLpWcOJRBtilMIKmVPEhjp1oHNmYTDSpldY93j06rJGlB1azQBOCt40JuqQhephlJV7k1DK-klqLw~m8358FgRmySMbJ4FoxjioedbWfYJanfGnKlJeLgVqbXoe9mscBsEMdsoSJiDlu8ttLKYSH9CvEpiTogF2aETFeMkn7boQVeP5bCcNYlYWZTeUNXtUa0aD0PF0QntdZgpBa4mX0Id3WOVxwNbwZ0SJTvjU3YerDPpDAGztRCmK0ec25pJ6SUQe1AXFCbCoKnqjsC6CZbzZQqj9hclGILMmlSRgTu6E6HxqoLj5Vw__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=hS6z4NlbXqUIyQuOt2qQmJhAaLN3CqCYIj1LYHz1Wvo",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/1ncPMuhiO6cR7WQVgeHPnv0jfgnfy4bgXavKI_pKI9-M~/HutrXmuIFzb3BL5D7PVJXGxmLNzautwF5bMoCQ5CDCc"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "04",
+                            "title": "Stand Up Sit Down",
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "fileSize": 1761834,
+                            "duration": 109,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/1ncPMuhiO6cR7WQVgeHPnv0jfgnfy4bgXavKI_pKI9-M~/jmpBDOfiG-5QDXND7NMAy9COAy1QJbM3AofqCy_BYX4"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "01",
+                                    "title": "Stand Up Sit Down",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "duration": 109,
+                                    "fileSize": 1761834,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/1ncPMuhiO6cR7WQVgeHPnv0jfgnfy4bgXavKI_pKI9-M~/yKiEZJjs-hyX8pBxC1fi9Dd9w6G8EYhikUzLr4oQUq4?Expires=1737748743&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tLzFuY1BNdWhpTzZjUjdXUVZnZUhQbnYwamZnbmZ5NGJnWGF2S0lfcEtJOS1Nfi95S2lFWkpqcy1oeVg4cEJ4QzFmaTlEZDl3Nkc4RVloaWtVekxyNG9RVXE0IiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzM3NzQ4NzQzfX19XX0_&Signature=Ig30Rf1ShheHLJ05WO0uXkCUD9bX~Oy3U5javPjneqlAQMCdDK7M9fRlEZLWiNGLyY3FOUYyH0mLgaxV88slVn8xQpjqET1nmXswnsYwo-c3nmscpL938S7~eyKrXGBgazfZSRLJNtGUYMOE0YaOg8iDwIbDeshvmOKtl-67-xQB64nHqEUX~lxQQ8G0Y8k1R8Y3S8Ir2qYwfDgG2cMTEn-esuAOAiYKxolmTMCp0DZ~vMtZctvk3gMoBQhnyJR4KsksKHFR8VQhLJRYUgGm6ieYXZOiMoRI-DTLHVksIjWsgli7PgJ1GFQ-6CH4GAyd3cYc-CKckEzSVDzbEfQ1vQ__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=yKiEZJjs-hyX8pBxC1fi9Dd9w6G8EYhikUzLr4oQUq4",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/1ncPMuhiO6cR7WQVgeHPnv0jfgnfy4bgXavKI_pKI9-M~/jmpBDOfiG-5QDXND7NMAy9COAy1QJbM3AofqCy_BYX4"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "05",
+                            "title": "We're Going On A Train",
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "fileSize": 2355371,
+                            "duration": 145,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/1ncPMuhiO6cR7WQVgeHPnv0jfgnfy4bgXavKI_pKI9-M~/97XI9ISlxROKnPtE21khTHl1YrXY4x5hqDCQ34F81Vo"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "01",
+                                    "title": "We're Going On A Train",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "duration": 145,
+                                    "fileSize": 2355371,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/1ncPMuhiO6cR7WQVgeHPnv0jfgnfy4bgXavKI_pKI9-M~/okMMAbL-TXof5Aqu2bPbbmvBKqsyGYQVkCc0_K7Qz1c?Expires=1737748743&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tLzFuY1BNdWhpTzZjUjdXUVZnZUhQbnYwamZnbmZ5NGJnWGF2S0lfcEtJOS1Nfi9va01NQWJMLVRYb2Y1QXF1MmJQYmJtdkJLcXN5R1lRVmtDYzBfSzdRejFjIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzM3NzQ4NzQzfX19XX0_&Signature=KYSg3dNPGjRMqi2mXdvZu-QgwY3a5zcPb46flhesa7MZ4gLuq-hgVXTz7Eoa4YJGRxobho3J9rtdkpNCXTdJWH3XzQSkt96cn~zjXZHCkgYhlcksDppjdH1BXuj3BQHzK7oW3i~rF9v0At4MHhW6xZJAtvdiTTZaR3y4hRwqwpn3AIxkBqU4PAGKqNYgi6oVBFq1S5rRG2Wfcrp3IMK402ZAMfjUGCt~8I7b2-u69~WneRa33bxPQCunz96knZ0JTM9GFT4dZY1ptlqTl45O~dsirFNlYE0dDFtgMWOlhW3dFvSXLuf~X4Wm4tf94J6tyaoUST9RQtFQ48cEI-TrNw__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=okMMAbL-TXof5Aqu2bPbbmvBKqsyGYQVkCc0_K7Qz1c",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/1ncPMuhiO6cR7WQVgeHPnv0jfgnfy4bgXavKI_pKI9-M~/97XI9ISlxROKnPtE21khTHl1YrXY4x5hqDCQ34F81Vo"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "06",
+                            "title": "Superheroes To The Rescue",
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "fileSize": 2485580,
+                            "duration": 153,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/1ncPMuhiO6cR7WQVgeHPnv0jfgnfy4bgXavKI_pKI9-M~/Az7WtnLe_CvZzS_TgE4y-JlzoH-Y193CxbNMnnbB8pQ"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "01",
+                                    "title": "Superheroes To The Rescue",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "duration": 153,
+                                    "fileSize": 2485580,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/1ncPMuhiO6cR7WQVgeHPnv0jfgnfy4bgXavKI_pKI9-M~/-Q1svMQrf-wTG4Q0Gr7WZnFadd-D_JCaCydfnvzKLpQ?Expires=1737748743&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tLzFuY1BNdWhpTzZjUjdXUVZnZUhQbnYwamZnbmZ5NGJnWGF2S0lfcEtJOS1Nfi8tUTFzdk1RcmYtd1RHNFEwR3I3V1puRmFkZC1EX0pDYUN5ZGZudnpLTHBRIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzM3NzQ4NzQzfX19XX0_&Signature=srkNo00kmO3zC9LfOyqBYUOShNf49ravnxwRr1KlO2E27q33b2BwOni9c6oF2cpyZ2dcVOTig-T~lirWD9DF4FbgCqmaHOCYp1V8kl0XvsjYYP0eMMG~dt8wZroibBKmd-l1l2HNStOfVJrK33s3xLl86-7STv~1i43fZuj~QywBKdctAXiXX2LfMxAWZFNu18pbqNXb92Fpop5hUHu4q5DrUolU9pRooQrqHoqlA4ahf7fCJytIoVIg32iT38ReBruG7FM1YW-axIDxmKzBfXws8U0~~LrU745K73xzBg3BH79RR9RWZ0waT4Wc0DHmRh1tvC-phZ9Wdoq2ZHk1Mw__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=-Q1svMQrf-wTG4Q0Gr7WZnFadd-D_JCaCydfnvzKLpQ",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/1ncPMuhiO6cR7WQVgeHPnv0jfgnfy4bgXavKI_pKI9-M~/Az7WtnLe_CvZzS_TgE4y-JlzoH-Y193CxbNMnnbB8pQ"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "07",
+                            "title": "Crazy Barnyard Hoedown",
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "fileSize": 1909367,
+                            "duration": 118,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/1ncPMuhiO6cR7WQVgeHPnv0jfgnfy4bgXavKI_pKI9-M~/OyaInKgKUn4cDLOk01Ik27aHGnXO8cZmfY7YPVWDigg"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "01",
+                                    "title": "Crazy Barnyard Hoedown",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "duration": 118,
+                                    "fileSize": 1909367,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/1ncPMuhiO6cR7WQVgeHPnv0jfgnfy4bgXavKI_pKI9-M~/ndq5MjxmqfQxpBHRRSXRgTcLS5QTZek3HBTEtKFYjPU?Expires=1737748743&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tLzFuY1BNdWhpTzZjUjdXUVZnZUhQbnYwamZnbmZ5NGJnWGF2S0lfcEtJOS1Nfi9uZHE1TWp4bXFmUXhwQkhSUlNYUmdUY0xTNVFUWmVrM0hCVEV0S0ZZalBVIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzM3NzQ4NzQzfX19XX0_&Signature=q3ByPXTUWwqhfHaQ5SxqqvTiaeK4xdNe5XyJ2zVfw2rUmAm9XPXbw598j-ydORiaw0fVc~8popCwgrbmJJEulgAwvQsV12YL5s-FRogvYJwU3rUSSv6fYzcmHDudbTelPN0VP7cM2jOmHoclTrsX~r0drrOdLnD2EcUWbhEnd9xFnKmGfHUuuhM1Q7O-q8ETYJgEYbLQsIICPN1X4A4bxgLfYMHVgeazOCMFJtEaWp9lXLEZYTX7VA0tT6o5XtNv1qE2fTTj8MdT5iAgymhfE9jwx4ndLwiCZHdMkHHoscsptEdafdXeuxu5ZTwzB~ul3drDflil4H0WYEADgEMf8Q__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=ndq5MjxmqfQxpBHRRSXRgTcLS5QTZek3HBTEtKFYjPU",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/1ncPMuhiO6cR7WQVgeHPnv0jfgnfy4bgXavKI_pKI9-M~/OyaInKgKUn4cDLOk01Ik27aHGnXO8cZmfY7YPVWDigg"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "08",
+                            "title": "Barry's 12 Baa Blues",
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "fileSize": 1994048,
+                            "duration": 123,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/1ncPMuhiO6cR7WQVgeHPnv0jfgnfy4bgXavKI_pKI9-M~/1Vr-Bf83yWfbimcQebL08Ns5ll2h0h4QQFd11X7UJt8"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "01",
+                                    "title": "Barry's 12 Baa Blues",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "duration": 123,
+                                    "fileSize": 1994048,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/1ncPMuhiO6cR7WQVgeHPnv0jfgnfy4bgXavKI_pKI9-M~/16AM0oH-oED-YveemTy3NysfUGnW8M4FXKUh8a2A2Wc?Expires=1737748743&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tLzFuY1BNdWhpTzZjUjdXUVZnZUhQbnYwamZnbmZ5NGJnWGF2S0lfcEtJOS1Nfi8xNkFNMG9ILW9FRC1ZdmVlbVR5M055c2ZVR25XOE00RlhLVWg4YTJBMldjIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzM3NzQ4NzQzfX19XX0_&Signature=QOOWU1qpvJCXqVChzi5USJuA815SQsEtj20NwS~S-5xiZLkMTCH9bHGLwyVorCkulP4Y6lEfAHnfzGU-m8EEyi5pFevJ8aA-P2jdf9yyDYdPYdqWwv5d3eZQ6wXOh8rJd9UngqEkf1lywYfaGwDLsv2qSBPrBHc1jxJjMuSL~HHOtZbEjPZ9Q~-nBXi2QH-z2eVlgOoc0OKjdB8sHNshsPm9141UH9AmuFhH9AS3NfDhne-5S4bNGoEtUcQJhf75odHMU-cxBIL9txDLvEdBXpvOIr~t9fvnq1xrZoDL6axmHVewE5GuosikpZog~JNqADuk6I~iVs8bO2vZn9qbEg__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=16AM0oH-oED-YveemTy3NysfUGnW8M4FXKUh8a2A2Wc",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/1ncPMuhiO6cR7WQVgeHPnv0jfgnfy4bgXavKI_pKI9-M~/1Vr-Bf83yWfbimcQebL08Ns5ll2h0h4QQFd11X7UJt8"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "09",
+                            "title": "Dinosaurs And Marmite",
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "fileSize": 2265797,
+                            "duration": 140,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/1ncPMuhiO6cR7WQVgeHPnv0jfgnfy4bgXavKI_pKI9-M~/2eG_Ab_APhtSPqRrXWE_ghR3Z-q5URgJ9Os5l4JZrFw"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "01",
+                                    "title": "Dinosaurs And Marmite",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "duration": 140,
+                                    "fileSize": 2265797,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/1ncPMuhiO6cR7WQVgeHPnv0jfgnfy4bgXavKI_pKI9-M~/AQnj6Z_TKQ_uxJLXgGwLlvW29fcB6nkN7eHT8fHhVM4?Expires=1737748743&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tLzFuY1BNdWhpTzZjUjdXUVZnZUhQbnYwamZnbmZ5NGJnWGF2S0lfcEtJOS1Nfi9BUW5qNlpfVEtRX3V4SkxYZ0d3TGx2VzI5ZmNCNm5rTjdlSFQ4ZkhoVk00IiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzM3NzQ4NzQzfX19XX0_&Signature=ORl~DkJJ9nc2skD9S9lbhACSBpG2nyMxdPZC0zJ7ORTU6uL9T3pLl45Ci5vGVlBFEe-6jpnWGG5VfbRHP73iRS7DCu8OfbJQOOXSgGX-8dHbxqBxnh5uhgZra-ZTpDJEWyA8OxTyXHtKfzhJIBCkD-1kCHDIxMyx35S1vHSpxiB1d11UroMTTFcleh7oFPlnScsAzqvDIkkKp5vO1ruBSSBBvYNKf9CWSdGoQqyRWZwgOxK~oV8fAGYTCuDi8aUSoQGRF5tTOOEZfn77ZacynJ1fZOQSJo4TjwZTJpMLMkQpAjW7NxtFAtYBV76w5BSXCsxx7sWlbsWifnY0YfU10Q__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=AQnj6Z_TKQ_uxJLXgGwLlvW29fcB6nkN7eHT8fHhVM4",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/1ncPMuhiO6cR7WQVgeHPnv0jfgnfy4bgXavKI_pKI9-M~/2eG_Ab_APhtSPqRrXWE_ghR3Z-q5URgJ9Os5l4JZrFw"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "metadata": {
+                    "description": "Here you can listen to Ten of the most popular Moo Music songs. Moo Music songs are aimed at 0 to 5 year olds but are produced in a way that adults can also enjoy them. Moo Music are actual 'in person' sessions that happen around the UK and in parts of the rest of the world. Think of them as modern day nursery thymes!",
+                    "note": "Featured Yoto Creator",
+                    "category": "none",
+                    "hidden": false,
+                    "cover": {
+                        "imageL": "https://card-content.yotoplay.com/1ncPMuhiO6cR7WQVgeHPnv0jfgnfy4bgXavKI_pKI9-M~/pub/gutcgWEuYqJj7BCFJPC3-LE4B2_vL5GOCZlg1CRE5iM"
+                    },
+                    "media": {
+                        "duration": 1211,
+                        "readableDuration": "0h 20m 11s",
+                        "fileSize": 19636797,
+                        "readableFileSize": 18.7,
+                        "hasStreams": false
+                    }
+                },
+                "cardId": "cFtJu",
+                "userId": "auth0|REDACTED",
+                "createdAt": "2024-05-30T12:36:24.065Z",
+                "updatedAt": "2024-08-30T08:45:44.636Z",
+                "creatorEmail": "Maggie Moo",
+                "shareLinkCreatedAt": "2024-05-30T12:39:20.191Z",
+                "slug": "2qkvE7PK7FYHhlWtDKQZ6v",
+                "shareCount": 354,
+                "shareLimit": 0,
+                "readOnly": true,
+                "availability": "free",
+                "sortkey": "2qkvE7PK7FYHhlWtDKQZ6v",
+                "clubAvailability": [],
+                "shareLinkUrl": "https://share.yoto.co/s/2qkvE7PK7FYHhlWtDKQZ6v",
+                "sharing": {
+                    "linkCreatedAt": "2024-05-30T12:39:20.191Z",
+                    "linkUrl": "https://share.yoto.co/s/2qkvE7PK7FYHhlWtDKQZ6v",
+                    "shareCount": 354,
+                    "shareLimit": 0
+                }
+            },
+            "__ni18n_server__": {
+                "resources": {
+                    "en": {
+                        "translation": {
+                            "web_share_player_content_created_by": "created by",
+                            "web_share_player_download_app_store": "Download on the App Store",
+                            "web_share_player_download_app_tip_desktop": "Download the free Yoto App and scan this code",
+                            "web_share_player_download_app_tip_generic": "Unlock a world of stories, music, activities, sleep sounds, podcasts and radio",
+                            "web_share_player_download_app_tip_mobile": "Download the free Yoto App and tap the share link again",
+                            "web_share_player_download_app_tip_nfc_tap": "Download the free Yoto App and tap the card on your mobile",
+                            "web_share_player_download_app_title_add_card": "Want to add this card to your Yoto library?",
+                            "web_share_player_download_app_title_generic": "Download the free Yoto App",
+                            "web_share_player_download_google_play": "Get it on Google Play",
+                            "web_share_player_invalid_link_desc": "It might contain a typo or is no longer available.",
+                            "web_share_player_invalid_link_title": "Unrecognized link",
+                            "web_share_player_link_preview_description": "Listen and add to your Yoto library",
+                            "web_share_player_link_preview_num_of_episodes": "Number of episodes",
+                            "web_share_player_link_preview_running_time": "Running time",
+                            "web_share_player_link_preview_shared_by": "Shared by",
+                            "web_share_player_not_found_heading": "Uh oh, I’ve got a bad feeling about this...",
+                            "web_share_player_not_found_page_title": "Not found",
+                            "web_share_player_not_found_text": "We can’t find the content you’re looking for. You might have followed an expired or invalid link.",
+                            "web_share_player_sharing_paused_desc": "We’ve frozen this link because it may be breaking our <1>sharing policy</1>. The playlist’s creator can email hello@yotoplay.com to request a manual review.",
+                            "web_share_player_sharing_paused_title": "Sharing paused",
+                            "web_share_player_sharing_policy_url": "https://support.yotoplay.com/en-US/friends-and-family-safe-sharing-policy-11561"
+                        }
+                    },
+                    "fr": {
+                        "translation": {
+                            "web_share_player_content_created_by": "Créé par",
+                            "web_share_player_download_app_store": "Télécharger dans l'App Store",
+                            "web_share_player_download_app_tip_desktop": "Téléchargez l'appli Yoto gratuite, puis scannez ce code",
+                            "web_share_player_download_app_tip_generic": "Un univers audio fascinant : histoires, musique, bruits blancs, podcasts et radio",
+                            "web_share_player_download_app_tip_mobile": "Téléchargez l'appli Yoto gratuite, puis appuyez de nouveau sur le lien partagé",
+                            "web_share_player_download_app_tip_nfc_tap": "Téléchargez l'appli Yoto gratuite et tapez la carte sur votre téléphone pour l'écouter",
+                            "web_share_player_download_app_title_add_card": "Souhaitez-vous ajouter cette carte dans votre audiothèque ?",
+                            "web_share_player_download_app_title_generic": "Téléchargez l'appli Yoto gratuitement",
+                            "web_share_player_download_google_play": "Disponible sur Google Play",
+                            "web_share_player_invalid_link_title": "Lien non reconnu",
+                            "web_share_player_link_preview_description": "Écouter et ajouter dans votre audiothèque",
+                            "web_share_player_link_preview_num_of_episodes": "Nombre d'épisodes",
+                            "web_share_player_link_preview_running_time": "Temps d'écoute",
+                            "web_share_player_link_preview_shared_by": "Partagé par",
+                            "web_share_player_not_found_heading": "Aïe, aïe, aïe… Ça, on ne l’avait pas prévu !",
+                            "web_share_player_not_found_page_title": "Non trouvé",
+                            "web_share_player_not_found_text": "Nous ne trouvons pas le contenu audio que vous cherchez. Vous avez peut-être ouvert un lien invalide ou un lien expiré.",
+                            "web_share_player_sharing_paused_desc": "Nous avons gelé ce lien car il pourrait enfreindre notre <1>politique de partage<\\/1>. Le créateur du contenu peut nous contacter sur bonjour@yotoplay.com pour revoir le contenu.",
+                            "web_share_player_sharing_paused_title": "Partage en pause",
+                            "web_share_player_sharing_policy_url": "https://support.yotoplay.com/fr-FR/partager-du-contenu-audio-avec-vos-proches-11561"
+                        }
+                    }
+                },
+                "ns": [
+                    "translation"
+                ],
+                "lng": "en"
+            },
+            "deviceLocale": "en",
+            "deviceType": "desktop",
+            "shareToken": "2qkvE7PK7FYHhlWtDKQZ6v"
+        },
+        "__N_SSP": true
+    },
+    "page": "/s/[token]",
+    "buildId": "V3pEs2QsEdVL4U035yoUs",
+    "isFallback": false,
+    "gssp": true,
+    "scriptLoader": [],
+    "officiality": {
+        "version": 1.2,
+        "date": "2025-01-24_13-59-03",
+        "creator": "Free"
+    }
+}

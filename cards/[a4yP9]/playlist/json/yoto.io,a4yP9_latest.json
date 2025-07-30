@@ -1,0 +1,480 @@
+{
+    "props": {
+        "pageProps": {
+            "card": {
+                "slug": "les-rimes",
+                "title": "Les Rimes",
+                "userId": "yoto",
+                "sortkey": "les-rimes",
+                "content": {
+                    "version": "1",
+                    "activity": "yoto_Player",
+                    "config": {
+                        "resumeTimeout": 0,
+                        "autoadvance": "none",
+                        "shuffle": [
+                            {
+                                "start": 1,
+                                "limit": 6,
+                                "end": 6
+                            }
+                        ]
+                    },
+                    "availability": "",
+                    "cover": {
+                        "imageL": "https://card-content.yotoplay.com/yoto/pub/OVpyMCjgUgZOUop9DKHpIJa-70YPUvnB1FDj7Ip46FE"
+                    },
+                    "playbackType": "linear",
+                    "editSettings": {
+                        "transcodeAudioUploads": true
+                    },
+                    "chapters": [
+                        {
+                            "key": "00",
+                            "title": "Introduction",
+                            "displayOverlay": "",
+                            "duration": 110,
+                            "hasStreams": false,
+                            "fileSize": 1785600,
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/oCMXp05T6goR11wDmp2jr4KCEi8_i1KBfISZgKWyU48"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "00",
+                                    "title": "Introduction",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 110,
+                                    "fileSize": 1785600,
+                                    "channels": "stereo",
+                                    "display": null,
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/ym5e0_S_jSyRCIssUdGA7eqPndRmPFq3yryYN5OZMS0?Expires=1730992696&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8veW01ZTBfU19qU3lSQ0lzc1VkR0E3ZXFQbmRSbVBGcTN5cnlZTjVPWk1TMCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczMDk5MjY5Nn19fV19&Signature=eM8efb3q97DxIyHspCnbeFyYhS-3wGr7r3iirmLS~yahMcJ2NYcAH3RAu1fmFGQehNvmIX8FAobB2tb5yDCZhAaTKOh~n0toslmZx5LI1mev82GzMCSEuybeDOW1eW~0O0bVYVwCLCHS35vVskIUKOiSFHfEituM7xzuhm9A2QbjAyrTIHzYy0Tv9hgKF-ax4fk5WkNjRpFtk7GT-ZKNKlOsFn2OMjgqmZOpetBD2gwsRTbiDt2usXvt7Yq69kAJNSW03x2amIh1PSb5nD5L3LF4dmXpXAPmEzctUJs6ZejGnpfIWl~xsfG0L-9aXBtW8RN7PpLv-jju2MIaRc4kHQ__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=ym5e0_S_jSyRCIssUdGA7eqPndRmPFq3yryYN5OZMS0"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "01",
+                            "title": "Son 1",
+                            "displayOverlay": "",
+                            "duration": 109,
+                            "hasStreams": false,
+                            "fileSize": 1768767,
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/SRSwrrpfNg7Iw4fO4AszefC3OjnPR4tos9va-xHHLt8"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "01",
+                                    "title": "Son 1",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 54,
+                                    "fileSize": 875535,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/4PYEQ1K-pTUULtdq2z7vvNWgsLr6Srpq1yTEp3utuSk?Expires=1730992696&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vNFBZRVExSy1wVFVVTHRkcTJ6N3Z2Tldnc0xyNlNycHExeVRFcDN1dHVTayIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczMDk5MjY5Nn19fV19&Signature=K9vGu3spwksUsaeh8AuhLdYgBCxsB6SEO1j~myqB0hIEPwW82w3~-SFW~YGi5n5oMFKGFNgF6kXnGysWttci1Pxu~qIcnMFAV7iJgPGmhX6NLeEa0kPfp7Wmdkp29oJaZp3ox8bp~ECDKXe4Yet2mKSZrnbwWazcRC5P1aLJrYE137PKcC61RaoEThW~xLw7C4ZeaHHY3UMsK1ushRc~nBy2No4EzqK85e2Co57X4rx3Ia6yOGBNGkSTshC3Q5ynQzbkvPbQcBExWy~BDYnjhybl3msx24amV7GNI4zIOjWZGlPdtK5QoQa~w2klZbiWrqW8RKmrSBRy6rbMI35FUg__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=4PYEQ1K-pTUULtdq2z7vvNWgsLr6Srpq1yTEp3utuSk",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/yoto/yaDrws2Fu-QOO5XBJRczYztNbHxjXstc-_TEMk1xEOg"
+                                    }
+                                },
+                                {
+                                    "key": "1.2",
+                                    "title": "Réponse 1 - souris",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 55,
+                                    "fileSize": 893232,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/kx1EMFHGTipSPGXC1ttJh1mSTBHxkNTEfCbhOxp_hUk?Expires=1730992696&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8va3gxRU1GSEdUaXBTUEdYQzF0dEpoMW1TVEJIeGtOVEVmQ2JoT3hwX2hVayIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczMDk5MjY5Nn19fV19&Signature=WdnbQFKA-~spv2CPcwL-9O2Yw47CvI31jg54GBT4j0m3dBEE3gSzxRU8w0pQQRlqfPO3W27Qy-fpE7DH9CrMNg9jPJ3mRFzXrHzNMbhchvfF0jW3-c2eMqRjC~Ap-X3gbJGOxtTXzxGvfK8CWdrbh9pFyTD4Cwy4dOX6PvMsR9Rvkti6s9K4VMhJmpixyJ-eGI7EbJGo7rEtYoD0zjLzWQfT0fSsREBBnAnc6yZBqeG49U7FH8gGs1zo1pBcbXLx51XpAL4ipWVn4DdX8iqOmf7vEoVbJ3QOL8MYrPoPQdbizNfpFYqRKGu8bkXiJTdDMyTmRQqezwTXuKVgpAjBnw__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=kx1EMFHGTipSPGXC1ttJh1mSTBHxkNTEfCbhOxp_hUk",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/yoto/wWuxhtHixsAP83J1pW6EzHzeGcx_q2w-gL3cvJ4vkrM"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "2.1",
+                            "title": "Son 2",
+                            "displayOverlay": "",
+                            "duration": 110,
+                            "hasStreams": false,
+                            "fileSize": 1781948,
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/SRSwrrpfNg7Iw4fO4AszefC3OjnPR4tos9va-xHHLt8"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "2.1",
+                                    "title": "Son 2",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 55,
+                                    "fileSize": 890974,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/XwymfFE56XQZLhHsKvz1Z0XPb7ZY8NVzFEtQy-VOOCY?Expires=1730992696&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vWHd5bWZGRTU2WFFaTGhIc0t2ejFaMFhQYjdaWThOVnpGRXRReS1WT09DWSIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczMDk5MjY5Nn19fV19&Signature=t1pK9rr-mUhcDA1-6Ci1Ga9wc4eySnGETpTmj55A-0C1S-Cs-YCPhW9F2nnEScyMKpLcVH7GvgsOJwIMYIA8oqb3Q~sEz4S5vzDs4n1~gm~PCkyMdM5XalzPr8w5S32pBKnsyEuGB42yCYTjM3kpPLjIRmEZ~fkuSB4l5yZ8TttLkF2hJhZ5wV0KpDI13AEx-M0g~CsFHECpze3-1p8FCo-FmTQNrSVQmEoBY7eu-0AK4tpQ9ATasmTEvYiSqWWxnDKKq8noIFkLTHaFHqfhEaoBmJFSJjSE7H80gIVzGuFXi9yFzNwvO1WeSSKit0eQLkLB4WbYQxLCnHEWKZ3YzA__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=XwymfFE56XQZLhHsKvz1Z0XPb7ZY8NVzFEtQy-VOOCY",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/yoto/yaDrws2Fu-QOO5XBJRczYztNbHxjXstc-_TEMk1xEOg"
+                                    }
+                                },
+                                {
+                                    "key": "2.2",
+                                    "title": "Réponse 2 - gâteau",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 55,
+                                    "fileSize": 890974,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/jvZkVBTnot7g3Fuvc2cj-D_y4EcWQhIJQxliCACglKA?Expires=1730992696&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vanZaa1ZCVG5vdDdnM0Z1dmMyY2otRF95NEVjV1FoSUpReGxpQ0FDZ2xLQSIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczMDk5MjY5Nn19fV19&Signature=MjHEE7MF1ZirS3oZGChdonWmuNgeCiJwdMxXnKVpyb9yLDeifHF~zS5MtgDvIXqRJgU1uUmdhm1mcw9YG~L9XvsD58rFqEs1uyIqzw48KKgqxOzrTGPgGarodMyTHQ64FIEdBev~3lq7wCcynKU~JuYKMb-1JREPmo7XvYtW4a9EKKEESFMWHSDGKt8Rf9YnjiuYxdv9t5d8IWzcZWtALZT0gX73kYWWYACb6hXyx36zJRXsOk6YBHGh0GFqJ08NsihaR-PWO5jyvsCFTP2F~1O1jNkuQu4XgIQD2oRz05milgDcJS1xuZbbKcjm-FIPpGQVX0p41Kz5u1SuzrvFhg__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=jvZkVBTnot7g3Fuvc2cj-D_y4EcWQhIJQxliCACglKA",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/yoto/tH-zVm8P_KtYzTPEUUaN5ZhNKq0EZgLFI4XY76EZXkU"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "03",
+                            "title": "Son 3",
+                            "displayOverlay": "",
+                            "duration": 107,
+                            "hasStreams": false,
+                            "fileSize": 1725494,
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/SRSwrrpfNg7Iw4fO4AszefC3OjnPR4tos9va-xHHLt8"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "03",
+                                    "title": "Son 3",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 54,
+                                    "fileSize": 867640,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/JuAGSoN6a7jE7zn3PdeIkk4_NBD4nJcxxKTo8mnJ-sM?Expires=1730992696&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vSnVBR1NvTjZhN2pFN3puM1BkZUlrazRfTkJENG5KY3h4S1RvOG1uSi1zTSIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczMDk5MjY5Nn19fV19&Signature=HyFadZiaAU4c4M0TLlZF0R60kJu-Ef7yjpcINlBYmIP7a0TBm9sUSBoWJB6VhKE9MAKQXfUWiKU~YpfW0COAUd~nTIVPfwUf95Ylj8acyJXpewRF63vPASJBmBquPVEvpfoq8SWJ2VPigYso9g3gt11hXjQYTsRPwW5LYL6YoOBfZs0z4UAYXxK8oDT8rDSHIvSLd3h7SANBA8fDSyawO0cOn-LOx1tSP76222aN6dQ50DoU0tWkxTQEAbsNu~tQagSulWZFSrp9yZcnPzbSgAjP23joN9-zI~883vvOJJBQ7QzovJOufVi5lbP-eIR5Fu6H61v244HPAjbFcwxPJg__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=JuAGSoN6a7jE7zn3PdeIkk4_NBD4nJcxxKTo8mnJ-sM",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/yoto/yaDrws2Fu-QOO5XBJRczYztNbHxjXstc-_TEMk1xEOg"
+                                    }
+                                },
+                                {
+                                    "key": "3.2",
+                                    "title": "Réponse 3 - lapin",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 53,
+                                    "fileSize": 857854,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/80jakq5Pg4ox55AGn0kalLQLg4S6DOXpvLrUI-8bjdc?Expires=1730992696&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vODBqYWtxNVBnNG94NTVBR24wa2FsTFFMZzRTNkRPWHB2THJVSS04YmpkYyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczMDk5MjY5Nn19fV19&Signature=kZYxgw-h-07SO25MonG9I6Nh6kt7reEsbgFkhDdWVQLBKYQ4uYxpaxDx0HakXY81Su54-X~EiyMDAqyp0U9LrES3ntgqXPBOyObKwchBMGB46zhq~gNwc4JfaWWEdodSHa--TwZS-PpvbcFPcTB4gXxQBB9c4txoC5-5FWfRftAw6Snae3MFkNW2amp6F~oVqyUrPdgxTounDPY8R~cduRu9VQT-yRhz~2yI~gd2HC99MuvEU14wPaun8NlNBnYSpO1MmFmfpGsbzldRLY~YSCRENpLFOqfMGHpSo6xoWu4Y3Gv5rDwMNt~crCTIa-3nCZ17wjKI43WpnVPBHYRjbA__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=80jakq5Pg4ox55AGn0kalLQLg4S6DOXpvLrUI-8bjdc",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/yoto/y1gyQr-7MmpMTigxMprUIzJePGsCKDnpGCDfKhBGGgU"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "04",
+                            "title": "Son 4",
+                            "displayOverlay": "",
+                            "duration": 103,
+                            "hasStreams": false,
+                            "fileSize": 1664884,
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/SRSwrrpfNg7Iw4fO4AszefC3OjnPR4tos9va-xHHLt8"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "04",
+                                    "title": "Son 4",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 50,
+                                    "fileSize": 811938,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/o4x20k1x6X79SLa2VtPXvjpEmm63kNNFjne1cNPlU9c?Expires=1730992696&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vbzR4MjBrMXg2WDc5U0xhMlZ0UFh2anBFbW02M2tOTkZqbmUxY05QbFU5YyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczMDk5MjY5Nn19fV19&Signature=O8NvpqCFN5YrrDGNDb5ztsvAWE4cNP1tUq-NXFPiRKpK2hK1ICL75-trNXC-Z3jcy0sybiAuT52nv3zac25~nrmLQVP5nHsuCvhK0QyKgbxEb~7pgGwJSrWtjXj-lQcMfk~Plnw9QS2HmRgv0q7nxypXrL5k8fS~~PmFxbr5pDq3-sieUdX2KI1padc1d4cXuCdhsWNBRxbDpMbr7biWHzQHbphCvtASYur3cVAWm1U8HqsyqXcDGs3DJN7T2xUPef6dsnm6UJxnuiEZ6z~ZHI32gOGWfarzkI~2GwKOOAQdm~ncgSflt~ZWPIMP8eNgO6Omgoau2yFP16AqOHr0Dg__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=o4x20k1x6X79SLa2VtPXvjpEmm63kNNFjne1cNPlU9c",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/yoto/yaDrws2Fu-QOO5XBJRczYztNbHxjXstc-_TEMk1xEOg"
+                                    }
+                                },
+                                {
+                                    "key": "4.2",
+                                    "title": "Réponse 4 - loup",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 53,
+                                    "fileSize": 852946,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/tfnS_EWZht6-J1EuZyKMDgy4G9XJI_-YTs0a3t0L1pc?Expires=1730992696&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vdGZuU19FV1podDYtSjFFdVp5S01EZ3k0RzlYSklfLVlUczBhM3QwTDFwYyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczMDk5MjY5Nn19fV19&Signature=TPio85AD~0rj~8eri-r8lxkqTOAulfYAm-Pz-a4DkvbweoXLgt6oxknjOwSMPYxGax5qog3am6FlzzBCunBvIBR9~PcVHb5uq4XmVxzDfIg8OH91mgaDO5UqF0-S7KuixQAx6iS5MCRRBbe1FBBbf659NESahmvJS9JSDqURrkpLGdrizkNka3PcxvB6oyd2uGtOV1fAgE3TmwoshA-JYD-~KUjaaUcsPkRpj6H1G~YPHayPOxKpAykYMcGoTemzJE~bQ4mCTdyUt6VT8hn09pFKeEXTWJcHVld7GeGD2EIOve18zVoeMokOlUHwI3GUVZC1mrCDsUyl~uDMpdJrKQ__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=tfnS_EWZht6-J1EuZyKMDgy4G9XJI_-YTs0a3t0L1pc",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/yoto/gtKtfZKpqqB49ruqUihfi57KnKHTzHcWHuDUGCw8ADI"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "05",
+                            "title": "Son 5",
+                            "displayOverlay": "",
+                            "duration": 115,
+                            "hasStreams": false,
+                            "fileSize": 1867006,
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/SRSwrrpfNg7Iw4fO4AszefC3OjnPR4tos9va-xHHLt8"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "05",
+                                    "title": "Son 5",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 57,
+                                    "fileSize": 925976,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/W9g_Z7tmTO24QIX8YM_WY5741BmcRLDPQdwEiWXihkA?Expires=1730992696&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vVzlnX1o3dG1UTzI0UUlYOFlNX1dZNTc0MUJtY1JMRFBRZHdFaVdYaWhrQSIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczMDk5MjY5Nn19fV19&Signature=b6zVUPxivuYIQgS07O1yMO-5hPF73A~R0lRw8xbKxUGk3nkSBCTfznz~VG3Ar5rci238FA70-5daANIkB3Xx6USQcytM2eTwncV3Rgz1vLCbhwQlCughKy55dVWje~Gallvyl0YpdbUOVIHHOy--idsmRcmoD6Ug4HxN7Vi0pUIEidAk9W8fJofRuc8If99QhIviH7UvvFhdUnQ7pbw9xesJyMlcx1qlUc3V37mGHn8SQHpMU64pnStnj7JQkB7v~FXv-nFxwWeo97W7xp--A13JOYYWsuZodU7KPOxPQDB1qaOzG9sePZqtPicDZhDGa53XepI-fOsLW4G2UDw0Bg__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=W9g_Z7tmTO24QIX8YM_WY5741BmcRLDPQdwEiWXihkA",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/yoto/yaDrws2Fu-QOO5XBJRczYztNbHxjXstc-_TEMk1xEOg"
+                                    }
+                                },
+                                {
+                                    "key": "5.2",
+                                    "title": "Réponse 5 - chat",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 58,
+                                    "fileSize": 941030,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/E4YcoCIZv1Eza7DFlFAJW_dN8bSSmJbSPuZNhy_wDCQ?Expires=1730992696&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vRTRZY29DSVp2MUV6YTdERmxGQUpXX2ROOGJTU21KYlNQdVpOaHlfd0RDUSIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczMDk5MjY5Nn19fV19&Signature=uE0PeprqcwhT63BexDj1tdfXY4DMQInG8~iKDUKUe-p4Yw1PH-Bb6CcBXWTUHoB4ziTr6zfst3ed1kx1Lnu2wGZ-GXYBJImfjRdRlUYRnWL9kk6Hs~Wx1jfnsBfPxwWcaOPdpvkSRpda5RnOOwgGNM~d7vG2GN6UiUk3lsJlF7Hg~az-EhIgVlXI8PYxyay0-KIIoixrzjUNr2h9FMD25KAI1udpXKAzaNYfnYtDtbEBWMhAuBnG8NXbT9OJBIeLYAYJxWgbNj4jchEMFI~Kct7wOVfsomkib26CPWNEd-D0Peto-coqZTvPvXPHw-K5L-CR-SCO~apw9K9JTRJn0g__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=E4YcoCIZv1Eza7DFlFAJW_dN8bSSmJbSPuZNhy_wDCQ",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/yoto/2x87YWH7bl9k4MsVKC3rKSb5r1SkIhRQWO5mWKIrKto"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "06",
+                            "title": "Son 6",
+                            "displayOverlay": "",
+                            "duration": 119,
+                            "hasStreams": false,
+                            "fileSize": 1929835,
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/SRSwrrpfNg7Iw4fO4AszefC3OjnPR4tos9va-xHHLt8"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "06",
+                                    "title": "Son 6",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 60,
+                                    "fileSize": 969618,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/VlEFy8YMetXvp7E6D26EnNreVNM2ZuxNVBbd5kuXSl0?Expires=1730992696&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vVmxFRnk4WU1ldFh2cDdFNkQyNkVuTnJlVk5NMlp1eE5WQmJkNWt1WFNsMCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczMDk5MjY5Nn19fV19&Signature=Y3vmqE9mmtodwxWH4OG0fo3uph9ZwjiZfAd2rSRdzp2jFnCw1ORLhR2MOTdq5XdYY2ZSUTTaTyaQDKOnWoc8VDrbPI75cGzL~0OdqUemRLdDnf1ODp2kPhs4z9m4cD3Ov4ySQfgM65U~bg~Vko9zFUHof0oBFwli8z0V7HCA5jK87L2g7z0~nxYPhm0fW3X53GWNjLnsOYxbqBN5iQtu-kjoK8Yko8f9VmsuAwuA3E9yxorFEEmZNltW-GAlPe5H41jvGJuRN7oc6~CgvB2jqA03mFqN0hk~LEbGAR9167Fnqzw9FP7LfZ4GIP1ATnAujjKrV9rn2-diyXdhkDW2kQ__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=VlEFy8YMetXvp7E6D26EnNreVNM2ZuxNVBbd5kuXSl0",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/yoto/yaDrws2Fu-QOO5XBJRczYztNbHxjXstc-_TEMk1xEOg"
+                                    }
+                                },
+                                {
+                                    "key": "6.2",
+                                    "title": "Réponse 6 - citron",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 59,
+                                    "fileSize": 960217,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/vSDrxiEhTLoXmKndINj3ST6zsOMkSjD1v06d3vJ733I?Expires=1730992696&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vdlNEcnhpRWhUTG9YbUtuZElOajNTVDZ6c09Na1NqRDF2MDZkM3ZKNzMzSSIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczMDk5MjY5Nn19fV19&Signature=gV0Fm1PkuOoG1olwQH~qadGui-m6DqcVA4gcwrrfYfxM5JpXt9U~~8rNUfPIZmpAulLtTMrYkvcQnuARFEaNk66dvZ92lm9PglC2untVz9xPA~4ui9-ku4hgk1ilImXrGKatuQ47ES2FTteX6lNOghs~XR0t4xPAzXRMSUJSh51NIXTkqGTomet0dyQBC9THtdxTI9fz82Wis5MBFJohf3Juus8x8FldVSWfSK6vPBuG3ToT4QI0c~x9oCy3D4lJYr9dERgLRZheam6LdOnoTXAjcTYmXj-0mITw~1PEOHzeP-C5yiX735xTvVkjzfK9HLOGcoH9Il6WJqffF~nc2Q__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=vSDrxiEhTLoXmKndINj3ST6zsOMkSjD1v06d3vJ733I",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/yoto/wwu9SaEI7Pc_tLJfBpMPEzO0GtvDkbC6XeCDh08tdjU"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "07",
+                            "title": "Fin",
+                            "displayOverlay": "",
+                            "duration": 31,
+                            "hasStreams": false,
+                            "fileSize": 496164,
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/iZoAZGVVtrcfEPfnXftcag0itN17SjSnxSV9pD4aXHA"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "07",
+                                    "title": "Fin",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 31,
+                                    "fileSize": 496164,
+                                    "channels": "stereo",
+                                    "display": null,
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/k2z1EmEZQ1QIXjFPRu_gsgjI_mXdr02nquCwKxh6bRU?Expires=1730992696&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vazJ6MUVtRVpRMVFJWGpGUFJ1X2dzZ2pJX21YZHIwMm5xdUN3S3hoNmJSVSIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczMDk5MjY5Nn19fV19&Signature=Nk3oGuGgXOWAvQOWjUoCP2M-bKbUKZpl-vwY8xlUc~KtcbVZ37MYEeEnhZ0pdKnFE8EtDDmwjBygELutZ6ToacvgDXrjMULRzoljqM0Ou1pfvHEy3Tp-3dWysnmTVRkZtbd2g2BwqIIxxbEhWDPaioZaDduxvICWIceTTsifUqKPAMLtWTCIhWvwe6bE~b7NHCIwxG7SJCak7fe4idi1461OdiIESJbEBfh5d8uB2uxUwIFMBByWjtohBk5owqlmjLdTdJw5euD29FboOnyV29rEnlf~i4kgosNNfmH~befWKOFcgNLyvgFC09-KWt~T8sc2PjJzeifkN9oaFimFbQ__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=k2z1EmEZQ1QIXjFPRu_gsgjI_mXdr02nquCwKxh6bRU"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "metadata": {
+                    "previewAudio": "https://cdn.shopify.com/s/files/1/0051/8845/2401/files/les-rimes.mp3",
+                    "category": "activities",
+                    "author": "Yoto",
+                    "seriestitle": "Lire est un jeu",
+                    "seriesorder": "6",
+                    "description": "La collection Lire est un jeu permet d’initier les enfants à la langue de façon ludique. Avec ses 8 cartes interactives, cette collection fait découvrir les sons du langage, le rythme, les rimes et tout ce qui précède à l'apprentissage de la lecture et de l'écriture.\n\nDans cette collection :\n\n- Quel est ce bruit ?\n\nAvec cette carte, votre enfant va s'entraîner à reconnaître les sons de son environnement quotidien, comme un aspirateur ou un aboiement de chien.\n\nEn prêtant attention aux sons qui l’entourent, votre enfant aiguise des facultés primordiales dans l’apprentissage de la lecture comme l’ouïe, la concentration et la reconnaissance des sons.\n\n- Devine cet Instrument\n\nCette carte va permettre à votre enfant de se familiariser avec les sons produits par différents instruments de musique, comme une trompette ou des maracas, et s'entraîner à les reconnaître.\n\nCette activité sollicite l’ouïe et la concentration de votre enfant. En s’entrainant à reconnaitre les différents sons des instruments de musique, votre enfant aiguise son oreille et ses facultés de mémorisation. \n\n- Les Rythmes\n\nCette carte va permettre à votre enfant de continuer son exploration sonore en s’appuyant sur les sons et les rythmes que l’enfant peut produire avec les différentes parties de son corps.\n\nEn utilisant ses mains, ses pieds et bien d’autres parties de son corps votre enfant acquiert une conscience rythmique. Cette conscience est une des bases fondamentales de l’apprentissage de la lecture. L’écoute active présente dans les cartes 1 et 2 est renforcée ici par une approche corporelle.\n\n- Les Syllabes\n\nAvec cette carte, votre enfant va se familiariser avec la notion de syllabe. Il va s'entraîner à scander et énumérer des syllabes en utilisant une approche corporelle. Bouger va l’aider à s’approprier cette nouvelle notion.\n\n Savoir découper un mot en syllabes est fondamental dans l’apprentissage de la lecture et de l’écriture. Savoir reconnaître et isoler une syllabe l’aidera à déchiffrer les mots lorsqu’il apprendra à lire.\n\n \n\n- Les Rimes\n\nCette carte va permettre à votre enfant d’isoler le dernier son dans un mot et d’identifier des sons qui riment entre eux.\n\nLes rimes sont importantes car elles mettent en valeur des sons qui sont particulièrement reconnaissables à l’oreille. En s’entrainant à reconnaitre des sons identiques, et en puisant dans son vocabulaire pour trouver des mots qui riment, votre enfant se prépare à apprendre à lire. \n\n- A la Découverte des Sons\n\nCette carte aborde la notion de phonèmes. Les phonèmes sont les plus petites unités sonores de la langue, ce sont les consonnes et les voyelles. Ensemble ils forment les syllabes. C’est le B-A = BA ! \n\nCette carte va permettre à votre enfant de se familiariser avec les phonèmes entendus dans les mots, puis rencontrés sous forme de lettres lorsqu’il saura lire. En aiguisant sa perception des phonèmes, votre enfant pourra ensuite décoder et encoder des mots plus facilement. C’est le début du déchiffrage, la lecture n’est plus très loin !\n\n- La Fabrique des Mots\n\nVotre enfant arrive au bout du chemin. Cette dernière carte lui permet d’apprendre à décoder des mots simples comme « moto » ou « fil ».\n\nComprendre comment sont construits les mots est l’une des dernières étapes dans l’apprentissage de la lecture et de l’écriture. C’est ensuite l’association des sons avec les lettres qui fera le reste et qui permettra à votre enfant de lire et d’écrire. \n\n",
+                    "cover": {
+                        "imageL": "https://card-content.yotoplay.com/yoto/pub/OVpyMCjgUgZOUop9DKHpIJa-70YPUvnB1FDj7Ip46FE"
+                    },
+                    "media": {
+                        "duration": 804,
+                        "fileSize": 13019698,
+                        "hasStreams": false
+                    },
+                    "status": {
+                        "name": "complete",
+                        "updatedAt": "2023-08-09T08:50:06.444Z"
+                    },
+                    "languages": [
+                        "fr"
+                    ]
+                },
+                "cardId": "a4yP9",
+                "createdAt": "2023-01-13T13:41:13.509Z",
+                "updatedAt": "2024-09-16T16:26:29.259Z",
+                "clubAvailability": [
+                    {
+                        "store": "ca"
+                    },
+                    {
+                        "store": "eu"
+                    },
+                    {
+                        "store": "dev"
+                    }
+                ]
+            },
+            "__ni18n_server__": {
+                "resources": {
+                    "en": {
+                        "translation": {
+                            "web_share_player_content_created_by": "created by",
+                            "web_share_player_download_app_store": "Download on the App Store",
+                            "web_share_player_download_app_tip_desktop": "Download the free Yoto App and scan this code",
+                            "web_share_player_download_app_tip_generic": "Unlock a world of stories, music, activities, sleep sounds, podcasts and radio",
+                            "web_share_player_download_app_tip_mobile": "Download the free Yoto App and tap the share link again",
+                            "web_share_player_download_app_tip_nfc_tap": "Download the free Yoto App and tap the card on your mobile",
+                            "web_share_player_download_app_title_add_card": "Want to add this card to your Yoto library?",
+                            "web_share_player_download_app_title_generic": "Download the free Yoto App",
+                            "web_share_player_download_google_play": "Get it on Google Play",
+                            "web_share_player_invalid_link_desc": "It might contain a typo or is no longer available.",
+                            "web_share_player_invalid_link_title": "Unrecognized link",
+                            "web_share_player_link_preview_description": "Listen and add to your Yoto library",
+                            "web_share_player_link_preview_num_of_episodes": "Number of episodes",
+                            "web_share_player_link_preview_running_time": "Running time",
+                            "web_share_player_link_preview_shared_by": "Shared by",
+                            "web_share_player_not_found_heading": "Uh oh, I’ve got a bad feeling about this...",
+                            "web_share_player_not_found_page_title": "Not found",
+                            "web_share_player_not_found_text": "We can’t find the content you’re looking for. You might have followed an expired or invalid link.",
+                            "web_share_player_sharing_paused_desc": "We’ve frozen this link because it may be breaking our <1>sharing policy</1>. The playlist’s creator can email hello@yotoplay.com to request a manual review.",
+                            "web_share_player_sharing_paused_title": "Sharing paused",
+                            "web_share_player_sharing_policy_url": "https://support.yotoplay.com/en-US/friends-and-family-safe-sharing-policy-11561"
+                        }
+                    },
+                    "fr": {
+                        "translation": {
+                            "web_share_player_content_created_by": "Créé par",
+                            "web_share_player_download_app_store": "Télécharger dans l'App Store",
+                            "web_share_player_download_app_tip_desktop": "Téléchargez l'appli Yoto gratuite, puis scannez ce code",
+                            "web_share_player_download_app_tip_generic": "Un univers audio fascinant : histoires, musique, bruits blancs, podcasts et radio",
+                            "web_share_player_download_app_tip_mobile": "Téléchargez l'appli Yoto gratuite, puis appuyez de nouveau sur le lien partagé",
+                            "web_share_player_download_app_tip_nfc_tap": "Téléchargez l'appli Yoto gratuite et tapez la carte sur votre téléphone pour l'écouter",
+                            "web_share_player_download_app_title_add_card": "Souhaitez-vous ajouter cette carte dans votre audiothèque ?",
+                            "web_share_player_download_app_title_generic": "Téléchargez l'appli Yoto gratuitement",
+                            "web_share_player_download_google_play": "Disponible sur Google Play",
+                            "web_share_player_invalid_link_title": "Lien non reconnu",
+                            "web_share_player_link_preview_description": "Écouter et ajouter dans votre audiothèque",
+                            "web_share_player_link_preview_num_of_episodes": "Nombre d'épisodes",
+                            "web_share_player_link_preview_running_time": "Temps d'écoute",
+                            "web_share_player_link_preview_shared_by": "Partagé par",
+                            "web_share_player_not_found_heading": "Aïe, aïe, aïe… Ça, on ne l’avait pas prévu !",
+                            "web_share_player_not_found_page_title": "Non trouvé",
+                            "web_share_player_not_found_text": "Nous ne trouvons pas le contenu audio que vous cherchez. Vous avez peut-être ouvert un lien invalide ou un lien expiré.",
+                            "web_share_player_sharing_paused_desc": "Nous avons gelé ce lien car il pourrait enfreindre notre <1>politique de partage<\\/1>. Le créateur du contenu peut nous contacter sur bonjour@yotoplay.com pour revoir le contenu.",
+                            "web_share_player_sharing_paused_title": "Partage en pause",
+                            "web_share_player_sharing_policy_url": "https://support.yotoplay.com/fr-FR/partager-du-contenu-audio-avec-vos-proches-11561"
+                        }
+                    }
+                },
+                "ns": [
+                    "translation"
+                ],
+                "lng": "en"
+            },
+            "isPhysicalCard": true,
+            "deviceLocale": "en",
+            "deviceType": "desktop",
+            "contentId": "a4yP9"
+        },
+        "__N_SSP": true
+    },
+    "page": "/p/[contentId]",
+    "buildId": "V3pEs2QsEdVL4U035yoUs",
+    "isFallback": false,
+    "gssp": true,
+    "scriptLoader": [],
+    "officiality": {
+        "version": "1",
+        "date": "2024-11-07_09-18-16",
+        "creator": "Yoto"
+    }
+}
