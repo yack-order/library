@@ -1,0 +1,884 @@
+{
+    "props": {
+        "pageProps": {
+            "card": {
+                "slug": "moi-boy",
+                "title": "Moi, boy",
+                "userId": "yoto",
+                "content": {
+                    "version": "1",
+                    "activity": "yoto_Player",
+                    "config": {
+                        "resumeTimeout": 2592000
+                    },
+                    "availability": "",
+                    "cover": {
+                        "imageL": "https://card-content.yotoplay.com/yoto/pub/ubjYyzSAEdWL_dyfKi7t0p4j1k3xKUwDAmlXEoQhyYE"
+                    },
+                    "playbackType": "linear",
+                    "editSettings": {
+                        "transcodeAudioUploads": true,
+                        "autoOverlayLabels": "chapters"
+                    },
+                    "chapters": [
+                        {
+                            "key": "01",
+                            "title": "Papa et maman",
+                            "displayOverlay": "",
+                            "duration": 743,
+                            "hasStreams": false,
+                            "fileSize": 12050325,
+                            "overlayLabel": "1",
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/6WfVUTyEgiL87TVOH6FtZJN_F_EifbEhHntAMH1M-iA"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "01",
+                                    "title": "Papa et maman",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 743,
+                                    "fileSize": 12050325,
+                                    "channels": "stereo",
+                                    "overlayLabel": "1",
+                                    "display": null,
+                                    "ambient": null,
+                                    "transitions": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/DVrVu8gvcG7PIh7OKsr38LYH7vSr4Jjelhwd2QQjqQI?Expires=1760741775&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vRFZyVnU4Z3ZjRzdQSWg3T0tzcjM4TFlIN3ZTcjRKamVsaHdkMlFRanFRSSIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2MDc0MTc3NX19fV19&Signature=ldcqB7m8CxN%7E289ykj0ibTcoDj2Zb5BcxY2O3KBBncpe5sUSPRfLl%7EIkrNrMkRafF61Q5oeCw1jdHi0pKyMfeehPSwwE%7ESmzRJVFhkbNZ-5PnlxuvzEPD6pin55Nck1UXgg6%7ELiLvOVbghecQeWsUfmzxovUiZKq2QZ85Fm3929TZdpA66QaUMosA3DW8SWcmhpZBE9xfYDLDz2efEHTtMyy73RzuozLxqfOvSJrkGfBEEO0O45TFPaI2lithpZFpfYVrH8SFJGcvcXrT3B4VPBJotGEfAuHDHIZXvKR3CUt0Lw2fTGuh0igA5A%7ERAjrba6KZkqUVecaldisMhyvew__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=DVrVu8gvcG7PIh7OKsr38LYH7vSr4Jjelhwd2QQjqQI"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "02",
+                            "title": "Le jardin d'enfants",
+                            "displayOverlay": "",
+                            "duration": 356,
+                            "hasStreams": false,
+                            "fileSize": 5785723,
+                            "overlayLabel": "2",
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/H2HYX4gbaOsyw76fDWm-9hVsMX9Xut_xOEJT1Aot4j4"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "02",
+                                    "title": "Le jardin d'enfants",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 356,
+                                    "fileSize": 5785723,
+                                    "channels": "stereo",
+                                    "overlayLabel": "2",
+                                    "display": null,
+                                    "ambient": null,
+                                    "transitions": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/DN4fdkQjDZ1VxIJTCJWkq0pQlAIc3laeR_BxDGFbLO0?Expires=1760741775&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vRE40ZmRrUWpEWjFWeElKVENKV2txMHBRbEFJYzNsYWVSX0J4REdGYkxPMCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2MDc0MTc3NX19fV19&Signature=PErx8HOScjF-vdiI81epfj0N9XeGIxJwxkIbJbqrNkbJQBNVlN42gJVkzEOWs6FPFCWa9SM7312tOEj3JLj9jH4ntSUnFAFWFAlmRZZ-1XtHWe0MXLN3hXCbCYwcnGNoASX2DHUQAz2B9AuYPC9LVCApZMrlRuGUiHI3jN7nO9VLqD7kp5f97v89Odu4axUBfKFLuLTSN6NrTdM8ry2oyhUFfApj1bIJPXnxsvXnzMQMslouBgLj7UnfU-yC6bsfR6ILP8gMRCTFKMjuKPDEjYWOg6qSErLCQ-4Jzccbemuey4HIEKhTfQy8qXelwaDnrFN64XNNK5O10Bjl4u0%7EaQ__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=DN4fdkQjDZ1VxIJTCJWkq0pQlAIc3laeR_BxDGFbLO0"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "03",
+                            "title": "La bicyclette et la confiserie",
+                            "displayOverlay": "",
+                            "duration": 764,
+                            "hasStreams": false,
+                            "fileSize": 12389432,
+                            "overlayLabel": "3",
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/6KOFkBfWC8MBOuQ_XIa2KdnzqouJxhZ2eWpsSWXG6QQ"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "03",
+                                    "title": "La bicyclette et la confiserie",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 764,
+                                    "fileSize": 12389432,
+                                    "channels": "stereo",
+                                    "overlayLabel": "3",
+                                    "display": null,
+                                    "ambient": null,
+                                    "transitions": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/ztTl030XJPj3QxH667LscOZMcVt6K6_DHpXPxQy1bYk?Expires=1760741775&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8venRUbDAzMFhKUGozUXhINjY3THNjT1pNY1Z0Nks2X0RIcFhQeFF5MWJZayIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2MDc0MTc3NX19fV19&Signature=Lp0gqosNmPTikOfgysuY97ch9I56Jux8mFpNWqvheoj0zknpNzaAMpVT3308Mor06XzbhtsKsHWj1Sa89DMp%7EX8ZtFvzsHQ3GThFpZknw6nkwelpmxAjajlPz0JKRVO3nFpFa05RLAsply2itH2mAwVOkdvP8LxZu11VbKr0pdiSdtKwL%7EpxLXL6Pu27Kd-wCEbfsBidn7TEQjEb-563-hN2FrB1wIJPhenw62NZSUN4wwFph%7El3gNC1yS7Vf05bJ3hYk%7E4BCLlT7tIWfDBveFdMqFTDxyxvfFFcTPC%7EIJzExGaVPc%7E%7EBr1y65In4aF1Omt3kvkp%7EfbWNCYitLaUFQ__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=ztTl030XJPj3QxH667LscOZMcVt6K6_DHpXPxQy1bYk"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "04",
+                            "title": "Le grand complot de la souris",
+                            "displayOverlay": "",
+                            "duration": 245,
+                            "hasStreams": false,
+                            "fileSize": 3975851,
+                            "overlayLabel": "4",
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/h5R0p3USks4n0nmjgtyaUWILkuQsGq6ptb6VqXQVWPA"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "04",
+                                    "title": "Le grand complot de la souris",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 245,
+                                    "fileSize": 3975851,
+                                    "channels": "stereo",
+                                    "overlayLabel": "4",
+                                    "display": null,
+                                    "ambient": null,
+                                    "transitions": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/Ilmk9g50rZKHvq9RwLXpDesynWRBAAhOU2ZIyVnY4iA?Expires=1760741775&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vSWxtazlnNTByWktIdnE5UndMWHBEZXN5bldSQkFBaE9VMlpJeVZuWTRpQSIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2MDc0MTc3NX19fV19&Signature=G1hzhJw8jwboBaDsGKbsf626pDU8R1yaKtFbVTbTSIDoQytJ0NoBce5DAI8z11tfphHHnRafHICcqF7ykIx1gle0bq5pPTJYd-vOX1pS5dUmyHesW4k9BKDjKMKRJ%7EHEOzvyQ7br3VZsXCQAtG8BZ1yLSzevmSOmrmPIyLFT0-U6cH5CRvqdF2-GUemoGH2N7eVwIuTHJW2wn8lYVfd0nKB0SiLpZqsoo2u7y74wDIOEf0oJX5eFwPc1tM%7E-4hsssBuBxw4EwHVRVZMndsLcG7NY0X9%7EL6fwwdH9QVZbI5Eezq1gdWcsTZ3Ugqrr8JX1rrstICCxUBdHdCChiVO7ZQ__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=Ilmk9g50rZKHvq9RwLXpDesynWRBAAhOU2ZIyVnY4iA"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "05",
+                            "title": "M. Coombes",
+                            "displayOverlay": "",
+                            "duration": 731,
+                            "hasStreams": false,
+                            "fileSize": 11857644,
+                            "overlayLabel": "5",
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/yJK_y1CPjbEEaLc205nElBNZSdKD4EhfRDqQfEjUsk4"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "05",
+                                    "title": "M. Coombes",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 731,
+                                    "fileSize": 11857644,
+                                    "channels": "stereo",
+                                    "overlayLabel": "5",
+                                    "display": null,
+                                    "ambient": null,
+                                    "transitions": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/OCBdzXBeUMKoIKg73yy_DCkri7nTPBYcUd4jQ9uYETg?Expires=1760741775&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vT0NCZHpYQmVVTUtvSUtnNzN5eV9EQ2tyaTduVFBCWWNVZDRqUTl1WUVUZyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2MDc0MTc3NX19fV19&Signature=dLyV0EaXsv9BcMHC2X4K35MOIKkNKSbnCjTfU0Pv8FsASAh4YoRGC3crBZ-qYX-ypCAXVqMRAto5VVmucnrFkuJDt-0zlOJm8k%7EO6VsIW11L13eWym-Fd0u4SCBJ6czkAUbjRUzHVTll0kLZrvwUj5Hno8HgyY6-23LQCP%7EC-Hv6KpN8jbgtPBusUGUbiMv-xtzZ5IYEWJX9GSSvoBgTmL3K2arullWXmwu95FRSsYP2FTxhjlxoul6C66710Hwp4dPt71sn-FiYnZUBY-R%7E6zIgX8tKXoGhjhztFOs%7Ekxyd1ME28kc%7Em999u25xoJgyl1trHDG%7ED-gSN3BK2D0gNg__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=OCBdzXBeUMKoIKg73yy_DCkri7nTPBYcUd4jQ9uYETg"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "06",
+                            "title": "La vengeance de Mme Pratchett",
+                            "displayOverlay": "",
+                            "duration": 572,
+                            "hasStreams": false,
+                            "fileSize": 9275360,
+                            "overlayLabel": "6",
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/229uiPdEmhTfasFkW4EXUNByc1r7-ifN-zkO_ZOoi8U"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "06",
+                                    "title": "La vengeance de Mme Pratchett",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 572,
+                                    "fileSize": 9275360,
+                                    "channels": "stereo",
+                                    "overlayLabel": "6",
+                                    "display": null,
+                                    "ambient": null,
+                                    "transitions": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/sTniYIZW1RN5hJDZM00P32ihBEa6OAhykHG-JWxr1q0?Expires=1760741775&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vc1RuaVlJWlcxUk41aEpEWk0wMFAzMmloQkVhNk9BaHlrSEctSld4cjFxMCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2MDc0MTc3NX19fV19&Signature=m9wnwpdZBOIFtDVXu0gmTdzkaRn5n3GgvCiSmFCCDuqTKjWpFDezMj2br4ONDSwYig8IETyDXwiam2PM8%7EhpjWLHBkklqca4Ce%7EcnHL2EcM5B5fs23C9t6L2DmE6jxu47yNDavvBz7BD9sJrzjPXV4d-sq8CGOfxzK9flwRQM1CIJnoyrFtu1G0mEUwJg67A2%7EvUGaJeboXtXuIFX669KUnrn8V2meZUdWxpsRGSLvmipLBIHhNs%7ECrSp2XCjZ1nhdlcZDsFyMYG-Pqvpvyu36w3GF77BOM6WH2Fc3gENwK3e946i52MwE3nKyP8Mu2b5002KEcc9vpayghFWVChaA__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=sTniYIZW1RN5hJDZM00P32ihBEa6OAhykHG-JWxr1q0"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "07",
+                            "title": "Vacances en Norvège",
+                            "displayOverlay": "",
+                            "duration": 544,
+                            "hasStreams": false,
+                            "fileSize": 8823770,
+                            "overlayLabel": "7",
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/WYDxKDFy5r_w9K2ovAO-BQi5nVPd4R0iP0sekAot3Yk"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "07",
+                                    "title": "Vacances en Norvège",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 544,
+                                    "fileSize": 8823770,
+                                    "channels": "stereo",
+                                    "overlayLabel": "7",
+                                    "display": null,
+                                    "ambient": null,
+                                    "transitions": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/By-jyXz9cYPIKrQFtfbdXi7eXPERRLuz5uIolCUdRqQ?Expires=1760741775&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vQnktanlYejljWVBJS3JRRnRmYmRYaTdlWFBFUlJMdXo1dUlvbENVZFJxUSIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2MDc0MTc3NX19fV19&Signature=qeQD8Nk-6u8ngCdpY3-8Tz27YhR4mjhPN58sf5fbpSWwcoJgougVvx6PSpIk8FGLGnb62w5BH5AkzOIVJJ97wLBLHVO-NMwJutyPf7YeblKLGM%7E0G1cj8TutPShtWQpSoOf43mnUnK9heAoXrnQ8xfLNb8GqsisChIm0V2fLaQyghJizVYRwrZ3MM9VRDDibZi1fw13CAhXSM9ApAKv4XH8OFRfZkPDbW6j661J2gpbUpJEzGnkfNxSgVqaXbNpsFvmreobzLcAciat0WEhMlXTh3Ewx2RmBPuo2u3qsQMThXXCSBFSzNHIje8WoNSGy3yeTXnrzQuAGOTs4EgOK5w__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=By-jyXz9cYPIKrQFtfbdXi7eXPERRLuz5uIolCUdRqQ"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "08",
+                            "title": "L'île magique",
+                            "displayOverlay": "",
+                            "duration": 581,
+                            "hasStreams": false,
+                            "fileSize": 9431281,
+                            "overlayLabel": "8",
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/-6lqrokYlXWeWyrnNb1SNsTZkr1cWJlFgr7WRCidIyg"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "08",
+                                    "title": "L'île magique",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 581,
+                                    "fileSize": 9431281,
+                                    "channels": "stereo",
+                                    "overlayLabel": "8",
+                                    "display": null,
+                                    "ambient": null,
+                                    "transitions": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/hxo0gcQK8YEhTWhYNu99Jj_hUNNG4V5lMKPVgdNyCcM?Expires=1760741775&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vaHhvMGdjUUs4WUVoVFdoWU51OTlKal9oVU5ORzRWNWxNS1BWZ2ROeUNjTSIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2MDc0MTc3NX19fV19&Signature=teedGuxBm5K6m8I4kml4%7EuEn99BFlGWRdxZBzjaWk9mI90Bq7xyUTlcY1raPSxJfLzNm4i0SE-UVixzKWiU9njsd0jxWwPTRsfNxZpDULnd3t%7Ezf%7EITV%7EcGWpTtZZpRlxNZ7fmKuXHCwASkT7A%7Ef35gCURWU3xepUGR%7EQJMUraNh18J9rcK0TnHQSsKfY42mhBmrx3N7AJ7eBL08uHSsA4dx4%7ESzc3DnT7TfggeDIpAPB35lDDfdqChuXNFffYMwERofDfWX8dRcu-EglUkkbbluJst1dLdgZAcayUkDW7Jk89vf5QyuCrScSA2JvlIsdHCOQRlI5v5ls7uSvZDAJQ__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=hxo0gcQK8YEhTWhYNu99Jj_hUNNG4V5lMKPVgdNyCcM"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "09",
+                            "title": "Une visite chez le médecin",
+                            "displayOverlay": "",
+                            "duration": 301,
+                            "hasStreams": false,
+                            "fileSize": 4881369,
+                            "overlayLabel": "9",
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/H2HYX4gbaOsyw76fDWm-9hVsMX9Xut_xOEJT1Aot4j4"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "09",
+                                    "title": "Une visite chez le médecin",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 301,
+                                    "fileSize": 4881369,
+                                    "channels": "stereo",
+                                    "overlayLabel": "9",
+                                    "display": null,
+                                    "ambient": null,
+                                    "transitions": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/MjtzI6-LOKS0ZWEpQBatM6wdlVPnuVtoCRrqbAmM6rI?Expires=1760741775&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vTWp0ekk2LUxPS1MwWldFcFFCYXRNNndkbFZQbnVWdG9DUnJxYkFtTTZySSIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2MDc0MTc3NX19fV19&Signature=DAIwO7jejR-J0IxWOyVYij0KxHunlp6u0iLBXC4ojUxX6GSGnecxCKsTHH3UPI46wZjrKHj2lYEBv0r7GsEyYomMSRiQwg1OjoEYnnJJn8L27UilVXP8sj3LY08WmtIppssbn7KMgdfANbk9%7ES-ZW9N8jGLQN6M4oLpkFdAerzcngiSfSNKr%7Eor84OLk80zJKunWsDBzJ-GEYWmzOeiu2uh51IFwHb4ItckYLnGf-H8naURjVHAH6f2hY7eI5zWmbNnN0uQa1ExwlyatJOSBGjscYvokJsY3WXdFUCwkXv1Cv1ElIQbJA-S4CR2UAx59MbNvrSBTXt8BZhSxngbwwQ__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=MjtzI6-LOKS0ZWEpQBatM6wdlVPnuVtoCRrqbAmM6rI"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "10",
+                            "title": "Premier jour",
+                            "displayOverlay": "",
+                            "duration": 436,
+                            "hasStreams": false,
+                            "fileSize": 7071762,
+                            "overlayLabel": "10",
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/7He9dlHF1TbK_DUsGIkof5qVlksXcb5WNswFqmtxXxI"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "10",
+                                    "title": "Premier jour",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 436,
+                                    "fileSize": 7071762,
+                                    "channels": "stereo",
+                                    "overlayLabel": "10",
+                                    "display": null,
+                                    "ambient": null,
+                                    "transitions": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/aQbjfetUbkoafKK_eea8-yjfc-bPI3yePfwDCmEFrpY?Expires=1760741775&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vYVFiamZldFVia29hZktLX2VlYTgteWpmYy1iUEkzeWVQZndEQ21FRnJwWSIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2MDc0MTc3NX19fV19&Signature=HUcaqE8qNIrToybVqpjIbHswb93TZ2YrJliqUrATDHNZERgYvDSQjm1xVJrlLR8WQ4-yneon-KrbZBjKgksnEaIckc9A03wYQXAxnmuLiX%7ENxtyR9Rduk928ZVFP3BYqfw8jrJqFeJpighM6HzG%7EfHv3AypUnGw0A5HWbDwyN2L2-SQEPiOmEL4klpLETwUS4s9bU9RPNs8IBXm2fNAS8mulB2IUyoKAeBKBA9liS%7E1BDNQp1FzXGrwuVQk3GNlakXNdCiJJyjylyYRsyIgRFsJqx7puMycBZICzmRF-Lj1iAAwYipilnDwMhrJhEMb4j4x6ogH-CMQuEKKaR3X5hw__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=aQbjfetUbkoafKK_eea8-yjfc-bPI3yePfwDCmEFrpY"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "11",
+                            "title": "Lettres à ma mère",
+                            "displayOverlay": "",
+                            "duration": 288,
+                            "hasStreams": false,
+                            "fileSize": 4678113,
+                            "overlayLabel": "11",
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/wmK1QeM49xX7aRu6pmdbjLch9xxFB7IgnLmEDOc_2pM"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "11",
+                                    "title": "Lettres à ma mère",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 288,
+                                    "fileSize": 4678113,
+                                    "channels": "stereo",
+                                    "overlayLabel": "11",
+                                    "display": null,
+                                    "ambient": null,
+                                    "transitions": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/u0J9Q0nfV18TqEU4ZL7lxvN27doRJwjicn74Msk54QU?Expires=1760741775&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vdTBKOVEwbmZWMThUcUVVNFpMN2x4dk4yN2RvUkp3amljbjc0TXNrNTRRVSIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2MDc0MTc3NX19fV19&Signature=tNVkMvyKFANIn04FDzCGp5v5PgEy5LImfWBuLiujdlxrdZc9thqcsHejzQxD3MPSobeB0KVBkN88s5BeEZ--x2Au-9W2oF8K7S3CUJyNUXCobvGitQXFErjyOmQA5NGua0v0o113gXnUaDdNR6BhvStXhC%7EP1N3ead0KcP5MyvdhdDzxZ%7EO1VGBgwYGnZVfQ8%7EFm6mNZTgx86R3%7EKQSa0qQx-vLaB4t37tNPkt51WnPbytPPyuVDfyfFoFhEPLmgqHHTInE0oK1US84xsLD3QT3AZZo3NTcOEkdAhnJn5p05yr4q7rUg6yj2a8F8yjIltq78%7EvytgkpVoK4A%7E0pQLA__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=u0J9Q0nfV18TqEU4ZL7lxvN27doRJwjicn74Msk54QU"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "12",
+                            "title": "La surveillante",
+                            "displayOverlay": "",
+                            "duration": 749,
+                            "hasStreams": false,
+                            "fileSize": 12148910,
+                            "overlayLabel": "12",
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/229uiPdEmhTfasFkW4EXUNByc1r7-ifN-zkO_ZOoi8U"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "12",
+                                    "title": "La surveillante",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 749,
+                                    "fileSize": 12148910,
+                                    "channels": "stereo",
+                                    "overlayLabel": "12",
+                                    "display": null,
+                                    "ambient": null,
+                                    "transitions": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/xeppk8oqx_yBxTRookgQc6WnalRTA7XpO-v6eii-X1s?Expires=1760741775&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8veGVwcGs4b3F4X3lCeFRSb29rZ1FjNlduYWxSVEE3WHBPLXY2ZWlpLVgxcyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2MDc0MTc3NX19fV19&Signature=ICxwk8TdRbm-uf27fUbTEYxQad6fWu9Kthytraq9AEvC58%7EpENBxRnAd9q%7EiV0Eb11Sf2WXPgPt91uvnx5%7EWECrmE5QTBVg7kLioDVkHwrpY2gsQgAJtHw3VLOn%7E4NaLH7fylOzH2HpkkFGX8RDV94IGgWfIe67rFkyzyVNSo9Daqv4R36VwZyqB-2VJo1gfWGzsHyZ0QhniypgsHvyMNSt80n9sPnuB79t1THnXreCiYQgDVxzKqcKWP41B43h4Gw4aex1%7Epw80ZLpvcykX3YGMSh385MoSyzFdJHqLC90l%7EpeOIi3nusdGxwiOBC14F%7E9ArKcso5s%7EFvfTrGja6g__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=xeppk8oqx_yBxTRookgQc6WnalRTA7XpO-v6eii-X1s"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "13",
+                            "title": "Le mal du pays",
+                            "displayOverlay": "",
+                            "duration": 491,
+                            "hasStreams": false,
+                            "fileSize": 7975459,
+                            "overlayLabel": "13",
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/eL4oO8MGrRMqfrsfblY0mDc7YpFiZKFxOzoPR65lwU4"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "13",
+                                    "title": "Le mal du pays",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 491,
+                                    "fileSize": 7975459,
+                                    "channels": "stereo",
+                                    "overlayLabel": "13",
+                                    "display": null,
+                                    "ambient": null,
+                                    "transitions": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/WXK0BbPmizNUSrQqm2q5ts0K3eWsUAvcmeNO1jANKWI?Expires=1760741775&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vV1hLMEJiUG1pek5VU3JRcW0ycTV0czBLM2VXc1VBdmNtZU5PMWpBTktXSSIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2MDc0MTc3NX19fV19&Signature=wRMHdgRJXm530rrSfK9njO8BotjCFPX2zZ4t%7EJvwtjYQr8XzjgYwYiodMYj6lYnJXZRxpND2g2X6No%7EcUc3KDhpPHshbTxlPnk229O%7EH3QQG93ns989P1u91rp-hrgsUGwu5JMh5%7EYmm3OEOOzmEQzxaI4aZV4udkwU9vXFVjWfYiDwiNl9jQ2jucjwYQGjjKMEf8lPYUoN4SPfiwbpkBQijRaKODdxzUxL%7Ec5RoCcv%7EBjvXYT%7Ei7tyWRj21a-B1RPwmX%7EoaiK-2i6X79t20HOBtYTpjbpXnTc1nvYZzEOIRpcjJ5ZrnHaj7I%7EIAl3nMkW0-WrdPrn3Kz4L-UK-3FA__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=WXK0BbPmizNUSrQqm2q5ts0K3eWsUAvcmeNO1jANKWI"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "14",
+                            "title": "Une promenade dans la voiture",
+                            "displayOverlay": "",
+                            "duration": 725,
+                            "hasStreams": false,
+                            "fileSize": 11762793,
+                            "overlayLabel": "14",
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/MdW67K3sdsZhx9msh-fZX0rcqsJRWtZzX5vkxjEbfWw"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "14",
+                                    "title": "Une promenade dans la voiture",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 725,
+                                    "fileSize": 11762793,
+                                    "channels": "stereo",
+                                    "overlayLabel": "14",
+                                    "display": null,
+                                    "ambient": null,
+                                    "transitions": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/QbeckD5RyVxQaLmbYEQH0ZGmIGjFOB7UF4f9mDiOIDI?Expires=1760741775&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vUWJlY2tENVJ5VnhRYUxtYllFUUgwWkdtSUdqRk9CN1VGNGY5bURpT0lESSIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2MDc0MTc3NX19fV19&Signature=l1X1u09nLUoRei%7EeZiHyRrMpRq47UwIqWLu1lp7QKopEONlWRUJpGMmkufZs47JpR7JhAp4y2KgLxxvU67XzCplqxDL7roM8CDj8uC7f2lqu6bG2-dowknURad35Qz7BoMuC7t%7EG-66OqCHpN5RDYci8XphtcvlqcNMoPjE5pNpXBEwzYw7C8IqxD5rZAuqbkWC7S0ath%7ED-UzLUKe53FqXEC43GKsN9M5qOOe4FUdpwDEJbcpNeykIkfthOK2mqdcsdv5xhCTDOeBD9lEG0Ml5kQq2jw0wqzS3P0hQpT%7Eo4q0w2%7EEcFk9x2v4UOrHd1v3xt0zaEEaLNbMfzHUtdbg__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=QbeckD5RyVxQaLmbYEQH0ZGmIGjFOB7UF4f9mDiOIDI"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "15",
+                            "title": "Le capitaine Hardcastle",
+                            "displayOverlay": "",
+                            "duration": 1313,
+                            "hasStreams": false,
+                            "fileSize": 21295399,
+                            "overlayLabel": "15",
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/RB7F3ikuOY3qDq3oNwwyOWyQ2A4XhdGDPsDvBB_vG5Y"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "15",
+                                    "title": "Le capitaine Hardcastle",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 1313,
+                                    "fileSize": 21295399,
+                                    "channels": "stereo",
+                                    "overlayLabel": "15",
+                                    "display": null,
+                                    "ambient": null,
+                                    "transitions": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/GG7ENFEAcnK0003xrKsfy_jJXB0dymJo5glRy02Qqoc?Expires=1760741775&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vR0c3RU5GRUFjbkswMDAzeHJLc2Z5X2pKWEIwZHltSm81Z2xSeTAyUXFvYyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2MDc0MTc3NX19fV19&Signature=HznzYoUIF2OIKJrKA1AeP3vM%7EHg6nfZ1%7EnxpSyihoN2UOR7b1p8ShzNfjE-svCrhtuiQR2f1Lc7dPpn0ZEJ%7EhJ8aARsGmFhBV%7EAmArzm7TMI4e5FeSvjiyx2levuzZCubM%7EIwuAT%7ErEteWIZk1DIKFG70BkRwIEGgPtX4fPjOlaEhmnfxW9xvLDzf4ys79xS7%7E9CPRSVK8sOUdRbX%7EgxpQPwiKSLDqTfuNAwaREOBxqcnB%7EUe7UifpLTDwuXOfa4eMFsRZn%7EhrwBuVahYB8ykke2wgqokF1c4YZcQIF2ieBeHsv-ZPCbt89G2RPQJTDHPhuYB5WikHwCCBHIxPuHKQ__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=GG7ENFEAcnK0003xrKsfy_jJXB0dymJo5glRy02Qqoc"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "16",
+                            "title": "Le petit Ellis et son furoncle",
+                            "displayOverlay": "",
+                            "duration": 238,
+                            "hasStreams": false,
+                            "fileSize": 3866257,
+                            "overlayLabel": "16",
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/gd2rwVT-RhtMLBGAOpQqXzGl5jqzSGZu7koZ2Vm-85E"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "16",
+                                    "title": "Le petit Ellis et son furoncle",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 238,
+                                    "fileSize": 3866257,
+                                    "channels": "stereo",
+                                    "overlayLabel": "16",
+                                    "display": null,
+                                    "ambient": null,
+                                    "transitions": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/LbDOFGIIrMM6zTL7Xjd1SbJ9z_XavUB7IUr47pAimgY?Expires=1760741775&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vTGJET0ZHSUlyTU02elRMN1hqZDFTYko5el9YYXZVQjdJVXI0N3BBaW1nWSIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2MDc0MTc3NX19fV19&Signature=DUqDknEUuhDQ4f0-SzWi6PNzMf6D0j7HxI2UwPbj4fV%7E5MuqXh82FMr-kTjcbnJHC5MQcTY-ggOFmtiM3rA0AxEDJtV93yOUJqKfTX6aMze3JX-uRs2R9nEgTMRARnzm%7EVKzb8465RCNBa46Q5aC-EDXOpPdXE4qpRLYbcA1BBUZXqYBxZvLGtfSGgLtOWdTbQYyxWf0BzJqdwxpY3jwKNMZCpI0RrSTGq8WjAdIkOzuC3twL2CZxzNMDtcK8PiceqhHWu5M-HA9xVFDQE1W5e6ogal-LUw3bof-58gANiC25L4yMCImdgyX3dF-cZAGsxIDcNXuHfqNiFHTMZbiLA__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=LbDOFGIIrMM6zTL7Xjd1SbJ9z_XavUB7IUr47pAimgY"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "17",
+                            "title": "Le tabac de chèvre",
+                            "displayOverlay": "",
+                            "duration": 552,
+                            "hasStreams": false,
+                            "fileSize": 8965641,
+                            "overlayLabel": "17",
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/dfU-lr7Ay4-nPlqpQyR2ErsduGRi6UNjKUytxKFP4hY"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "17",
+                                    "title": "Le tabac de chèvre",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 552,
+                                    "fileSize": 8965641,
+                                    "channels": "stereo",
+                                    "overlayLabel": "17",
+                                    "display": null,
+                                    "ambient": null,
+                                    "transitions": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/UHTdn0uJhP4xqm8ICkz2-i3e2alXvdP4tvqIgKUwF1k?Expires=1760741775&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vVUhUZG4wdUpoUDR4cW04SUNrejItaTNlMmFsWHZkUDR0dnFJZ0tVd0YxayIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2MDc0MTc3NX19fV19&Signature=kQPZTUXtGcFLz2%7Ez3V4XVtlsR5VhzRtNXZcF9qPrnKjwkBm9JgsyEF1NdmvSEbZFVZ0pZZc-h0%7EsujoRLqsvcdo9LFGFWkpX3e7WVeF7R7xyhgavHxnB%7EsVUSnaxgJIOgfO7bnJuM%7EKX3UpyvGoEWbXF%7E50CUE6nfXNtUPYcC2UQKc3DlK0ekpRRrVxTcb8q8J3n-AUOiplJFqZVO9Wab6hTeHoQsI8lFGPhP81VI5gIOABdGv%7ENuA%7ExdvYi8zrZhORdGvgbBkA8WiFQPW09xEgSwHggh8rjltLN88AsLTOSrtac-f3X6X9VvzHkP6NNQXuzgpdj2XfogvAwMyA%7ECQ__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=UHTdn0uJhP4xqm8ICkz2-i3e2alXvdP4tvqIgKUwF1k"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "18",
+                            "title": "En tenue pour le collège",
+                            "displayOverlay": "",
+                            "duration": 408,
+                            "hasStreams": false,
+                            "fileSize": 6625390,
+                            "overlayLabel": "18",
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/dzI-lkJm3cB73YOPoryXmDDy9GFNlEmVeJ8A3G9ucSw"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "18",
+                                    "title": "En tenue pour le collège",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 408,
+                                    "fileSize": 6625390,
+                                    "channels": "stereo",
+                                    "overlayLabel": "18",
+                                    "display": null,
+                                    "ambient": null,
+                                    "transitions": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/2wKyL-7TM-MQjqd6iuPV5VdadywBjoC9jwzGfjMYR0Y?Expires=1760741775&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vMndLeUwtN1RNLU1RanFkNml1UFY1VmRhZHl3QmpvQzlqd3pHZmpNWVIwWSIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2MDc0MTc3NX19fV19&Signature=cp6VImLIVHgFyZ8nvoQZyvcffBaqRc7GSYATpZ3-a%7E7dY01ivCdTotN5JAzxvzBJD7afp4y5Vq-%7EPcYDTaxQihc9hEGU3NSCAljYesTaGucOGCB1QYiQgryTsm-oR4nSi1pGAym0ooAEBtJmOnTmeqRjpAs7QbNB1CZgE2c91GFIN3Oz4icWnn-mYAHuIR%7EH0ClvewXz3%7E-eEJgrmtqhUQMSRIMwh1jHujWrr4BLQ2f21OyKi0PxFAhq3WClQjd-dDx5SZe2eK3iFIJl3L6XgM%7EKccR3ls9Daidehidb%7EDiFpVrjPrbKNw7wO2wDjsBRTu1lHk-H3Q-riCGsWN71cg__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=2wKyL-7TM-MQjqd6iuPV5VdadywBjoC9jwzGfjMYR0Y"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "19",
+                            "title": "Boazers",
+                            "displayOverlay": "",
+                            "duration": 201,
+                            "hasStreams": false,
+                            "fileSize": 3273477,
+                            "overlayLabel": "19",
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/MzlBXf7SIIR3OfqoS-UGNAjLEUSi5-GfSGS76pUaYoY"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "19",
+                                    "title": "Boazers",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 201,
+                                    "fileSize": 3273477,
+                                    "channels": "stereo",
+                                    "overlayLabel": "19",
+                                    "display": null,
+                                    "ambient": null,
+                                    "transitions": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/tV_WFSicfbgoMg2ySnHqfpdUY77DXm_CO4EQXeHZJzA?Expires=1760741775&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vdFZfV0ZTaWNmYmdvTWcyeVNuSHFmcGRVWTc3RFhtX0NPNEVRWGVIWkp6QSIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2MDc0MTc3NX19fV19&Signature=RIcjpl3uCS4pSVZaOZRaFzfHzwssp8Yk97ycUaynzz2JWlg542wmEmC2eOY6q8k6JjIYglCgRtirMRUUttqKBuB42ilVodSh-OhsYGMVsWGOBStQmPl8BhcJmIFyJIZCM5sSrELGhl7GCuEsZY8CBsj8q7fd8cydVZWSlYCLbO7p2RjR%7EdJtLH2x0ua4DqBzfxmhoeEN8Sja9Bqt8dupuvCant%7EZ2en7t9jg8Z3DKKOUzajdm-TXGMOCEO-5nxml%7EdEVx5OG55qJNkki4KMhUTSke-zyqEMpXPBUrSSRGx2nVBmooSTwrYNN5LxmYpOl1o6PsMmziWdzhaKTnMB7GA__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=tV_WFSicfbgoMg2ySnHqfpdUY77DXm_CO4EQXeHZJzA"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "20",
+                            "title": "Le principal",
+                            "displayOverlay": "",
+                            "duration": 329,
+                            "hasStreams": false,
+                            "fileSize": 5348392,
+                            "overlayLabel": "20",
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/yJK_y1CPjbEEaLc205nElBNZSdKD4EhfRDqQfEjUsk4"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "20",
+                                    "title": "Le principal",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 329,
+                                    "fileSize": 5348392,
+                                    "channels": "stereo",
+                                    "overlayLabel": "20",
+                                    "display": null,
+                                    "ambient": null,
+                                    "transitions": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/lIec_G5WPjwTTzrVmOKaz2WgNmjmEAQhkj00t_G7MXs?Expires=1760741775&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vbEllY19HNVdQandUVHpyVm1PS2F6MldnTm1qbUVBUWhrajAwdF9HN01YcyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2MDc0MTc3NX19fV19&Signature=DVQpnZaj%7Ep4Sy90fwMI91BCygL7Q-seOfKU9gyGS9Co%7EMc-ufqLi-CGpzXuQes19kWmAlxrkqC6snetnmKVuBfAFICC8od1hnwUgpQJ7rjSfSixtQpIOIdzDG1Bo0DdHtBUYG4Ix9FNLj5sRYiMkKPmn2xr31SG4nehg7Q-m934bROQfwGc1wXu3NVvEmkELWqzXObSoNCTePJ-yz63y7qcQ19egLl203vzkZOOk-KDC2DAElW7DAEkWvNs7tjEZLxm%7ERG-yt0S87DpQ9jLYEUukF7MXejZjRm9JyYs-7izZU0qoKkiC0IHJUeIkYGzcQjeKx3%7EvhoPlUyDc96Px4A__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=lIec_G5WPjwTTzrVmOKaz2WgNmjmEAQhkj00t_G7MXs"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "21",
+                            "title": "Chocolat",
+                            "displayOverlay": "",
+                            "duration": 214,
+                            "hasStreams": false,
+                            "fileSize": 3472949,
+                            "overlayLabel": "21",
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/myyMMQU6FvnkgRf6KyHLBXxO7N7eA5nBMuZCVWAyP9g"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "21",
+                                    "title": "Chocolat",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 214,
+                                    "fileSize": 3472949,
+                                    "channels": "stereo",
+                                    "overlayLabel": "21",
+                                    "display": null,
+                                    "ambient": null,
+                                    "transitions": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/LrYV7Jq6aYhRUd9JKi2HZTN41Y2Oo72340t3YEgXAKk?Expires=1760741775&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vTHJZVjdKcTZhWWhSVWQ5SktpMkhaVE40MVkyT283MjM0MHQzWUVnWEFLayIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2MDc0MTc3NX19fV19&Signature=iHHxCMSgcvS3vwnFiI52c7Ev1FBof81qg4ALH9iN0Yw2ILhCkKr4Qplrt6vB%7EZpZv8FZYylg9RuLakzh7EBnWZgGyP-JQaMAZGYc3H7kzR%7EjhjC%7EL73jOpEb8MjnfOsfKSQAYvEWTFBW7LeY5dlojrNt5Iy4hRwUPxIHtch6rOGwB8gE0%7E6b7g8HPccxfbRWJvtM9PazNZlmR17H0ARy0C-vMc6B-f5cwn7IfsL37WN%7E7-YyyW3XW0AfMfHHXuaKxMDP6HFYxnKEoVDOEQpzN154d2rzs9aC1QC2wi-aD81up8RrVRgU8Y9iTVeBqu5t8y24ggdpaVUtAHO5Xeaq7A__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=LrYV7Jq6aYhRUd9JKi2HZTN41Y2Oo72340t3YEgXAKk"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "22",
+                            "title": "Corkers",
+                            "displayOverlay": "",
+                            "duration": 329,
+                            "hasStreams": false,
+                            "fileSize": 5338201,
+                            "overlayLabel": "22",
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/FtB8UR7R7ZJZOkqr2lBP5qiHKMb2pHBYIAG6vrXzsfE"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "22",
+                                    "title": "Corkers",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 329,
+                                    "fileSize": 5338201,
+                                    "channels": "stereo",
+                                    "overlayLabel": "22",
+                                    "display": null,
+                                    "ambient": null,
+                                    "transitions": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/Hsul0RC0fTyhJp3YNo-xWYr8ztgCWs24s0ua5vUQ8F0?Expires=1760741775&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vSHN1bDBSQzBmVHloSnAzWU5vLXhXWXI4enRnQ1dzMjRzMHVhNXZVUThGMCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2MDc0MTc3NX19fV19&Signature=ShX8YjJmMBLl5nY%7Ey8ymfuKKZP3-wSlj9OgdBaYbOAB3p5UEvhcxRNNXS6CtcdptNT4qoiLtKw5o2GU6qB0K8RNInz0Yq47YUq1YI3qFVrIPJSnJYdUUvbe9Pba-MDAiTH1xzddTDKBaRxQR6lAoz8JlAtrxcuo2D36kshn0TgTjhMWRoUyRJuWUDioos4sDcNzf3N-VYtaG3H1Cz0J6z5O3bUkKLPuqq%7ERar2oDCZ8tnSEG99MdEZFPzjLGcFRCZR49sHpC8HH6e0uhI%7EL2TkB5mth4EnwNh%7EDXxBuV6WU3H7r0MP8MhJTWeDD7A4PS%7EGWF3S1MaGcrEvTT0%7EYwtg__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=Hsul0RC0fTyhJp3YNo-xWYr8ztgCWs24s0ua5vUQ8F0"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "23",
+                            "title": "Fag",
+                            "displayOverlay": "",
+                            "duration": 489,
+                            "hasStreams": false,
+                            "fileSize": 7941542,
+                            "overlayLabel": "23",
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/bm6J2Yscv61eEr2GnfncdAR25i-z-DF5TuVEKkP_Z9M"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "23",
+                                    "title": "Fag",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 489,
+                                    "fileSize": 7941542,
+                                    "channels": "stereo",
+                                    "overlayLabel": "23",
+                                    "display": null,
+                                    "ambient": null,
+                                    "transitions": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/spGh7dh1mA0GDDCUg0wtaC6KP8uFi1sxmcNitfFdga0?Expires=1760741775&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vc3BHaDdkaDFtQTBHRERDVWcwd3RhQzZLUDh1Rmkxc3htY05pdGZGZGdhMCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2MDc0MTc3NX19fV19&Signature=vgq5HOa6ttkA4oQG25fmlDseBi1LZudouT46jVJkSIIDRgofhgznqf45OcIDGlbwo0uQXsLkM-jgjomvJagk2fowTNM8S8B6gMwmfOddAkWeopgvDJPlWlRk-HPUN70FPICGiXxfBzgROVnD3nyuArrfhMqWg9Z4njgoG25Z9DPx7saD-mcro-ybb9nUDT-DUmTOqvW-Nva0aBqE0Fvi2dl37yk9bskgUUM4Fut2MINBkoC26a7FDJR-tzIDWu3sNUTuQKQQWdafvufEXpfpM1CY9g8CAHkuN6i0MmGqCb%7EekMnlAebbo7KOH3tT0f6kvEEHKc%7EerPCeWqIxUZ7TpA__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=spGh7dh1mA0GDDCUg0wtaC6KP8uFi1sxmcNitfFdga0"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "24",
+                            "title": "Les jeux et la photographie",
+                            "displayOverlay": "",
+                            "duration": 500,
+                            "hasStreams": false,
+                            "fileSize": 8112501,
+                            "overlayLabel": "24",
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/otVKG3E2ad5UNgxmsaTUF1mTQQ8Bq6kon9M2-YmDIJI"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "24",
+                                    "title": "Les jeux et la photographie",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 500,
+                                    "fileSize": 8112501,
+                                    "channels": "stereo",
+                                    "overlayLabel": "24",
+                                    "display": null,
+                                    "ambient": null,
+                                    "transitions": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/MxXbSVpoGSSZGg_LWicB52ZDr-_Sb67w6XQ3OxGSFQU?Expires=1760741775&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vTXhYYlNWcG9HU1NaR2dfTFdpY0I1MlpEci1fU2I2N3c2WFEzT3hHU0ZRVSIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2MDc0MTc3NX19fV19&Signature=HZLWKblZwRJacbE9oVxKs5g5UCdiPT--bHl8CvifOA4kRMigFGkrmof-89ikAWWKlPvHseKagWemdKTVQiGqpN7VZSAoq1brkXff5eD0awHW3XNOS-ZNTHCqVvBGyAUHr-dtggeBb-I0h8-QTq8EojpfahgZhqsNQkgGylss8phs7TILdCTJwbUCG1G1r3kMEV5cnzpb0eLwarzKMXtNven7-yD4HcRFb5Juh4rO7BnS8GGzheRk4ZwTfJxPy2yrl081c-zFSo9Fwqzezz2-vx2ORgg2C3AOX3CkF0TEQOxJxJSIJJhhG2hVAxRGa0CUtrg3pFbPVXWvNoaNBbgi6A__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=MxXbSVpoGSSZGg_LWicB52ZDr-_Sb67w6XQ3OxGSFQU"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "25",
+                            "title": "Adieu au collège",
+                            "displayOverlay": "",
+                            "duration": 1019,
+                            "hasStreams": false,
+                            "fileSize": 16532040,
+                            "overlayLabel": "25",
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/yoto/VH4rf7ab6852014Dicc-X268W34q98piqnTaHpnpX0w"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "25",
+                                    "title": "Adieu au collège",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "displayOverlay": "",
+                                    "duration": 1019,
+                                    "fileSize": 16532040,
+                                    "channels": "stereo",
+                                    "overlayLabel": "25",
+                                    "display": null,
+                                    "ambient": null,
+                                    "transitions": {},
+                                    "trackUrl": "https://secure-media.yotoplay.com/yoto/wiy7x-jeEJS93-qkT5hekRNfYMG97itUqydcp4bn30s?Expires=1760741775&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tL3lvdG8vd2l5N3gtamVFSlM5My1xa1Q1aGVrUk5mWU1HOTdpdFVxeWRjcDRibjMwcyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2MDc0MTc3NX19fV19&Signature=JcwgLLlv37J87zKwAv4wpGtKE4ZGM361OpL9K-NZbdY1Ju-ei1V7rgmoVC4YMeGb9OS01b8srEADAlrvmYtBt6d4ccPnV2mdOH5CBTlKG3ZUQ22Zm9U6v9VWuY5JwMwMLMlw4QTc8wj-qUn7bdDof2uDX-qv1qk8PD-E8sAKG%7EvO6gauUB9TrcSxan7I%7EDsCBM%7EJlEx6CK4hJ3Go84jEhDHMP%7EkHYNJfrJwQvQbUCnerymLAwDjINnEGeUYy-ITxxk5YevZ9CgSdFzsuHDS3bStonq5ZlMk3Af7f%7Eo3BKfg%7E9RXbq%7EAgSOdy69PU8E6OL3Qpaw-oQovV9FWPoNQhmw__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=wiy7x-jeEJS93-qkT5hekRNfYMG97itUqydcp4bn30s"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "metadata": {
+                    "author": "Roald Dahl",
+                    "category": "stories",
+                    "description": "Que se passe-t-il quand on attrape une ratite ? Et quand on simule une crise d'appendicite ? Avez-vous jamais fumé du tabac de chèvre ? Vous a-t-on déjà affublé d'un costume qui donne l'air d'un employé des pompes funèbres pour vous rendre à l'école ? À travers le récit de ses aventures, découvrez un jeune Roald Dahl qui ressemble étonnamment aux héros de ses livres ! \nAvec tendresse et émotion, Dominique Pinon nous raconte les années d'enfance riches d'aventures de Roald Dahl. ",
+                    "previewAudio": "https://cdn.shopify.com/s/files/1/0051/8845/2401/files/moi-boy.mp3",
+                    "cover": {
+                        "imageL": "https://card-content.yotoplay.com/yoto/pub/ubjYyzSAEdWL_dyfKi7t0p4j1k3xKUwDAmlXEoQhyYE"
+                    },
+                    "languages": [
+                        "fr-fr"
+                    ],
+                    "media": {
+                        "duration": 13118,
+                        "fileSize": 212879581,
+                        "hasStreams": false
+                    },
+                    "status": {
+                        "name": "live",
+                        "updatedAt": "2022-07-18T13:08:35.471Z"
+                    }
+                },
+                "cardId": "6PmwA",
+                "createdAt": "2022-01-25T16:53:26.535Z",
+                "updatedAt": "2022-07-18T13:08:45.051Z",
+                "sortkey": "moi-boy"
+            },
+            "__ni18n_server__": {
+                "resources": {
+                    "en": {
+                        "translation": {}
+                    },
+                    "fr": {
+                        "translation": {}
+                    }
+                },
+                "ns": [
+                    "translation"
+                ],
+                "lng": "en"
+            },
+            "isPhysicalCard": true,
+            "deviceLocale": "en",
+            "deviceType": "desktop",
+            "contentId": "6PmwA"
+        },
+        "__N_SSP": true
+    },
+    "page": "/p/[contentId]",
+    "buildId": "YBQh0HmL_mMF1I_BqDiZt",
+    "isFallback": false,
+    "isExperimentalCompile": false,
+    "gssp": true,
+    "scriptLoader": [],
+    "officiality": {
+        "version": 1.2,
+        "date": "2025-10-17_17-56-15",
+        "creator": "Yoto"
+    }
+}
