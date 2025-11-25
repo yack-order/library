@@ -1,0 +1,875 @@
+{
+    "props": {
+        "pageProps": {
+            "card": {
+                "content": {
+                    "activity": "yoto_Player",
+                    "restricted": true,
+                    "version": "1",
+                    "playbackType": "linear",
+                    "config": {
+                        "resumeTimeout": 2592000,
+                        "onlineOnly": false
+                    },
+                    "editSettings": {
+                        "autoOverlayLabels": "disabled"
+                    },
+                    "chapters": [
+                        {
+                            "key": "00",
+                            "title": "1.1 Intro",
+                            "overlayLabel": "",
+                            "availableFrom": null,
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "fileSize": 762127,
+                            "duration": 47,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/As3ZLst4jZk5MiI4wI7ilob350pmguCKfBwbMhxg0_Q"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "01",
+                                    "title": "1.1 Intro",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "overlayLabel": "",
+                                    "duration": 47,
+                                    "fileSize": 762127,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/LNTb4l2-aeJtGrJOdnJehjnfxqazj7H7iq2hqwQVhL4?Expires=1764108375&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tLzEwSlU2TFFHbFpreWpMZEdJdGtyWnVkVm1OcXo0RnpKclA2Z0ROSmpuMUNRfi9MTlRiNGwyLWFlSnRHckpPZG5KZWhqbmZ4cWF6ajdIN2lxMmhxd1FWaEw0IiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzY0MTA4Mzc1fX19XX0_&Signature=mcQ4JHHrfyQB5uuoTSYb8R0f7H5Y-71px2wJakJI6EfeQjUSiG2EUgUZ%7EbiJxG1cJeK4wmNKfyNY9zbKNjC8Ttx6SeuDm1AgumIpk9TuVqdyMRYW6JlE2lxywyruf5-6raKVVuC%7ElxlAjZPKCnd2vqTcjkwc8hEgMNtAAzkakO6Cr4Lb2i7yTF4N-h8kUrjdXXkZKqX4dgO4cJEsTC8pdM6luE8yhoPRNAoLCDXfub7qIXg4AmbH85X0pPSYGniEovhOKrJ0J5TK3vX0VzHXU8zKcFdXq-MA7ePcSuytTfgzY6kmyDBnZmdn-5C7ybDKAyHKjjVlhU8tWMXUl3O5Vg__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=LNTb4l2-aeJtGrJOdnJehjnfxqazj7H7iq2hqwQVhL4",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/As3ZLst4jZk5MiI4wI7ilob350pmguCKfBwbMhxg0_Q"
+                                    },
+                                    "events": {
+                                        "onEnd": {
+                                            "cmd": "stop"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "01",
+                            "title": "1.2 Pillow",
+                            "overlayLabel": "",
+                            "availableFrom": null,
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "fileSize": 1904098,
+                            "duration": 118,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/InKMUu5w-OTU4K1LbvmZ533aSmldf-_Z-PjMXv24yUw"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "01",
+                                    "title": "1.2 Pillow",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "overlayLabel": "",
+                                    "duration": 118,
+                                    "fileSize": 1904098,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/o4A6FWPvpyVzsWcU8My4_e3I3FTtpAuiSC_iNSQyrXE?Expires=1764108375&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tLzEwSlU2TFFHbFpreWpMZEdJdGtyWnVkVm1OcXo0RnpKclA2Z0ROSmpuMUNRfi9vNEE2RldQdnB5VnpzV2NVOE15NF9lM0kzRlR0cEF1aVNDX2lOU1F5clhFIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzY0MTA4Mzc1fX19XX0_&Signature=HCbt4s1D--9MAiPOfUNBZUULcoZitdNe1kVJm98W7U1Gxb-3YNUnncLQRs5sy-7hwm%7EJCFRgqwg0zuTxa4zNZD6DRGdhabNEzQ9PS7Wdb58EdUXJfisLDKYhxgPfRm5jquzTkCzAAJsi4symUUDxgjbnZUcY03LNmj794UqLf3%7ExK-dd8dkJD8XUgxSodifepZHzry99cK9UHfkjd7tEfioEk-wo0tMnO2QD3B7i8iGeP-Pr4jTq92xpfs4oCuFcIiI5GygPfXY5IUOy3zFLtSR01GMqaUdHADcZONDsqRGi3PS0L-FIWF3uKSyYU%7EWJ3rNqb9K2AVcp7XZGTlOQ5Q__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=o4A6FWPvpyVzsWcU8My4_e3I3FTtpAuiSC_iNSQyrXE",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/InKMUu5w-OTU4K1LbvmZ533aSmldf-_Z-PjMXv24yUw"
+                                    },
+                                    "events": {
+                                        "onEnd": {
+                                            "cmd": "stop"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "02",
+                            "title": "1.3 Kitchen Sink",
+                            "overlayLabel": "",
+                            "availableFrom": null,
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "fileSize": 1904104,
+                            "duration": 118,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/g2bCqc9B3ZGgd1aCCgSeUvpbLRHgU2UFeowtWLOHP0A"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "01",
+                                    "title": "1.3 Kitchen Sink",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "overlayLabel": "",
+                                    "duration": 118,
+                                    "fileSize": 1904104,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/AU1KbCkKMjZij_ahDRWEfmZMQpcHWGSJyV0akTWTtVA?Expires=1764108375&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tLzEwSlU2TFFHbFpreWpMZEdJdGtyWnVkVm1OcXo0RnpKclA2Z0ROSmpuMUNRfi9BVTFLYkNrS01qWmlqX2FoRFJXRWZtWk1RcGNIV0dTSnlWMGFrVFdUdFZBIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzY0MTA4Mzc1fX19XX0_&Signature=fwzeIog36uXMY6w3GSD%7EaYgYWSPKfy6rnkdQTJD8UjhzKRp-8d73ECM4NMV-0GV4MLAPyiNBk-5TFuSlzs824y%7ENjk59XafXX0AcEHBkhh-8Ig2h-CXtCSimFmcBDXR4PaqhjEy1J5CQD%7EsiTsyOOO%7E%7E33T0U4O1YBVUeFyuPSczYVGMZ66XIa0Ekz8rs7%7EQtkl3UlAoHzBOhSKc6HNsxFbg9Q07iOvfoBg4fExFAgu69WAzXQ9lrjSFWTge8JX69X4RywxY6RuNeU9jwZDh-MqsNzAeOxTtq%7ElOxA4uU6JbvKcXPOhUpuIHGNK3uurYP4fv1bsBqHQpSv8-fnnjPQ__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=AU1KbCkKMjZij_ahDRWEfmZMQpcHWGSJyV0akTWTtVA",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/g2bCqc9B3ZGgd1aCCgSeUvpbLRHgU2UFeowtWLOHP0A"
+                                    },
+                                    "events": {
+                                        "onEnd": {
+                                            "cmd": "stop"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "03",
+                            "title": "1.4 Freezer",
+                            "overlayLabel": "",
+                            "availableFrom": null,
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "fileSize": 1904099,
+                            "duration": 118,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/Lp0kH7FXAcL3RJ6d31oWfqO9rkAbOAqrrQlVir4bdt4"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "01",
+                                    "title": "1.4 Freezer",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "overlayLabel": "",
+                                    "duration": 118,
+                                    "fileSize": 1904099,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/us9EbZl0G8fZYRBB3d3N8clUIJIkNlVsSuShy0x6UKs?Expires=1764108375&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tLzEwSlU2TFFHbFpreWpMZEdJdGtyWnVkVm1OcXo0RnpKclA2Z0ROSmpuMUNRfi91czlFYlpsMEc4ZlpZUkJCM2QzTjhjbFVJSklrTmxWc1N1U2h5MHg2VUtzIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzY0MTA4Mzc1fX19XX0_&Signature=K4AtuK-AZHevzb5NPZmRlWex6CCfMzOl7ds-Nwl%7E-QSec5Wo2hEV%7EoFXHA5EsQKLkWdv6VQ8G0rPAQIPPEOvjb6ENm-6dSXojxH3N4wFIWpjK3o1hndB-0lMeGIySTim6VnCRBEeHO05ZSvxj-ISF6vghk2Kyd6U2z4KR-RnDQUTJ5G4pDv9X7ZwURewspme3sh03CT9hCduQDmdj0VLLkWAsT-gvaHoOctkB44DoJxZYEcvIKoffAeM2Q5n86G3HXH%7EtWzWCVySrQXm3Ojy5H7jDYJxQEwFJIsMhayo-qJ5-y4iifp-xb6em64W%7ErWJq0028kEahREZLd%7E2hvoT%7EA__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=us9EbZl0G8fZYRBB3d3N8clUIJIkNlVsSuShy0x6UKs",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/Lp0kH7FXAcL3RJ6d31oWfqO9rkAbOAqrrQlVir4bdt4"
+                                    },
+                                    "events": {
+                                        "onEnd": {
+                                            "cmd": "stop"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "04",
+                            "title": "1.5 Kitchen Table",
+                            "overlayLabel": "",
+                            "availableFrom": null,
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "fileSize": 1904105,
+                            "duration": 118,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/0H-Jh1ujRclugtZfXmTas84MTMfvkSYp7VeF8aEB1pw"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "01",
+                                    "title": "1.5 Kitchen Table",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "overlayLabel": "",
+                                    "duration": 118,
+                                    "fileSize": 1904105,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/FZTQ96rlDGFdf5cUxwlMQ72zCc1dKE2Glvoq58vcgpc?Expires=1764108375&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tLzEwSlU2TFFHbFpreWpMZEdJdGtyWnVkVm1OcXo0RnpKclA2Z0ROSmpuMUNRfi9GWlRROTZybERHRmRmNWNVeHdsTVE3MnpDYzFkS0UyR2x2b3E1OHZjZ3BjIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzY0MTA4Mzc1fX19XX0_&Signature=J5RuZskFQT3WueaZoVtwPlX1PEBW5Atlxp8Nx8831qikXkuh22fPtw4nEWVrLGXXeO0tYbgSxmGq7G8nf0o--K7ZcgT6Sz1sCadPAJ8XHnzXCFCW-PyvJxIRWurk3NQXHZmUmancMs98KRea3jFTG9iBsMhOvkhi1NMY0lRf8f0rMRvNl-%7ELqQ5GTSLNMbQF3d3IitkkKD%7ELhSOBsXWYDk0Yy6OWRw5xLaTkvCtjWSA7tBd59Og6%7Eyx1qdLdme926e0wokZt9AQAwqPCCg4G7uzIyEFtjjUUOW%7EmKwGHu%7EAWP8c9kpwf6k-N7-JjyIeSljr5LK-2Tk-p1CY58PjS0Q__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=FZTQ96rlDGFdf5cUxwlMQ72zCc1dKE2Glvoq58vcgpc",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/0H-Jh1ujRclugtZfXmTas84MTMfvkSYp7VeF8aEB1pw"
+                                    },
+                                    "events": {
+                                        "onEnd": {
+                                            "cmd": "stop"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "05",
+                            "title": "1.6 Under Couch or Couch Cushion",
+                            "overlayLabel": "",
+                            "availableFrom": null,
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "fileSize": 1904120,
+                            "duration": 118,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/rMTK7rXGlPH2XBSzAPdLB63uSJvcWEMaQnhT2CmYiP8"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "01",
+                                    "title": "1.6 Under Couch or Couch Cushion",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "overlayLabel": "",
+                                    "duration": 118,
+                                    "fileSize": 1904120,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/EJdl0xZHbpxhY3CBsA5RrN4PT3oBBgi5lygOu1s4AB8?Expires=1764108375&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tLzEwSlU2TFFHbFpreWpMZEdJdGtyWnVkVm1OcXo0RnpKclA2Z0ROSmpuMUNRfi9FSmRsMHhaSGJweGhZM0NCc0E1UnJONFBUM29CQmdpNWx5Z091MXM0QUI4IiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzY0MTA4Mzc1fX19XX0_&Signature=ZH0t1CMiFfU%7E6wLYcozkLdrvlNKk8hSWnupaarNuRWWHnQBbnj2InuBCcMkzkHmgmw5M5GuK8HsxBDApKd-pVyWGH5CEtcLZHavMHs6L6dUiemuVpK88OVPVwS4unOkL1cqbVV5PzVFCshAiYDyAcbegqVqOmGYnc0VzI94Qs1U%7EaPzhZO8CSf946FFTvRHOHuY2CMWOgbzEHqjp-hqi8bpTm7zOJFhQBBaAQNLPvGUHARofnmDhWO8TPIGRMYNndmMXG-2RDHqEVwiECmzTil1Y3vt61jzXVm8m7XOW8IZVJQHhIqKTEItvFhvoGOPTvJ8ZDtDHiQLeIClUXRVSGQ__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=EJdl0xZHbpxhY3CBsA5RrN4PT3oBBgi5lygOu1s4AB8",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/rMTK7rXGlPH2XBSzAPdLB63uSJvcWEMaQnhT2CmYiP8"
+                                    },
+                                    "events": {
+                                        "onEnd": {
+                                            "cmd": "stop"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "06",
+                            "title": "1.7 In their shoe",
+                            "overlayLabel": "",
+                            "availableFrom": null,
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "fileSize": 1904105,
+                            "duration": 118,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/NEqSbTXGIEI8KwAOQuv1cn2xboLavOMjnpDaWV_d6Nw"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "01",
+                                    "title": "1.7 In their shoe",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "overlayLabel": "",
+                                    "duration": 118,
+                                    "fileSize": 1904105,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/wJhn3IRZ7A6oEAWZjNkrPkHAU-Z7PCPGBktnMW5yFvw?Expires=1764108375&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tLzEwSlU2TFFHbFpreWpMZEdJdGtyWnVkVm1OcXo0RnpKclA2Z0ROSmpuMUNRfi93SmhuM0lSWjdBNm9FQVdaak5rclBrSEFVLVo3UENQR0JrdG5NVzV5RnZ3IiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzY0MTA4Mzc1fX19XX0_&Signature=NmHaFV-DJDA6%7Eb2B6G54Z2CswpIAfXfgH79WLnAM7Wq0Me%7E74HqUkzDBwi2waUBEOXLzF8-1lBj6V-vIYpvPYN4c2yKgwWCo4NM7OkpiSLgh9y6kPWy7luhnT2Cmvf6b2gnXVdWXvtCj9kx6lfF9%7EZ3fJeYnRKleknmKH6poH9f6lViZHWFhsPqVwNraIMf0AnEdcC2Xc2uHUv2gYzBo-Y7B1YWp50aIMqfKFfH-5r1qdUg-kbxntafZMl3fWyumO2tPI77gTSlO5A2-pbQl4nFHbMhS7j-hH-XEm1MKq9CGoNDqc-Jj6bdR4heMnApXZNBkMH-FYBiTyXo%7EvIGutA__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=wJhn3IRZ7A6oEAWZjNkrPkHAU-Z7PCPGBktnMW5yFvw",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/NEqSbTXGIEI8KwAOQuv1cn2xboLavOMjnpDaWV_d6Nw"
+                                    },
+                                    "events": {
+                                        "onEnd": {
+                                            "cmd": "stop"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "07",
+                            "title": "1.8 In Kitchen Drawer",
+                            "overlayLabel": "",
+                            "availableFrom": null,
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "fileSize": 1904109,
+                            "duration": 118,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/oCHl1M8m7Exe9w_uKeuD5-6pgTYu3lzi3hlPqXUiY6E"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "01",
+                                    "title": "1.8 In Kitchen Drawer",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "overlayLabel": "",
+                                    "duration": 118,
+                                    "fileSize": 1904109,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/xLsz-YgxVuN_ocXeJ1I2so_C_GuED6N1nH-j3eHwdms?Expires=1764108375&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tLzEwSlU2TFFHbFpreWpMZEdJdGtyWnVkVm1OcXo0RnpKclA2Z0ROSmpuMUNRfi94THN6LVlneFZ1Tl9vY1hlSjFJMnNvX0NfR3VFRDZOMW5ILWozZUh3ZG1zIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzY0MTA4Mzc1fX19XX0_&Signature=xMU9x-QtGc9vcXE0%7EQJKJ9U98uUHm9ugnP8Xf60UBMa7XF9oYMzbbq4ZM-fl-ce7gs6SrDIfhlbjIXZTYGZRbUpvgAUwFyQKZ2vIsH9Wy3ajSekaSMdSeOYc77phWM8E-SLvSDudV2xEzomxpyBZalCY5gZkdoTHXLZoMLoOEosmooKphOewnpUd0PKdMbPorugpmTpOIw8gXK%7ERMcBYOff%7ET7Ex8egPvN0yCYCndEJVlQmb2OhKzCAnzFQp8sNC68XQY2347DHpGyEWCd3f6XJhdSdE8LieVRnU26ys4sml0GkiKZBR01a7N6sXiaJiyue5G34Fytm4OYcUt-OC1g__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=xLsz-YgxVuN_ocXeJ1I2so_C_GuED6N1nH-j3eHwdms",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/oCHl1M8m7Exe9w_uKeuD5-6pgTYu3lzi3hlPqXUiY6E"
+                                    },
+                                    "events": {
+                                        "onEnd": {
+                                            "cmd": "stop"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "08",
+                            "title": "1.9 By Books or Bookshelf",
+                            "overlayLabel": "",
+                            "availableFrom": null,
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "fileSize": 1904113,
+                            "duration": 118,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/l_lgrtn81ChnLFHA0m5lYvqXKC-Jt4R0z4P0aiLKYUg"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "01",
+                                    "title": "1.9 By Books or Bookshelf",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "overlayLabel": "",
+                                    "duration": 118,
+                                    "fileSize": 1904113,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/dvu8_O8ZwDfTMTDSRySZF1m1D3YRo2--h40RP0JKWwI?Expires=1764108375&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tLzEwSlU2TFFHbFpreWpMZEdJdGtyWnVkVm1OcXo0RnpKclA2Z0ROSmpuMUNRfi9kdnU4X084WndEZlRNVERTUnlTWkYxbTFEM1lSbzItLWg0MFJQMEpLV3dJIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzY0MTA4Mzc1fX19XX0_&Signature=GUnIUZxxQd-Ps0yHxz1kg5RgWHPP2mYGXzGekWNwfVbGOQH5mNSBT5pmlafR4776dR3-I3n-n36sKEnzQT0J6VOB9Qb5hJ8lSZx-uubqFKfqsCgPnauHPJ6CoAgc%7EHZbYwPfhWU4ozil9f8HmMJ54LBg%7Ez90GY6iNocwmQB5Fn4NRcb1YZ-bR98qpO11JWOZYhNf7K0Yn0v7gc8BH9I5LvRC1IxPGG6ayHgZVZkXt3aS2LgXfeKvQspyj07pZOuYDN64xbyA6ntlhMSTHzyYLhKjPdkSPuVN1qk0L2huUGqCOx3-8M9fTMBcs%7EObvyTZmfhH6hnlHHS9hQ7EEDydOg__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=dvu8_O8ZwDfTMTDSRySZF1m1D3YRo2--h40RP0JKWwI",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/l_lgrtn81ChnLFHA0m5lYvqXKC-Jt4R0z4P0aiLKYUg"
+                                    },
+                                    "events": {
+                                        "onEnd": {
+                                            "cmd": "stop"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "09",
+                            "title": "2.0 Under or Inside something pink",
+                            "overlayLabel": "",
+                            "availableFrom": null,
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "fileSize": 1904122,
+                            "duration": 118,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/zyiyRYt6dNMDaMYuXOkQQ8jN4C6_sE4oWzdCvc2_bE8"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "01",
+                                    "title": "2.0 Under or Inside something pink",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "overlayLabel": "",
+                                    "duration": 118,
+                                    "fileSize": 1904122,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/l6vwlISamqsPQUqHj7YcrMoV448mDuIJeOba0OoZONU?Expires=1764108375&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tLzEwSlU2TFFHbFpreWpMZEdJdGtyWnVkVm1OcXo0RnpKclA2Z0ROSmpuMUNRfi9sNnZ3bElTYW1xc1BRVXFIajdZY3JNb1Y0NDhtRHVJSmVPYmEwT29aT05VIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzY0MTA4Mzc1fX19XX0_&Signature=rFKJCd30B5aPvNCiXCf1BlvAyrASz-HrJfY6HeE6SOajFj-wR-1YR-se61CGvfwJUSb0%7EDel1O-E9dpJy-BrCL-tbVktUwIZ4x-Q1sSS0FxWNHEeAqYl4CZL%7E5vFgNRzp8gdT11jsbWXgXynjIDo4NyIuNrouoERrNkm-q4oEx65RiLlBiu-PneFPItN-seyVHgwKDkdYQsNVNyiXRJ%7EyM%7E5c8FDL9ZEIAYGVmxaBVyTYLFvF8vkhROeOYOd-FUTyzFkxzFE3RH2o7ZRZoJOYv-%7EaWCXXpYZQmwv3BvZZxHDv7Nl3JN11wjdRpzstPKiMNGPuSNVlRfWCzQvSZ76EQ__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=l6vwlISamqsPQUqHj7YcrMoV448mDuIJeOba0OoZONU",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/zyiyRYt6dNMDaMYuXOkQQ8jN4C6_sE4oWzdCvc2_bE8"
+                                    },
+                                    "events": {
+                                        "onEnd": {
+                                            "cmd": "stop"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "10",
+                            "title": "2.1 Under a Chair",
+                            "overlayLabel": "",
+                            "availableFrom": null,
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "fileSize": 1904105,
+                            "duration": 118,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/AXu4LhB9lb7kPPtDfJb1Q7pBmwNqtGHX2eLhBosAKd4"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "01",
+                                    "title": "2.1 Under a Chair",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "overlayLabel": "",
+                                    "duration": 118,
+                                    "fileSize": 1904105,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/AgfDeZFbwtFaQYYHk8aoNl8PI71wvjX0qAoOT48ZsNI?Expires=1764108375&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tLzEwSlU2TFFHbFpreWpMZEdJdGtyWnVkVm1OcXo0RnpKclA2Z0ROSmpuMUNRfi9BZ2ZEZVpGYnd0RmFRWVlIazhhb05sOFBJNzF3dmpYMHFBb09UNDhac05JIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzY0MTA4Mzc1fX19XX0_&Signature=XmQCDKzCpyPAD8vyA8t4%7ET8Jkk9GbbDv-wqKmXtCVW0CJqCbr9M32dkrryxXHb20PF9cz4Z5wXqH5dcQEPJr4XPAD7biVS2uLSpWxtaMMMs9veC-3eVPf4oGUkPxlWSbLpfSXrEuKY1w1wWN0bhJsF8zr4enWA3ekSq6aPmXWfrgoNv0nC645NIgOOT-E9mOrGmqu6aK96m9ak7b87f3KVB5qlxR2PEZl6w-ueegMgWMiLsoBVd45l3L6zhhN9MDTVoAnghElSmCtSkme4It5COFbukbgzoMshZZH7VMh4iVQVmGvLF51gfhWA11yxvri-TwdB0ALlC%7Ei0G03tH%7EfQ__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=AgfDeZFbwtFaQYYHk8aoNl8PI71wvjX0qAoOT48ZsNI",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/AXu4LhB9lb7kPPtDfJb1Q7pBmwNqtGHX2eLhBosAKd4"
+                                    },
+                                    "events": {
+                                        "onEnd": {
+                                            "cmd": "stop"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "11",
+                            "title": "2.2 Bathroom Sink",
+                            "overlayLabel": "",
+                            "availableFrom": null,
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "fileSize": 1904105,
+                            "duration": 118,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/4PcvvM5CYc1nmeEHsWJcYcQW1jAbqePuQ97ccWGmPnA"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "01",
+                                    "title": "2.2 Bathroom Sink",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "overlayLabel": "",
+                                    "duration": 118,
+                                    "fileSize": 1904105,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/zZ1ytJ2XPyUfVYV3QFLLs88h6FzZ_XSlVwy7dn7a_0I?Expires=1764108375&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tLzEwSlU2TFFHbFpreWpMZEdJdGtyWnVkVm1OcXo0RnpKclA2Z0ROSmpuMUNRfi96WjF5dEoyWFB5VWZWWVYzUUZMTHM4OGg2RnpaX1hTbFZ3eTdkbjdhXzBJIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzY0MTA4Mzc1fX19XX0_&Signature=sXYUHiF5pmFD0HUG1W99VFVB1%7ELCZNPmaxSf4kPCCODtq4VSnhn2-MehI-xWtqPoZpgn0m4PIaFNyAXgPqURcIjA4dAQh5SlYXC5e8Sx-M0JG4WVH3XQL9NkuuEE%7EZliqVq%7EAKtTaFNwv1M%7Euxgbet3bM-X-OKMcMwZof-g-ZeWIV97bQ-3ngg2E0qLj2yUL8BJkLHAz9isi94HdlT3fe1y4FV5IQ5BK05DIFl1Wt4H4rEkY3OKG3jGJ7JeZud2T21mZxUhby393jPWrhqPP68z0krJEsvvgPM%7Ekx00gU%7Es6qTNqDPWnn7cwGOI2Rej9XAje3MkzOIYG2-9Z%7EusU8Q__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=zZ1ytJ2XPyUfVYV3QFLLs88h6FzZ_XSlVwy7dn7a_0I",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/4PcvvM5CYc1nmeEHsWJcYcQW1jAbqePuQ97ccWGmPnA"
+                                    },
+                                    "events": {
+                                        "onEnd": {
+                                            "cmd": "stop"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "12",
+                            "title": "2.3 Refrigerator",
+                            "overlayLabel": "",
+                            "availableFrom": null,
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "fileSize": 1904104,
+                            "duration": 118,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/CsIt18X9xr89kCL-Ul56ctslbxQT0-LrM2zzJgkpC5g"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "01",
+                                    "title": "2.3 Refrigerator",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "overlayLabel": "",
+                                    "duration": 118,
+                                    "fileSize": 1904104,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/MwJnklEFvlARb1IyFGgPofxFNEYwdgTS9l9j5kvpoBc?Expires=1764108375&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tLzEwSlU2TFFHbFpreWpMZEdJdGtyWnVkVm1OcXo0RnpKclA2Z0ROSmpuMUNRfi9Nd0pua2xFRnZsQVJiMUl5RkdnUG9meEZORVl3ZGdUUzlsOWo1a3Zwb0JjIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzY0MTA4Mzc1fX19XX0_&Signature=ipvwbEe99LJvwGu5VSQ0kp%7EZ5hCtVd%7EVumnDVM7hzqjBdQku7MkMgmAiWVk85pcVHzSjVHMFuaEFfEz-gZlgucwWExcc1o7bCauGbkEIqR-58F9-uuB3F4p0huuChqCkZtgtxU0jtN0br%7E1iSuIr6PTEfh9gElHOo2n2FTmd4O6By8m40jL5SvX-t-EZlJZ0eAKjQZPwtPcpQB24Sss3%7ErWCctbHAa8%7EtrL7AS9dhw%7EchHKcGz1Fy5hsMj1XGkUs5Lj6GwTNDDw01OwE71S58X0yRSitsV3o5sueXFCj7E%7Ey6AkumxQg1gKiJsuE2cGW%7ERV%7EEojqyO4iDYEKA5XAMg__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=MwJnklEFvlARb1IyFGgPofxFNEYwdgTS9l9j5kvpoBc",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/CsIt18X9xr89kCL-Ul56ctslbxQT0-LrM2zzJgkpC5g"
+                                    },
+                                    "events": {
+                                        "onEnd": {
+                                            "cmd": "stop"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "13",
+                            "title": "2.4 Closet",
+                            "overlayLabel": "",
+                            "availableFrom": null,
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "fileSize": 1904098,
+                            "duration": 118,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/ZlfndSuvWt-3ww6cZ3q0DLA-rRZdKs8u1N0Ld2HIVDI"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "01",
+                                    "title": "2.4 Closet",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "overlayLabel": "",
+                                    "duration": 118,
+                                    "fileSize": 1904098,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/yHfJhZQD9q4OTmKEBwaK1nE0dsamr7QksdmQo3S0zRU?Expires=1764108375&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tLzEwSlU2TFFHbFpreWpMZEdJdGtyWnVkVm1OcXo0RnpKclA2Z0ROSmpuMUNRfi95SGZKaFpRRDlxNE9UbUtFQndhSzFuRTBkc2FtcjdRa3NkbVFvM1MwelJVIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzY0MTA4Mzc1fX19XX0_&Signature=J0lKaz1bZPELu-h-GDsDIOEK0VtLSHhfjwNFM8Sr2aqLXDGqgPT6z1M2tV26OSoUSnbHo5ifmdFDSbwiNFNH3fGVFZMEfxeKSHI1JI6EinN%7Eb2fNWP16GajyWzjDu0In-S%7EM1V1V-wrcgqoi1MMJeXRIb0vl5qH9JWruDqbNx7hizFDYkYxH5684Y6-PWACfFRwm%7ErN2WhvB9zqJbvttxR6AAK5shj35417XJ6Xf8zzaM9fOShmWKCSdY2bd2iGx%7EPpxztH7wINdTV%7Eecv6YIHJoNo62S-xu6fgOqv5DTZ5BPeL45mrXPQ5QJx0oGruabDM8GQUVaQnzkbfnhMpMfQ__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=yHfJhZQD9q4OTmKEBwaK1nE0dsamr7QksdmQo3S0zRU",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/ZlfndSuvWt-3ww6cZ3q0DLA-rRZdKs8u1N0Ld2HIVDI"
+                                    },
+                                    "events": {
+                                        "onEnd": {
+                                            "cmd": "stop"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "14",
+                            "title": "2.5 Under or Inside something blue",
+                            "overlayLabel": "",
+                            "availableFrom": null,
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "fileSize": 1904122,
+                            "duration": 118,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/JUz6hvPH5T6EigjWxC01EL5HLvm7RZq9XE_D5Tg_X-4"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "01",
+                                    "title": "2.5 Under or Inside something blue",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "overlayLabel": "",
+                                    "duration": 118,
+                                    "fileSize": 1904122,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/Mqlxy9dvzHQz9PxgjWJCpipC6MvDfkZB1F5onKGjmUg?Expires=1764108375&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tLzEwSlU2TFFHbFpreWpMZEdJdGtyWnVkVm1OcXo0RnpKclA2Z0ROSmpuMUNRfi9NcWx4eTlkdnpIUXo5UHhnaldKQ3BpcEM2TXZEZmtaQjFGNW9uS0dqbVVnIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzY0MTA4Mzc1fX19XX0_&Signature=j3oDHVuwcE3k54LtP-UXaBG0vHkg1uDHBKlcwR0hjgl7MW21a25SM8WFDAg9BpBq9xqgs9fqSd%7ETURf0ka7TU7uUEiVk-EhWMWKklm-WowiYcJFZPb-NA91N7uFwYCEHJHU%7EKUKtGpmQBpzeVZZ-BHSRCYVdLoq8%7EPxxgdBMmywm1tbRnv3Uswq45NjybH9iSqJCgqg8RsJI17uG6hhT%7ESKsYjZVDWbXeYgEhtFQlaePATIb1-yVcFwdr%7ESBk-uMjuaNH4%7EZugtGacZSpX3lEG5f3jVQYyg8a74BZreDSakTMKs7brT7qYA0R-O97cGd9TO9DvAzo1F90uHh%7EB7W3w__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=Mqlxy9dvzHQz9PxgjWJCpipC6MvDfkZB1F5onKGjmUg",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/JUz6hvPH5T6EigjWxC01EL5HLvm7RZq9XE_D5Tg_X-4"
+                                    },
+                                    "events": {
+                                        "onEnd": {
+                                            "cmd": "stop"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "15",
+                            "title": "2.6 Toy Bin",
+                            "overlayLabel": "",
+                            "availableFrom": null,
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "fileSize": 1904099,
+                            "duration": 118,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/c_H-W1ODpXZDoEfVHbpgGnqfsoxsn0airFm76QON0SQ"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "01",
+                                    "title": "2.6 Toy Bin",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "overlayLabel": "",
+                                    "duration": 118,
+                                    "fileSize": 1904099,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/IMHXpFBI8-n7qktNMbWSRQUnTnkSYSL8BthuhoVjV10?Expires=1764108375&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tLzEwSlU2TFFHbFpreWpMZEdJdGtyWnVkVm1OcXo0RnpKclA2Z0ROSmpuMUNRfi9JTUhYcEZCSTgtbjdxa3ROTWJXU1JRVW5UbmtTWVNMOEJ0aHVob1ZqVjEwIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzY0MTA4Mzc1fX19XX0_&Signature=kX4fBYjwd6HAap9xMMFJR3jF94qZT%7Ek9aVXn3M1FWuTRevz-gUNk67RxbHSLDTjTM86etECKHYvovbUbq86NulOwnU%7E5RynIXIvkKtvA6gh-biOtQXGj753um%7Exeidb96iQptLo-dF9QGyORG2S24CtkuIj2DWjaqO2BFd3FooQvxvRB8QtkhUI8TRgLgSQIbjJ5yHsRjJX9vWMoP41ieeWZa5zz2Z5ZtnierZ6VG3SdnV1NOFydS4vEL42OXs3yii0edblcHt21PBP5ChdI32tE4DXuFqIZk12pcUW1ZGhNhJwggepYCWVZ2bYo6r8EkjjHYAkWZexldwJNhPtQ7A__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=IMHXpFBI8-n7qktNMbWSRQUnTnkSYSL8BthuhoVjV10",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/c_H-W1ODpXZDoEfVHbpgGnqfsoxsn0airFm76QON0SQ"
+                                    },
+                                    "events": {
+                                        "onEnd": {
+                                            "cmd": "stop"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "16",
+                            "title": "2.7 Desk",
+                            "overlayLabel": "",
+                            "availableFrom": null,
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "fileSize": 1904096,
+                            "duration": 118,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/Pj-UytMwmQ9TPnpV9Mlgkr8u4Dp0z1imr5qNErqbaTY"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "01",
+                                    "title": "2.7 Desk",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "overlayLabel": "",
+                                    "duration": 118,
+                                    "fileSize": 1904096,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/7H251rd2lG8vl2RnSW8TdmfQQYNeBOw8D58dBb_-tps?Expires=1764108375&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tLzEwSlU2TFFHbFpreWpMZEdJdGtyWnVkVm1OcXo0RnpKclA2Z0ROSmpuMUNRfi83SDI1MXJkMmxHOHZsMlJuU1c4VGRtZlFRWU5lQk93OEQ1OGRCYl8tdHBzIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzY0MTA4Mzc1fX19XX0_&Signature=Qr9LzQ3cBritYW-picP82EOdEhOSgQdHtRpF6UVMRalwldJFjtKiL%7EDKgDhEwsvNtqQzbiHf7wjN3BP%7E21mqzU30YQSOLhzIrKQ0kyPJyjLfMVC9078ux0qi9%7EweHXpuS9h2UwV3sGB0nHHw2m%7Ef%7E1-L8uIy7KwKXneLY8MdRouhAbejYDhTuXfYuqS0DwGynORoaNZqawid%7ExIg5RuqXM2jTIgAVcJeSxqIAh0EGS7dbfXNLqhZp9Kjvz8%7EqH0YVlEsYsoU1MVy96CxWL0U7NusTVi-3Q7hb3%7EhZqItHqGK5%7EL6vW67rLJMGA2vWavxF-q8EBwfpV1jNZb0rVLnew__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=7H251rd2lG8vl2RnSW8TdmfQQYNeBOw8D58dBb_-tps",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/Pj-UytMwmQ9TPnpV9Mlgkr8u4Dp0z1imr5qNErqbaTY"
+                                    },
+                                    "events": {
+                                        "onEnd": {
+                                            "cmd": "stop"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "17",
+                            "title": "2.8 Lamp",
+                            "overlayLabel": "",
+                            "availableFrom": null,
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "fileSize": 1904096,
+                            "duration": 118,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/3QWNlW4h2gTFeg70OWK2miSCHQ5l289RI7WuD8h49ho"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "01",
+                                    "title": "2.8 Lamp",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "overlayLabel": "",
+                                    "duration": 118,
+                                    "fileSize": 1904096,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/IkTXrnzYBcnx90gtYGd7Ir2CbryovIGy18FBIsrmbxs?Expires=1764108375&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tLzEwSlU2TFFHbFpreWpMZEdJdGtyWnVkVm1OcXo0RnpKclA2Z0ROSmpuMUNRfi9Ja1RYcm56WUJjbng5MGd0WUdkN0lyMkNicnlvdklHeTE4RkJJc3JtYnhzIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzY0MTA4Mzc1fX19XX0_&Signature=oMi0GofBRnMrYPrdfDlb7I0m3O9j3FEBTY43YScfAjGRIdumyaU5Crst9753KQ7qfAx93of8KyddvwqyOcfAZxqNZTHAAEpbW5bBVge87EAfN7N-9eUlVJoN10t7pSv66zMNAjuq9%7ExQ-jMDsTYEI6ggS1UtHAEIUlG%7EYTsk-f7IZ2%7Ez4EflCtvUZVIKu99RVRqtQGPzAPhLvDjmspBhuaAghRiH862KrvyxRxDER1GQqcOru06-E15rKynFk%7Ew3lIi9tgvIt%7E6pdl4KBZ3LGowOkvYbzgUs284hpWBLUW0tXw3RFdSYsWLjUuuA9-Blo5ZeY%7ER%7EZIBevIFQM2gk5g__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=IkTXrnzYBcnx90gtYGd7Ir2CbryovIGy18FBIsrmbxs",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/3QWNlW4h2gTFeg70OWK2miSCHQ5l289RI7WuD8h49ho"
+                                    },
+                                    "events": {
+                                        "onEnd": {
+                                            "cmd": "stop"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "18",
+                            "title": "2.9 Bathtub",
+                            "overlayLabel": "",
+                            "availableFrom": null,
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "fileSize": 1904099,
+                            "duration": 118,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/pgsljINMdVOsLpqQgkWWRIfhROeu948l05FL1Ib6vYw"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "01",
+                                    "title": "2.9 Bathtub",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "overlayLabel": "",
+                                    "duration": 118,
+                                    "fileSize": 1904099,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/LJssg0guJ8puzyuMYFJFnEz-9MmbiRfAM4vt5b-OVfI?Expires=1764108375&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tLzEwSlU2TFFHbFpreWpMZEdJdGtyWnVkVm1OcXo0RnpKclA2Z0ROSmpuMUNRfi9MSnNzZzBndUo4cHV6eXVNWUZKRm5Fei05TW1iaVJmQU00dnQ1Yi1PVmZJIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzY0MTA4Mzc1fX19XX0_&Signature=SU0r5qAjkt6-xZjOZ7rpw9-MFC-eIzRb5XQ2rGMdWjvxPq%7EkYD9w1S623IBMPR1k6pzxKXha%7ElDwpQ%7E8IunKc-33DVCRF8cPI05sde0UEOYmwD0HXd7OHmtoh%7EUfwcH4EcOVY6fg5jg1guD9QyQokc5kZRNH2kjbR7MHirygvLu-v7PcBU-OSGbmb7rcHpwBmFFXtqGQOL%7Exbwn3TJZfjkUXr%7E5upLt-oRkOcd-KYX3I9LQOTFXDYEspv2zI0sc0u4gW0N9Hly7R7v2hHjRAwB3NViIXhFroGq-AM0JC9Y7moOzN%7ERY%7EiQZMLCRtZc90dHPwHl5ZRovZmJ3IYzYd9Q__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=LJssg0guJ8puzyuMYFJFnEz-9MmbiRfAM4vt5b-OVfI",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/pgsljINMdVOsLpqQgkWWRIfhROeu948l05FL1Ib6vYw"
+                                    },
+                                    "events": {
+                                        "onEnd": {
+                                            "cmd": "stop"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "19",
+                            "title": "3.0 Laundry Basket",
+                            "overlayLabel": "",
+                            "availableFrom": null,
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "fileSize": 1904106,
+                            "duration": 118,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/2Usm3Dsh7Y86Qr_81c4PKwhTXIjIJiQQ7f_HQ06BGHg"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "01",
+                                    "title": "3.0 Laundry Basket",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "overlayLabel": "",
+                                    "duration": 118,
+                                    "fileSize": 1904106,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/QjypeB4ExSSQySb_oRqQ55kbjaO1qhQB3wcLcy8V5Ec?Expires=1764108375&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tLzEwSlU2TFFHbFpreWpMZEdJdGtyWnVkVm1OcXo0RnpKclA2Z0ROSmpuMUNRfi9RanlwZUI0RXhTU1F5U2Jfb1JxUTU1a2JqYU8xcWhRQjN3Y0xjeThWNUVjIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzY0MTA4Mzc1fX19XX0_&Signature=FtdiZmDm5gv3H5EQybtXU5J0Z7s8wXxw7ZS9RfBMHTgE76z6akB8xzzjXJbiXBBI-5XvlXZoH%7EjrW5nhcIwvO%7EjvQwBa%7EVGbjCos6DldDHidWpsqYYvnpVokMRbmxh7cd1wfOOht6y5M4NVlxYlNKhh5GI5jgVGY%7E0X2NqY1Ieb6ifhKIidyi0myizADcVtRuSyYM3zNVvxrtwN19ns6b3OvTeLgYkNcPH74vmCgSi64oku61Oon-ntmHPRmC0FKuLUxcZm%7E%7E1yK2JaJosGiUSOSuFr1e4qpazOXCvHHaQIzyAgm9Kf2VExM45OOH6t7vezczilfEBa1bKx1feZB-w__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=QjypeB4ExSSQySb_oRqQ55kbjaO1qhQB3wcLcy8V5Ec",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/2Usm3Dsh7Y86Qr_81c4PKwhTXIjIJiQQ7f_HQ06BGHg"
+                                    },
+                                    "events": {
+                                        "onEnd": {
+                                            "cmd": "stop"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "20",
+                            "title": "3.1 Under or Inside something green",
+                            "overlayLabel": "",
+                            "availableFrom": null,
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "fileSize": 1904123,
+                            "duration": 118,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/LqIRe47aDoLozLO8dGq-JOSQbiQYa1UjTHuKA7HhwnI"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "01",
+                                    "title": "3.1 Under or Inside something green",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "overlayLabel": "",
+                                    "duration": 118,
+                                    "fileSize": 1904123,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/cfdRMjk6GDqjDt1cnhtvjJq4dIQ0l20r5e31K5gVF1o?Expires=1764108375&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tLzEwSlU2TFFHbFpreWpMZEdJdGtyWnVkVm1OcXo0RnpKclA2Z0ROSmpuMUNRfi9jZmRSTWprNkdEcWpEdDFjbmh0dmpKcTRkSVEwbDIwcjVlMzFLNWdWRjFvIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzY0MTA4Mzc1fX19XX0_&Signature=ag1VgC8RBDoubk59cgwYiYvOLidMKTedf-G68oSPdv7RaWbYJdvCMw9-V8m9ZnEtFvmgQX%7E6ZiE5y1KrEzB7cBiX997EkR3FJoEiv%7EU4lCPDZjIjg5ZnURxsTzR9235deMn5N5ejmiY67nbkTYzNEhnJ3D2lW-yzvbzZ6g61esUJ2AIjowAbPzl0shZnPrlLza0i%7EW5I1DBjfCqK1HT1uLNUNU3hmuEtnzLae8tYg0D54X5nIx1YFKJO8iV-6wpHqNEkjohx4vrr0It9v-6rFFgCDBf8Jca8Du%7EJxz65gCrQRfkJUNFeZh2Q0iZJ6rx1mxBENDOUnbKUWZ0mujt44w__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=cfdRMjk6GDqjDt1cnhtvjJq4dIQ0l20r5e31K5gVF1o",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/LqIRe47aDoLozLO8dGq-JOSQbiQYa1UjTHuKA7HhwnI"
+                                    },
+                                    "events": {
+                                        "onEnd": {
+                                            "cmd": "stop"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "21",
+                            "title": "3.2 Outro",
+                            "overlayLabel": "",
+                            "availableFrom": null,
+                            "ambient": null,
+                            "defaultTrackDisplay": null,
+                            "defaultTrackAmbient": null,
+                            "fileSize": 391676,
+                            "duration": 24,
+                            "display": {
+                                "icon16x16": "https://card-content.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/4IlTZgoZ7YPw0YlpeMuXlk_l5O5iZFxM7cDd09AAVTU"
+                            },
+                            "tracks": [
+                                {
+                                    "key": "01",
+                                    "title": "3.2 Outro",
+                                    "format": "aac",
+                                    "type": "audio",
+                                    "overlayLabel": "",
+                                    "duration": 24,
+                                    "fileSize": 391676,
+                                    "channels": "stereo",
+                                    "ambient": null,
+                                    "trackUrl": "https://secure-media.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/IHSvZI73PDjXxIgHDExTkfoDWnwPW2memnQJtCzbck8?Expires=1764108375&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9zZWN1cmUtbWVkaWEueW90b3BsYXkuY29tLzEwSlU2TFFHbFpreWpMZEdJdGtyWnVkVm1OcXo0RnpKclA2Z0ROSmpuMUNRfi9JSFN2Wkk3M1BEalh4SWdIREV4VGtmb0RXbndQVzJtZW1uUUp0Q3piY2s4IiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzY0MTA4Mzc1fX19XX0_&Signature=siWlOkrCKF3Cm5GYb0cSXImucSXsPfNyBUssYwGsYwiep2WbjFCs0kD4QUonyuAdo7bPSptS56ZdA29HdFSD%7EXAiZzvxYB5keU8IZ0otQlb%7EMQvEslnD2dF1UlfKLujr5CNVkM4c71kmoyNKuqP-dtq7weDXN3cKXvpzAs2Y9pZdtLFWVziCgyBD%7ElBCFYVZRxclPbaNn3WV5IFNB0IFu%7EAallM-elItaUyNOfJEC0nt7sG0cjRfaoddFuujm%7E2r8fUjQ-NmyMcwKwvX1JGnjODDIAU-Ck0IUV1y97WeprM3WvngZEcnjedrr-Q1xyNboYdjzheU0mL%7EGE0Kk3ADzQ__&Key-Pair-Id=K11LSW6MOXJ7KP#sha256=IHSvZI73PDjXxIgHDExTkfoDWnwPW2memnQJtCzbck8",
+                                    "display": {
+                                        "icon16x16": "https://card-content.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/4IlTZgoZ7YPw0YlpeMuXlk_l5O5iZFxM7cDd09AAVTU"
+                                    },
+                                    "events": {
+                                        "onEnd": {
+                                            "cmd": "stop"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "metadata": {
+                    "description": "Bring the Easter magic indoors with this fun audio egg hunt! Kids follow playful rhyming clues to find up to 20 eggs hidden around the house, with each clue read aloud and cheerful music in between. Grown-ups: check the transcript to see the list of 20 clue locations. If you can hide all 20 eggs, then you can use the Yoto link. If you can't, then download the MP3s and upload the egg locations that work for your family. As long as the intro is first and outro is last, you can do any egg locations",
+                    "cover": {
+                        "imageL": "https://card-content.yotoplay.com/10JU6LQGlZkyjLdGItkrZudVmNqz4FzJrP6gDNJjn1CQ~/pub/zU42bPpZhNPo_z3dkUVRavravo98evNPaMP8fhuS4Gw"
+                    },
+                    "media": {
+                        "duration": 2431,
+                        "readableDuration": "0h 40m 11s",
+                        "fileSize": 39235931,
+                        "readableFileSize": 37.4,
+                        "hasStreams": false
+                    }
+                },
+                "title": "Easter Egg Hunt In Your House",
+                "cardId": "hdPPe",
+                "userId": "auth0|REDACTED",
+                "createdAt": "2025-04-15T20:47:34.559Z",
+                "updatedAt": "2025-04-17T18:04:33.597Z",
+                "creatorEmail": "Momma Bear Audio",
+                "shareLinkCreatedAt": "2025-04-15T21:24:12.473Z",
+                "slug": "6YilYe49jgRBOrteTF9MRe",
+                "shareCount": 2540,
+                "shareLimit": 0,
+                "sortkey": "6YilYe49jgRBOrteTF9MRe",
+                "shareLinkUrl": "https://share.yoto.co/s/6YilYe49jgRBOrteTF9MRe",
+                "sharing": {
+                    "linkCreatedAt": "2025-04-15T21:24:12.473Z",
+                    "linkUrl": "https://share.yoto.co/s/6YilYe49jgRBOrteTF9MRe",
+                    "shareCount": 2540,
+                    "shareLimit": 0
+                }
+            },
+            "__ni18n_server__": {
+                "resources": {
+                    "en": {
+                        "translation": {}
+                    },
+                    "fr": {
+                        "translation": {}
+                    }
+                },
+                "ns": [
+                    "translation"
+                ],
+                "lng": "en"
+            },
+            "deviceLocale": "en",
+            "deviceType": "desktop",
+            "shareToken": "6YilYe49jgRBOrteTF9MRe"
+        },
+        "__N_SSP": true
+    },
+    "page": "/s/[token]",
+    "buildId": "YBQh0HmL_mMF1I_BqDiZt",
+    "isFallback": false,
+    "isExperimentalCompile": false,
+    "gssp": true,
+    "scriptLoader": [],
+    "officiality": {
+        "version": 1.2,
+        "date": "2025-11-25_16-06-14",
+        "creator": "Yoto (Space)"
+    }
+}
