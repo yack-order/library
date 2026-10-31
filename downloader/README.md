@@ -11,7 +11,9 @@ Toyo's enqueue and execution controls both start disabled. Only enable them
 after the bulk import and explicitly requested canary verification.
 
 The workflow runs trusted code from main on standard Ubuntu runners. Configure
-TOYO_ARCHIVE_RUNNER_TOKEN and GOFILE_TOKEN as repository Actions secrets; never
+TOYO_ARCHIVE_RUNNER_TOKEN as a repository Actions secret; keep GOFILE_API in the
+Toyo Worker. The authenticated, leased source response passes its upload token
+privately to this runner in memory. Never
 put playlist inputs, account IDs, or provider links in dispatch parameters.
 The sole input is an opaque job_id issued by Toyo. Do not run against pull-request
 code with these secrets. Python 3.12, ffmpeg, and requirements.txt are required.

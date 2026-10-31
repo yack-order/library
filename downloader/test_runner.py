@@ -6,7 +6,7 @@ from pathlib import Path
 import subprocess
 import tempfile
 import unittest
-from unittest.mock import patch
+from unittest.mock import patch, Mock
 import py7zr
 from mutagen.id3 import ID3
 import runner
@@ -43,6 +43,20 @@ class ArchiveTests(unittest.TestCase):
             for path in folder.rglob('*'):
                 if path.is_file():
                     self.assertNotIn(b'credential',path.read_bytes());self.assertNotIn(b'private@example.test',path.read_bytes())
+    def test_worker_held_gofile_token_is_used_in_memory_only(self):
+        client = Mock()
+        client.headers = {}; client.lost.is_set.return_value = False
+        client.call.side_effect = [
+            {'leaseToken':'private-lease'},
+            {'card':{},'publicCard':{},'gofileToken':'private-gofile-token'},
+            {'ok':True}, {'ok':True}
+        ]
+        with patch.object(runner,'Client',return_value=client), patch.object(runner,'build_archive',return_value=Path('/tmp/synthetic.7z')) as build, patch.object(runner,'upload',return_value={'pageUrl':'https://gofile.io/d/synthetic'}) as upload, patch.object(runner.threading,'Thread'), patch('builtins.print') as output:
+            self.assertEqual(runner.main(),0)
+            upload.assert_called_once_with(Path('/tmp/synthetic.7z'),'private-gofile-token')
+            self.assertNotIn('gofileToken', build.call_args.args[0])
+            self.assertNotIn('private-gofile-token',str(output.call_args_list))
+
     def test_radio_and_failed_media_never_produce_an_archive(self):
         raw={'cardId':'abc12','title':'Radio','content':{'playbackType':'radio','chapters':[{'tracks':[{'title':'Live','trackUrl':'https://example.test/live'}]}]}}
         with tempfile.TemporaryDirectory() as tmp:

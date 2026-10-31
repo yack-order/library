@@ -33,5 +33,4 @@ jobs:
           TOYO_ARCHIVE_API: https://ui.yackorder.org
           TOYO_ARCHIVE_JOB: ${{ inputs.job_id }}
           TOYO_ARCHIVE_RUNNER_TOKEN: ${{ secrets.TOYO_ARCHIVE_RUNNER_TOKEN }}
-          GOFILE_TOKEN: ${{ secrets.GOFILE_TOKEN }}
         run: python downloader/runner.py

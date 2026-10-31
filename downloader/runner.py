@@ -247,8 +247,8 @@ class Client:
                 self.lost.set(); return
 
 
-def upload(path):
-    token = os.environ.get('GOFILE_TOKEN')
+def upload(path, token=None):
+    token = token or os.environ.get('GOFILE_TOKEN')
     if not token:
         raise ArchiveError('upload_failed')
     headers = {'Authorization': f'Bearer {token}'}
@@ -292,11 +292,12 @@ def main():
             result = claimed.get('verifiedResult')
             if not result:
                 source = client.call('source')
+                gofile_token = source.pop('gofileToken', None)
                 client.stage = 'packaging'
                 path = build_archive(source, Path(directory))
                 if client.lost.is_set():
                     raise ArchiveError('source_unavailable')
-                client.stage = 'uploading'; result = upload(path)
+                client.stage = 'uploading'; result = upload(path, gofile_token)
                 client.call('checkpoint', result)
             if client.lost.is_set():
                 raise ArchiveError('source_unavailable')
