@@ -37,3 +37,11 @@ The package remuxes audio without re-encoding to remove source tags and chapters
 then adds scrubbed MP3/MP4 tags. Raw ADTS AAC keeps native audio and text metadata;
 it cannot embed MP4 tags. No raw JSON, media, source URLs, tokens or gated Gofile
 links are uploaded to Actions artifacts, caches, logs, or job summaries.
+
+Upload responses that omit a file URL are resolved with an owner-authenticated
+GET of the uploaded parent folder's metadata. No Premium direct-link creation
+endpoint is used. If that account cannot read its metadata, the result remains
+unverified and unavailable. An immutable unverified upload receipt is saved in
+private R2 before readback, so verification retries can reuse the upload without
+repackaging or reuploading. This receipt never grants download access; only a
+successful byte-count/SHA-256 readback can produce a verified completion checkpoint.
