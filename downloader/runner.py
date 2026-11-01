@@ -146,7 +146,7 @@ def normalized_image(url, path):
                 allowed={'image/png', 'image/jpeg', 'image/webp', 'image/gif'})
     try:
         with Image.open(temp) as image:
-            image.convert('RGBA').save(path, format='PNG')
+            clean=image.convert('RGBA');clean.info.clear();clean.save(path, format='PNG')
     finally:
         temp.unlink(missing_ok=True)
 
@@ -324,13 +324,38 @@ def main():
         heartbeat = threading.Thread(target=client.heartbeats, daemon=True); heartbeat.start()
         with tempfile.TemporaryDirectory(prefix='toyo-archive-') as directory:
             result = claimed.get('verifiedResult')
+            if result and result.get('storageMode') == 'drive':
+                client.call('cold-complete', {})
+                print('Archive job completed')
+                return 0
             if not result:
                 receipt = claimed.get('uploadReceipt')
+                source = None
+                if not receipt:
+                    source = client.call('source')
+                if source and source.get('storageMode') == 'drive':
+                    from drive_storage import Drive
+                    from archive_inspector import safe_extract, verify_manifest
+                    token=source.pop('driveToken');folder=source.pop('driveFolder')
+                    client.stage='packaging'
+                    path=build_archive(source,Path(directory))
+                    restored=Path(directory)/'verified';restored.mkdir()
+                    safe_extract(path,restored)
+                    roots=list(restored.iterdir())
+                    if len(roots)!=1 or not roots[0].is_dir():raise ArchiveError('verification_failed')
+                    verify_manifest(roots[0],required=True)
+                    if client.lost.is_set():raise ArchiveError('source_unavailable')
+                    client.stage='uploading'
+                    drive=Drive(token,lambda value:client.call('cold-progress',value),refresh=lambda:client.call('drive-token')['token'])
+                    card=source['publicCard'];count=sum(len(c.get('tracks',[])) for c in card['content']['chapters'])
+                    receipt=drive.upload(path,folder,os.environ['TOYO_ARCHIVE_JOB'],card['cardId'],
+                        'demo' if '[DEMO]' in path.name else 'full',{'title':str(card.get('title','Untitled'))[:240],'tracks':count},claimed.get('coldProgress'))
+                    client.call('cold-checkpoint',receipt);client.call('cold-complete',{})
+                    print('Archive job completed');return 0
                 if receipt:
                     client.stage = 'verifying'
                     result = verify_upload(receipt)
                 else:
-                    source = client.call('source')
                     gofile_token = source.pop('gofileToken', None) or os.environ.get('GOFILE_TOKEN')
                     client.stage = 'packaging'
                     path = build_archive(source, Path(directory))
