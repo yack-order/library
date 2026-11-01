@@ -72,6 +72,15 @@ class ArchiveTests(unittest.TestCase):
             self.assertEqual(result,receipt)
             get.assert_not_called();download.assert_not_called()
 
+    def test_receipt_resume_needs_no_source_fetch_or_upload(self):
+        client=Mock();client.headers={};client.lost.is_set.return_value=False
+        receipt=self.receipt()
+        client.call.side_effect=[{'leaseToken':'lease','uploadReceipt':receipt},{'ok':True},{'ok':True}]
+        with patch.object(runner,'Client',return_value=client), patch.object(runner.threading,'Thread'), patch.object(runner,'build_archive') as build, patch.object(runner,'upload') as upload:
+            self.assertEqual(runner.main(),0)
+            self.assertEqual([c.args[0] for c in client.call.call_args_list],['claim','checkpoint','complete'])
+            build.assert_not_called();upload.assert_not_called()
+
     def test_legacy_and_incomplete_receipts_stay_unavailable(self):
         for field in ['md5','providerMd5','providerBytes','uploadedAt','verification']:
             receipt=self.receipt();receipt.pop(field)

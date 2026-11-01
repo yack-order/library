@@ -325,13 +325,13 @@ def main():
         with tempfile.TemporaryDirectory(prefix='toyo-archive-') as directory:
             result = claimed.get('verifiedResult')
             if not result:
-                source = client.call('source')
-                gofile_token = source.pop('gofileToken', None) or os.environ.get('GOFILE_TOKEN')
                 receipt = claimed.get('uploadReceipt')
                 if receipt:
                     client.stage = 'verifying'
-                    result = verify_upload(receipt, gofile_token)
+                    result = verify_upload(receipt)
                 else:
+                    source = client.call('source')
+                    gofile_token = source.pop('gofileToken', None) or os.environ.get('GOFILE_TOKEN')
                     client.stage = 'packaging'
                     path = build_archive(source, Path(directory))
                     if client.lost.is_set():
