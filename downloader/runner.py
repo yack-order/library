@@ -247,35 +247,65 @@ class Client:
                 self.lost.set(); return
 
 
-def upload(path, token=None):
+def verify_upload(receipt, token):
+    direct = receipt.get('directLink')
+    if not direct:
+        folder = receipt.get('parentFolder', '')
+        if not re.fullmatch(r'[A-Za-z0-9_-]+', folder):
+            raise ArchiveError('verification_unavailable')
+        try:
+            with requests.get('https://api.gofile.io/contents/' + folder,
+                              headers={'Authorization': 'Bearer ' + token},
+                              timeout=(10, 30), allow_redirects=False) as response:
+                metadata = response.json()
+                if response.status_code != 200 or metadata.get('status') != 'ok':
+                    print(f'Gofile metadata readback unavailable (HTTP {response.status_code})')
+                    raise ArchiveError('verification_unavailable')
+            children = metadata.get('data', {}).get('children', {})
+            if isinstance(children, dict):
+                children = children.values()
+            item = next((item for item in children if item.get('id') == receipt['contentId']), None)
+            direct = item.get('link') if item else None
+        except ArchiveError:
+            raise
+        except Exception:
+            raise ArchiveError('verification_unavailable') from None
+    if not direct:
+        raise ArchiveError('verification_unavailable')
+    with tempfile.TemporaryDirectory(prefix='toyo-readback-') as directory:
+        restored = Path(directory) / 'archive.7z'
+        stream_file(direct, restored, maximum=receipt['bytes'], bearer=token)
+        if restored.stat().st_size != receipt['bytes'] or digest(restored) != receipt['sha256']:
+            raise ArchiveError('verification_failed')
+    return {key: receipt[key] for key in ['filename', 'bytes', 'sha256', 'contentId', 'pageUrl']}
+
+
+def upload(path, token=None, on_uploaded=None):
     token = token or os.environ.get('GOFILE_TOKEN')
     if not token:
         raise ArchiveError('upload_failed')
     headers = {'Authorization': f'Bearer {token}'}
     try:
-        with open(path,'rb') as handle:
-            multipart = MultipartEncoder(fields={'file':(path.name,handle,'application/x-7z-compressed')})
+        with open(path, 'rb') as handle:
+            multipart = MultipartEncoder(fields={'file': (path.name, handle, 'application/x-7z-compressed')})
             with requests.post('https://upload.gofile.io/uploadfile', data=multipart,
-                               headers={**headers,'Content-Type':multipart.content_type},timeout=(10,600),allow_redirects=False) as response:
+                               headers={**headers, 'Content-Type': multipart.content_type},
+                               timeout=(10, 600), allow_redirects=False) as response:
                 result = response.json()
                 if response.status_code != 200 or result.get('status') != 'ok':
                     raise ArchiveError('upload_failed')
         data = result['data']; page = data['downloadPage']; content_id = data['id']
         p = urlsplit(page)
-        if p.scheme!='https' or p.netloc!='gofile.io' or not re.fullmatch(r'/d/[A-Za-z0-9_-]+',p.path) or p.query or p.fragment:
+        if p.scheme != 'https' or p.netloc != 'gofile.io' or not re.fullmatch(r'/d/[A-Za-z0-9_-]+', p.path) or p.query or p.fragment:
             raise ArchiveError('upload_failed')
-        # Free upload results may expose a retrievable file URL. It must pass an
-        # independent byte-for-byte check; a page URL alone is not verification.
-        direct = data.get('directLink') or data.get('link')
-        if not direct:
-            raise ArchiveError('verification_failed')
-        with tempfile.TemporaryDirectory(prefix='toyo-readback-') as directory:
-            restored = Path(directory)/'archive.7z'
-            stream_file(direct, restored, maximum=path.stat().st_size, bearer=token)
-            if digest(restored)!=digest(path):
-                raise ArchiveError('verification_failed')
-        return {'filename':path.name,'bytes':path.stat().st_size,'sha256':digest(path),
-                'contentId':content_id,'pageUrl':page}
+        receipt = {'filename': path.name, 'bytes': path.stat().st_size, 'sha256': digest(path),
+                   'contentId': content_id, 'pageUrl': page, 'parentFolder': data.get('parentFolder', ''),
+                   'directLink': data.get('directLink') or data.get('link')}
+        # Persist unverified metadata privately before readback. It never grants
+        # download access and can resume verification without another upload.
+        if on_uploaded:
+            receipt = on_uploaded(receipt)
+        return verify_upload(receipt, token)
     except ArchiveError:
         raise
     except Exception:
@@ -292,12 +322,18 @@ def main():
             result = claimed.get('verifiedResult')
             if not result:
                 source = client.call('source')
-                gofile_token = source.pop('gofileToken', None)
-                client.stage = 'packaging'
-                path = build_archive(source, Path(directory))
-                if client.lost.is_set():
-                    raise ArchiveError('source_unavailable')
-                client.stage = 'uploading'; result = upload(path, gofile_token)
+                gofile_token = source.pop('gofileToken', None) or os.environ.get('GOFILE_TOKEN')
+                receipt = claimed.get('uploadReceipt')
+                if receipt:
+                    client.stage = 'verifying'
+                    result = verify_upload(receipt, gofile_token)
+                else:
+                    client.stage = 'packaging'
+                    path = build_archive(source, Path(directory))
+                    if client.lost.is_set():
+                        raise ArchiveError('source_unavailable')
+                    client.stage = 'uploading'
+                    result = upload(path, gofile_token, on_uploaded=lambda receipt: client.call('receipt', receipt))
                 client.call('checkpoint', result)
             if client.lost.is_set():
                 raise ArchiveError('source_unavailable')
