@@ -58,27 +58,70 @@ class ArchiveTests(unittest.TestCase):
             self.assertNotIn('gofileToken', build.call_args.args[0])
             self.assertNotIn('private-gofile-token',str(output.call_args_list))
 
-    def test_owner_metadata_supplies_the_readback_url_without_premium_directlink_creation(self):
-        payload=b'verified archive bytes'
-        receipt={'filename':'Example.7z','bytes':len(payload),'sha256':hashlib.sha256(payload).hexdigest(),
-                 'contentId':'file-id','pageUrl':'https://gofile.io/d/example','parentFolder':'folder-id','directLink':None}
-        response=Mock();response.status_code=200
-        response.json.return_value={'status':'ok','data':{'children':{'file-id':{'id':'file-id','link':'https://store.gofile.io/download/web/file-id/Example.7z'}}}}
-        response.__enter__=Mock(return_value=response);response.__exit__=Mock(return_value=False)
-        def restore(url,path,**kwargs):
-            self.assertEqual(kwargs['bearer'],'owner-token');Path(path).write_bytes(payload)
-        with patch.object(runner.requests,'get',return_value=response) as get, patch.object(runner,'stream_file',side_effect=restore):
+    def receipt(self, payload=b'verified archive bytes'):
+        md5=hashlib.md5(payload).hexdigest()
+        return {'filename':'Example.7z','bytes':len(payload),'sha256':hashlib.sha256(payload).hexdigest(),
+                'contentId':'file-id','pageUrl':'https://gofile.io/d/example','parentFolder':'folder-id',
+                'md5':md5,'providerMd5':md5,'providerBytes':len(payload),'uploadedAt':1234567890000,
+                'verification':'upload-receipt'}
+
+    def test_free_receipt_resumes_without_any_provider_request(self):
+        receipt=self.receipt()
+        with patch.object(runner.requests,'get') as get, patch.object(runner,'stream_file') as download:
             result=runner.verify_upload(receipt,'owner-token')
-            self.assertEqual(result['sha256'],receipt['sha256'])
-            self.assertEqual(get.call_args.args[0],'https://api.gofile.io/contents/folder-id')
-            self.assertNotIn('directLink',result)
-    def test_readback_denial_stays_unverified(self):
-        receipt={'parentFolder':'folder-id','directLink':None}
-        response=Mock();response.status_code=403;response.json.return_value={'status':'error-notPremium'}
-        response.__enter__=Mock(return_value=response);response.__exit__=Mock(return_value=False)
-        with patch.object(runner.requests,'get',return_value=response):
-            with self.assertRaises(runner.ArchiveError) as error:runner.verify_upload(receipt,'owner-token')
+            self.assertEqual(result,receipt)
+            get.assert_not_called();download.assert_not_called()
+
+    def test_legacy_and_incomplete_receipts_stay_unavailable(self):
+        for field in ['md5','providerMd5','providerBytes','uploadedAt','verification']:
+            receipt=self.receipt();receipt.pop(field)
+            with self.assertRaises(runner.ArchiveError) as error:runner.verify_upload(receipt)
             self.assertEqual(error.exception.code,'verification_unavailable')
+
+    def response(self, status='ok', data=None, http=200):
+        response=Mock();response.status_code=http
+        response.json.return_value={'status':status,'data':data or {}}
+        response.__enter__=Mock(return_value=response);response.__exit__=Mock(return_value=False)
+        return response
+
+    def test_free_upload_matches_receipt_and_never_lists_content(self):
+        payload=b'locally verified archive';receipt=self.receipt(payload)
+        data={'id':'file-id','parentFolder':'folder-id','downloadPage':receipt['pageUrl'],
+              'size':len(payload),'md5':receipt['md5'].upper()}
+        with tempfile.TemporaryDirectory() as tmp:
+            path=Path(tmp)/'Example.7z';path.write_bytes(payload)
+            saved=[]
+            def persist(receipt):saved.append(receipt.copy());return receipt
+            with patch.object(runner.requests,'post',return_value=self.response(data=data)) as post, patch.object(runner.requests,'get') as get:
+                result=runner.upload(path,'private-owner-token',on_uploaded=persist)
+                self.assertEqual(result['verification'],'upload-receipt')
+                self.assertEqual(result['providerMd5'],receipt['md5'])
+                self.assertEqual(saved[0],result)
+                self.assertEqual(post.call_args.args[0],'https://upload.gofile.io/uploadfile')
+                self.assertEqual(post.call_args.kwargs['headers']['Authorization'],'Bearer private-owner-token')
+                get.assert_not_called()
+
+    def test_mismatched_upload_is_saved_but_cannot_complete(self):
+        payload=b'archive'
+        with tempfile.TemporaryDirectory() as tmp:
+            path=Path(tmp)/'Example.7z';path.write_bytes(payload)
+            for data in [{'size':len(payload)+1,'md5':hashlib.md5(payload).hexdigest()},
+                         {'size':len(payload),'md5':'0'*32}, {'size':len(payload)}]:
+                data.update({'id':'file-id','parentFolder':'folder-id','downloadPage':'https://gofile.io/d/example'})
+                saved=Mock(side_effect=lambda x:x)
+                with patch.object(runner.requests,'post',return_value=self.response(data=data)):
+                    with self.assertRaises(runner.ArchiveError):runner.upload(path,'owner-token',on_uploaded=saved)
+                saved.assert_called_once()
+
+    def test_provider_json_errors_are_classified_even_with_http_200(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path=Path(tmp)/'Example.7z';path.write_bytes(b'archive')
+            for status,code in [('error-notPremium','provider_plan_required'),('error-token','upload_auth_required'),
+                                ('error-limits','provider_quota_exceeded'),('error-rateLimit','provider_rate_limited')]:
+                with patch.object(runner.requests,'post',return_value=self.response(status=status)), patch('builtins.print') as output:
+                    with self.assertRaises(runner.ArchiveError) as error:runner.upload(path,'private-owner-token')
+                    self.assertEqual(error.exception.code,code)
+                    self.assertNotIn('private-owner-token',str(output.call_args_list))
 
     def test_radio_and_failed_media_never_produce_an_archive(self):
         raw={'cardId':'abc12','title':'Radio','content':{'playbackType':'radio','chapters':[{'tracks':[{'title':'Live','trackUrl':'https://example.test/live'}]}]}}

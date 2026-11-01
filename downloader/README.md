@@ -28,20 +28,25 @@ checkpointed in Toyo before completion, so completion retries reuse the upload.
 An interruption before receipt checkpointing may leave an orphan Gofile upload;
 no unverified result is offered as a download.
 
-The free Gofile account supplies download-page links. Delivery fails closed if
-upload responses do not provide a file URL usable for independent checksum
-readback. Account/API behavior must be verified by a separately authorized canary
-before activation. No Premium-only direct-link API is called.
+The free Gofile account supplies download-page links. Before upload the .7z is
+extracted and checked against its SHA-256 manifest. The upload response's size and
+MD5 must match the local archive. Save this receipt privately in Toyo before its
+checkpoint and publication. `verification: upload-receipt` explicitly means provider
+acknowledgement, not independent download/SHA-256 readback. Catalog D1 retains the
+file ID, folder ID, page, size, local SHA-256, local/provider MD5 and upload time.
+Missing/mismatched evidence remains unavailable. Resume using the saved receipt;
+legacy receipts without provider checksums are not silently upgraded or reuploaded.
 
-The package remuxes audio without re-encoding to remove source tags and chapters,
-then adds scrubbed MP3/MP4 tags. Raw ADTS AAC keeps native audio and text metadata;
-it cannot embed MP4 tags. No raw JSON, media, source URLs, tokens or gated Gofile
-links are uploaded to Actions artifacts, caches, logs, or job summaries.
+No Premium listing, search or direct-link endpoint is called. Check JSON `status`
+in addition to HTTP status; authentication, Premium requirements, quota and rate
+limits produce controlled error codes without logging provider bodies or URLs.
+Use one existing account token and a separate folder per archive so download pages
+do not reveal other cards. Do not mint guest accounts or retry ambiguous uploads.
 
-Upload responses that omit a file URL are resolved with an owner-authenticated
-GET of the uploaded parent folder's metadata. No Premium direct-link creation
-endpoint is used. If that account cannot read its metadata, the result remains
-unverified and unavailable. An immutable unverified upload receipt is saved in
-private R2 before readback, so verification retries can reuse the upload without
-repackaging or reuploading. This receipt never grants download access; only a
-successful byte-count/SHA-256 readback can produce a verified completion checkpoint.
+The free tier currently has a 10,000 stored-content cap, 100 GB traffic per 30 days,
+and expiry after 10 days without downloads. Treat these files as temporary copies;
+do not use artificial downloads for retention. Source capture remains in private
+R2; no media archives, source links, credentials or gated Gofile URLs go into public
+logs, summaries, caches or Actions artifacts. No settings or workflow triggers change
+with this correction. Official references: https://gofile.io/api,
+https://gofile.io/faq and https://gofile.io/premium.
