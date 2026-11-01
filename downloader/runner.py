@@ -247,37 +247,30 @@ class Client:
                 self.lost.set(); return
 
 
-def verify_upload(receipt, token):
-    direct = receipt.get('directLink')
-    if not direct:
-        folder = receipt.get('parentFolder', '')
-        if not re.fullmatch(r'[A-Za-z0-9_-]+', folder):
-            raise ArchiveError('verification_unavailable')
-        try:
-            with requests.get('https://api.gofile.io/contents/' + folder,
-                              headers={'Authorization': 'Bearer ' + token},
-                              timeout=(10, 30), allow_redirects=False) as response:
-                metadata = response.json()
-                if response.status_code != 200 or metadata.get('status') != 'ok':
-                    print(f'Gofile metadata readback unavailable (HTTP {response.status_code})')
-                    raise ArchiveError('verification_unavailable')
-            children = metadata.get('data', {}).get('children', {})
-            if isinstance(children, dict):
-                children = children.values()
-            item = next((item for item in children if item.get('id') == receipt['contentId']), None)
-            direct = item.get('link') if item else None
-        except ArchiveError:
-            raise
-        except Exception:
-            raise ArchiveError('verification_unavailable') from None
-    if not direct:
+def provider_error(status):
+    # Only log controlled codes, never provider bodies, links or credentials.
+    return {'error-token': 'upload_auth_required', 'error-notPremium': 'provider_plan_required',
+            'error-limits': 'provider_quota_exceeded', 'error-rateLimit': 'provider_rate_limited'}.get(status, 'upload_failed')
+
+
+def verify_upload(receipt, token=None):
+    """Validate durable upload evidence without Premium listing/direct-link APIs.
+
+    SHA-256 describes the locally extraction-verified archive. Matching upload
+    size/MD5 is provider acknowledgement, NOT independent download verification.
+    Legacy receipts missing provider checksums cannot be upgraded automatically.
+    """
+    md5 = receipt.get('md5', '')
+    if (receipt.get('verification') != 'upload-receipt' or
+            not isinstance(md5, str) or not re.fullmatch(r'[a-f0-9]{32}', md5) or
+            not re.fullmatch(r'[a-f0-9]{32}', receipt.get('providerMd5', '')) or
+            type(receipt.get('providerBytes')) is not int or
+            type(receipt.get('uploadedAt')) is not int or receipt['uploadedAt'] <= 0):
         raise ArchiveError('verification_unavailable')
-    with tempfile.TemporaryDirectory(prefix='toyo-readback-') as directory:
-        restored = Path(directory) / 'archive.7z'
-        stream_file(direct, restored, maximum=receipt['bytes'], bearer=token)
-        if restored.stat().st_size != receipt['bytes'] or digest(restored) != receipt['sha256']:
-            raise ArchiveError('verification_failed')
-    return {key: receipt[key] for key in ['filename', 'bytes', 'sha256', 'contentId', 'pageUrl']}
+    if receipt['providerBytes'] != receipt.get('bytes') or receipt['providerMd5'] != md5:
+        raise ArchiveError('verification_failed')
+    return {key: receipt[key] for key in ['filename', 'bytes', 'sha256', 'contentId', 'pageUrl',
+            'parentFolder', 'md5', 'providerMd5', 'providerBytes', 'uploadedAt', 'verification']}
 
 
 def upload(path, token=None, on_uploaded=None):
@@ -286,26 +279,37 @@ def upload(path, token=None, on_uploaded=None):
         raise ArchiveError('upload_failed')
     headers = {'Authorization': f'Bearer {token}'}
     try:
+        size = path.stat().st_size
+        sha256 = digest(path)
         with open(path, 'rb') as handle:
+            md5 = hashlib.file_digest(handle, 'md5').hexdigest()
+        with open(path, 'rb') as handle:
+            # A separate folder per archive prevents a shared page from exposing
+            # other cards. Do not create guest accounts or retry ambiguous POSTs.
             multipart = MultipartEncoder(fields={'file': (path.name, handle, 'application/x-7z-compressed')})
             with requests.post('https://upload.gofile.io/uploadfile', data=multipart,
                                headers={**headers, 'Content-Type': multipart.content_type},
                                timeout=(10, 600), allow_redirects=False) as response:
                 result = response.json()
                 if response.status_code != 200 or result.get('status') != 'ok':
-                    raise ArchiveError('upload_failed')
+                    raise ArchiveError(provider_error(result.get('status')))
         data = result['data']; page = data['downloadPage']; content_id = data['id']
         p = urlsplit(page)
         if p.scheme != 'https' or p.netloc != 'gofile.io' or not re.fullmatch(r'/d/[A-Za-z0-9_-]+', p.path) or p.query or p.fragment:
             raise ArchiveError('upload_failed')
-        receipt = {'filename': path.name, 'bytes': path.stat().st_size, 'sha256': digest(path),
-                   'contentId': content_id, 'pageUrl': page, 'parentFolder': data.get('parentFolder', ''),
-                   'directLink': data.get('directLink') or data.get('link')}
-        # Persist unverified metadata privately before readback. It never grants
-        # download access and can resume verification without another upload.
+        provider_md5 = data.get('md5', '')
+        provider_size = data.get('size')
+        receipt = {'filename': path.name, 'bytes': size, 'sha256': sha256,
+                   'contentId': content_id, 'pageUrl': page, 'parentFolder': data['parentFolder'],
+                   'md5': md5,
+                   'uploadedAt': int(time.time()*1000), 'verification': 'upload-receipt'}
+        if isinstance(provider_md5, str) and re.fullmatch(r'[a-fA-F0-9]{32}', provider_md5):
+            receipt['providerMd5'] = provider_md5.lower()
+        if type(provider_size) is int and provider_size >= 0:
+            receipt['providerBytes'] = provider_size
         if on_uploaded:
             receipt = on_uploaded(receipt)
-        return verify_upload(receipt, token)
+        return verify_upload(receipt)
     except ArchiveError:
         raise
     except Exception:
@@ -321,13 +325,13 @@ def main():
         with tempfile.TemporaryDirectory(prefix='toyo-archive-') as directory:
             result = claimed.get('verifiedResult')
             if not result:
-                source = client.call('source')
-                gofile_token = source.pop('gofileToken', None) or os.environ.get('GOFILE_TOKEN')
                 receipt = claimed.get('uploadReceipt')
                 if receipt:
                     client.stage = 'verifying'
-                    result = verify_upload(receipt, gofile_token)
+                    result = verify_upload(receipt)
                 else:
+                    source = client.call('source')
+                    gofile_token = source.pop('gofileToken', None) or os.environ.get('GOFILE_TOKEN')
                     client.stage = 'packaging'
                     path = build_archive(source, Path(directory))
                     if client.lost.is_set():
