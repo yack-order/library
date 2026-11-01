@@ -1,52 +1,53 @@
-# Toyo headless archive worker
+# Private Drive archives and temporary Gofile delivery
 
-Adapted from YOTO-json-extractor-v2 by Alberto Fernández; see EXTRACTOR-LICENSE.
-Filename and archive-integrity helpers retain the upstream MIT notice. The GUI
-repository remains independent. This worker adds headless packaging, bounded
-streaming, metadata enrichment, canonical Toyo scrubbing, job leases and Gofile.
+Public deployment target: `yack-order/library/downloader`. Adapted from
+YOTO-json-extractor-v2 by Alberto Fernández; retain EXTRACTOR-LICENSE and the
+upstream archive helper notices. The independent GUI checkout is unchanged.
 
-The production workflow has **workflow_dispatch only**. It never runs on a push,
-a pull request, or a schedule. Publishing this package does not process cards.
-Toyo's enqueue and execution controls both start disabled. Only enable them
-after the bulk import and explicitly requested canary verification.
+Both workflows have `workflow_dispatch` only, run trusted main code on standard
+Ubuntu GitHub-hosted runners, and accept only an opaque job ID. Publishing code
+does not process any playlist or Drive file. Configure only
+`TOYO_ARCHIVE_RUNNER_TOKEN` in Actions; Google refresh tokens/client secrets and
+the Gofile account credential stay in Toyo. Active leases receive short-lived
+Google access tokens, refreshed server-side on authorization expiry.
 
-The workflow runs trusted code from main on standard Ubuntu runners. Configure
-TOYO_ARCHIVE_RUNNER_TOKEN as a repository Actions secret; keep GOFILE_API in the
-Toyo Worker. The authenticated, leased source response passes its upload token
-privately to this runner in memory. Never
-put playlist inputs, account IDs, or provider links in dispatch parameters.
-The sole input is an opaque job_id issued by Toyo. Do not run against pull-request
-code with these secrets. Python 3.12, ffmpeg, and requirements.txt are required.
+`runner.py` builds future archives, verifies extraction/manifests, uploads
+resumably to private Drive, verifies a full SHA-256 download readback, and commits
+the receipt. It does not upload a new build to Gofile. Legacy receipt completion
+remains compatible, but new source responses require configured Drive storage.
 
-Offline tests: `python -m unittest discover -s downloader -p test_runner.py`.
-These tests synthesize audio; they fetch no playlists and upload no files.
+`storage_runner.py` runs explicitly requested inventory/inspection/import/handover
+jobs and separately enabled on-demand delivery jobs. Source import reads and
+destination import writes use the temporary current-account connections. New
+builds and cold-to-hot transfers use the different runtime connection exclusively.
+No job silently falls back to an import account.
 
-R2 stores source JSON, D1 stores catalog/jobs/receipts, GitHub stores scrubbed
-metadata, and Gofile stores media. Media workspaces are ephemeral. An interrupted
-fetch/package stage starts again on a fresh runner. A verified upload receipt is
-checkpointed in Toyo before completion, so completion retries reuse the upload.
-An interruption before receipt checkpointing may leave an orphan Gofile upload;
-no unverified result is offered as a download.
+Imports inventory only the selected folder tree, skip shortcuts, checkpoint
+pages, and inspect archives in a resource-limited subprocess. Paths, duplicate
+members, symlinks/junctions/sockets, encryption, corruption, identity conflicts,
+unreadable audio, mismatched track counts, and manifest failures are rejected.
+Current inspection limits: 10,000 members, 1 GiB/member, 8 GiB expanded, 2 GiB
+subprocess address space on Linux, 20 minutes wall time, and available runner
+disk space. Larger/unsupported candidates remain for review; sources are never
+modified. Sanitize copies, remux without transcoding, regenerate safe metadata
+and manifests, verify extraction, and upload/read back before indexing. Identical
+sanitized content produces deterministic bytes and reuses its Drive object.
 
-The free Gofile account supplies download-page links. Before upload the .7z is
-extracted and checked against its SHA-256 manifest. The upload response's size and
-MD5 must match the local archive. Save this receipt privately in Toyo before its
-checkpoint and publication. `verification: upload-receipt` explicitly means provider
-acknowledgement, not independent download/SHA-256 readback. Catalog D1 retains the
-file ID, folder ID, page, size, local SHA-256, local/provider MD5 and upload time.
-Missing/mismatched evidence remains unavailable. Resume using the saved receipt;
-legacy receipts without provider checksums are not silently upgraded or reuploaded.
+Free Gofile delivery uses only its ordinary public page and free upload endpoint.
+Page results are present/missing/unknown. A loading shell, challenge, access
+restriction, rate limit, or changed layout is unknown and never causes a
+replacement. An explicit missing-content page must be observed twice before
+replacing an existing copy. No Premium listing/direct-link APIs, fake retention
+downloads, account creation, or challenge bypass is used. Returned upload size/MD5
+must match the verified cold file; persist the receipt before publishing. This is
+provider acknowledgement, not independent Gofile SHA-256 download readback.
 
-No Premium listing, search or direct-link endpoint is called. Check JSON `status`
-in addition to HTTP status; authentication, Premium requirements, quota and rate
-limits produce controlled error codes without logging provider bodies or URLs.
-Use one existing account token and a separate folder per archive so download pages
-do not reveal other cards. Do not mint guest accounts or retry ambiguous uploads.
+No media, private source JSON, Google or Gofile locations, tokens, browser traces,
+screenshots, caches, job summaries or workflow artifacts are published. All media
+workspaces are temporary and removed on normal success/failure; GitHub destroys
+the disposable runner after cancellation. Public logs contain controlled status
+codes only. Offline tests use synthetic fixtures and mocked providers:
 
-The free tier currently has a 10,000 stored-content cap, 100 GB traffic per 30 days,
-and expiry after 10 days without downloads. Treat these files as temporary copies;
-do not use artificial downloads for retention. Source capture remains in private
-R2; no media archives, source links, credentials or gated Gofile URLs go into public
-logs, summaries, caches or Actions artifacts. No settings or workflow triggers change
-with this correction. Official references: https://gofile.io/api,
-https://gofile.io/faq and https://gofile.io/premium.
+```sh
+python -m unittest discover -s downloader -p 'test_*.py'
+```
