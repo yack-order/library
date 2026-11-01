@@ -18,7 +18,7 @@ import storage_runner
 
 
 class InspectionTests(unittest.TestCase):
-    def fixture(self,work, *,card='abc12',expected=1):
+    def fixture(self,work, *,card='abc12',expected=1,live=False):
         folder=work/'legacy'/'Example';folder.mkdir(parents=True)
         audio=folder/'audio_files';audio.mkdir()
         sample=audio/'1 - Track.mp3'
@@ -28,7 +28,7 @@ class InspectionTests(unittest.TestCase):
         (folder/'tracks.txt').write_text('\n\n'.join(f'TrackNumber:: {i}\nTitle:: Track {i}\n' for i in range(1,expected+1)))
         raw={'cardId':card,'title':'Example','userId':'private-owner','notes':'personal private notes',
              'metadata':{'author':'Published Author','notes':'do not share'},
-             'content':{'chapters':[{'tracks':[{'title':f'Track {i}','trackUrl':'https://private.example.test/?token=secret-token'} for i in range(expected)]}]}}
+             'content':{'chapters':[{'tracks':[{'title':f'Track {i}','type':'radio' if live else 'audio','trackUrl':'https://private.example.test/?token=secret-token'} for i in range(expected)]}]}}
         text=json.dumps({'card':raw},indent=4)
         (folder/'playlist.json').write_text(text)
         (folder/'personal-notes.txt').write_text('Do not distribute my personal notes')
@@ -70,6 +70,12 @@ class InspectionTests(unittest.TestCase):
             renamed=original.with_name('Stories - [Piano] Example[abc12] (2026-01-01).7z');original.rename(renamed)
             output=work/'output';output.mkdir();result=archive_inspector.sanitize_archive(renamed,output)
             self.assertEqual(result['cardId'],'abc12')
+
+    def test_captured_radio_tracks_are_not_treated_as_complete_archives(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            work=Path(tmp);original,_=self.fixture(work,live=True);output=work/'output';output.mkdir()
+            with self.assertRaises(ArchiveError) as error:archive_inspector.sanitize_archive(original,output)
+            self.assertEqual(error.exception.code,'incomplete_archive')
 
     def test_symlink_and_traversal_entries_are_rejected_before_extraction(self):
         for name,symlink in [('../outside',False),('/absolute',False),('safe',True),('C:/escape',False),('safe\\escape',False)]:
@@ -123,6 +129,12 @@ class DeliveryTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp,patch.object(storage_runner,'check_page',return_value='missing'),patch.object(storage_runner,'Drive',return_value=drive),patch.object(storage_runner,'upload') as upload:
             with self.assertRaises(ArchiveError):storage_runner.deliver(Mock(),self.source(),Path(tmp))
             upload.assert_not_called()
+
+    def test_uncertain_upload_is_not_blindly_repeated(self):
+        source=self.source();source['checkpoint']={'uploadStarted':True}
+        with tempfile.TemporaryDirectory() as tmp,patch.object(storage_runner,'check_page') as check,patch.object(storage_runner,'Drive') as drive,patch.object(storage_runner,'upload') as upload:
+            with self.assertRaises(ArchiveError) as error:storage_runner.deliver(Mock(),source,Path(tmp))
+            self.assertEqual(error.exception.code,'upload_uncertain');check.assert_not_called();drive.assert_not_called();upload.assert_not_called()
 
     def test_page_classifier_does_not_confuse_loading_or_challenges_with_absence(self):
         self.assertEqual(classify('Example.7z','Example.7z',True),'present')

@@ -20,6 +20,7 @@ class StorageClient(Client):
 
 
 def inventory(client,source):
+    client.stage='inventory'
     drive=Drive(source['readToken'],refresh=lambda:client.call('source')['readToken'])
     cursor=source['checkpoint'].get('cursor') or {'queue':[source['sourceFolder']],'parent':None,'page':None,'seen':[]}
     while cursor['queue'] or cursor['parent']:
@@ -48,6 +49,7 @@ def inventory(client,source):
 
 
 def seed(client,source,work):
+    client.stage='fetching'
     checkpoint=source['checkpoint']
     if checkpoint.get('coldReceipt'):
         client.call('complete',{});return
@@ -60,6 +62,7 @@ def seed(client,source,work):
     if original.name!=candidate['filename'] or '/' in candidate['filename'] or '\\' in candidate['filename']:
         raise ArchiveError('unsafe_archive')
     read.download(candidate['source_file'],original,expected_version=candidate['source_version'])
+    client.stage='inspecting'
     result=inspect_archive(original,work)
     inspection={key:result[key] for key in ['cardId','variant','sha256','bytes','title','tracks']}
     if source['kind']=='inspect':
@@ -74,28 +77,34 @@ def seed(client,source,work):
             if response.status_code!=200:raise ArchiveError('identity_conflict')
         finally:response.close()
     write=Drive(source['writeToken'],lambda value:client.call('checkpoint',value),refresh=lambda:client.call('source')['writeToken'])
+    client.stage='uploading'
     receipt=write.upload(result['path'],source['destinationFolder'],os.environ['TOYO_ARCHIVE_JOB'],result['cardId'],result['variant'],result['index'],checkpoint)
     client.call('cold-receipt',receipt);client.call('complete',{})
 
 
 def deliver(client,source,work):
+    client.stage='checking'
     checkpoint=source['checkpoint'];object=source['object']
     if checkpoint.get('hotReceipt'):
         verify_upload(checkpoint['hotReceipt']);client.call('complete',{'presence':'missing'});return
+    if checkpoint.get('uploadStarted'):raise ArchiveError('upload_uncertain')
     presence=check_page(source['hot']['pageUrl'],object['filename']) if source.get('hot') else 'missing'
     client.call('page-result',{'presence':presence})
     if presence=='unknown':raise ArchiveError('page_unknown')
     if presence=='present':client.call('complete',{'presence':'present'});return
+    client.stage='restoring'
     drive=Drive(source['runtimeToken'],refresh=lambda:client.call('source')['runtimeToken']);path=work/object['filename']
     if path.name!=object['filename']:raise ArchiveError('unsafe_archive')
     metadata=drive.download(object['drive_file_id'],path,maximum=object['bytes'],expected_version=object['drive_version'])
     if source['destinationFolder'] not in metadata.get('parents',[]) or digest(path)!=object['sha256']:
         raise ArchiveError('verification_failed')
+    client.call('upload-intent',{});client.stage='uploading'
     upload(path,source['gofileToken'],on_uploaded=lambda receipt:client.call('hot-receipt',receipt))
     client.call('complete',{'presence':'missing'})
 
 
 def handover(client,source,work):
+    client.stage='handover'
     drive=Drive(source['runtimeToken'],lambda value:client.call('checkpoint',value),refresh=lambda:client.call('source')['runtimeToken'])
     if not source['checkpoint'].get('writeProbeVerified'):
         import py7zr
@@ -105,6 +114,7 @@ def handover(client,source,work):
         receipt=drive.upload(probe,source['destinationFolder'],os.environ['TOYO_ARCHIVE_JOB'],'probe','full',{'title':'Private write/readback probe','tracks':1},source['checkpoint'])
         client.call('write-probe',receipt)
     while True:
+        client.stage='verifying'
         objects=source.get('objects',[])
         if not objects:break
         checked=[]

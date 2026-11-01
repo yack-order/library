@@ -116,6 +116,7 @@ def sanitize_archive(source,work):
     category=redact_text(metadata.get('category') or fields.get('Category') or 'Unknown')
     demo='[DEMO]' in source.name or bool(re.search(r'Discover:\s*\d+\s+tracks?',str(metadata.get('description',''))+' '+title))
     tracks=[track for chapter in card.get('content',{}).get('chapters',[]) for track in chapter.get('tracks',[])]
+    if any(str(track.get('type','')).lower() in {'radio','live','stream'} for track in tracks):raise ArchiveError('incomplete_archive')
     audio=sorted((p for p in root.rglob('*') if p.is_file() and p.suffix.lower() in AUDIO),key=natural)
     track_text=root/'tracks.txt'
     blocks=[]
