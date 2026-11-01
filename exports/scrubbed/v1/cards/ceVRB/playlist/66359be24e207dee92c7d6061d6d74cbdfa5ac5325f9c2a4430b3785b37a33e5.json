@@ -1,0 +1,83 @@
+{
+  "props": {
+    "pageProps": {
+      "card": {
+        "cardId": "ceVRB",
+        "title": "Weather Whiz",
+        "slug": "weather-whiz",
+        "sortkey": "weather-whiz",
+        "userId": "yoto",
+        "clubAvailability": [],
+        "availability": "free",
+        "createdAt": "2025-06-24T11:06:55.630Z",
+        "updatedAt": "2025-09-11T10:28:52.213Z",
+        "content": {
+          "version": "1",
+          "activity": "yoto_Player",
+          "availability": "",
+          "config": {
+            "resumeTimeout": 2592000
+          },
+          "playbackType": "linear",
+          "editSettings": {
+            "transcodeAudioUploads": true
+          },
+          "cover": {
+            "imageL": "https://card-content.yotoplay.com/yoto/pub/yXB_cXdxkw2XybgYUEn6THbihYCRF8fj7RHEtcaCv6M"
+          },
+          "chapters": [
+            {
+              "key": "00",
+              "title": "What's the weather?",
+              "duration": 0,
+              "fileSize": 0,
+              "hasStreams": true,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/Vu4lpBBXYpOxVynT9YHakTTnLbKMywGPpO8-4Me1cGE"
+              },
+              "tracks": [
+                {
+                  "key": "01",
+                  "title": "What's the weather?",
+                  "format": "mp3",
+                  "type": "stream",
+                  "duration": null,
+                  "fileSize": null,
+                  "ambient": null,
+                  "display": {
+                    "iconUrl16x16": "https://yoto-weather.netlify.app/weather-icon"
+                  },
+                  "trackUrl": "https://yoto-weather.netlify.app/weather"
+                }
+              ]
+            }
+          ]
+        },
+        "metadata": {
+          "category": "activities",
+          "media": {
+            "duration": 0,
+            "fileSize": 0
+          },
+          "description": "This dynamic Yoto card will read out your local weather report, including forecast, in real-time — and show an appropriate weather icon too. This is a Connected Card, so it requires an internet connection on the Yoto Player to play.\n\nThis free digital card is an experimental app made by Yoto Labs. This card uses AI to create a live and dynamic voice-over that updates instantly.\n\nVisit yoto.space/developers to learn more.",
+          "author": "Yoto Labs",
+          "cover": {
+            "imageL": "https://card-content.yotoplay.com/yoto/pub/yXB_cXdxkw2XybgYUEn6THbihYCRF8fj7RHEtcaCv6M"
+          },
+          "languages": [
+            "en"
+          ],
+          "status": {
+            "name": "live",
+            "updatedAt": "2025-06-25T08:40:39.989Z"
+          }
+        },
+        "sourceCardId": "fxnuw"
+      }
+    }
+  }
+}
