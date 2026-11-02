@@ -5,11 +5,34 @@ import os
 import re
 import time
 from urllib.parse import urljoin, urlsplit, urlunsplit, parse_qsl, urlencode
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import sync_playwright, TimeoutError as BrowserTimeout
 from runner import ArchiveError, Client
 
 MAX_PAGES = 10000
 MAX_EXPANSIONS = 2000
+PROGRESS_TIMEOUT_MS = 30000
+# Loading button labels are not content progress. Keep the count so removing
+# an exhausted pagination control is accepted even when no new posts arrive.
+PROGRESS = """() => {
+  let text=document.body.innerText;
+  for (const node of document.querySelectorAll('button,[role=button],[role=progressbar]')) {
+    const label=node.innerText?.trim(); if(label)text=text.split(label).join('');
+  }
+  return JSON.stringify({text,buttons:document.querySelectorAll('button,[role=button]').length,
+    links:Array.from(document.querySelectorAll('a[href],iframe[src]')).map(e=>e.href||e.src)});
+}"""
+
+
+def advance(page, control):
+    before = page.evaluate(PROGRESS)
+    control.click(timeout=30000)
+    try:
+        page.wait_for_function('before => (' + PROGRESS + ')() !== before',
+                               arg=before, timeout=PROGRESS_TIMEOUT_MS)
+    except BrowserTimeout:
+        raise ArchiveError('discovery_pagination_stalled') from None
+    page.wait_for_load_state('networkidle', timeout=60000)
+
 SHARE = re.compile(r'https://(?:yoto\.io/[A-Za-z0-9]{5}(?:\?[^\s<>"\']*)?|share\.yoto\.co/s/[A-Za-z0-9_-]+(?:\?[^\s<>"\']*)?)')
 
 
@@ -76,6 +99,7 @@ def discover(page, client, saved=None, canary=False):
                     menu.first.click(timeout=10000)
                     collect(current)
                     page.keyboard.press('Escape')
+                    page.get_by_role('menu').wait_for(state='hidden', timeout=10000)
         # Expand public pagination/replies, retaining every newly exposed link.
         # A control that never advances is a parse failure, never "end of list".
         count = 0
@@ -86,12 +110,9 @@ def discover(page, client, saved=None, canary=False):
                 break
             if count >= MAX_EXPANSIONS:
                 raise ArchiveError('discovery_pagination_limit')
-            before = collect(current)
-            target.click(timeout=30000)
-            page.wait_for_load_state('networkidle', timeout=60000)
-            after = collect(current)
-            if before == after:
-                raise ArchiveError('discovery_pagination_stalled')
+            collect(current)
+            advance(page, target)
+            collect(current)
             count += 1
             checkpoint()
         # Numeric/next page links are already in the frontier. Browser-only
@@ -106,8 +127,7 @@ def discover(page, client, saved=None, canary=False):
             if signature in seen_next:
                 break
             seen_next.add(signature)
-            candidates[0].click(timeout=30000)
-            page.wait_for_load_state('networkidle', timeout=60000)
+            advance(page, candidates[0])
             collect(current)
             checkpoint()
         else:
