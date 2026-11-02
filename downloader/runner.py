@@ -381,6 +381,14 @@ def upload(path, token=None, on_uploaded=None):
         return verify_upload(receipt)
     except ArchiveError:
         raise
+    except requests.exceptions.ConnectTimeout:
+        raise ArchiveError('upload_connect_timeout') from None
+    except requests.exceptions.ReadTimeout:
+        raise ArchiveError('upload_response_timeout') from None
+    except requests.exceptions.ConnectionError:
+        raise ArchiveError('upload_connection_failed') from None
+    except (ValueError, KeyError, TypeError):
+        raise ArchiveError('upload_response_invalid') from None
     except Exception:
         raise ArchiveError('upload_failed') from None
 

@@ -122,6 +122,20 @@ class ArchiveTests(unittest.TestCase):
                     with self.assertRaises(runner.ArchiveError):runner.upload(path,'owner-token',on_uploaded=saved)
                 saved.assert_called_once()
 
+    def test_upload_transport_failures_are_distinct_and_never_retried_or_exposed(self):
+        failures=[(runner.requests.exceptions.ConnectTimeout,'upload_connect_timeout'),
+                  (runner.requests.exceptions.ReadTimeout,'upload_response_timeout'),
+                  (runner.requests.exceptions.ConnectionError,'upload_connection_failed'),
+                  (ValueError,'upload_response_invalid')]
+        with tempfile.TemporaryDirectory() as tmp:
+            path=Path(tmp)/'Example.7z';path.write_bytes(b'archive')
+            for error,code in failures:
+                with self.subTest(code=code),patch.object(runner.requests,'post',side_effect=error('secret-url-and-token')) as post:
+                    with self.assertRaises(runner.ArchiveError) as caught:runner.upload(path,'private-owner-token')
+                    self.assertEqual(caught.exception.code,code)
+                    self.assertNotIn('secret-url-and-token',str(caught.exception))
+                    self.assertEqual(post.call_count,1)
+
     def test_provider_json_errors_are_classified_even_with_http_200(self):
         with tempfile.TemporaryDirectory() as tmp:
             path=Path(tmp)/'Example.7z';path.write_bytes(b'archive')
