@@ -165,6 +165,41 @@ class DeliveryTests(unittest.TestCase):
 
 
 
+class InspectionReuseTests(unittest.TestCase):
+    def receipt(self):
+        return {'driveFileId':'staged_private_file','cardId':'abc12','variant':'full','filename':'Example[abc12].7z','bytes':123,'sha256':'a'*64,'md5':'b'*32,'index':{'title':'Example','tracks':1}}
+
+    def test_import_reads_back_the_inspected_file_without_source_download_repack_or_upload(self):
+        receipt=self.receipt();drive=Mock();drive.metadata.return_value={'parents':['private-folder']};drive.readback.return_value=receipt
+        client=Mock();source={'kind':'import','writeToken':'private-token','checkpoint':{},'destinationFolder':'private-folder','reusableReceipt':receipt}
+        with tempfile.TemporaryDirectory() as tmp,patch.object(storage_runner,'Drive',return_value=drive),patch.object(storage_runner,'inspect_archive') as inspect:
+            storage_runner.seed(client,source,Path(tmp));inspect.assert_not_called();drive.download.assert_not_called();drive.upload.assert_not_called()
+            drive.readback.assert_called_once();client.call.assert_any_call('cold-receipt',receipt);client.call.assert_any_call('complete',{})
+
+    def test_missing_moved_or_changed_staged_archive_never_falls_back_to_repacking(self):
+        for changed in ['missing','parent','checksum']:
+            receipt=self.receipt();drive=Mock();drive.metadata.return_value={'parents':['other-folder'] if changed=='parent' else ['private-folder']};drive.readback.return_value={**receipt,'sha256':'c'*64}
+            source={'kind':'import','writeToken':'private-token','checkpoint':{},'destinationFolder':'private-folder','reusableReceipt':None if changed=='missing' else receipt}
+            with tempfile.TemporaryDirectory() as tmp,patch.object(storage_runner,'Drive',return_value=drive),patch.object(storage_runner,'inspect_archive') as inspect:
+                with self.assertRaises(ArchiveError):storage_runner.seed(Mock(),source,Path(tmp))
+                inspect.assert_not_called();drive.upload.assert_not_called()
+
+    def test_inspection_uploads_once_and_publishes_the_receipt_for_later_import(self):
+        import os
+        receipt=self.receipt();read=Mock();read.metadata.return_value={'parents':['source-folder']};write=Mock();write.upload.return_value=receipt;client=Mock()
+        source={'kind':'inspect','readToken':'reader','writeToken':'writer','destinationFolder':'private-folder','checkpoint':{},'candidate':{'source_file':'source-private-file','source_parent':'source-folder','source_version':'1','filename':'Example.7z'}}
+        with tempfile.TemporaryDirectory() as tmp,patch.dict(os.environ,{'TOYO_ARCHIVE_JOB':'job'}),patch.object(storage_runner,'Drive',side_effect=[write,read]),patch.object(storage_runner,'inspect_archive',return_value={'path':'sanitized.7z','cardId':'abc12','variant':'full','sha256':'a'*64,'bytes':123,'title':'Example','tracks':1,'sourceSha256':'c'*64,'index':receipt['index']}) as inspect:
+            storage_runner.seed(client,source,Path(tmp));inspect.assert_called_once();write.upload.assert_called_once()
+            published=next(call.args[1] for call in client.call.call_args_list if call.args[0]=='inspection')
+            self.assertEqual(published['receipt'],receipt);self.assertEqual(published['formatVersion'],1)
+
+    def test_acknowledged_inspection_and_completed_import_resume_without_repacking(self):
+        for checkpoint,kind in [({'inspectionArtifact':{'receipt':self.receipt()}},'inspect'),({'coldReceipt':self.receipt()},'import')]:
+            source={'kind':kind,'writeToken':'writer','checkpoint':checkpoint}
+            with tempfile.TemporaryDirectory() as tmp,patch.object(storage_runner,'Drive') as drive,patch.object(storage_runner,'inspect_archive') as inspect:
+                client=Mock();storage_runner.seed(client,source,Path(tmp));inspect.assert_not_called();drive.return_value.upload.assert_not_called();client.call.assert_called_once_with('complete',{})
+
+
 class LazyBrowserTests(unittest.TestCase):
     def test_installs_browser_only_when_an_existing_page_needs_it(self):
         from gofile_presence import check_page

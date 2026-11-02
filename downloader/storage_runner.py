@@ -58,9 +58,23 @@ def seed(client,source,work):
     checkpoint=source['checkpoint']
     if checkpoint.get('coldReceipt'):
         client.call('complete',{});return
+    write=Drive(source['writeToken'],lambda value:client.call('checkpoint',value),refresh=lambda:client.call('source')['writeToken'])
+    if source['kind']=='import':
+        receipt=source.get('reusableReceipt')
+        if not receipt:raise ArchiveError('verification_unavailable')
+        client.stage='verifying'
+        # No original download, sanitization, compression or upload during import.
+        metadata=write.metadata(receipt['driveFileId'])
+        if source['destinationFolder'] not in metadata.get('parents',[]):raise ArchiveError('verification_failed')
+        verified=write.readback(metadata,work,receipt['cardId'],receipt['variant'],receipt['index'],receipt['sha256'])
+        for key in ['driveFileId','cardId','variant','filename','bytes','sha256','md5','index']:
+            if verified[key]!=receipt[key]:raise ArchiveError('verification_failed')
+        client.call('cold-receipt',verified);client.call('complete',{});return
+    if checkpoint.get('inspectionArtifact'):
+        # Publication succeeded before interruption; complete without repacking.
+        client.call('complete',{});return
     candidate=source['candidate']
     read=Drive(source['readToken'],refresh=lambda:client.call('source')['readToken'])
-    # Direct parent comes from a source-folder-only inventory; shortcuts are ignored.
     metadata=read.metadata(candidate['source_file'])
     if candidate['source_parent'] not in metadata.get('parents',[]):raise ArchiveError('source_changed')
     original=work/candidate['filename']
@@ -69,22 +83,18 @@ def seed(client,source,work):
     read.download(candidate['source_file'],original,expected_version=candidate['source_version'])
     client.stage='inspecting'
     result=inspect_archive(original,work)
-    inspection={key:result[key] for key in ['cardId','variant','sha256','bytes','title','tracks']}
-    if source['kind']=='inspect':
-        client.call('inspection',inspection);client.call('complete',{});return
-    if candidate['card_id']!=result['cardId']:raise ArchiveError('identity_conflict')
-    if result.get('rawMetadata') and not checkpoint.get('metadataCaptured'):
-        # Exact source bytes stay in private Toyo capture, never stdout/artifacts.
+    if result.get('rawMetadata') and not checkpoint.get('stagedMetadata'):
+        # Preserve exact JSON privately now; normal ingestion waits for import.
         import requests
         raw=Path(result['rawMetadata']).read_bytes()
         response=requests.post(client.base+'/metadata',data=raw,headers={**client.headers,'Content-Type':'application/json'},timeout=(10,120),allow_redirects=False)
         try:
             if response.status_code!=200:raise ArchiveError('identity_conflict')
         finally:response.close()
-    write=Drive(source['writeToken'],lambda value:client.call('checkpoint',value),refresh=lambda:client.call('source')['writeToken'])
     client.stage='uploading'
     receipt=write.upload(result['path'],source['destinationFolder'],os.environ['TOYO_ARCHIVE_JOB'],result['cardId'],result['variant'],result['index'],checkpoint)
-    client.call('cold-receipt',receipt);client.call('complete',{})
+    inspection={key:result[key] for key in ['cardId','variant','sha256','bytes','title','tracks','sourceSha256']}
+    client.call('inspection',{**inspection,'formatVersion':1,'receipt':receipt});client.call('complete',{})
 
 
 def deliver(client,source,work):
