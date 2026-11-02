@@ -160,11 +160,15 @@ def sanitize_archive(source,work):
     (folder/'manifest.json').write_text(json.dumps({'version':1,'cardId':card_id,'files':files},indent=2),encoding='utf-8')
     for path in folder.rglob('*'):os.utime(path,(0,0),follow_symlinks=False)
     os.utime(folder,(0,0))
-    stem=redact_text(source.name[:-3])
+    # Copy counters belong to the source download, not the published archive.
+    stem=re.sub(r'(?:\s+\(\d+\))+$','',redact_text(source.name[:-3]))
     if f'[{card_id}]' not in stem:stem+=f'[{card_id}]'
     if demo and '[DEMO]' not in stem:stem=stem.replace(f'[{card_id}]',f'[DEMO][{card_id}]')
     filename=safe_filename(stem,limit=230)+'.7z'
-    archive=Path(create_verified_archive(folder,work/filename))
+    # The downloaded original may have this exact name. Keep output separate
+    # so atomic no-overwrite publication does not append a copy counter.
+    archives=work/'sanitized';archives.mkdir()
+    archive=Path(create_verified_archive(folder,archives/filename))
     verification=work/'verify';verification.mkdir();safe_extract(archive,verification)
     verify_manifest(verification/folder.name,required=True)
     raw_path=None
