@@ -64,6 +64,23 @@ class InspectionTests(unittest.TestCase):
                 with self.assertRaises(ArchiveError) as error:archive_inspector.sanitize_archive(original,output)
                 self.assertEqual(error.exception.code,code)
 
+    def test_same_workspace_keeps_canonical_name_and_original_bytes(self):
+        for suffix in ['', ' (1)', ' (2) (1)']:
+            with self.subTest(suffix=suffix),tempfile.TemporaryDirectory() as tmp:
+                work=Path(tmp);original,_=self.fixture(work)
+                canonical=original.name
+                if suffix:
+                    renamed=original.with_name(original.stem+suffix+original.suffix)
+                    original.rename(renamed);original=renamed
+                before=original.read_bytes()
+                result=archive_inspector.sanitize_archive(original,work)
+                self.assertEqual(Path(result['path']).name,canonical)
+                self.assertNotEqual(Path(result['path']),original)
+                self.assertEqual(original.read_bytes(),before)
+                restored=work/'restored';restored.mkdir()
+                archive_inspector.safe_extract(result['path'],restored)
+                archive_inspector.verify_manifest(restored/'Example',required=True)
+
     def test_bracketed_title_does_not_override_the_trailing_card_identity(self):
         with tempfile.TemporaryDirectory() as tmp:
             work=Path(tmp);original,_=self.fixture(work)
