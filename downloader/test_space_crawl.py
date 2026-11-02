@@ -2,7 +2,7 @@
 import unittest
 from unittest.mock import patch
 from playwright.sync_api import sync_playwright
-from space_crawl import discover, page_url
+from space_crawl import discover, page_url, advance
 from runner import ArchiveError
 
 class Client:
@@ -29,7 +29,7 @@ class DiscoveryTests(unittest.TestCase):
     def test_stalled_pagination_does_not_claim_complete(self):
         page=self.browser.new_page();page.route('https://yoto.space/**',lambda route:route.fulfill(body='<h1>A public community with enough text to be valid</h1><button>Show more</button>',content_type='text/html'))
         client=Client()
-        with self.assertRaises(ArchiveError) as result:discover(page,client)
+        with patch('space_crawl.PROGRESS_TIMEOUT_MS',1000), self.assertRaises(ArchiveError) as result:discover(page,client)
         self.assertEqual(result.exception.code,'discovery_pagination_stalled');self.assertFalse((client.last or {}).get('complete',False));page.close()
     def test_rate_limit_does_not_claim_complete(self):
         page=self.browser.new_page();page.route('https://yoto.space/**',lambda route:route.fulfill(status=429,body='Rate limited'))
@@ -39,3 +39,26 @@ class DiscoveryTests(unittest.TestCase):
         self.assertIsNone(page_url('https://evil.test/'))
         self.assertIsNone(page_url('/member/private'))
         self.assertEqual(page_url('/made-by-you?page=2'),'https://yoto.space/made-by-you?page=2')
+
+    def test_delayed_posts_wait_past_transient_loading_label(self):
+        page=self.browser.new_page()
+        page.route('https://yoto.space/**',lambda route:route.fulfill(content_type='text/html',body='''<h1>A public community with enough visible text for discovery</h1><button onclick="this.textContent='Loading';setTimeout(()=>{this.insertAdjacentHTML('beforebegin','<a href=https://share.yoto.co/s/Delayed>Delayed public reply</a>');this.remove()},1400)">Show more</button>'''))
+        client=Client()
+        with patch('space_crawl.time.sleep'):discover(page,client)
+        self.assertTrue(client.last['complete'])
+        self.assertEqual(client.last['shares'],[{'url':'https://share.yoto.co/s/Delayed','provenance':'https://yoto.space/'}])
+        page.close()
+    def test_loading_label_alone_does_not_count_as_progress(self):
+        page=self.browser.new_page()
+        page.set_content("""<h1>A public community with enough visible text</h1><button onclick="this.textContent='Loading'">Show more</button>""")
+        with patch('space_crawl.PROGRESS_TIMEOUT_MS',1000), self.assertRaises(ArchiveError) as result:
+            advance(page,page.get_by_role('button',name='Show more'))
+        self.assertEqual(result.exception.code,'discovery_pagination_stalled')
+        page.close()
+
+    def test_horizontal_carousel_next_is_real_progress(self):
+        page=self.browser.new_page()
+        page.set_content("""<h1>A public community carousel</h1><div id="carousel" style="width:100px;overflow:hidden"><div style="width:600px">All carousel items already exist in the DOM</div></div><button onclick="document.getElementById('carousel').scrollLeft+=100">Next</button>""")
+        advance(page,page.get_by_role('button',name='Next'))
+        self.assertEqual(page.locator('#carousel').evaluate('(el)=>el.scrollLeft'),100)
+        page.close()
