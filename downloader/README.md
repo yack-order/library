@@ -51,3 +51,16 @@ codes only. Offline tests use synthetic fixtures and mocked providers:
 ```sh
 python -m unittest discover -s downloader -p 'test_*.py'
 ```
+
+
+Storage imports accept an optional bounded `job_ids` JSON array and `batch_id`
+from Toyo. A runner installs dependencies once and processes files sequentially
+in fresh subprocesses and temporary directories. Every file keeps its own D1
+lease, checkpoint and result. Failed files do not block the remainder of the
+explicit selection. Toyo defaults to four concurrent runners and five files per
+runner, with bounded environment tuning. No runner claims unrelated queued work.
+Only pip dependency packages are cached, never private inputs or archives.
+Imports do not install Chromium; delivery installs it lazily when checking an
+existing Gofile page. The workflow stays dispatch-only and does
+not activate automatic processing. Pending work after interruption requires an
+explicit Toyo Resume; dispatch generations reject stale workflows.

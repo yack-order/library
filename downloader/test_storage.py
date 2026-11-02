@@ -164,4 +164,59 @@ class DeliveryTests(unittest.TestCase):
             self.assertEqual(get.call_args.kwargs['headers']['Authorization'],'Bearer new-private-token')
 
 
+
+class LazyBrowserTests(unittest.TestCase):
+    def test_installs_browser_only_when_an_existing_page_needs_it(self):
+        from gofile_presence import check_page
+        context=Mock();page=context.new_page.return_value
+        page.goto.return_value=Mock(status=200);page.url='https://gofile.io/d/example'
+        page.locator.return_value.inner_text.return_value='Example.7z'
+        page.get_by_role.return_value.count.return_value=1
+        playwright=Mock();playwright.chromium.executable_path='/synthetic/chromium'
+        playwright.chromium.launch.return_value.new_context.return_value=context
+        manager=Mock();manager.__enter__=Mock(return_value=playwright);manager.__exit__=Mock(return_value=False)
+        import sys
+        from types import ModuleType
+        module=ModuleType('playwright.sync_api');module.sync_playwright=Mock(return_value=manager)
+        for installed in [False,True]:
+            with patch.dict(sys.modules,{'playwright.sync_api':module}), \
+                    patch('gofile_presence.Path.is_file',return_value=installed), \
+                    patch('gofile_presence.subprocess.run') as install:
+                self.assertEqual(check_page('https://gofile.io/d/example','Example.7z'),'present')
+                self.assertEqual(install.call_count,int(not installed))
+                if not installed:self.assertIn('chromium',install.call_args.args[0])
+
+
+class RunnerBatchTests(unittest.TestCase):
+    def test_reuses_setup_with_isolated_children_and_continues_after_failure(self):
+        import os
+        import uuid
+        jobs=[str(uuid.uuid4()) for _ in range(3)]
+        batch=str(uuid.uuid4())
+        with patch.dict(os.environ,{'TOYO_ARCHIVE_JOBS':json.dumps(jobs),'TOYO_ARCHIVE_BATCH':batch},clear=True), \
+                patch.object(storage_runner.subprocess,'run',side_effect=[Mock(returncode=0),Mock(returncode=1),Mock(returncode=0)]) as run:
+            self.assertEqual(storage_runner.main(),1)
+            self.assertEqual(run.call_count,3)
+            self.assertEqual([call.kwargs['env']['TOYO_ARCHIVE_JOB'] for call in run.call_args_list],jobs)
+            self.assertTrue(all(call.args[0][-1]=='--single' for call in run.call_args_list))
+            self.assertTrue(all(call.kwargs['env']['TOYO_ARCHIVE_BATCH']==batch for call in run.call_args_list))
+
+    def test_rejects_oversize_duplicate_and_invalid_batches_before_starting(self):
+        import os
+        import uuid
+        job=str(uuid.uuid4())
+        for value in [[job,job],['not-a-job'],[str(uuid.uuid4()) for _ in range(11)],{},[]]:
+            with patch.dict(os.environ,{'TOYO_ARCHIVE_JOBS':json.dumps(value)},clear=True),patch.object(storage_runner.subprocess,'run') as run:
+                self.assertEqual(storage_runner.main(),1);run.assert_not_called()
+
+    def test_stops_at_runtime_budget_without_starting_another_file(self):
+        import os
+        import uuid
+        jobs=[str(uuid.uuid4()),str(uuid.uuid4())]
+        with patch.dict(os.environ,{'TOYO_ARCHIVE_JOBS':json.dumps(jobs)},clear=True), \
+                patch.object(storage_runner.time,'monotonic',side_effect=[0,1,18001]), \
+                patch.object(storage_runner.subprocess,'run',return_value=Mock(returncode=0)) as run:
+            self.assertEqual(storage_runner.main(),1);self.assertEqual(run.call_count,1)
+
+
 if __name__=='__main__':unittest.main()
