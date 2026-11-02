@@ -19,7 +19,8 @@ PROGRESS = """() => {
     const label=node.innerText?.trim(); if(label)text=text.split(label).join('');
   }
   return JSON.stringify({text,buttons:document.querySelectorAll('button,[role=button]').length,
-    links:Array.from(document.querySelectorAll('a[href],iframe[src]')).map(e=>e.href||e.src)});
+    links:Array.from(document.querySelectorAll('a[href],iframe[src]')).map(e=>e.href||e.src),
+    scroll:Array.from(document.querySelectorAll('div,section,ul')).filter(e=>e.clientWidth>0&&e.scrollWidth>e.clientWidth+1).map(e=>Math.round(e.scrollLeft))});
 }"""
 
 
@@ -123,7 +124,7 @@ def discover(page, client, saved=None, canary=False):
             candidates = [b for b in buttons.all() if b.is_visible() and b.is_enabled()]
             if not candidates:
                 break
-            signature = json.dumps(page.locator('a[href]').evaluate_all('(els)=>els.map(e=>e.href)'))
+            signature = page.evaluate(PROGRESS)
             if signature in seen_next:
                 break
             seen_next.add(signature)

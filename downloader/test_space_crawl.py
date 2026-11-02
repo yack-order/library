@@ -55,3 +55,10 @@ class DiscoveryTests(unittest.TestCase):
             advance(page,page.get_by_role('button',name='Show more'))
         self.assertEqual(result.exception.code,'discovery_pagination_stalled')
         page.close()
+
+    def test_horizontal_carousel_next_is_real_progress(self):
+        page=self.browser.new_page()
+        page.set_content("""<h1>A public community carousel</h1><div id="carousel" style="width:100px;overflow:hidden"><div style="width:600px">All carousel items already exist in the DOM</div></div><button onclick="document.getElementById('carousel').scrollLeft+=100">Next</button>""")
+        advance(page,page.get_by_role('button',name='Next'))
+        self.assertEqual(page.locator('#carousel').evaluate('(el)=>el.scrollLeft'),100)
+        page.close()
