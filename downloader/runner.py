@@ -140,10 +140,14 @@ def tag_audio(path, title, author, album, category, number, total, cover):
         AAC(path)
 
 
-def normalized_image(url, path):
+def normalized_image(url, path, prefetched=None):
     temp = path.with_suffix('.download')
-    stream_file(url, temp, maximum=16*1024**2,
-                allowed={'image/png', 'image/jpeg', 'image/webp', 'image/gif'})
+    if prefetched:
+        import shutil
+        shutil.copyfile(prefetched, temp)
+    else:
+        stream_file(url, temp, maximum=16*1024**2,
+                    allowed={'image/png', 'image/jpeg', 'image/webp', 'image/gif'})
     try:
         with Image.open(temp) as image:
             clean=image.convert('RGBA');clean.info.clear();clean.save(path, format='PNG')
@@ -151,7 +155,48 @@ def normalized_image(url, path):
         temp.unlink(missing_ok=True)
 
 
-def build_archive(source, work):
+def capture_space_media(source, work):
+    raw = source['card']
+    captures = {}
+    hashes = {}
+    audio = 0
+    image = 0
+    # Capture every image-bearing field, not only the large cover/track icons.
+    def images(value):
+        if isinstance(value, dict):
+            for key, item in sorted(value.items()):
+                if isinstance(item, str) and key.lower() in {'imagel', 'imagem', 'images', 'image', 'icon16x16', 'icon', 'coverimage'} and item.startswith('https://'):
+                    yield item
+                elif isinstance(item, (dict, list)):
+                    yield from images(item)
+        elif isinstance(value, list):
+            for item in value:
+                yield from images(item)
+    for url in images(raw):
+        key = 'image:' + str(image)
+        path = work / ('source-image-' + str(image))
+        stream_file(url, path, maximum=16*1024**2, allowed={'image/png', 'image/jpeg', 'image/webp', 'image/gif'})
+        hashes[key] = digest(path)
+        captures[key] = (path, url, None)
+        image += 1
+    for chapter in raw.get('content', {}).get('chapters', []):
+        for track in chapter.get('tracks', []):
+            if track.get('type') in {'radio', 'live'} or not track.get('trackUrl'):
+                raise ArchiveError('media_failed')
+            key = 'audio:' + str(audio)
+            path = work / ('source-audio-' + str(audio))
+            mime = stream_file(track['trackUrl'], path, allowed={'audio/mpeg', 'audio/mp3', 'audio/aac', 'audio/aacp', 'audio/mp4', 'audio/x-m4a'})
+            hashes[key] = digest(path)
+            captures[key] = (path, track['trackUrl'], mime)
+            audio += 1
+            if sum(v[0].stat().st_size for v in captures.values()) > 10*1024**3:
+                raise ArchiveError('media_failed')
+    if not audio:
+        raise ArchiveError('media_failed')
+    return captures, hashes
+
+
+def build_archive(source, work, captures=None):
     raw = source['card']
     register_sensitive_values(raw)
     card = scrub_json(source['publicCard'])
@@ -176,7 +221,8 @@ def build_archive(source, work):
     cover_path = images / 'cover.png'
     cover_url = ((raw.get('metadata') or {}).get('cover') or {}).get('imageL')
     if cover_url:
-        normalized_image(cover_url, cover_path)
+        cached = next((v[0] for k,v in (captures or {}).items() if k.startswith('image:') and v[1] == cover_url), None)
+        normalized_image(cover_url, cover_path, cached)
     cover = cover_path.read_bytes() if cover_path.exists() else None
     (folder / f'{title}.json').write_text(json.dumps(card, indent=2), encoding='utf-8')
     details = {'Title': card.get('title'), 'Author': author, 'CardID': card_id,
@@ -193,25 +239,42 @@ def build_archive(source, work):
         track_title = str(track.get('title') or f'Track {number}')
         prefix = f'{number:0{padding}d}'
         temporary = audio_dir / (prefix + '.download')
-        mime = stream_file(private['trackUrl'], temporary, allowed=set(formats))
+        cached = (captures or {}).get('audio:' + str(number-1))
+        if cached:
+            import shutil
+            shutil.copyfile(cached[0], temporary)
+            mime = cached[2]
+        else:
+            mime = stream_file(private['trackUrl'], temporary, allowed=set(formats))
         audio = audio_dir / safe_filename(f'{prefix} - {track_title}', limit=160)
         audio = audio.with_name(audio.name + formats[mime]); temporary.rename(audio)
         strip_source_tags(audio)
         tag_audio(audio, track_title, author, str(card.get('title',title)), category, number, len(tracks), cover)
         display = private.get('display') or chapter.get('display') or {}
         if display.get('icon16x16'):
-            normalized_image(display['icon16x16'], images / f'{prefix}.png')
+            cached_icon = next((v[0] for k,v in (captures or {}).items() if k.startswith('image:') and v[1] == display['icon16x16']), None)
+            normalized_image(display['icon16x16'], images / f'{prefix}.png', cached_icon)
         lines.append('\n'.join(f'{k}:: {redact_text(v)}' for k,v in {
             'TrackNumber':prefix,'Title':track_title,'Duration':track.get('duration'),
             'FileSize':track.get('fileSize'),'Channels':track.get('channels'),'Type':track.get('type')}.items() if v is not None))
         if sum(p.stat().st_size for p in folder.rglob('*') if p.is_file()) > 10*1024**3:
             raise ArchiveError('media_failed')
     (folder / 'tracks.txt').write_text('\n\n'.join(lines)+'\n', encoding='utf-8')
+    if captures:
+        for key, (path, url, _) in captures.items():
+            if key.startswith('image:'):
+                normalized_image(url, images / (key.replace(':', '-') + '.png'), path)
+    if source.get('playlistVersion'):
+        version = source['playlistVersion']
+        (folder / 'playlist-version.json').write_text(json.dumps({key:version[key] for key in ['id','number','fingerprint'] if key in version},indent=2),encoding='utf-8')
     manifest = {str(p.relative_to(folder)): {'sha256':digest(p),'bytes':p.stat().st_size}
                 for p in sorted(folder.rglob('*')) if p.is_file()}
     (folder / 'manifest.json').write_text(json.dumps({'version':1,'cardId':card_id,'files':manifest},indent=2),encoding='utf-8')
     demo = '[DEMO]' if re.search(r'Discover:\s*\d+\s+tracks?', str(metadata.get('description',''))+' '+str(card.get('title',''))) else ''
     filename = f'{category} - {title}{demo}[{card_id}] ({datetime.now(timezone.utc):%Y-%m-%d}).7z'
+    version = source.get('playlistVersion', {}).get('number', 1)
+    if version > 1:
+        filename = filename[:-3] + f' (v{version}).7z'
     return Path(create_verified_archive(folder, work / filename))
 
 
@@ -238,6 +301,12 @@ class Client:
             if response.status_code != 200:
                 raise ArchiveError('reconnect_required' if action=='source' and response.status_code==409 else 'source_unavailable')
             return response.json()
+
+    def image(self, path):
+        with open(path, 'rb') as handle:
+            with requests.post(self.base + '/space-image', data=handle, headers={**self.headers, 'Content-Type':'application/octet-stream'}, timeout=(10,120), allow_redirects=False) as response:
+                if response.status_code != 200 or response.json().get('sha256') != digest(path):
+                    raise ArchiveError('verification_failed')
 
     def heartbeats(self):
         while not self.stopped.wait(60):
@@ -338,7 +407,21 @@ def main():
                     from archive_inspector import safe_extract, verify_manifest
                     token=source.pop('driveToken');folder=source.pop('driveFolder')
                     client.stage='packaging'
-                    path=build_archive(source,Path(directory))
+                    captures = None
+                    if source.get('sourceKind') == 'space':
+                        captures, hashes = capture_space_media(source, Path(directory))
+                        image_urls = []
+                        for key, (image, url, _) in captures.items():
+                            if key.startswith('image:'):
+                                client.image(image)
+                                image_urls.append(url)
+                        version = client.call('space-observe', {'card': source['publicCard'], 'mediaHashes': hashes, 'imageUrls': image_urls})
+                        if version['archived']:
+                            client.call('space-unchanged')
+                            print('Unchanged playlist verified')
+                            return 0
+                        source['playlistVersion'] = version
+                    path=build_archive(source,Path(directory),captures)
                     restored=Path(directory)/'verified';restored.mkdir()
                     safe_extract(path,restored)
                     roots=list(restored.iterdir())

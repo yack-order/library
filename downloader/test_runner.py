@@ -143,3 +143,31 @@ class ArchiveTests(unittest.TestCase):
             with self.assertRaises(runner.ArchiveError):runner.public_url(url)
 
 if __name__=='__main__':unittest.main()
+
+class SpaceVersionTests(unittest.TestCase):
+    def test_uses_captured_bytes_and_version_suffix_without_refetching(self):
+        from PIL import Image
+        with tempfile.TemporaryDirectory() as tmp:
+            work = Path(tmp)
+            sample = work / 'sample.mp3'
+            subprocess.run(['ffmpeg','-nostdin','-v','error','-f','lavfi','-i','sine=frequency=440:duration=0.2','-c:a','libmp3lame',str(sample)],check=True)
+            image = work / 'image.png';Image.new('RGB',(16,16),'red').save(image)
+            raw = {'cardId':'abc12','title':'Versioned','metadata':{'cover':{'imageL':'https://images.test/cover.png'}},'content':{'chapters':[{'tracks':[{'title':'First','type':'audio','trackUrl':'https://media.test/audio.mp3'}]}]}}
+            def download(url, path, **kwargs):
+                Path(path).write_bytes((image if 'images.test' in url else sample).read_bytes())
+                return 'image/png' if 'images.test' in url else 'audio/mpeg'
+            with patch.object(runner,'stream_file',side_effect=download):
+                captures, hashes = runner.capture_space_media({'card':raw},work)
+            self.assertEqual(hashes['audio:0'],runner.digest(sample))
+            self.assertEqual(hashes['image:0'],runner.digest(image))
+            public = copy.deepcopy(raw);del public['content']['chapters'][0]['tracks'][0]['trackUrl']
+            output = work/'out';output.mkdir()
+            with patch.object(runner,'stream_file',side_effect=AssertionError('must use frozen bytes')):
+                archive = runner.build_archive({'card':raw,'publicCard':public,'playlistVersion':{'number':3}},output,captures)
+            self.assertTrue(archive.name.endswith(' (v3).7z'))
+            extracted=work/'extracted'
+            with py7zr.SevenZipFile(archive,'r') as handle:handle.extractall(extracted)
+            self.assertEqual(len(list(extracted.rglob('*.mp3'))),1)
+            for file in extracted.rglob('*'):
+                if file.is_file() and file.suffix in {'.json','.txt'}:
+                    self.assertNotIn('media.test',file.read_text())
