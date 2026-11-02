@@ -330,7 +330,8 @@ def verify_upload(receipt, token=None):
     Legacy receipts missing provider checksums cannot be upgraded automatically.
     """
     md5 = receipt.get('md5', '')
-    if (receipt.get('verification') != 'upload-receipt' or
+    mode=receipt.get('verification')
+    if (mode not in ('upload-receipt','provider-metadata') or
             not isinstance(md5, str) or not re.fullmatch(r'[a-f0-9]{32}', md5) or
             not re.fullmatch(r'[a-f0-9]{32}', receipt.get('providerMd5', '')) or
             type(receipt.get('providerBytes')) is not int or
@@ -338,8 +339,12 @@ def verify_upload(receipt, token=None):
         raise ArchiveError('verification_unavailable')
     if receipt['providerBytes'] != receipt.get('bytes') or receipt['providerMd5'] != md5:
         raise ArchiveError('verification_failed')
-    return {key: receipt[key] for key in ['filename', 'bytes', 'sha256', 'contentId', 'pageUrl',
-            'parentFolder', 'md5', 'providerMd5', 'providerBytes', 'uploadedAt', 'verification']}
+    keys=['filename','bytes','sha256','contentId','pageUrl','parentFolder','md5','providerMd5','providerBytes','uploadedAt','verification']
+    if mode=='provider-metadata':
+        if receipt.get('evidenceSource')!='gofile-owner-properties' or type(receipt.get('observedAt')) is not int or receipt['observedAt']<=0 or receipt.get('uploadedAtPrecision')!='minute':
+            raise ArchiveError('verification_unavailable')
+        keys+=['evidenceSource','observedAt','uploadedAtPrecision']
+    return {key:receipt[key] for key in keys}
 
 
 def upload(path, token=None, on_uploaded=None):
@@ -359,6 +364,8 @@ def upload(path, token=None, on_uploaded=None):
             with requests.post('https://upload.gofile.io/uploadfile', data=multipart,
                                headers={**headers, 'Content-Type': multipart.content_type},
                                timeout=(10, 600), allow_redirects=False) as response:
+                if response.status_code==429:
+                    raise ArchiveError('provider_rate_limited')
                 result = response.json()
                 if response.status_code != 200 or result.get('status') != 'ok':
                     raise ArchiveError(provider_error(result.get('status')))

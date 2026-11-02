@@ -101,7 +101,14 @@ def deliver(client,source,work):
     client.stage='checking'
     checkpoint=source['checkpoint'];object=source['object']
     if checkpoint.get('hotReceipt'):
-        verify_upload(checkpoint['hotReceipt']);client.call('complete',{'presence':'missing'});return
+        receipt=verify_upload(checkpoint['hotReceipt'])
+        if receipt['verification']=='provider-metadata':
+            presence=check_page(receipt['pageUrl'],object['filename'])
+            client.call('page-result',{'presence':presence})
+            if presence!='present':raise ArchiveError('page_unknown' if presence=='unknown' else 'verification_failed')
+            client.call('complete',{'presence':'present'})
+        else:client.call('complete',{'presence':'missing'})
+        return
     if checkpoint.get('uploadStarted'):raise ArchiveError('upload_uncertain')
     presence=check_page(source['hot']['pageUrl'],object['filename']) if source.get('hot') else 'missing'
     client.call('page-result',{'presence':presence})
