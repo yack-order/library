@@ -77,3 +77,20 @@ or superseded results require explicit re-inspection, with no rebuild fallback.
 Unimported staged copies remain private until import or explicit owner cleanup.
 Existing completed import rechecks reuse their acknowledged Drive file. These
 changes enable no automatic processing and run no canaries on deployment.
+
+## Public Yoto Space discovery and versioned archives
+
+`space-crawl.yml` dispatches `space_crawl.py` using an opaque leased discovery job.
+It uses a fresh anonymous Chromium context and checkpoints public navigation,
+reply expansion and pagination. Blocked or incomplete scans preserve the baseline.
+No login, challenge bypass, or member-only crawling is performed.
+
+Jobs marked `sourceKind=space` in the existing archive protocol capture media bytes
+before version observation. Audio/image hashes and ordered sanitized metadata
+identify a version. The same captured files are packaged; unchanged versions
+reuse their verified archive. Later versions use `(v2)`, `(v3)`, etc. suffixes.
+Public text and manifests contain no playback URLs; raw media inputs remain only
+in the disposable workspace. The private API enforces source-scoped activation,
+leases and verified runtime Drive storage. Publishing these files starts no crawl
+or archive job. Run the synthetic tests with the command above; browser tests
+also require `python -m playwright install chromium`.
