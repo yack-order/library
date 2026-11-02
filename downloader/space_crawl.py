@@ -1,5 +1,6 @@
 """Anonymous public discovery. Only controlled status codes reach Actions logs."""
 import json
+import hashlib
 import os
 import re
 import time
@@ -58,7 +59,7 @@ def discover(page, client, saved=None, canary=False):
                 frontier.append(following)
         if len(frontier) + len(visited) > MAX_PAGES:
             raise ArchiveError('discovery_page_limit')
-        return len(data['links']), len(data['text'])
+        return hashlib.sha256(json.dumps(data,sort_keys=True).encode()).hexdigest()
 
     while frontier:
         current = frontier[0]
@@ -79,7 +80,7 @@ def discover(page, client, saved=None, canary=False):
         # A control that never advances is a parse failure, never "end of list".
         count = 0
         while True:
-            controls = page.get_by_role('button', name=re.compile(r'^(show more|load more|show (?:all |more )?replies|view (?:all |more )?replies|load (?:more )?comments)$', re.I))
+            controls = page.get_by_role('button', name=re.compile(r'^(?:(?:show|load) more|(?:show|view|load|see|read)(?: (?:all|more|[0-9]+))* (?:repl(?:y|ies)|comments)|[0-9]+ (?:replies|comments))$', re.I))
             target = next((control for control in controls.all() if control.is_visible() and control.is_enabled()), None)
             if target is None:
                 break
