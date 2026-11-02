@@ -64,3 +64,16 @@ Imports do not install Chromium; delivery installs it lazily when checking an
 existing Gofile page. The workflow stays dispatch-only and does
 not activate automatic processing. Pending work after interruption requires an
 explicit Toyo Resume; dispatch generations reject stale workflows.
+
+
+Inspection retention: inspection sanitizes and packages once, uploads into the
+configured private Drive destination and verifies the full readback. Toyo keeps
+an encrypted provenance-bound receipt and any embedded original JSON separately
+in private R2. Inspection alone never registers a catalog archive or exports the
+original metadata. Explicit import downloads and verifies the retained sanitized
+file, ingests retained JSON, and registers that same Drive file; it never downloads
+original media, sanitizes, compresses or uploads again. Missing, changed, obsolete
+or superseded results require explicit re-inspection, with no rebuild fallback.
+Unimported staged copies remain private until import or explicit owner cleanup.
+Existing completed import rechecks reuse their acknowledged Drive file. These
+changes enable no automatic processing and run no canaries on deployment.
