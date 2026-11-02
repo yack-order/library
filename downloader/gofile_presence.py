@@ -1,5 +1,8 @@
 """Normal public-page checks only. No Premium APIs or anti-bot workarounds."""
 import re
+from pathlib import Path
+import subprocess
+import sys
 from urllib.parse import urlsplit
 
 
@@ -20,6 +23,11 @@ def check_page(url, filename):
     from playwright.sync_api import sync_playwright
     try:
         with sync_playwright() as playwright:
+            # Imports never need Chromium. Delivery installs it only when a
+            # previous Gofile page actually needs a browser presence check.
+            if not Path(playwright.chromium.executable_path).is_file():
+                subprocess.run([sys.executable,'-m','playwright','install','--with-deps','chromium'],
+                               check=True,timeout=600)
             browser=playwright.chromium.launch(headless=True)
             context=browser.new_context(accept_downloads=False)
             page=context.new_page()

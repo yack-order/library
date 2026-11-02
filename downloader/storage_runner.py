@@ -4,6 +4,9 @@ import os
 from pathlib import Path
 import re
 import tempfile
+import subprocess
+import sys
+import time
 import threading
 import uuid
 
@@ -17,6 +20,8 @@ class StorageClient(Client):
     def __init__(self):
         super().__init__()
         self.base=self.base.replace('/archive/jobs/','/archive/drive/jobs/')
+        batch=os.environ.get('TOYO_ARCHIVE_BATCH')
+        if batch:self.headers['X-Archive-Batch']=batch
 
 
 def inventory(client,source):
@@ -134,7 +139,7 @@ def handover(client,source,work):
     client.call('complete',{})
 
 
-def main():
+def run_one():
     client=None
     try:
         client=StorageClient();claimed=client.call('claim');client.headers['X-Archive-Lease']=claimed['leaseToken']
@@ -157,4 +162,35 @@ def main():
         if client:client.stopped.set()
 
 
-if __name__=='__main__':raise SystemExit(main())
+def main():
+    # Fresh subprocesses isolate redaction state, credentials, heartbeats and temp
+    # files per archive while reusing the runner's installed dependencies.
+    try:
+        raw=os.environ.get('TOYO_ARCHIVE_JOBS','')
+        jobs=json.loads(raw) if raw else [os.environ.get('TOYO_ARCHIVE_JOB','')]
+        if (not isinstance(jobs,list) or not 1<=len(jobs)<=10 or
+                any(not isinstance(job,str) or str(uuid.UUID(job))!=job for job in jobs) or
+                len(set(jobs))!=len(jobs)):
+            raise ValueError()
+        batch=os.environ.get('TOYO_ARCHIVE_BATCH','')
+        if batch and str(uuid.UUID(batch))!=batch:raise ValueError()
+    except (ValueError,TypeError,AttributeError):
+        print('Storage batch failed: configuration_failed');return 1
+    deadline=time.monotonic()+300*60
+    failed=0
+    for number,job in enumerate(jobs,1):
+        remaining=deadline-time.monotonic()
+        if remaining<=0:
+            print('Storage batch paused: runtime_limit');return 1
+        env={**os.environ,'TOYO_ARCHIVE_JOB':job}
+        try:
+            result=subprocess.run([sys.executable,str(Path(__file__).resolve()),'--single'],env=env,timeout=remaining)
+            failed+=int(result.returncode!=0)
+        except subprocess.TimeoutExpired:
+            print('Storage batch paused: runtime_limit');return 1
+        # Controlled counts only; file names and private inputs never enter logs.
+        print(f'Storage batch progress: {number}/{len(jobs)}; failed={failed}',flush=True)
+    return int(failed>0)
+
+
+if __name__=='__main__':raise SystemExit(run_one() if sys.argv[1:]==['--single'] else main())
