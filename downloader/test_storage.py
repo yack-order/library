@@ -113,6 +113,22 @@ class InspectionTests(unittest.TestCase):
 
 
 class DeliveryTests(unittest.TestCase):
+    def test_recovered_provider_metadata_checks_the_existing_page_without_uploading(self):
+        source=self.source();payload=b'archive bytes';md5=hashlib.md5(payload).hexdigest()
+        receipt={'filename':'Example.7z','bytes':len(payload),'sha256':source['object']['sha256'],'contentId':'file-id',
+                 'pageUrl':'https://gofile.io/d/example','parentFolder':'folder-id','md5':md5,'providerMd5':md5,
+                 'providerBytes':len(payload),'uploadedAt':1800000000000,'verification':'provider-metadata',
+                 'observedAt':1800000000000,'uploadedAtPrecision':'minute','evidenceSource':'gofile-owner-properties'}
+        source['checkpoint']={'hotReceipt':receipt}
+        for presence in ['present','missing','unknown']:
+            with tempfile.TemporaryDirectory() as tmp,patch.object(storage_runner,'check_page',return_value=presence) as check,patch.object(storage_runner,'Drive') as drive,patch.object(storage_runner,'upload') as upload:
+                client=Mock()
+                if presence=='present':storage_runner.deliver(client,source,Path(tmp));self.assertEqual(client.call.call_args.args,('complete',{'presence':'present'}))
+                else:
+                    with self.assertRaises(ArchiveError):storage_runner.deliver(client,source,Path(tmp))
+                    self.assertNotIn('complete',[c.args[0] for c in client.call.call_args_list])
+                check.assert_called_once_with(receipt['pageUrl'],receipt['filename']);drive.assert_not_called();upload.assert_not_called()
+
     def source(self):
         payload=b'archive bytes'
         return {'checkpoint':{},'runtimeToken':'private-runtime-token','gofileToken':'private-gofile-token',

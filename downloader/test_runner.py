@@ -136,6 +136,14 @@ class ArchiveTests(unittest.TestCase):
                     self.assertNotIn('secret-url-and-token',str(caught.exception))
                     self.assertEqual(post.call_count,1)
 
+    def test_plain_text_rate_limit_is_classified_without_parsing_or_retrying(self):
+        response=self.response(http=429);response.json.side_effect=ValueError('private response')
+        with tempfile.TemporaryDirectory() as tmp:
+            path=Path(tmp)/'Example.7z';path.write_bytes(b'archive')
+            with patch.object(runner.requests,'post',return_value=response) as post:
+                with self.assertRaises(runner.ArchiveError) as caught:runner.upload(path,'private-token')
+                self.assertEqual(caught.exception.code,'provider_rate_limited');response.json.assert_not_called();self.assertEqual(post.call_count,1)
+
     def test_provider_json_errors_are_classified_even_with_http_200(self):
         with tempfile.TemporaryDirectory() as tmp:
             path=Path(tmp)/'Example.7z';path.write_bytes(b'archive')
