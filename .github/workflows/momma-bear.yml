@@ -1,0 +1,33 @@
+name: Momma Bear paid library discovery
+on:
+  workflow_dispatch:
+    inputs:
+      job_id:
+        description: Opaque leased Momma Bear run ID
+        required: true
+permissions:
+  contents: read
+concurrency:
+  group: momma-bear-discovery
+  cancel-in-progress: false
+jobs:
+  crawl:
+    if: github.repository == 'yack-order/library' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: main
+          persist-credentials: false
+          sparse-checkout: downloader
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - run: pip install -r downloader/requirements.txt
+      - run: python -m playwright install --with-deps chromium
+      - run: python downloader/momma_bear.py
+        env:
+          TOYO_ARCHIVE_API: https://ui.yackorder.org
+          TOYO_ARCHIVE_JOB: ${{ inputs.job_id }}
+          TOYO_ARCHIVE_RUNNER_TOKEN: ${{ secrets.TOYO_ARCHIVE_RUNNER_TOKEN }}

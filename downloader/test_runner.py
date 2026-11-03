@@ -23,9 +23,11 @@ class ArchiveTests(unittest.TestCase):
             public = copy.deepcopy(raw); public.pop('email');public['userId']='yoto'; public['content']['chapters'][0]['tracks'][0]['trackUrl']='redacted'
             def download(url,path,**kwargs):
                 Path(path).write_bytes(sample.read_bytes());return 'audio/mpeg'
+            supplements=work/'publisher-documents';supplements.mkdir()
+            (supplements/'Transcript.pdf').write_bytes(b'%PDF synthetic publisher transcript')
             output=work/'output';output.mkdir()
             with patch.object(runner,'stream_file',side_effect=download):
-                archive=runner.build_archive({'card':raw,'publicCard':public},output)
+                archive=runner.build_archive({'card':raw,'publicCard':public,'supplementFolder':str(supplements)},output)
             self.assertIn('[DEMO][abc12]',archive.name)
             extracted=work/'extracted'
             with py7zr.SevenZipFile(archive,'r') as handle:
@@ -33,6 +35,7 @@ class ArchiveTests(unittest.TestCase):
             with py7zr.SevenZipFile(archive,'r') as handle:
                 handle.extractall(extracted)
             folder=extracted/'Example'
+            self.assertEqual((folder/'supplements'/'Transcript.pdf').read_bytes(),b'%PDF synthetic publisher transcript')
             self.assertTrue((folder/'card.txt').exists());self.assertTrue((folder/'tracks.txt').exists())
             audio=list((folder/'audio_files').glob('*.mp3'))[0]
             self.assertEqual(str(ID3(audio)['TPE1']),'Published Author')

@@ -94,3 +94,16 @@ in the disposable workspace. The private API enforces source-scoped activation,
 leases and verified runtime Drive storage. Publishing these files starts no crawl
 or archive job. Run the synthetic tests with the command above; browser tests
 also require `python -m playwright install chromium`.
+
+## Momma Bear Audio
+
+`momma_bear.py` performs paid-library discovery in an isolated Chromium context.
+Its leased source response supplies encrypted-at-rest membership credentials in
+memory only. It imports Yoto links or prepares a mapped MYO from numbered MP3s
+when the publisher explicitly provides no Yoto link. `momma_resources.py` downloads
+publisher documents into archive supplements with safe ZIP extraction and bounded
+streaming. Membership cookies are never forwarded to resource hosts.
+
+The `momma-bear.yml` workflow is dispatched only by the configured Toyo crawler.
+Setup, canaries, source-scoped activation and the twice-monthly New York schedule
+are managed at `/admin/momma-bear`. See `docs/MOMMA_BEAR_CRAWLER.md` in toyo-api.
