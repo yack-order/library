@@ -11,6 +11,7 @@ import os
 from pathlib import Path
 import re
 import socket
+import shutil
 import subprocess
 import tempfile
 import threading
@@ -241,7 +242,6 @@ def build_archive(source, work, captures=None):
         temporary = audio_dir / (prefix + '.download')
         cached = (captures or {}).get('audio:' + str(number-1))
         if cached:
-            import shutil
             shutil.copyfile(cached[0], temporary)
             mime = cached[2]
         else:
@@ -264,6 +264,8 @@ def build_archive(source, work, captures=None):
         for key, (path, url, _) in captures.items():
             if key.startswith('image:'):
                 normalized_image(url, images / (key.replace(':', '-') + '.png'), path)
+    if source.get('supplementFolder'):
+        shutil.copytree(source['supplementFolder'], folder / 'supplements')
     if source.get('playlistVersion'):
         version = source['playlistVersion']
         (folder / 'playlist-version.json').write_text(json.dumps({key:version[key] for key in ['id','number','fingerprint'] if key in version},indent=2),encoding='utf-8')
@@ -423,19 +425,28 @@ def main():
                     token=source.pop('driveToken');folder=source.pop('driveFolder')
                     client.stage='packaging'
                     captures = None
-                    if source.get('sourceKind') == 'space':
+                    if source.get('sourceKind') in {'space', 'momma'}:
                         captures, hashes = capture_space_media(source, Path(directory))
                         image_urls = []
                         for key, (image, url, _) in captures.items():
                             if key.startswith('image:'):
                                 client.image(image)
                                 image_urls.append(url)
-                        version = client.call('space-observe', {'card': source['publicCard'], 'mediaHashes': hashes, 'imageUrls': image_urls})
+                        supplement_hashes = {}
+                        if source.get('supplements') is not None:
+                            from momma_resources import capture_supplements
+                            supplemental_folder, supplement_hashes = capture_supplements(source['supplements'], Path(directory))
+                            source['supplementFolder'] = str(supplemental_folder)
+                        version = client.call('space-observe', {'card': source['publicCard'], 'mediaHashes': hashes, 'imageUrls': image_urls, 'supplementHashes': supplement_hashes})
                         if version['archived']:
                             client.call('space-unchanged')
                             print('Unchanged playlist verified')
                             return 0
                         source['playlistVersion'] = version
+                    if source.get('supplements') and not source.get('supplementFolder'):
+                        from momma_resources import capture_supplements
+                        supplemental_folder, _ = capture_supplements(source['supplements'], Path(directory))
+                        source['supplementFolder'] = str(supplemental_folder)
                     path=build_archive(source,Path(directory),captures)
                     restored=Path(directory)/'verified';restored.mkdir()
                     safe_extract(path,restored)
