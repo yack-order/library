@@ -5,11 +5,14 @@ import os
 import re
 import time
 from urllib.parse import urljoin, urlsplit, urlunsplit, parse_qsl, urlencode
-from playwright.sync_api import sync_playwright, TimeoutError as BrowserTimeout
+from playwright.sync_api import sync_playwright, TimeoutError as BrowserTimeout, Error as BrowserError
 from runner import ArchiveError, Client
 
 MAX_PAGES = 10000
 MAX_EXPANSIONS = 2000
+PAGE_BATCH = 75
+BATCH_SECONDS = 900
+EXPANSION_BATCH = 20
 PROGRESS_TIMEOUT_MS = 30000
 # Loading button labels are not content progress. Keep the count so removing
 # an exhausted pagination control is accepted even when no new posts arrive.
@@ -55,19 +58,73 @@ class DiscoveryClient(Client):
         self.base = self.base.replace('/archive/jobs/', '/space/jobs/')
 
 
+class PublicCursors:
+    """Resume public read-query cursors through fresh anonymous browser requests.
+
+    Never persist request headers, tokens, response nodes or application state.
+    Scope each cursor to its page, endpoint, query and non-cursor variables.
+    """
+    def __init__(self, page, state, current):
+        self.state, self.current, self.restored, self.pending = state, current, set(), {}
+        page.route('**/*', self.route)
+        page.on('response', self.response)
+        page.on('requestfailed', lambda request: self.pending.pop(request, None))
+
+    def route(self, route):
+        request, override = route.request, None
+        try:
+            body = request.post_data_json if request.method == 'POST' else None
+            if isinstance(body, dict) and re.match(r'^\s*query\b', body.get('query', '')):
+                variables = body.get('variables') or {}
+                if isinstance(variables.get('after'), str) and variables['after']:
+                    endpoint = urlsplit(request.url)
+                    shape = [endpoint.scheme, endpoint.netloc, endpoint.path, body['query'],
+                             {key:value for key,value in variables.items() if key != 'after'}]
+                    key = hashlib.sha256(json.dumps(shape,sort_keys=True).encode()).hexdigest()
+                    owner = self.current()
+                    self.pending[request] = (owner, key)
+                    saved = self.state.setdefault('pagination', {}).get(owner, {}).get(key)
+                    if saved and (owner,key) not in self.restored:
+                        override = json.dumps({**body, 'variables': {**variables, 'after': saved}})
+                        self.restored.add((owner,key))
+        except (ValueError, TypeError, AttributeError, BrowserError):
+            pass
+        route.fallback(**({'post_data':override} if override else {}))
+
+    def response(self, response):
+        context = self.pending.pop(response.request, None)
+        if not context or response.status != 200:
+            return
+        try:
+            # Only a single read connection can establish this request's cursor.
+            connections = [value['pageInfo'] for value in (response.json().get('data') or {}).values()
+                           if isinstance(value,dict) and isinstance(value.get('pageInfo'),dict)]
+            if len(connections) == 1:
+                cursor = connections[0].get('endCursor')
+                if isinstance(cursor,str) and 0 < len(cursor) <= 4096:
+                    owner,key = context
+                    self.state.setdefault('pagination', {}).setdefault(owner,{})[key] = cursor
+        except (ValueError, TypeError, AttributeError, BrowserError):
+            pass
+
+
 def discover(page, client, saved=None, canary=False):
     state = saved or {'frontier': ['https://yoto.space/made-by-you/post/my-dragon-and-me-Vlt7BctgDUB6Gui' if canary else 'https://yoto.space/'],
                       'visited': [], 'shares': [], 'complete': False, 'canary': canary}
     visited = set(state['visited'])
     pairs = {(s['url'], s['provenance']) for s in state['shares']}
-    frontier = list(dict.fromkeys(state['frontier']))
+    frontier = list(dict.fromkeys(url for url in state['frontier'] if url not in visited))
+    failures = state.setdefault('failures', {})
+    current = None
+    started = time.monotonic()
+    cursors = PublicCursors(page, state, lambda: current)
 
-    def checkpoint(complete=False):
-        state.update(frontier=frontier, visited=sorted(visited), shares=[{'url': u, 'provenance': p} for u, p in sorted(pairs)], complete=complete)
+    def checkpoint(exhausted=False):
+        state.update(frontier=frontier, visited=sorted(visited), shares=[{'url': u, 'provenance': p} for u, p in sorted(pairs)],
+                     complete=exhausted and not failures, exhausted=exhausted)
         client.call('checkpoint', state)
 
-    def collect(current):
-        # Only visible/public DOM is read. No account data or browser storage.
+    def collect():
         data = page.evaluate("""() => ({text:document.body.innerText,
           links:Array.from(document.querySelectorAll('a[href],iframe[src]')).map(e=>e.href||e.src)})""")
         if re.search(r'just a moment|verify you are human|access denied|checking your browser', data['text'], re.I):
@@ -79,65 +136,89 @@ def discover(page, client, saved=None, canary=False):
             if match:
                 pairs.add((match.group(0), current))
             following = page_url(value, current)
-            if not canary and following and following not in visited and following not in frontier:
+            if not canary and following and following not in visited and following not in frontier and failures.get(following,{}).get('attempts',0)<3:
                 frontier.append(following)
         if len(frontier) + len(visited) > MAX_PAGES:
             raise ArchiveError('discovery_page_limit')
-        return hashlib.sha256(json.dumps(data,sort_keys=True).encode()).hexdigest()
 
-    while frontier:
+    for _ in range(PAGE_BATCH):
+        if time.monotonic()-started >= BATCH_SECONDS:
+            break
+        if not frontier:
+            checkpoint(exhausted=True)
+            return state
         current = frontier[0]
-        response = page.goto(current, wait_until='networkidle', timeout=60000)
-        if not response or response.status != 200 or page_url(page.url) != current:
-            raise ArchiveError('discovery_http_failed')
-        collect(current)
-        # Public navigation menus are mounted lazily by the community frontend.
-        # Open each menu explicitly before claiming navigation coverage.
-        if not canary:
-            for name in ['Yoto Daily', 'Free Audio', 'Create', 'Communities', 'Get Involved', 'Feed']:
-                menu = page.get_by_role('button', name=name, exact=True)
-                if menu.count() and menu.first.is_visible():
-                    menu.first.click(timeout=10000)
-                    collect(current)
-                    page.keyboard.press('Escape')
-                    page.get_by_role('menu').wait_for(state='hidden', timeout=10000)
-        # Expand public pagination/replies, retaining every newly exposed link.
-        # A control that never advances is a parse failure, never "end of list".
-        count = 0
-        while True:
-            controls = page.get_by_role('button', name=re.compile(r'^(?:(?:show|load) more|(?:show|view|load|see|read)(?: (?:all|more|[0-9]+))* (?:repl(?:y|ies)|comments)|[0-9]+ (?:replies|comments))$', re.I))
-            target = next((control for control in controls.all() if control.is_visible() and control.is_enabled()), None)
-            if target is None:
-                break
-            if count >= MAX_EXPANSIONS:
+        cursors.restored.clear()
+        cursors.pending.clear()
+        page_complete = True
+        try:
+            response = page.goto(current, wait_until='networkidle', timeout=60000)
+            if not response or response.status != 200 or page_url(page.url) != current:
+                raise ArchiveError('discovery_rate_limited' if response and response.status==429 else 'discovery_http_failed')
+            collect()
+            if not canary:
+                for name in ['Yoto Daily', 'Free Audio', 'Create', 'Communities', 'Get Involved', 'Feed']:
+                    menu = page.get_by_role('button', name=name, exact=True)
+                    if menu.count() and menu.first.is_visible():
+                        menu.first.click(timeout=10000)
+                        collect()
+                        page.keyboard.press('Escape')
+                        page.get_by_role('menu').wait_for(state='hidden', timeout=10000)
+            for count in range(MAX_EXPANSIONS):
+                controls = page.get_by_role('button', name=re.compile(r'^(?:(?:show|load) more|(?:show|view|load|see|read)(?: (?:all|more|[0-9]+))* (?:repl(?:y|ies)|comments)|[0-9]+ (?:replies|comments))$', re.I))
+                target = next((control for control in controls.all() if control.is_visible() and control.is_enabled()), None)
+                if target is None:
+                    break
+                before_cursors = dict(state.get('pagination', {}).get(current, {}))
+                advance(page, target)
+                collect()
+                checkpoint()
+                if time.monotonic()-started >= BATCH_SECONDS and before_cursors == state.get('pagination', {}).get(current, {}):
+                    raise ArchiveError('discovery_pagination_unresumable')
+                if (count+1 >= EXPANSION_BATCH or time.monotonic()-started >= BATCH_SECONDS) and before_cursors != state.get('pagination', {}).get(current, {}) and any(c.is_visible() and c.is_enabled() for c in controls.all()):
+                    page_complete = False
+                    break
+            else:
                 raise ArchiveError('discovery_pagination_limit')
-            collect(current)
-            advance(page, target)
-            collect(current)
-            count += 1
-            checkpoint()
-        # Numeric/next page links are already in the frontier. Browser-only
-        # next buttons require an advance and are followed until disabled/loop.
-        seen_next = set()
-        for count in range(MAX_EXPANSIONS):
-            buttons = page.get_by_role('button', name=re.compile(r'^next(?: page)?$', re.I))
-            candidates = [b for b in buttons.all() if b.is_visible() and b.is_enabled()]
-            if not candidates:
-                break
-            signature = page.evaluate(PROGRESS)
-            if signature in seen_next:
-                break
-            seen_next.add(signature)
-            advance(page, candidates[0])
-            collect(current)
-            checkpoint()
-        else:
-            raise ArchiveError('discovery_pagination_limit')
-        visited.add(current)
+            if page_complete:
+                seen_next = set()
+                for count in range(MAX_EXPANSIONS):
+                    candidates = [b for b in page.get_by_role('button', name=re.compile(r'^next(?: page)?$',re.I)).all() if b.is_visible() and b.is_enabled()]
+                    if not candidates:
+                        break
+                    signature = page.evaluate(PROGRESS)
+                    if signature in seen_next:
+                        break
+                    seen_next.add(signature)
+                    before_cursors = dict(state.get('pagination', {}).get(current, {}))
+                    advance(page, candidates[0])
+                    collect()
+                    checkpoint()
+                    if time.monotonic()-started >= BATCH_SECONDS and before_cursors == state.get('pagination', {}).get(current, {}):
+                        raise ArchiveError('discovery_pagination_unresumable')
+                    if (count+1 >= EXPANSION_BATCH or time.monotonic()-started >= BATCH_SECONDS) and before_cursors != state.get('pagination', {}).get(current, {}):
+                        page_complete = False
+                        break
+                else:
+                    raise ArchiveError('discovery_pagination_limit')
+            failures.pop(current,None)
+            if page_complete:
+                visited.add(current)
+        except (ArchiveError, BrowserError) as error:
+            code = error.code if isinstance(error,ArchiveError) else ('discovery_timeout' if isinstance(error,BrowserTimeout) else 'discovery_browser_failed')
+            # API/storage failures belong to the run, never to a public page.
+            if not code.startswith('discovery_') or code == 'discovery_page_limit':
+                raise
+            failure = failures.get(current, {})
+            failures[current] = {'attempts': failure.get('attempts',0)+1, 'code':code}
+            page_complete = False
         frontier.remove(current)
+        if not page_complete and failures.get(current,{}).get('attempts',0)<3:
+            frontier.append(current)
         checkpoint()
         time.sleep(1)
-    checkpoint(complete=True)
+    checkpoint(exhausted=not frontier)
+    return state
 
 
 def main():
@@ -151,18 +232,21 @@ def main():
             try:
                 context = browser.new_context()
                 page = context.new_page()
-                discover(page, client, claimed.get('checkpoint'), claimed.get('canary', False))
+                result = discover(page, client, claimed.get('checkpoint'), claimed.get('canary', False))
+                if not result['exhausted']:
+                    client.call('yield')
             finally:
                 browser.close()
-        print('Public discovery completed')
+        print('Public discovery completed' if result['complete'] else 'Public discovery checkpoint retained; coverage incomplete')
         return 0
-    except Exception:
+    except Exception as error:
+        code = error.code if isinstance(error,ArchiveError) and re.fullmatch(r'discovery_[a-z_]+',error.code) else 'discovery_runner_failed'
         if client and 'X-Archive-Lease' in client.headers:
             try:
-                client.call('fail')
+                client.call('fail', {'code':code})
             except Exception:
                 pass
-        print('Public discovery incomplete; baseline preserved')
+        print('Public discovery incomplete; baseline preserved; '+code)
         return 1
 
 
