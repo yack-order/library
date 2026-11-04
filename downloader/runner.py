@@ -3,6 +3,7 @@
 Only opaque job IDs belong in public logs. All private inputs remain in memory
 or the runner's owned temporary directory, never Actions artifacts or caches.
 """
+import base64
 import hashlib
 import io
 import ipaddress
@@ -25,6 +26,10 @@ from PIL import Image
 from mutagen.id3 import ID3, TIT2, TPE1, TALB, TCON, TRCK, APIC, ID3NoHeaderError
 from mutagen.mp4 import MP4, MP4Cover
 from mutagen.aac import AAC
+from mutagen import File as AudioFile
+from mutagen.flac import Picture
+from mutagen.oggvorbis import OggVorbis
+from mutagen.oggopus import OggOpus
 from archive_safety import safe_filename, create_verified_archive
 from privacy import register_sensitive_values, scrub_json, redact_text
 
@@ -33,6 +38,13 @@ class ArchiveError(Exception):
     def __init__(self, code):
         self.code = code
         super().__init__(code)
+
+
+AUDIO_FORMATS = {'audio/mpeg': '.mp3', 'audio/mp3': '.mp3', 'audio/aac': '.aac',
+                 'audio/aacp': '.aac', 'audio/mp4': '.m4a', 'audio/x-m4a': '.m4a',
+                 'audio/ogg': '.ogg', 'application/ogg': '.ogg', 'audio/opus': '.ogg'}
+TERMINAL_MEDIA_ERRORS = {'media_access_denied', 'media_unavailable',
+                         'media_format_unsupported', 'media_live_unsupported'}
 
 
 def digest(path):
@@ -72,14 +84,18 @@ def stream_file(url, destination, *, maximum=1024**3, allowed=None, attempts=3, 
                                 raise ArchiveError('media_failed')
                             current = public_url(urljoin(current, response.headers['Location']))
                             continue
+                        if response.status_code in (401, 403):
+                            raise ArchiveError('media_access_denied')
+                        if response.status_code in (404, 410):
+                            raise ArchiveError('media_unavailable')
                         if response.status_code != 200:
                             raise ArchiveError('media_failed')
                         mime = response.headers.get('Content-Type', '').split(';')[0].lower()
                         if allowed and mime not in allowed:
-                            raise ArchiveError('media_failed')
+                            raise ArchiveError('media_format_unsupported')
                         # Radio streams have no finite source and must not be archived.
                         if 'icy-name' in response.headers or 'icy-metaint' in response.headers:
-                            raise ArchiveError('media_failed')
+                            raise ArchiveError('media_live_unsupported')
                         declared = int(response.headers.get('Content-Length', 0))
                         if declared > maximum:
                             raise ArchiveError('media_failed')
@@ -94,8 +110,10 @@ def stream_file(url, destination, *, maximum=1024**3, allowed=None, attempts=3, 
                             raise ArchiveError('media_failed')
                         return mime
                 raise ArchiveError('media_failed')
-        except Exception:
+        except Exception as error:
             Path(destination).unlink(missing_ok=True)
+            if isinstance(error, ArchiveError) and error.code in TERMINAL_MEDIA_ERRORS:
+                raise error from None
             if attempt == attempts - 1:
                 raise ArchiveError('media_failed') from None
             time.sleep(2 ** attempt)
@@ -139,6 +157,21 @@ def tag_audio(path, title, author, album, category, number, total, cover):
     elif path.suffix == '.aac':
         # Raw ADTS AAC cannot embed MP4 tags. Keep native audio plus tracks.txt.
         AAC(path)
+    elif path.suffix == '.ogg':
+        audio = AudioFile(path)
+        if not isinstance(audio, (OggVorbis, OggOpus)):
+            raise ArchiveError('media_format_unsupported')
+        audio.delete()
+        audio['title'] = [title]; audio['artist'] = [author]; audio['album'] = [album]
+        audio['genre'] = [category]; audio['tracknumber'] = [str(number)]
+        audio['tracktotal'] = [str(total)]
+        if cover:
+            picture = Picture(); picture.type = 3; picture.mime = 'image/png'
+            picture.data = cover
+            with Image.open(io.BytesIO(cover)) as image:
+                picture.width, picture.height = image.size
+            audio['metadata_block_picture'] = [base64.b64encode(picture.write()).decode('ascii')]
+        audio.save()
 
 
 def normalized_image(url, path, prefetched=None):
@@ -158,6 +191,8 @@ def normalized_image(url, path, prefetched=None):
 
 def capture_space_media(source, work):
     raw = source['card']
+    if str((raw.get('content') or {}).get('playbackType', '')).lower() in {'radio', 'live', 'stream'}:
+        raise ArchiveError('media_live_unsupported')
     captures = {}
     hashes = {}
     audio = 0
@@ -182,11 +217,13 @@ def capture_space_media(source, work):
         image += 1
     for chapter in raw.get('content', {}).get('chapters', []):
         for track in chapter.get('tracks', []):
-            if track.get('type') in {'radio', 'live'} or not track.get('trackUrl'):
+            if track.get('type') in {'radio', 'live'}:
+                raise ArchiveError('media_live_unsupported')
+            if not track.get('trackUrl'):
                 raise ArchiveError('media_failed')
             key = 'audio:' + str(audio)
             path = work / ('source-audio-' + str(audio))
-            mime = stream_file(track['trackUrl'], path, allowed={'audio/mpeg', 'audio/mp3', 'audio/aac', 'audio/aacp', 'audio/mp4', 'audio/x-m4a'})
+            mime = stream_file(track['trackUrl'], path, allowed=set(AUDIO_FORMATS))
             hashes[key] = digest(path)
             captures[key] = (path, track['trackUrl'], mime)
             audio += 1
@@ -218,7 +255,7 @@ def build_archive(source, work, captures=None):
     if not tracks or len(tracks) != len(raw_tracks) or len(tracks) > 2000:
         raise ArchiveError('media_failed')
     if str((raw.get('content') or {}).get('playbackType', '')).lower() in {'radio', 'live', 'stream'}:
-        raise ArchiveError('media_failed')
+        raise ArchiveError('media_live_unsupported')
     cover_path = images / 'cover.png'
     cover_url = ((raw.get('metadata') or {}).get('cover') or {}).get('imageL')
     if cover_url:
@@ -232,10 +269,11 @@ def build_archive(source, work, captures=None):
                'CreatedAt': card.get('createdAt'), 'UpdatedAt': card.get('updatedAt')}
     (folder / 'card.txt').write_text('\n'.join(f'{k}:: {redact_text(v)}' for k,v in details.items() if v is not None)+'\n', encoding='utf-8')
     lines = []; padding = len(str(len(tracks)))
-    formats = {'audio/mpeg': '.mp3', 'audio/mp3': '.mp3', 'audio/aac': '.aac',
-               'audio/aacp': '.aac', 'audio/mp4': '.m4a', 'audio/x-m4a': '.m4a'}
+    formats = AUDIO_FORMATS
     for number, (track, (chapter, private)) in enumerate(zip(tracks, raw_tracks), 1):
-        if private.get('type') in {'radio', 'live'} or not private.get('trackUrl'):
+        if private.get('type') in {'radio', 'live'}:
+            raise ArchiveError('media_live_unsupported')
+        if not private.get('trackUrl'):
             raise ArchiveError('media_failed')
         track_title = str(track.get('title') or f'Track {number}')
         prefix = f'{number:0{padding}d}'
