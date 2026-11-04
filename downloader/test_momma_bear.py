@@ -4,7 +4,7 @@ import tempfile
 import unittest
 import zipfile
 from unittest.mock import patch, Mock
-from momma_bear import Document, listing, parse_entry, discover, create_playlist
+from momma_bear import Document, listing, parse_entry, discover, create_playlist, MommaClient
 from momma_resources import download_url, unpack_resource, ordered_mp3s, capture_supplements
 from runner import ArchiveError
 import momma_bear
@@ -161,6 +161,37 @@ class MommaTests(unittest.TestCase):
         for files in [[Path('A.mp3'), Path('B.mp3')], [Path('01 A.mp3'), Path('01 B.mp3')]]:
             with self.assertRaises(ArchiveError):
                 ordered_mp3s(files)
+
+
+    def test_episode_numbers_are_numeric_and_duplicates_remain_held(self):
+        files = [Path('Episode 10 Finale.mp3'), Path('Episode 2 Clue.mp3'), Path('Episode 1 Start.mp3')]
+        self.assertEqual(ordered_mp3s(files), [files[2], files[1], files[0]])
+        with self.assertRaises(ArchiveError):
+            ordered_mp3s([Path('Episode 1 A.mp3'), Path('Episode 1 B.mp3')])
+        with self.assertRaises(ArchiveError):
+            ordered_mp3s([Path('Episode One.mp3'), Path('Episode Two.mp3')])
+
+    def test_heartbeat_recovers_after_transient_failure(self):
+        client = MommaClient.__new__(MommaClient)
+        client.stopped = Mock()
+        client.stopped.wait.side_effect = [False, False, False, True]
+        client.lost = Mock()
+        client.stage = 'fetching'
+        client.call = Mock(side_effect=[momma_bear.requests.Timeout(), ArchiveError('source_unavailable'), {}])
+        client.heartbeats()
+        self.assertEqual(client.call.call_count, 3)
+        client.lost.set.assert_not_called()
+
+    def test_heartbeat_stops_on_cancellation(self):
+        client = MommaClient.__new__(MommaClient)
+        client.stopped = Mock()
+        client.stopped.wait.return_value = False
+        client.lost = Mock()
+        client.stage = 'fetching'
+        client.call = Mock(side_effect=ArchiveError('job_cancelled'))
+        client.heartbeats()
+        client.call.assert_called_once()
+        client.lost.set.assert_called_once()
 
     def test_dropbox_resource_keys_survive_download_normalization(self):
         url = download_url('https://www.dropbox.com/scl/fo/docs?rlkey=secret&dl=0')

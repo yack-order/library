@@ -164,6 +164,20 @@ class MommaClient(Client):
         super().__init__()
         self.base = self.base.replace('/archive/jobs/', '/momma/jobs/')
 
+    def heartbeats(self):
+        # A single transient heartbeat failure must not abandon lease renewal
+        # during a long download or Yoto transcode. The API still rejects an
+        # expired/replaced lease at every mutation boundary.
+        while not self.stopped.wait(60):
+            try:
+                self.call('heartbeat', {'stage': self.stage})
+            except ArchiveError as error:
+                if error.code == 'job_cancelled':
+                    self.lost.set()
+                    return
+            except requests.RequestException:
+                pass
+
 
 def yoto_json(client, entry, path):
     token = client.call('yoto-token', {'url': entry['url']})['token']

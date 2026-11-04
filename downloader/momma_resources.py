@@ -127,7 +127,7 @@ def ordered_mp3s(files):
     if len(files) == 1:
         return files
     def number(path):
-        match = re.match(r'^(?:(?:track|chapter)[ _-]*)?(\d+)(?:\D|$)', path.stem, re.I)
+        match = re.match(r'^(?:(?:track|chapter|episode)[ _-]*)?(\d+)(?:\D|$)', path.stem, re.I)
         if not match:
             raise ArchiveError('track_order_needs_review')
         return int(match[1])
