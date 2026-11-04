@@ -164,6 +164,23 @@ class MommaClient(Client):
         super().__init__()
         self.base = self.base.replace('/archive/jobs/', '/momma/jobs/')
 
+    def call(self, action, data=None):
+        # Retry only replay-safe checkpoints. Creation and claim responses may
+        # be uncertain after a transport failure, so those are never replayed.
+        safe = {'heartbeat', 'discovered', 'entry', 'entry-failed', 'yoto-token'}
+        attempts = 3 if action in safe else 1
+        for attempt in range(attempts):
+            try:
+                return super().call(action, data)
+            except (requests.RequestException, ArchiveError) as error:
+                if isinstance(error, ArchiveError) and error.code != 'source_unavailable':
+                    raise
+                if attempt + 1 == attempts:
+                    label = action if action in safe | {'claim', 'create', 'finish', 'fail'} else 'other'
+                    print('Momma Bear API request failed: ' + label, flush=True)
+                    raise
+                time.sleep(2 ** attempt)
+
     def heartbeats(self):
         # A single transient heartbeat failure must not abandon lease renewal
         # during a long download or Yoto transcode. The API still rejects an
