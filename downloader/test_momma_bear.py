@@ -163,6 +163,20 @@ class MommaTests(unittest.TestCase):
                 ordered_mp3s(files)
 
 
+    def test_explicit_intro_and_prelude_precede_separately_numbered_main_tracks(self):
+        files = [Path('2_Bookshelf.mp3'), Path('1_Intro Scavenger Hunt.mp3'), Path('1_Under a mat.mp3')]
+        self.assertEqual(ordered_mp3s(files), [files[1], files[2], files[0]])
+        prelude = [Path('Chapter 2.mp3'), Path('1_Prelude.mp3'), Path('Chapter 1.mp3')]
+        self.assertEqual(ordered_mp3s(prelude), [prelude[1], prelude[2], prelude[0]])
+        for ambiguous in [
+            [Path('1_Intro.mp3'), Path('1_Prelude.mp3'), Path('1_Start.mp3')],
+            [Path('1_Intro.mp3'), Path('1_Start.mp3'), Path('1_Other.mp3')],
+            [Path('1_Intro.mp3'), Path('1_Start.mp3'), Path('Unnumbered.mp3')],
+            [Path('1_Intro.mp3'), Path('1_Start.mp3'), Path('0_Prologue.mp3')],
+        ]:
+            with self.assertRaises(ArchiveError):
+                ordered_mp3s(ambiguous)
+
     def test_episode_numbers_are_numeric_and_duplicates_remain_held(self):
         files = [Path('Episode 10 Finale.mp3'), Path('Episode 2 Clue.mp3'), Path('Episode 1 Start.mp3')]
         self.assertEqual(ordered_mp3s(files), [files[2], files[1], files[0]])
