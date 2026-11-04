@@ -54,6 +54,10 @@ def unpack_resource(path, destination, *, audio=False):
             raise ArchiveError('resource_limit')
         files, seen = [], set()
         for row in rows:
+            # Dropbox folder ZIPs include a zero-byte root directory marker.
+            # It is metadata only; never turn it into an extraction destination.
+            if row.filename == '/' and row.is_dir() and row.file_size == 0 and not (row.flag_bits & 1) and not stat.S_ISLNK(row.external_attr >> 16):
+                continue
             name = PurePosixPath(row.filename)
             if (name.is_absolute() or '..' in name.parts or '\\' in row.filename
                     or re.match(r'^[A-Za-z]:', row.filename)
@@ -123,11 +127,19 @@ def ordered_mp3s(files):
     if len(files) == 1:
         return files
     def number(path):
-        match = re.match(r'^(?:track[ _-]*)?(\d+)(?:\D|$)', path.stem, re.I)
+        match = re.match(r'^(?:(?:track|chapter)[ _-]*)?(\d+)(?:\D|$)', path.stem, re.I)
         if not match:
             raise ArchiveError('track_order_needs_review')
         return int(match[1])
     numbers = [number(p) for p in files]
     if len(set(numbers)) != len(numbers):
+        # Some publisher folders number an explicit introduction separately
+        # from their Chapter 1..N sequence. Accept only that unambiguous layout.
+        intros = [p for p in files if re.match(r'^1[ _.-]+(?:.*[ _.-])?intro(?:duction)?\b', p.stem, re.I)]
+        chapters = [p for p in files if p not in intros]
+        if (len(intros) == 1 and chapters
+                and all(re.match(r'^chapter[ _-]*\d+(?:\D|$)', p.stem, re.I) for p in chapters)
+                and len({number(p) for p in chapters}) == len(chapters)):
+            return intros + sorted(chapters, key=number)
         raise ArchiveError('track_order_needs_review')
     return sorted(files, key=number)
