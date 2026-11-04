@@ -18,7 +18,7 @@ from privacy import redact_text, register_sensitive_values, scrub_json
 MAX_EXPANDED=8*1024**3
 MAX_MEMBERS=10000
 MAX_FILE=1024**3
-AUDIO={'.mp3','.m4a','.aac'}
+AUDIO={'.mp3','.m4a','.aac','.ogg'}
 
 
 def safe_extract(archive_path,destination):

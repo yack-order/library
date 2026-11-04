@@ -196,3 +196,52 @@ class SpaceVersionTests(unittest.TestCase):
             for file in extracted.rglob('*'):
                 if file.is_file() and file.suffix in {'.json','.txt'}:
                     self.assertNotIn('media.test',file.read_text())
+
+class OggArchiveTests(unittest.TestCase):
+    def test_vorbis_and_opus_keep_audio_order_published_tags_and_cover_without_source_tags(self):
+        import base64
+        from mutagen import File as AudioFile
+        from mutagen.flac import Picture
+        from PIL import Image
+        from archive_inspector import sanitize_archive
+        for codec in ['vorbis', 'libopus']:
+            with self.subTest(codec=codec), tempfile.TemporaryDirectory() as tmp:
+                work=Path(tmp);sample=work/'sample.ogg'
+                subprocess.run(['ffmpeg','-nostdin','-v','error','-f','lavfi','-i','sine=frequency=440:duration=0.2','-metadata','comment=https://private.test/play?token=secret','-ac','2','-c:a',codec,'-strict','-2',str(sample)],check=True)
+                image=work/'cover.png';Image.new('RGB',(16,16),'red').save(image)
+                raw={'cardId':'ogg12','title':'Ogg playlist','metadata':{'author':'Published Author','cover':{'imageL':'https://images.test/cover.png'}},'content':{'chapters':[{'tracks':[{'title':'First','type':'audio','trackUrl':'https://private.test/first?token=secret'},{'title':'Second','type':'audio','trackUrl':'https://private.test/second?token=secret'}]}]}}
+                public=copy.deepcopy(raw)
+                for track in public['content']['chapters'][0]['tracks']:del track['trackUrl']
+                def download(url,path,**kwargs):
+                    is_image='images.test' in url
+                    Path(path).write_bytes((image if is_image else sample).read_bytes())
+                    return 'image/png' if is_image else 'audio/ogg'
+                with patch.object(runner,'stream_file',side_effect=download):
+                    captures,hashes=runner.capture_space_media({'card':raw},work)
+                self.assertEqual(hashes['audio:0'],runner.digest(sample))
+                output=work/'output';output.mkdir()
+                archive=runner.build_archive({'card':raw,'publicCard':public},output,captures)
+                extracted=work/'extracted'
+                with py7zr.SevenZipFile(archive,'r') as handle:handle.extractall(extracted)
+                tracks=sorted(extracted.rglob('*.ogg'));self.assertEqual(len(tracks),2)
+                for number,path in enumerate(tracks,1):
+                    audio=AudioFile(path);self.assertEqual(audio['tracknumber'],[str(number)])
+                    self.assertEqual(audio['artist'],['Published Author']);self.assertNotIn('comment',audio)
+                    self.assertGreater(audio.info.length,0)
+                    cover=Picture(base64.b64decode(audio['metadata_block_picture'][0]));self.assertEqual(cover.data,next(extracted.rglob('cover.png')).read_bytes())
+                    self.assertNotIn(b'token=secret',path.read_bytes())
+                inspect=work/'inspection';inspect.mkdir()
+                result=sanitize_archive(archive,inspect)
+                self.assertEqual(result['tracks'],2)
+
+    def test_denied_missing_and_unsupported_media_are_safe_terminal_diagnostics(self):
+        for status,mime,expected in [(403,'text/html','media_access_denied'),(404,'text/html','media_unavailable'),(200,'text/html','media_format_unsupported')]:
+            with self.subTest(status=status,mime=mime), tempfile.TemporaryDirectory() as tmp:
+                response=Mock();response.status_code=status;response.is_redirect=False
+                response.headers={'Content-Type':mime};response.__enter__=Mock(return_value=response);response.__exit__=Mock(return_value=False)
+                session=Mock();session.get.return_value=response;session.__enter__=Mock(return_value=session);session.__exit__=Mock(return_value=False)
+                with patch.object(runner,'public_url',side_effect=lambda url:url),patch.object(runner.requests,'Session',return_value=session),patch.object(runner.time,'sleep') as sleep:
+                    with self.assertRaises(runner.ArchiveError) as error:runner.stream_file('https://private.test/source?token=secret',Path(tmp)/'partial',allowed=set(runner.AUDIO_FORMATS))
+                    self.assertEqual(error.exception.code,expected);self.assertNotIn('secret',str(error.exception))
+                    self.assertEqual(session.get.call_count,1);sleep.assert_not_called()
+                    self.assertFalse((Path(tmp)/'partial').exists())
