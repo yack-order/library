@@ -15,6 +15,16 @@ ENTRY = '''<h1>Games &amp; Activities</h1><img src="https://mommabearaudio.com/c
 LIST = '<h2>All Audio</h2><article><h1><a href="/games/">Games</a></h1><a href="/games/">Learn More</a></article><a href="/subscription/membership-account/">Account</a>'
 
 class MommaTests(unittest.TestCase):
+    def test_browser_snapshot_never_opens_membership_or_requires_login(self):
+        entry = parse_entry(Document(ENTRY).root, 'https://mommabearaudio.com/games/')
+        client = Mock()
+        client.headers = {}
+        client.call.side_effect = [{'leaseToken': 'lease', 'mode': 'existing', 'entries': [entry]}, {}, {'state': 'imported'}, {}]
+        with patch.object(momma_bear, 'MommaClient', return_value=client), patch.object(momma_bear, 'Membership') as membership, patch.object(momma_bear.threading, 'Thread'), patch('builtins.print'):
+            self.assertEqual(momma_bear.main(), 0)
+        membership.assert_not_called()
+        self.assertIn(('discovered', [entry]), [call.args for call in client.call.call_args_list])
+
     def test_login_failures_report_only_controlled_codes(self):
         client = Mock()
         client.headers = {}
