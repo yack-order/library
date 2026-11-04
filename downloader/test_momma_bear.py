@@ -122,6 +122,26 @@ class MommaTests(unittest.TestCase):
                 unpack_resource(archive, root / 'unsafe')
             self.assertFalse((root.parent / 'escape.pdf').exists())
 
+    def test_dropbox_empty_root_marker_and_explicit_chapter_numbers(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            archive = root / 'audio.zip'
+            with zipfile.ZipFile(archive, 'w') as z:
+                z.writestr('/', b'')
+                z.writestr('Chapter 10_ End.mp3', b'synthetic')
+                z.writestr('Chapter 1_ Start.mp3', b'synthetic')
+            files = unpack_resource(archive, root / 'audio', audio=True)
+            self.assertEqual([p.name for p in ordered_mp3s(files)], ['Chapter 1_ Start.mp3', 'Chapter 10_ End.mp3'])
+            sequence = [Path('Chapter 2_ More.mp3'), Path('1_Introduction.mp3'), Path('Chapter 1_ Start.mp3')]
+            self.assertEqual([p.name for p in ordered_mp3s(sequence)], ['1_Introduction.mp3', 'Chapter 1_ Start.mp3', 'Chapter 2_ More.mp3'])
+            for unsafe in ['/escape.mp3', '/absolute/']:
+                with zipfile.ZipFile(archive, 'w') as z:
+                    z.writestr(unsafe, b'')
+                with self.assertRaises(ArchiveError):
+                    unpack_resource(archive, root / 'unsafe', audio=True)
+            with self.assertRaises(ArchiveError):
+                ordered_mp3s([Path('Chapter 1_ A.mp3'), Path('Track 1_ B.mp3')])
+
     def test_zip_collisions_and_html_downloads_fail(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
