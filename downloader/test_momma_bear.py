@@ -171,6 +171,32 @@ class MommaTests(unittest.TestCase):
         with self.assertRaises(ArchiveError):
             ordered_mp3s([Path('Episode One.mp3'), Path('Episode Two.mp3')])
 
+    def test_safe_checkpoint_retries_transient_api_failures(self):
+        client = MommaClient.__new__(MommaClient)
+        with patch('runner.Client.call', side_effect=[momma_bear.requests.Timeout(), ArchiveError('source_unavailable'), {'ok': True}]) as call, patch('momma_bear.time.sleep'):
+            self.assertEqual(client.call('entry', {'url': 'synthetic'}), {'ok': True})
+            self.assertEqual(call.call_count, 3)
+
+    def test_uncertain_actions_and_cancellation_are_not_replayed(self):
+        client = MommaClient.__new__(MommaClient)
+        for action in ['claim', 'create', 'finish']:
+            with self.subTest(action=action), patch('runner.Client.call', side_effect=momma_bear.requests.Timeout()) as call, patch('builtins.print'):
+                with self.assertRaises(momma_bear.requests.Timeout):
+                    client.call(action)
+                call.assert_called_once()
+        with patch('runner.Client.call', side_effect=ArchiveError('job_cancelled')) as call:
+            with self.assertRaises(ArchiveError):
+                client.call('entry')
+            call.assert_called_once()
+
+    def test_checkpoint_retries_are_bounded(self):
+        client = MommaClient.__new__(MommaClient)
+        with patch('runner.Client.call', side_effect=momma_bear.requests.Timeout()) as call, patch('momma_bear.time.sleep'), patch('builtins.print') as output:
+            with self.assertRaises(momma_bear.requests.Timeout):
+                client.call('entry', {'url': 'private'})
+            self.assertEqual(call.call_count, 3)
+            output.assert_called_once_with('Momma Bear API request failed: entry', flush=True)
+
     def test_heartbeat_recovers_after_transient_failure(self):
         client = MommaClient.__new__(MommaClient)
         client.stopped = Mock()
