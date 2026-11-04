@@ -1,0 +1,476 @@
+{
+  "props": {
+    "pageProps": {
+      "card": {
+        "cardId": "eQk1y",
+        "title": "Encore et encore ",
+        "slug": "3-boucles",
+        "sortkey": "encore-et-encore",
+        "userId": "yoto",
+        "clubAvailability": [
+          {
+            "store": "uk"
+          },
+          {
+            "store": "us"
+          },
+          {
+            "store": "ca"
+          },
+          {
+            "store": "eu"
+          },
+          {
+            "store": "au"
+          }
+        ],
+        "createdAt": "2025-01-23T15:46:27.714Z",
+        "updatedAt": "2026-03-13T15:03:34.165Z",
+        "content": {
+          "version": "1",
+          "activity": "yoto_Player",
+          "availability": "",
+          "config": {
+            "resumeTimeout": 86400,
+            "disableChapterNav": true,
+            "disableTrackNav": true
+          },
+          "playbackType": "interactive",
+          "editSettings": {
+            "interactiveContent": true,
+            "transcodeAudioUploads": true,
+            "transcodePreset": "auto"
+          },
+          "cover": {
+            "imageL": "https://card-content.yotoplay.com/yoto/pub/hyC8lMwe6LqwHwj964v3nwISaoux49n8DcUHWjLhe3s"
+          },
+          "chapters": [
+            {
+              "key": "101",
+              "title": "Introduction",
+              "duration": 104,
+              "fileSize": 1678921,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/Lp0kH7FXAcL3RJ6d31oWfqO9rkAbOAqrrQlVir4bdt4"
+              },
+              "tracks": [
+                {
+                  "key": "101",
+                  "title": "Introduction",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 104,
+                  "fileSize": 1678921,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "102",
+              "title": "Jeu 1 : exemple de boucle : virelangue",
+              "duration": 87,
+              "fileSize": 1408778,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/-SXokZLc1BL1LgWmMUD4lYr2dvbA_T5cXAq11orfVDc"
+              },
+              "tracks": [
+                {
+                  "key": "102",
+                  "title": "Jeu 1 : exemple de boucle : virelangue",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 87,
+                  "fileSize": 1408778,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "103",
+                        "trackKey": "103"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "103",
+                        "trackKey": "103"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "103",
+              "title": "Jeu 1 : réponse ",
+              "duration": 29,
+              "fileSize": 467128,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/0sODNgfyhYRKAb9hQmO0r8PZtSkl_F32KoX1Hl67tKg"
+              },
+              "tracks": [
+                {
+                  "key": "103",
+                  "title": "Jeu 1 : réponse ",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 29,
+                  "fileSize": 467128,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "104",
+              "title": "Jeu 2a : Devinette ",
+              "duration": 71,
+              "fileSize": 1153395,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/9V-8O-aBCaktLuyOj28c_3EulTroDcwyKuqcknCpr_s"
+              },
+              "tracks": [
+                {
+                  "key": "104",
+                  "title": "Jeu 2a : Devinette ",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 71,
+                  "fileSize": 1153395,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "stop"
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "105",
+                        "trackKey": "105"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "105",
+              "title": "Jeu 2a : solution",
+              "duration": 40,
+              "fileSize": 649070,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/U4d6np-08lg5jQ2z6xZwLQnWeC3sFrBj6l1uhrcxzGA"
+              },
+              "tracks": [
+                {
+                  "key": "105",
+                  "title": "Jeu 2a : solution",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 40,
+                  "fileSize": 649070,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "106",
+              "title": "Jeu 2b : Devinette",
+              "duration": 49,
+              "fileSize": 798350,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/9V-8O-aBCaktLuyOj28c_3EulTroDcwyKuqcknCpr_s"
+              },
+              "tracks": [
+                {
+                  "key": "106",
+                  "title": "Jeu 2b : Devinette",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 49,
+                  "fileSize": 798350,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "stop"
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "107",
+                        "trackKey": "107"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "107",
+              "title": "Jeu 2b : Solution",
+              "duration": 51,
+              "fileSize": 829571,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/o_zZFXh6IBYDwiT_0ptAPvkVycZF0uy5srYo16TjyAU"
+              },
+              "tracks": [
+                {
+                  "key": "107",
+                  "title": "Jeu 2b : Solution",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 51,
+                  "fileSize": 829571,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "108",
+              "title": "Jeu 3a : Hiha apprend à répéter",
+              "duration": 118,
+              "fileSize": 1902550,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/7JOq9LY8nj11sJpC2xu-NRzq_G20Auml-HyhMLXuvbM"
+              },
+              "tracks": [
+                {
+                  "key": "108",
+                  "title": "Jeu 3a : Hiha apprend à répéter",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 118,
+                  "fileSize": 1902550,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "stop"
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "109",
+                        "trackKey": "109"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "109",
+              "title": "Jeu 3a : solution",
+              "duration": 36,
+              "fileSize": 588292,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/UQU8VCDiLSpUg9F-7V0SS4ouViC7L1OXvo4YhCQTrjw"
+              },
+              "tracks": [
+                {
+                  "key": "109",
+                  "title": "Jeu 3a : solution",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 36,
+                  "fileSize": 588292,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "110",
+              "title": "Situation jeu 3b",
+              "duration": 86,
+              "fileSize": 1394843,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/70VeszdfiOMi7rd1H18EGNja_S8_sGErvlgkKwPkkPk"
+              },
+              "tracks": [
+                {
+                  "key": "110",
+                  "title": "Situation jeu 3b",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 86,
+                  "fileSize": 1394843,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "111",
+                        "trackKey": "111"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "111",
+                        "trackKey": "111"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "111",
+              "title": "Jeu 3b : Solution",
+              "duration": 41,
+              "fileSize": 658500,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/70VeszdfiOMi7rd1H18EGNja_S8_sGErvlgkKwPkkPk"
+              },
+              "tracks": [
+                {
+                  "key": "111",
+                  "title": "Jeu 3b : Solution",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 41,
+                  "fileSize": 658500,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "112",
+              "title": "Bravo !",
+              "duration": 67,
+              "fileSize": 1091927,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/jZ2ghHIxsMwPgg5-8qqdaqYrXW88Am8Ydp_ly7l40HU"
+              },
+              "tracks": [
+                {
+                  "key": "112",
+                  "title": "Bravo !",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 67,
+                  "fileSize": 1091927,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {}
+                }
+              ]
+            }
+          ]
+        },
+        "metadata": {
+          "category": "activities",
+          "minAge": 4,
+          "maxAge": 10,
+          "media": {
+            "duration": 779,
+            "fileSize": 12621325
+          },
+          "abridged": false,
+          "author": "Yoto",
+          "description": "Troisième super pouvoir du codage : les boucles. Que se passe-t-il quand une action doit être répétée plusieurs fois ? Les pros du code ont trouvé une astuce géniale : au lieu de répéter les instructions une par une, ils utilisent une boucle.\n\nLes boucles permettent de gagner du temps et d’aller plus vite, comme quand on fait des crêpes. Pas besoin d’écrire : « cuire la première crêpe, cuire la deuxième crêpe, cuire la troisième crêpe… ». On donne une seule fois la règle, et hop, on répète !\n\nDans cette carte, les enfants découvrent les boucles à travers plusieurs activités :\nUne série de devinettes : il faut retrouver quelle boucle correspond à des actions répétitives de la vie quotidienne, comme sauter à la corde, glisser sur un toboggan ou même taper dans les mains pour applaudir.\n\nHiha est encore coincé : pour l’aider à sortir, les enfants doivent utiliser les boucles en interagissant avec les icônes qui s’affichent sur le lecteur Yoto.\n\nUne façon simple et drôle de découvrir que répéter intelligemment, c’est coder malin.\n",
+          "seriesorder": 3,
+          "seriestitle": "Coder est un jeu",
+          "cover": {
+            "imageL": "https://card-content.yotoplay.com/yoto/pub/hyC8lMwe6LqwHwj964v3nwISaoux49n8DcUHWjLhe3s"
+          },
+          "languages": [
+            "fr"
+          ],
+          "status": {
+            "name": "complete",
+            "updatedAt": "2025-10-09T11:28:49.178Z"
+          }
+        }
+      }
+    }
+  }
+}
