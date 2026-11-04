@@ -84,6 +84,14 @@ class MommaTests(unittest.TestCase):
         with self.assertRaises(ArchiveError):
             parse_entry(Document('<h1>Broken audio layout</h1>').root, 'https://mommabearaudio.com/games/')
 
+    def test_explicit_no_yoto_prose_is_not_mistaken_for_a_broken_audio_page(self):
+        html = ENTRY.replace('<a href="https://share.yoto.co/s/Synthetic">Yoto Link</a>',
+                             '<p>There is no Yoto Link for this playlist as it is build your own.</p>')
+        entry = parse_entry(Document(html).root, 'https://mommabearaudio.com/games/')
+        self.assertTrue(entry['noYoto'])
+        self.assertIsNone(entry['yoto'])
+        self.assertIsNotNone(entry['mp3'])
+
     def test_changed_listing_never_commits_a_complete_snapshot(self):
         member, client = Mock(), Mock()
         member.login.return_value = Document(LIST).root

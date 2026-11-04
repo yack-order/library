@@ -145,7 +145,8 @@ def parse_entry(page, url):
     supplements = [{'label': label, 'url': href} for label, href in links
                    if re.search(r'transcript|label|printable|document|\bmap\b|activity.*(?:book|sheet)', label, re.I)
                    and urlsplit(href).hostname in {'www.dropbox.com', 'dropbox.com', 'drive.google.com', 'mommabearaudio.com'}]
-    no_yoto = any(re.fullmatch('No Yoto Link', n.text(), re.I) for n in page.find('button') + page.find('a'))
+    no_yoto = (any(re.fullmatch('No Yoto Link', n.text(), re.I) for n in page.find('button') + page.find('a'))
+               or bool(re.search(r'\bthere is no yoto link for this playlist\b', ' '.join(paragraphs), re.I)))
     printable_only = bool(re.search(r'not audio|digital download only', ' '.join(paragraphs), re.I)) and not yoto and not mp3
     if len(yoto) > 1 or len(mp3) > 1 or (not printable_only and not yoto and not no_yoto):
         raise ArchiveError('entry_links_changed')
