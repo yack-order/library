@@ -28,6 +28,31 @@ class MommaTests(unittest.TestCase):
         self.assertNotIn('private-password', str(output.call_args_list))
         member.close.assert_called_once()
 
+    def test_member_pages_wait_for_dom_and_report_browser_timeouts_safely(self):
+        from playwright.sync_api import TimeoutError as BrowserTimeout
+        member = momma_bear.Membership.__new__(momma_bear.Membership)
+        member.browser_page = Mock()
+        member.browser_page.goto.return_value.status = 200
+        member.browser_page.url = 'https://mommabearaudio.com/login/'
+        member.browser_page.title.return_value = 'Member Login'
+        member.browser_page.content.return_value = '<h1>Login</h1>'
+        member.page('https://mommabearaudio.com/login/')
+        member.browser_page.goto.assert_called_once_with('https://mommabearaudio.com/login/', wait_until='domcontentloaded', timeout=60000)
+        member.browser_page.goto.side_effect = BrowserTimeout('request contains private information')
+        with self.assertRaises(ArchiveError) as caught:
+            member.page('https://mommabearaudio.com/login/')
+        self.assertEqual(caught.exception.code, 'membership_http_failed')
+        self.assertNotIn('private information', str(caught.exception))
+
+    def test_browser_challenge_is_reported_before_http_status(self):
+        member = momma_bear.Membership.__new__(momma_bear.Membership)
+        member.browser_page = Mock()
+        member.browser_page.goto.return_value.status = 403
+        member.browser_page.title.return_value = 'Just a moment...'
+        with self.assertRaises(ArchiveError) as caught:
+            member.page('https://mommabearaudio.com/login/')
+        self.assertEqual(caught.exception.code, 'membership_blocked')
+
     def test_listing_excludes_navigation_and_deduplicates_cards(self):
         urls, pages = listing(Document(LIST).root)
         self.assertEqual(urls, ['https://mommabearaudio.com/games/'])

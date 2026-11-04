@@ -73,27 +73,38 @@ class Membership:
 
     def page(self, url):
         current = member_url(url)
-        response = self.browser_page.goto(current, wait_until='networkidle', timeout=60000)
+        from playwright.sync_api import TimeoutError as BrowserTimeout
+        try:
+            response = self.browser_page.goto(current, wait_until='domcontentloaded', timeout=60000)
+        except BrowserTimeout:
+            raise ArchiveError('membership_http_failed') from None
+        if re.search(r'just a moment|verify you are human|checking your browser', self.browser_page.title(), re.I):
+            raise ArchiveError('membership_blocked')
         if not response or response.status != 200:
             raise ArchiveError('membership_http_failed')
         member_url(self.browser_page.url)
         text = self.browser_page.content()
         if len(text.encode()) > 8 * 1024**2:
             raise ArchiveError('resource_limit')
-        if re.search(r'just a moment|verify you are human|checking your browser', self.browser_page.title(), re.I):
-            raise ArchiveError('membership_blocked')
         return Document(text).root
 
     def login(self, credentials):
+        print('Momma Bear: opening membership login')
         self.page(ORIGIN + '/login/')
         username = self.browser_page.get_by_label('Username', exact=True)
         password = self.browser_page.get_by_label('Password', exact=True)
         if username.count() != 1 or password.count() != 1:
             raise ArchiveError('membership_login_changed')
+        print('Momma Bear: submitting membership login')
         username.fill(credentials['username'])
         password.fill(credentials['password'])
         self.browser_page.get_by_role('button', name='Log In', exact=True).click()
-        self.browser_page.wait_for_load_state('networkidle', timeout=60000)
+        from playwright.sync_api import TimeoutError as BrowserTimeout
+        try:
+            self.browser_page.wait_for_load_state('domcontentloaded', timeout=60000)
+        except BrowserTimeout:
+            raise ArchiveError('membership_http_failed') from None
+        print('Momma Bear: verifying paid dashboard')
         return self.dashboard()
 
     def dashboard(self, url=DASHBOARD):
@@ -209,6 +220,7 @@ def create_playlist(client, entry, work):
 
 def discover(membership, client, login):
     first = membership.login(login)
+    print('Momma Bear: membership verified; discovering library')
     urls, following = listing(first)
     frontier, visited = list(following), {DASHBOARD}
     while frontier:
