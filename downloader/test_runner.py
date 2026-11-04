@@ -46,6 +46,17 @@ class ArchiveTests(unittest.TestCase):
             for path in folder.rglob('*'):
                 if path.is_file():
                     self.assertNotIn(b'credential',path.read_bytes());self.assertNotIn(b'private@example.test',path.read_bytes())
+    def test_capture_failure_reports_kind_without_private_resource_urls(self):
+        for kind in ['image', 'audio']:
+            private = 'https://media.example.test/private?token=private-token'
+            raw = {'content': {'chapters': [{'tracks': [{'trackUrl': private}]}]}}
+            if kind == 'image': raw['metadata'] = {'cover': {'imageL': private}}
+            with tempfile.TemporaryDirectory() as tmp, patch.object(runner, 'stream_file', side_effect=runner.ArchiveError('media_access_denied')), patch('builtins.print') as output:
+                with self.assertRaises(runner.ArchiveError):
+                    runner.capture_space_media({'card': raw}, Path(tmp))
+                self.assertEqual(output.call_args.args, ('Archive resource failed: ' + kind,))
+                self.assertNotIn('private-token', str(output.call_args_list))
+
     def test_worker_held_gofile_token_is_used_in_memory_only(self):
         client = Mock()
         client.headers = {}; client.lost.is_set.return_value = False
