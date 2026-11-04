@@ -211,7 +211,11 @@ def capture_space_media(source, work):
     for url in images(raw):
         key = 'image:' + str(image)
         path = work / ('source-image-' + str(image))
-        stream_file(url, path, maximum=16*1024**2, allowed={'image/png', 'image/jpeg', 'image/webp', 'image/gif'})
+        try:
+            stream_file(url, path, maximum=16*1024**2, allowed={'image/png', 'image/jpeg', 'image/webp', 'image/gif'})
+        except ArchiveError:
+            print('Archive resource failed: image')
+            raise
         hashes[key] = digest(path)
         captures[key] = (path, url, None)
         image += 1
@@ -223,7 +227,11 @@ def capture_space_media(source, work):
                 raise ArchiveError('media_failed')
             key = 'audio:' + str(audio)
             path = work / ('source-audio-' + str(audio))
-            mime = stream_file(track['trackUrl'], path, allowed=set(AUDIO_FORMATS))
+            try:
+                mime = stream_file(track['trackUrl'], path, allowed=set(AUDIO_FORMATS))
+            except ArchiveError:
+                print('Archive resource failed: audio')
+                raise
             hashes[key] = digest(path)
             captures[key] = (path, track['trackUrl'], mime)
             audio += 1
