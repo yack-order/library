@@ -330,23 +330,39 @@ class Client:
         if not token:
             raise ArchiveError('configuration_failed')
         self.base = f'{base}/api/internal/archive/jobs/{job}'
-        self.headers = {'Authorization':f'Bearer {token}'}
+        self.headers = {'Authorization':f'Bearer {token}', 'X-Toyo-Job-Controls':'1'}
         self.stage = 'fetching'
         self.stopped = threading.Event()
         self.lost = threading.Event()
 
     def call(self, action, data=None):
-        with requests.post(f'{self.base}/{action}', json=data or {}, headers=self.headers,
-                           timeout=(10,120), allow_redirects=False) as response:
-            if response.status_code != 200:
-                raise ArchiveError('reconnect_required' if action=='source' and response.status_code==409 else 'source_unavailable')
-            return response.json()
+        while True:
+            with requests.post(f'{self.base}/{action}', json=data or {}, headers=self.headers,
+                               timeout=(10,120), allow_redirects=False) as response:
+                if response.status_code == 423:
+                    # The server renews the lease while this checkpoint waits.
+                    pass
+                elif response.status_code == 410:
+                    raise ArchiveError('job_cancelled')
+                elif response.status_code != 200:
+                    raise ArchiveError('reconnect_required' if action=='source' and response.status_code==409 else 'source_unavailable')
+                else:
+                    return response.json()
+            if self.stopped.wait(10):
+                raise ArchiveError('source_unavailable')
 
     def image(self, path):
-        with open(path, 'rb') as handle:
-            with requests.post(self.base + '/space-image', data=handle, headers={**self.headers, 'Content-Type':'application/octet-stream'}, timeout=(10,120), allow_redirects=False) as response:
-                if response.status_code != 200 or response.json().get('sha256') != digest(path):
-                    raise ArchiveError('verification_failed')
+        while True:
+            with open(path, 'rb') as handle:
+                with requests.post(self.base + '/space-image', data=handle, headers={**self.headers, 'Content-Type':'application/octet-stream'}, timeout=(10,120), allow_redirects=False) as response:
+                    if response.status_code == 410:
+                        raise ArchiveError('job_cancelled')
+                    if response.status_code != 423:
+                        if response.status_code != 200 or response.json().get('sha256') != digest(path):
+                            raise ArchiveError('verification_failed')
+                        return
+            if self.stopped.wait(10):
+                raise ArchiveError('source_unavailable')
 
     def heartbeats(self):
         while not self.stopped.wait(60):
@@ -518,6 +534,8 @@ def main():
         return 0
     except Exception as error:
         code = error.code if isinstance(error,ArchiveError) else 'processing_failed'
+        if code == 'job_cancelled':
+            print('Job cancelled at checkpoint');return 0
         if client and 'X-Archive-Lease' in client.headers:
             try:
                 client.call('fail',{'code':code})
