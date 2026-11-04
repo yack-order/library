@@ -198,7 +198,7 @@ class SpaceVersionTests(unittest.TestCase):
                     self.assertNotIn('media.test',file.read_text())
 
 class OggArchiveTests(unittest.TestCase):
-    def test_vorbis_and_opus_keep_audio_order_published_tags_and_cover_without_source_tags(self):
+    def test_finite_podcast_streams_keep_audio_order_tags_cover_and_restore_support(self):
         import base64
         from mutagen import File as AudioFile
         from mutagen.flac import Picture
@@ -209,7 +209,7 @@ class OggArchiveTests(unittest.TestCase):
                 work=Path(tmp);sample=work/'sample.ogg'
                 subprocess.run(['ffmpeg','-nostdin','-v','error','-f','lavfi','-i','sine=frequency=440:duration=0.2','-metadata','comment=https://private.test/play?token=secret','-ac','2','-c:a',codec,'-strict','-2',str(sample)],check=True)
                 image=work/'cover.png';Image.new('RGB',(16,16),'red').save(image)
-                raw={'cardId':'ogg12','title':'Ogg playlist','metadata':{'author':'Published Author','cover':{'imageL':'https://images.test/cover.png'}},'content':{'chapters':[{'tracks':[{'title':'First','type':'audio','trackUrl':'https://private.test/first?token=secret'},{'title':'Second','type':'audio','trackUrl':'https://private.test/second?token=secret'}]}]}}
+                raw={'cardId':'ogg12','title':'Ogg playlist','metadata':{'author':'Published Author','cover':{'imageL':'https://images.test/cover.png'}},'content':{'chapters':[{'tracks':[{'title':'First','type':'stream','trackUrl':'https://private.test/first?token=secret'},{'title':'Second','type':'stream','trackUrl':'https://private.test/second?token=secret'}]}]}}
                 public=copy.deepcopy(raw)
                 for track in public['content']['chapters'][0]['tracks']:del track['trackUrl']
                 def download(url,path,**kwargs):
@@ -245,3 +245,25 @@ class OggArchiveTests(unittest.TestCase):
                     self.assertEqual(error.exception.code,expected);self.assertNotIn('secret',str(error.exception))
                     self.assertEqual(session.get.call_count,1);sleep.assert_not_called()
                     self.assertFalse((Path(tmp)/'partial').exists())
+
+
+class ArchiveHttpClientTests(unittest.TestCase):
+    def test_identifies_itself_on_each_validated_public_redirect_without_credentials(self):
+        redirect=Mock();redirect.is_redirect=True;redirect.headers={'Location':'https://media.test/episode.mp3'}
+        redirect.__enter__=Mock(return_value=redirect);redirect.__exit__=Mock(return_value=False)
+        response=Mock();response.is_redirect=False;response.status_code=200
+        response.headers={'Content-Type':'audio/mpeg','Content-Length':'5'};response.iter_content.return_value=[b'audio']
+        response.__enter__=Mock(return_value=response);response.__exit__=Mock(return_value=False)
+        session=Mock();session.get.side_effect=[redirect,response]
+        session.__enter__=Mock(return_value=session);session.__exit__=Mock(return_value=False)
+        with tempfile.TemporaryDirectory() as tmp,patch.object(runner.requests,'Session',return_value=session),patch.object(runner,'public_url',side_effect=lambda url:url) as validated:
+            path=Path(tmp)/'episode.mp3'
+            self.assertEqual(runner.stream_file('https://podcast.test/episode',path,allowed=set(runner.AUDIO_FORMATS)),'audio/mpeg')
+            self.assertEqual(path.read_bytes(),b'audio')
+            self.assertEqual(validated.call_count,2)
+            self.assertFalse(session.trust_env)
+            for call in session.get.call_args_list:
+                self.assertEqual(call.kwargs['headers']['User-Agent'],runner.ARCHIVE_USER_AGENT)
+                self.assertEqual(call.kwargs['headers']['Accept-Encoding'],'identity')
+                self.assertNotIn('Authorization',call.kwargs['headers'])
+                self.assertFalse(call.kwargs['allow_redirects'])
