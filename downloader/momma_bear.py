@@ -136,7 +136,8 @@ def parse_entry(page, url):
     if len(headings) != 1 or not headings[0].text():
         raise ArchiveError('entry_parse_failed')
     paragraphs = [p.text() for p in page.find('p') if p.text()]
-    runtime = next((p for p in paragraphs if re.match(r'run\s*time', p, re.I)), None)
+    runtime = next((match.group(0).strip() for p in paragraphs
+                    if (match := re.match(r'run\s*time(?:\s*total)?\s*:?\s*(?:\d+(?:[.:]\d+)?\s*(?:hours?|hrs?|minutes?|mins?|seconds?|secs?|h|m|s)\s*)+', p, re.I))), None)
     images = page.find('img')
     artwork = next((i.attrs.get('src') for i in images if i.attrs.get('src', '').startswith(ORIGIN + '/')), None)
     links = [(a.text(), urljoin(url, a.attrs.get('href', ''))) for a in page.find('a')]

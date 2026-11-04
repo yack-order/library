@@ -92,6 +92,12 @@ class MommaTests(unittest.TestCase):
         self.assertIsNone(entry['yoto'])
         self.assertIsNotNone(entry['mp3'])
 
+    def test_runtime_excludes_publisher_notes_but_preserves_the_full_description(self):
+        html = ENTRY.replace('Run time: 14 min', 'Run time total: 18 minPrintable worksheet is included.')
+        entry = parse_entry(Document(html).root, 'https://mommabearaudio.com/games/')
+        self.assertEqual(entry['runtime'], 'Run time total: 18 min')
+        self.assertIn('Printable worksheet is included.', entry['description'])
+
     def test_changed_listing_never_commits_a_complete_snapshot(self):
         member, client = Mock(), Mock()
         member.login.return_value = Document(LIST).root
