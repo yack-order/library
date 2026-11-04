@@ -254,11 +254,16 @@ def main():
         claimed = client.call('claim')
         client.headers['X-Archive-Lease'] = claimed['leaseToken']
         threading.Thread(target=client.heartbeats, daemon=True).start()
-        membership = Membership()
-        try:
-            entries = discover(membership, client, claimed.pop('login'))
-        finally:
-            membership.close()
+        if 'entries' in claimed:
+            entries = claimed.pop('entries')
+            client.call('discovered', entries)
+            print('Momma Bear: processing signed-in browser snapshot')
+        else:
+            membership = Membership()
+            try:
+                entries = discover(membership, client, claimed.pop('login'))
+            finally:
+                membership.close()
         mode = claimed['mode']
         if mode != 'full':
             entries = [e for e in entries if e['yoto']] if mode == 'existing' else [e for e in entries if not e['yoto'] and not e['printableOnly']]
