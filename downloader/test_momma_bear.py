@@ -7,6 +7,7 @@ from unittest.mock import patch, Mock
 from momma_bear import Document, listing, parse_entry, discover, create_playlist
 from momma_resources import download_url, unpack_resource, ordered_mp3s, capture_supplements
 from runner import ArchiveError
+import momma_bear
 
 ENTRY = '''<h1>Games &amp; Activities</h1><img src="https://mommabearaudio.com/cover.png"><p>Stories and games.</p><p>Run time: 14 min</p>
 <a href="https://share.yoto.co/s/Synthetic">Yoto Link</a><a href="https://www.dropbox.com/scl/fo/audio?rlkey=secret">MP3 Download Link</a>
@@ -14,6 +15,19 @@ ENTRY = '''<h1>Games &amp; Activities</h1><img src="https://mommabearaudio.com/c
 LIST = '<h2>All Audio</h2><article><h1><a href="/games/">Games</a></h1><a href="/games/">Learn More</a></article><a href="/subscription/membership-account/">Account</a>'
 
 class MommaTests(unittest.TestCase):
+    def test_login_failures_report_only_controlled_codes(self):
+        client = Mock()
+        client.headers = {}
+        client.call.side_effect = [{'leaseToken': 'private-lease', 'mode': 'existing',
+                                    'login': {'username': 'private-user', 'password': 'private-password'}}, {'ok': True}]
+        member = Mock()
+        member.login.side_effect = ArchiveError('membership_login_required')
+        with patch.object(momma_bear, 'MommaClient', return_value=client), patch.object(momma_bear, 'Membership', return_value=member), patch.object(momma_bear.threading, 'Thread'), patch('builtins.print') as output:
+            self.assertEqual(momma_bear.main(), 1)
+        self.assertEqual(client.call.call_args.args, ('fail', {'code': 'membership_login_required'}))
+        self.assertNotIn('private-password', str(output.call_args_list))
+        member.close.assert_called_once()
+
     def test_listing_excludes_navigation_and_deduplicates_cards(self):
         urls, pages = listing(Document(LIST).root)
         self.assertEqual(urls, ['https://mommabearaudio.com/games/'])

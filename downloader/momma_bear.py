@@ -260,18 +260,18 @@ def main():
                             create_playlist(client, entry, Path(directory))
                         client.call('entry', {'url': entry['url']})
                     break
-                except Exception:
+                except Exception as error:
                     if attempt == 2:
-                        client.call('entry-failed', {'url': entry['url']})
+                        client.call('entry-failed', {'url': entry['url'], 'code': error.code if isinstance(error, ArchiveError) else 'crawl_incomplete'})
                     else:
                         time.sleep(2 ** attempt)
         client.call('finish')
         print('Momma Bear discovery and import preparation completed')
         return 0
-    except Exception:
+    except Exception as error:
         if client and 'X-Archive-Lease' in client.headers:
             try:
-                client.call('fail')
+                client.call('fail', {'code': error.code if isinstance(error, ArchiveError) else 'crawl_incomplete'})
             except Exception:
                 pass
         print('Momma Bear run incomplete; inspect private run status')
