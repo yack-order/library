@@ -1,6 +1,7 @@
 """Synthetic publisher pages and files; never accesses the paid library."""
 from pathlib import Path
 import tempfile
+import hashlib
 import unittest
 import zipfile
 from unittest.mock import patch, Mock
@@ -176,6 +177,22 @@ class MommaTests(unittest.TestCase):
         ]:
             with self.assertRaises(ArchiveError):
                 ordered_mp3s(ambiguous)
+
+    def test_owner_approved_order_requires_exact_source_resource_and_file_set(self):
+        root = Path('/synthetic/audio')
+        intro, second, first = [root / name for name in ['Intro.mp3', 'B story.mp3', 'A story.mp3']]
+        expected = [intro, second, first]
+        approved = {'resource': 'resource-id', 'files': tuple(hashlib.sha256(p.relative_to(root).as_posix().encode()).hexdigest() for p in expected)}
+        with patch.dict('momma_resources.APPROVED_ZIP_ORDERS', {'source-id': approved}):
+            self.assertEqual(ordered_mp3s([first, intro, second], source_id='source-id', resource_id='resource-id', root=root), expected)
+            for files in [[intro, second], expected + [root / 'Extra.mp3'], [intro, second, second], [root.parent / 'Intro.mp3', second, first]]:
+                with self.assertRaises(ArchiveError):
+                    ordered_mp3s(files, source_id='source-id', resource_id='resource-id', root=root)
+            for resource, base in [('changed-resource', root), ('resource-id', None)]:
+                with self.assertRaises(ArchiveError):
+                    ordered_mp3s(expected, source_id='source-id', resource_id=resource, root=base)
+            with self.assertRaises(ArchiveError):
+                ordered_mp3s(expected, source_id='other-source', resource_id='resource-id', root=root)
 
     def test_episode_numbers_are_numeric_and_duplicates_remain_held(self):
         files = [Path('Episode 10 Finale.mp3'), Path('Episode 2 Clue.mp3'), Path('Episode 1 Start.mp3')]

@@ -1,6 +1,8 @@
 """Bounded downloads of publisher resource links. Never sends membership cookies."""
 from pathlib import Path, PurePosixPath
 import re
+import hashlib
+from momma_order_overrides import APPROVED_ZIP_ORDERS
 import stat
 import zipfile
 from urllib.parse import urlsplit, urlunsplit, parse_qsl, urlencode
@@ -123,7 +125,21 @@ def capture_supplements(resources, work):
     return root, {str(p.relative_to(root)): digest(p) for p in sorted(root.rglob('*')) if p.is_file()}
 
 
-def ordered_mp3s(files):
+def ordered_mp3s(files, *, source_id=None, resource_id=None, root=None):
+    approved = APPROVED_ZIP_ORDERS.get(source_id)
+    if approved:
+        if resource_id != approved['resource'] or root is None:
+            raise ArchiveError('track_order_needs_review')
+        try:
+            identities = [hashlib.sha256(p.relative_to(root).as_posix().encode()).hexdigest() for p in files]
+        except ValueError:
+            raise ArchiveError('track_order_needs_review') from None
+        expected = approved['files']
+        if (len(identities) != len(expected) or len(set(identities)) != len(identities)
+                or set(identities) != set(expected)):
+            raise ArchiveError('track_order_needs_review')
+        lookup = dict(zip(identities, files))
+        return [lookup[identity] for identity in expected]
     if len(files) == 1:
         return files
     def number(path):

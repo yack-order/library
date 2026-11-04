@@ -213,7 +213,10 @@ def yoto_json(client, entry, path):
 
 
 def create_playlist(client, entry, work):
-    files = ordered_mp3s(fetch_resource(entry['mp3'], work / 'audio', audio=True))
+    audio_root = work / 'audio'
+    files = ordered_mp3s(fetch_resource(entry['mp3'], audio_root, audio=True),
+                         source_id=hashlib.sha256(entry['url'].encode()).hexdigest(),
+                         resource_id=hashlib.sha256(entry['mp3'].encode()).hexdigest(), root=audio_root)
     chapters = []
     for number, path in enumerate(files, 1):
         sha = digest(path)
