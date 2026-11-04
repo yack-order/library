@@ -89,11 +89,13 @@ class Membership:
         return Document(text).root
 
     def login(self, credentials):
+        print('Momma Bear: opening membership login')
         self.page(ORIGIN + '/login/')
         username = self.browser_page.get_by_label('Username', exact=True)
         password = self.browser_page.get_by_label('Password', exact=True)
         if username.count() != 1 or password.count() != 1:
             raise ArchiveError('membership_login_changed')
+        print('Momma Bear: submitting membership login')
         username.fill(credentials['username'])
         password.fill(credentials['password'])
         self.browser_page.get_by_role('button', name='Log In', exact=True).click()
@@ -102,6 +104,7 @@ class Membership:
             self.browser_page.wait_for_load_state('domcontentloaded', timeout=60000)
         except BrowserTimeout:
             raise ArchiveError('membership_http_failed') from None
+        print('Momma Bear: verifying paid dashboard')
         return self.dashboard()
 
     def dashboard(self, url=DASHBOARD):
@@ -217,6 +220,7 @@ def create_playlist(client, entry, work):
 
 def discover(membership, client, login):
     first = membership.login(login)
+    print('Momma Bear: membership verified; discovering library')
     urls, following = listing(first)
     frontier, visited = list(following), {DASHBOARD}
     while frontier:
