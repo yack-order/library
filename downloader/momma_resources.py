@@ -134,11 +134,11 @@ def ordered_mp3s(files):
     numbers = [number(p) for p in files]
     if len(set(numbers)) != len(numbers):
         # Some publisher folders number an explicit introduction separately
-        # from their Chapter 1..N sequence. Accept only that unambiguous layout.
-        intros = [p for p in files if re.match(r'^1[ _.-]+(?:.*[ _.-])?intro(?:duction)?\b', p.stem, re.I)]
+        # from their numbered main sequence. Accept only that unambiguous layout.
+        intros = [p for p in files if re.match(r'^1[ _.-]+(?:.*[ _.-])?(?:intro(?:duction)?|prelude)\b', p.stem, re.I)]
         chapters = [p for p in files if p not in intros]
         if (len(intros) == 1 and chapters
-                and all(re.match(r'^chapter[ _-]*\d+(?:\D|$)', p.stem, re.I) for p in chapters)
+                and all(number(p) >= 1 for p in chapters)
                 and len({number(p) for p in chapters}) == len(chapters)):
             return intros + sorted(chapters, key=number)
         raise ArchiveError('track_order_needs_review')
