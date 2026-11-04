@@ -45,6 +45,7 @@ AUDIO_FORMATS = {'audio/mpeg': '.mp3', 'audio/mp3': '.mp3', 'audio/aac': '.aac',
                  'audio/ogg': '.ogg', 'application/ogg': '.ogg', 'audio/opus': '.ogg'}
 TERMINAL_MEDIA_ERRORS = {'media_access_denied', 'media_unavailable',
                          'media_format_unsupported', 'media_live_unsupported'}
+ARCHIVE_USER_AGENT = 'ToyoArchive/1.0 (+https://ui.yackorder.org)'
 
 
 def digest(path):
@@ -71,7 +72,7 @@ def stream_file(url, destination, *, maximum=1024**3, allowed=None, attempts=3, 
             with requests.Session() as session:
                 session.trust_env = False
                 for redirects in range(4):
-                    headers = {'Accept-Encoding': 'identity'}
+                    headers = {'Accept-Encoding': 'identity', 'User-Agent': ARCHIVE_USER_AGENT}
                     if bearer:
                         host = urlsplit(current).hostname
                         if host != 'gofile.io' and not host.endswith('.gofile.io'):
