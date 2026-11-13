@@ -184,9 +184,25 @@ class Drive:
         if not re.fullmatch(r'[A-Za-z0-9]{5}',str(card_id)) or not isinstance(progress,dict):
             raise ArchiveError('verification_failed')
         sha=progress.get('uploadSha256')
-        if not isinstance(sha,str) or not re.fullmatch(r'[a-f0-9]{64}',sha) or not progress.get('uploadedFile'):
+        if not isinstance(sha,str) or not re.fullmatch(r'[a-f0-9]{64}',sha):
             raise ArchiveError('verification_unavailable')
-        file=self.metadata(progress['uploadedFile'])
+        if progress.get('uploadedFile'):
+            file=self.metadata(progress['uploadedFile'])
+        else:
+            # An upload can finish before its final acknowledgement is saved.
+            # Locate only an unambiguous completed original write; never start one.
+            if not progress.get('uploadSession'):
+                raise ArchiveError('verification_unavailable')
+            self.session_url(progress['uploadSession'])
+            if not re.fullmatch(r'[A-Za-z0-9_-]{1,200}',str(folder)) or not re.fullmatch(r'[A-Za-z0-9_-]{1,100}',str(job_id)):
+                raise ArchiveError('verification_failed')
+            query="'%s' in parents and trashed=false and appProperties has { key='toyoJob' and value='%s' } and appProperties has { key='toyoSha256' and value='%s' }" % (folder,job_id,sha)
+            found=self.json('files',q=query,pageSize=2,fields='files(id),nextPageToken',supportsAllDrives='true',includeItemsFromAllDrives='true')
+            files=found.get('files',[])
+            print(json.dumps({'event':'archive.retained_upload','completed_matches':len(files),'additional_matches':bool(found.get('nextPageToken'))}))
+            if not files:raise ArchiveError('verification_unavailable')
+            if len(files)!=1 or found.get('nextPageToken'):raise ArchiveError('verification_failed')
+            file=self.metadata(files[0]['id'])
         properties=file.get('appProperties',{})
         filename=file.get('name','')
         if (file.get('trashed') or file.get('capabilities',{}).get('canDownload') is not True

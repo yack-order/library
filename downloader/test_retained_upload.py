@@ -63,6 +63,31 @@ class RetainedUploadTests(unittest.TestCase):
             with tempfile.TemporaryDirectory() as tmp,self.assertRaises(ArchiveError):drive.recover_uploaded(Path(tmp),'folder-id','original-job','abc12',progress)
             drive.metadata.assert_not_called()
 
+    def test_lost_final_acknowledgement_uses_only_one_exact_completed_original_write(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            base=Path(tmp);drive,file,progress,_=self.fixture(base)
+            del progress['uploadedFile'];progress['uploadSession']='https://www.googleapis.com/upload/drive/session'
+            drive.json=Mock(return_value={'files':[{'id':file['id']}]})
+            result=drive.recover_uploaded(base,'folder-id','original-job','abc12',progress)
+            self.assertEqual(result['driveFileId'],file['id'])
+            self.assertEqual(drive.json.call_args.args,('files',));query=drive.json.call_args.kwargs['q']
+            self.assertIn("key='toyoJob' and value='original-job'",query)
+            self.assertIn("key='toyoSha256' and value='"+progress['uploadSha256']+"'",query)
+            self.assertNotIn(' or ',query);self.assertEqual(drive.json.call_args.kwargs['pageSize'],2)
+
+    def test_missing_or_ambiguous_completed_writes_never_start_an_upload(self):
+        for found in [{'files':[]},{'files':[{'id':'one'},{'id':'two'}]},{'files':[{'id':'one'}],'nextPageToken':'more'}]:
+            drive=Drive('private-token');drive.json=Mock(return_value=found);drive.metadata=Mock()
+            with tempfile.TemporaryDirectory() as tmp,patch('drive_storage.requests.post') as post,patch('drive_storage.requests.put') as put:
+                with self.assertRaises(ArchiveError):drive.recover_uploaded(Path(tmp),'folder-id','original-job','abc12',{'uploadSession':'https://www.googleapis.com/upload/drive/session','uploadSha256':'a'*64})
+                post.assert_not_called();put.assert_not_called();drive.metadata.assert_not_called()
+
+    def test_invalid_session_or_query_identity_does_not_probe_drive(self):
+        for session,job in [('https://other.test/upload/drive/session','original-job'),('https://www.googleapis.com/upload/drive/session',"invalid'job")]:
+            drive=Drive('private-token');drive.json=Mock()
+            with tempfile.TemporaryDirectory() as tmp,self.assertRaises(ArchiveError):drive.recover_uploaded(Path(tmp),'folder-id',job,'abc12',{'uploadSession':session,'uploadSha256':'a'*64})
+            drive.json.assert_not_called()
+
     def test_independent_bytes_and_size_must_match_the_original_checkpoint(self):
         for mode in ['sha','size']:
             with self.subTest(mode=mode),tempfile.TemporaryDirectory() as tmp:

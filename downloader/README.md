@@ -20,8 +20,10 @@ Acknowledged completed uploads can finish without retrieving the playlist again.
 Recovery verifies the original job property, destination, saved SHA-256, independent
 download, extraction, manifest, CardID and track count. It preserves the saved
 filename, demo/full label and playlist metadata, and never uploads a second copy.
-An explicit verification-only recovery cannot fall back to media fetching or a
-new build; incomplete upload sessions still require their original recovery path.
+If the final file acknowledgement is missing, recovery reads only completed writes
+matching both the original job and saved hash; missing or ambiguous matches stop.
+Explicit verification-only recovery cannot fall back to media fetching, a new
+build or starting another upload session.
 
 `storage_runner.py` runs explicitly requested inventory/inspection/import/handover
 jobs and separately enabled on-demand delivery jobs. Source import reads and
