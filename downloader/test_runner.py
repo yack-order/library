@@ -212,6 +212,36 @@ class SpaceVersionTests(unittest.TestCase):
                     self.assertNotIn('media.test',file.read_text())
 
 class OggArchiveTests(unittest.TestCase):
+    def test_binary_mime_audio_is_recognized_from_finite_supported_bytes(self):
+        for suffix, codec, expected in [('.mp3','libmp3lame','audio/mpeg'),('.m4a','aac','audio/mp4'),
+                                      ('.aac','aac','audio/aac'),('.ogg','libopus','audio/ogg')]:
+            with self.subTest(suffix=suffix), tempfile.TemporaryDirectory() as tmp:
+                sample=Path(tmp)/('sample'+suffix)
+                subprocess.run(['ffmpeg','-nostdin','-v','error','-f','lavfi','-i','sine=frequency=440:duration=0.2','-c:a',codec,str(sample)],check=True)
+                payload=sample.read_bytes();response=Mock(status_code=200,is_redirect=False)
+                response.headers={'Content-Type':'application/octet-stream','Content-Length':str(len(payload))}
+                response.iter_content.return_value=[payload]
+                response.__enter__=Mock(return_value=response);response.__exit__=Mock(return_value=False)
+                session=Mock();session.get.return_value=response;session.__enter__=Mock(return_value=session);session.__exit__=Mock(return_value=False)
+                with patch.object(runner,'public_url',side_effect=lambda url:url),patch.object(runner.requests,'Session',return_value=session):
+                    target=Path(tmp)/'download'
+                    self.assertEqual(runner.stream_file('https://media.test/opaque',target,allowed=set(runner.AUDIO_FORMATS)),expected)
+                    self.assertEqual(target.read_bytes(),payload)
+
+    def test_binary_mime_does_not_admit_html_images_or_live_streams(self):
+        for payload,allowed,extra,code in [(b'<html>not audio</html>',set(runner.AUDIO_FORMATS),{},'media_format_unsupported'),
+                (b'not an image',{'image/png'},{},'media_format_unsupported'),
+                (b'unbounded stream',set(runner.AUDIO_FORMATS),{'icy-name':'Radio'},'media_live_unsupported')]:
+            with self.subTest(code=code,allowed=allowed), tempfile.TemporaryDirectory() as tmp:
+                response=Mock(status_code=200,is_redirect=False)
+                response.headers={'Content-Type':'application/octet-stream',**extra};response.iter_content.return_value=[payload]
+                response.__enter__=Mock(return_value=response);response.__exit__=Mock(return_value=False)
+                session=Mock();session.get.return_value=response;session.__enter__=Mock(return_value=session);session.__exit__=Mock(return_value=False)
+                with patch.object(runner,'public_url',side_effect=lambda url:url),patch.object(runner.requests,'Session',return_value=session),patch.object(runner.time,'sleep') as sleep:
+                    target=Path(tmp)/'download'
+                    with self.assertRaises(runner.ArchiveError) as error:runner.stream_file('https://media.test/opaque',target,allowed=allowed)
+                    self.assertEqual(error.exception.code,code);self.assertFalse(target.exists());sleep.assert_not_called()
+
     def test_finite_podcast_streams_keep_audio_order_tags_cover_and_restore_support(self):
         import base64
         from mutagen import File as AudioFile

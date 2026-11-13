@@ -25,6 +25,7 @@ from requests_toolbelt import MultipartEncoder
 from PIL import Image
 from mutagen.id3 import ID3, TIT2, TPE1, TALB, TCON, TRCK, APIC, ID3NoHeaderError
 from mutagen.mp4 import MP4, MP4Cover
+from mutagen.mp3 import MP3
 from mutagen.aac import AAC
 from mutagen import File as AudioFile
 from mutagen.flac import Picture
@@ -88,7 +89,8 @@ def stream_file(url, destination, *, maximum=1024**3, allowed=None, attempts=3, 
                         if response.status_code != 200:
                             raise ArchiveError('media_failed')
                         mime = response.headers.get('Content-Type', '').split(';')[0].lower()
-                        if allowed and mime not in allowed:
+                        generic_audio = mime in {'application/octet-stream', 'binary/octet-stream'} and allowed and set(allowed) <= set(AUDIO_FORMATS)
+                        if allowed and mime not in allowed and not generic_audio:
                             raise ArchiveError('media_format_unsupported')
                         # Radio streams have no finite source and must not be archived.
                         if 'icy-name' in response.headers or 'icy-metaint' in response.headers:
@@ -105,6 +107,18 @@ def stream_file(url, destination, *, maximum=1024**3, allowed=None, attempts=3, 
                                 handle.write(chunk)
                         if not size or (declared and declared != size):
                             raise ArchiveError('media_failed')
+                        if generic_audio:
+                            # Some podcast CDNs serve real audio with a binary MIME type.
+                            # Recognize only formats already supported by the archive path.
+                            try:
+                                audio = AudioFile(destination)
+                                if audio is None:
+                                    audio = AAC(destination)  # ADTS has no extension on an opaque download.
+                                mime = next(value for kind, value in [(MP3, 'audio/mpeg'), (MP4, 'audio/mp4'),
+                                    (AAC, 'audio/aac'), (OggVorbis, 'audio/ogg'), (OggOpus, 'audio/ogg')]
+                                    if isinstance(audio, kind) and value in allowed and audio.info.length > 0)
+                            except Exception:
+                                raise ArchiveError('media_format_unsupported') from None
                         return mime
                 raise ArchiveError('media_failed')
         except Exception as error:
