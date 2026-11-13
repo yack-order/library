@@ -15,6 +15,35 @@ from mutagen.id3 import ID3
 import runner
 
 class ArchiveTests(unittest.TestCase):
+    def test_historical_snapshot_is_labeled_and_verified_without_changing_demo_labels(self):
+        from archive_inspector import safe_extract, verify_manifest
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);sample=root/'sample.mp3'
+            subprocess.run(['ffmpeg','-nostdin','-v','error','-f','lavfi','-i','sine=frequency=440:duration=0.2','-c:a','libmp3lame',str(sample)],check=True)
+            for demo in [False,True]:
+                with self.subTest(demo=demo):
+                    work=root/str(demo);work.mkdir()
+                    raw={'cardId':'abc12','title':'Example','metadata':{'description':'Discover: 1 tracks' if demo else 'Original playlist'},'content':{'chapters':[{'tracks':[{'title':'Track','trackUrl':'https://media.test/private?token=secret'}]}]}}
+                    public=copy.deepcopy(raw);del public['content']['chapters'][0]['tracks'][0]['trackUrl']
+                    snapshot={'sha256':'a'*64,'label':'2025-01-17','sourceUpdatedAt':'2025-01-17T06:04:40.447Z','playlistDurationSeconds':0.2,'trackCount':1,'privateUrl':'https://private.test/secret'}
+                    def download(url,path,**kwargs):Path(path).write_bytes(sample.read_bytes());return 'audio/mpeg'
+                    with patch.object(runner,'stream_file',side_effect=download):
+                        archive=runner.build_drive_archive({'card':raw,'publicCard':public,'sourceSnapshot':snapshot},work)
+                    self.assertIn('[Snapshot 2025-01-17]',archive.name);self.assertEqual('[DEMO]' in archive.name,demo)
+                    restored=work/'restored';restored.mkdir();safe_extract(archive,restored)
+                    folder=next(restored.iterdir());verify_manifest(folder,required=True)
+                    evidence=json.loads((folder/'source-snapshot.json').read_text())
+                    self.assertEqual(evidence,{k:v for k,v in snapshot.items() if k!='privateUrl'}|{'kind':'immutable_historical_playlist'})
+                    for file in folder.rglob('*'):
+                        if file.suffix in {'.json','.txt'}:self.assertNotIn('token=secret',file.read_text())
+
+    def test_historical_snapshot_label_cannot_inject_paths(self):
+        with tempfile.TemporaryDirectory() as tmp, patch.object(runner,'stream_file') as download:
+            card={'cardId':'abc12','title':'Example'}
+            with self.assertRaises(runner.ArchiveError) as error:
+                runner.build_archive({'card':card,'publicCard':card,'sourceSnapshot':{'sha256':'a'*64,'label':'../../escape'}},Path(tmp))
+            self.assertEqual(error.exception.code,'source_unavailable');download.assert_not_called()
+
     def test_drive_build_releases_unpacked_workspace_before_restore_without_overwriting(self):
         from archive_inspector import safe_extract, verify_manifest
         with tempfile.TemporaryDirectory() as tmp:

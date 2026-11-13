@@ -271,6 +271,11 @@ def build_archive(source, work, captures=None):
     card_id = card['cardId']
     if not re.fullmatch(r'[A-Za-z0-9]{5}', card_id):
         raise ArchiveError('source_unavailable')
+    snapshot = source.get('sourceSnapshot')
+    if snapshot is not None:
+        if (not isinstance(snapshot, dict) or not re.fullmatch(r'[a-f0-9]{64}', str(snapshot.get('sha256', '')))
+                or not re.fullmatch(r'(?:[0-9]{4}-[0-9]{2}-[0-9]{2}|[a-f0-9]{12})', str(snapshot.get('label', '')))):
+            raise ArchiveError('source_unavailable')
     title = safe_filename(card.get('title'), limit=120)
     metadata = card.get('metadata') or {}
     category = safe_filename(metadata.get('category'), fallback='MYO', limit=40)
@@ -284,6 +289,10 @@ def build_archive(source, work, captures=None):
     tracks = [t for c in chapters for t in c.get('tracks', [])]
     if not tracks or len(tracks) != len(raw_tracks) or len(tracks) > 2000:
         raise ArchiveError('media_failed')
+    if snapshot is not None and (snapshot.get('trackCount') != len(tracks)
+            or not isinstance(snapshot.get('playlistDurationSeconds'), (int, float))
+            or snapshot['playlistDurationSeconds'] <= 0):
+        raise ArchiveError('source_unavailable')
     if str((raw.get('content') or {}).get('playbackType', '')).lower() in {'radio', 'live', 'stream'}:
         raise ArchiveError('media_live_unsupported')
     cover_path = images / 'cover.png'
@@ -337,11 +346,16 @@ def build_archive(source, work, captures=None):
     if source.get('playlistVersion'):
         version = source['playlistVersion']
         (folder / 'playlist-version.json').write_text(json.dumps({key:version[key] for key in ['id','number','fingerprint'] if key in version},indent=2),encoding='utf-8')
+    if snapshot is not None:
+        evidence = {key:snapshot[key] for key in ['sha256','label','sourceUpdatedAt','playlistDurationSeconds','trackCount'] if key in snapshot}
+        evidence['kind'] = 'immutable_historical_playlist'
+        (folder / 'source-snapshot.json').write_text(json.dumps(evidence,indent=2),encoding='utf-8')
     manifest = {str(p.relative_to(folder)): {'sha256':digest(p),'bytes':p.stat().st_size}
                 for p in sorted(folder.rglob('*')) if p.is_file()}
     (folder / 'manifest.json').write_text(json.dumps({'version':1,'cardId':card_id,'files':manifest},indent=2),encoding='utf-8')
     demo = '[DEMO]' if re.search(r'Discover:\s*\d+\s+tracks?', str(metadata.get('description',''))+' '+str(card.get('title',''))) else ''
-    filename = f'{category} - {title}{demo}[{card_id}] ({datetime.now(timezone.utc):%Y-%m-%d}).7z'
+    historical = f" [Snapshot {snapshot['label']}]" if snapshot is not None else ''
+    filename = f'{category} - {title}{historical}{demo}[{card_id}] ({datetime.now(timezone.utc):%Y-%m-%d}).7z'
     version = source.get('playlistVersion', {}).get('number', 1)
     if version > 1:
         filename = filename[:-3] + f' (v{version}).7z'
