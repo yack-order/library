@@ -232,6 +232,29 @@ class SpaceVersionTests(unittest.TestCase):
                     self.assertNotIn('media.test',file.read_text())
 
 class OggArchiveTests(unittest.TestCase):
+    def test_binary_mime_artwork_requires_a_complete_supported_image(self):
+        import io
+        from PIL import Image
+        image=io.BytesIO();Image.new('RGB',(16,16),'red').save(image,format='PNG')
+        for payload,allowed,expected in [(image.getvalue(),{'image/png'},'image/png'),
+                (image.getvalue(),{'image/jpeg'},None),
+                (b'<svg xmlns="http://www.w3.org/2000/svg"/>',{'image/png'},None),
+                (image.getvalue()[:24],{'image/png'},None)]:
+            with self.subTest(allowed=allowed,expected=expected), tempfile.TemporaryDirectory() as tmp:
+                response=Mock(status_code=200,is_redirect=False)
+                response.headers={'Content-Type':'application/octet-stream','Content-Length':str(len(payload))}
+                response.iter_content.return_value=[payload]
+                response.__enter__=Mock(return_value=response);response.__exit__=Mock(return_value=False)
+                session=Mock();session.get.return_value=response;session.__enter__=Mock(return_value=session);session.__exit__=Mock(return_value=False)
+                with patch.object(runner,'public_url',side_effect=lambda url:url),patch.object(runner.requests,'Session',return_value=session),patch.object(runner.time,'sleep') as sleep:
+                    target=Path(tmp)/'download'
+                    if expected:
+                        self.assertEqual(runner.stream_file('https://images.test/opaque',target,allowed=allowed,maximum=16*1024**2),expected)
+                        self.assertEqual(target.read_bytes(),payload)
+                    else:
+                        with self.assertRaises(runner.ArchiveError) as error:runner.stream_file('https://images.test/opaque',target,allowed=allowed,maximum=16*1024**2)
+                        self.assertEqual(error.exception.code,'media_format_unsupported');self.assertFalse(target.exists());sleep.assert_not_called()
+
     def test_binary_mime_audio_is_recognized_from_finite_supported_bytes(self):
         for suffix, codec, expected in [('.mp3','libmp3lame','audio/mpeg'),('.m4a','aac','audio/mp4'),
                                       ('.aac','aac','audio/aac'),('.ogg','libopus','audio/ogg')]:
