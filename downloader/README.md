@@ -107,3 +107,8 @@ streaming. Membership cookies are never forwarded to resource hosts.
 The `momma-bear.yml` workflow is dispatched only by the configured Toyo crawler.
 Setup, canaries, source-scoped activation and the twice-monthly New York schedule
 are managed at `/admin/momma-bear`. See `docs/MOMMA_BEAR_CRAWLER.md` in toyo-api.
+
+Media downloads allow at most ten validated HTTPS redirects per attempt so
+public podcast feeds can traverse multiple measurement services. Every hop still
+requires a public address, preserves the descriptive User-Agent, and keeps the
+existing credential-host restrictions. Redirect loops remain bounded.

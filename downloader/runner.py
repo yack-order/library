@@ -46,6 +46,7 @@ AUDIO_FORMATS = {'audio/mpeg': '.mp3', 'audio/mp3': '.mp3', 'audio/aac': '.aac',
 TERMINAL_MEDIA_ERRORS = {'media_access_denied', 'media_unavailable',
                          'media_format_unsupported', 'media_live_unsupported'}
 ARCHIVE_USER_AGENT = 'ToyoArchive/1.0 (+https://ui.yackorder.org)'
+MAX_MEDIA_REDIRECTS = 10
 
 
 def digest(path):
@@ -71,7 +72,7 @@ def stream_file(url, destination, *, maximum=1024**3, allowed=None, attempts=3, 
             started = time.monotonic()
             with requests.Session() as session:
                 session.trust_env = False
-                for redirects in range(4):
+                for redirects in range(MAX_MEDIA_REDIRECTS + 1):
                     headers = {'Accept-Encoding': 'identity', 'User-Agent': ARCHIVE_USER_AGENT}
                     if bearer:
                         host = urlsplit(current).hostname
@@ -81,7 +82,7 @@ def stream_file(url, destination, *, maximum=1024**3, allowed=None, attempts=3, 
                     with session.get(current, stream=True, allow_redirects=False,
                                      timeout=(10, 30), headers=headers) as response:
                         if response.is_redirect:
-                            if redirects == 3:
+                            if redirects == MAX_MEDIA_REDIRECTS:
                                 raise ArchiveError('media_failed')
                             current = public_url(urljoin(current, response.headers['Location']))
                             continue

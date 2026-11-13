@@ -259,6 +259,44 @@ class OggArchiveTests(unittest.TestCase):
 
 
 class ArchiveHttpClientTests(unittest.TestCase):
+    def test_accepts_long_public_podcast_redirect_chain(self):
+        redirects=[]
+        for index in range(5):
+            response=Mock();response.is_redirect=True;response.headers={'Location':f'https://tracking{index}.test/episode'}
+            response.__enter__=Mock(return_value=response);response.__exit__=Mock(return_value=False);redirects.append(response)
+        audio=Mock();audio.is_redirect=False;audio.status_code=200
+        audio.headers={'Content-Type':'audio/mpeg','Content-Length':'5'};audio.iter_content.return_value=[b'audio']
+        audio.__enter__=Mock(return_value=audio);audio.__exit__=Mock(return_value=False)
+        session=Mock();session.get.side_effect=[*redirects,audio]
+        session.__enter__=Mock(return_value=session);session.__exit__=Mock(return_value=False)
+        with tempfile.TemporaryDirectory() as tmp,patch.object(runner.requests,'Session',return_value=session),patch.object(runner,'public_url',side_effect=lambda url:url) as validated:
+            path=Path(tmp)/'audio'
+            runner.stream_file('https://podcast.test/episode',path,allowed=set(runner.AUDIO_FORMATS))
+            self.assertEqual(path.read_bytes(),b'audio')
+            self.assertEqual(session.get.call_count,6);self.assertEqual(validated.call_count,6)
+
+    def test_redirect_loop_remains_bounded_and_removes_partial_file(self):
+        response=Mock();response.is_redirect=True;response.headers={'Location':'https://podcast.test/loop?private=value'}
+        response.__enter__=Mock(return_value=response);response.__exit__=Mock(return_value=False)
+        session=Mock();session.get.return_value=response
+        session.__enter__=Mock(return_value=session);session.__exit__=Mock(return_value=False)
+        with tempfile.TemporaryDirectory() as tmp,patch.object(runner.requests,'Session',return_value=session),patch.object(runner,'public_url',side_effect=lambda url:url):
+            path=Path(tmp)/'audio';path.write_bytes(b'partial')
+            with self.assertRaises(runner.ArchiveError) as error:runner.stream_file('https://podcast.test/start',path,attempts=1)
+            self.assertEqual(error.exception.code,'media_failed');self.assertNotIn('private',str(error.exception))
+            self.assertEqual(session.get.call_count,runner.MAX_MEDIA_REDIRECTS+1);self.assertFalse(path.exists())
+
+    def test_longer_redirect_allowance_still_rejects_private_destination(self):
+        response=Mock();response.is_redirect=True;response.headers={'Location':'https://127.0.0.1/private'}
+        response.__enter__=Mock(return_value=response);response.__exit__=Mock(return_value=False)
+        session=Mock();session.get.return_value=response
+        session.__enter__=Mock(return_value=session);session.__exit__=Mock(return_value=False)
+        def addresses(host,*args,**kwargs):
+            return [(runner.socket.AF_INET,runner.socket.SOCK_STREAM,6,'',('127.0.0.1' if host=='127.0.0.1' else '93.184.216.34',443))]
+        with tempfile.TemporaryDirectory() as tmp,patch.object(runner.requests,'Session',return_value=session),patch.object(runner.socket,'getaddrinfo',side_effect=addresses):
+            with self.assertRaises(runner.ArchiveError):runner.stream_file('https://podcast.test/start',Path(tmp)/'audio',attempts=1)
+            self.assertEqual(session.get.call_count,1)
+
     def test_identifies_itself_on_each_validated_public_redirect_without_credentials(self):
         redirect=Mock();redirect.is_redirect=True;redirect.headers={'Location':'https://media.test/episode.mp3'}
         redirect.__enter__=Mock(return_value=redirect);redirect.__exit__=Mock(return_value=False)
