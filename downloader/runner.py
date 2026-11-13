@@ -39,6 +39,7 @@ from privacy import register_sensitive_values, scrub_json, redact_text
 AUDIO_FORMATS = {'audio/mpeg': '.mp3', 'audio/mp3': '.mp3', 'audio/aac': '.aac',
                  'audio/aacp': '.aac', 'audio/mp4': '.m4a', 'audio/x-m4a': '.m4a',
                  'audio/ogg': '.ogg', 'application/ogg': '.ogg', 'audio/opus': '.ogg'}
+IMAGE_FORMATS = {'PNG':'image/png', 'JPEG':'image/jpeg', 'WEBP':'image/webp', 'GIF':'image/gif'}
 TERMINAL_MEDIA_ERRORS = {'media_access_denied', 'media_unavailable',
                          'media_format_unsupported', 'media_live_unsupported'}
 ARCHIVE_USER_AGENT = 'ToyoArchive/1.0 (+https://ui.yackorder.org)'
@@ -90,7 +91,8 @@ def stream_file(url, destination, *, maximum=1024**3, allowed=None, attempts=3, 
                             raise ArchiveError('media_failed')
                         mime = response.headers.get('Content-Type', '').split(';')[0].lower()
                         generic_audio = mime in {'application/octet-stream', 'binary/octet-stream'} and allowed and set(allowed) <= set(AUDIO_FORMATS)
-                        if allowed and mime not in allowed and not generic_audio:
+                        generic_image = mime in {'application/octet-stream', 'binary/octet-stream'} and allowed and set(allowed) <= set(IMAGE_FORMATS.values())
+                        if allowed and mime not in allowed and not generic_audio and not generic_image:
                             raise ArchiveError('media_format_unsupported')
                         # Radio streams have no finite source and must not be archived.
                         if 'icy-name' in response.headers or 'icy-metaint' in response.headers:
@@ -107,6 +109,15 @@ def stream_file(url, destination, *, maximum=1024**3, allowed=None, attempts=3, 
                                 handle.write(chunk)
                         if not size or (declared and declared != size):
                             raise ArchiveError('media_failed')
+                        if generic_image:
+                            try:
+                                with Image.open(destination) as image:
+                                    mime = IMAGE_FORMATS[image.format]
+                                    if mime not in allowed:
+                                        raise ValueError('Unexpected image format')
+                                    image.verify()
+                            except Exception:
+                                raise ArchiveError('media_format_unsupported') from None
                         if generic_audio:
                             # Some podcast CDNs serve real audio with a binary MIME type.
                             # Recognize only formats already supported by the archive path.
