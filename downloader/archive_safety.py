@@ -6,6 +6,8 @@ import re
 import shutil
 import tempfile
 
+MAX_BUILD_EXPANDED = 10 * 1024**3
+
 
 def safe_filename(value, fallback="Untitled", limit=180):
     """Return a single portable filename component, never a special directory."""

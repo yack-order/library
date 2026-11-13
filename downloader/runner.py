@@ -31,7 +31,7 @@ from mutagen import File as AudioFile
 from mutagen.flac import Picture
 from mutagen.oggvorbis import OggVorbis
 from mutagen.oggopus import OggOpus
-from archive_safety import safe_filename, create_verified_archive
+from archive_safety import safe_filename, create_verified_archive, MAX_BUILD_EXPANDED
 from archive_errors import ArchiveError
 from privacy import register_sensitive_values, scrub_json, redact_text
 
@@ -257,7 +257,7 @@ def capture_space_media(source, work):
             hashes[key] = digest(path)
             captures[key] = (path, track['trackUrl'], mime)
             audio += 1
-            if sum(v[0].stat().st_size for v in captures.values()) > 10*1024**3:
+            if sum(v[0].stat().st_size for v in captures.values()) > MAX_BUILD_EXPANDED:
                 raise ArchiveError('media_failed')
     if not audio:
         raise ArchiveError('media_failed')
@@ -334,7 +334,7 @@ def build_archive(source, work, captures=None):
         lines.append('\n'.join(f'{k}:: {redact_text(v)}' for k,v in {
             'TrackNumber':prefix,'Title':track_title,'Duration':track.get('duration'),
             'FileSize':track.get('fileSize'),'Channels':track.get('channels'),'Type':track.get('type')}.items() if v is not None))
-        if sum(p.stat().st_size for p in folder.rglob('*') if p.is_file()) > 10*1024**3:
+        if sum(p.stat().st_size for p in folder.rglob('*') if p.is_file()) > MAX_BUILD_EXPANDED:
             raise ArchiveError('media_failed')
     (folder / 'tracks.txt').write_text('\n\n'.join(lines)+'\n', encoding='utf-8')
     if captures:
@@ -353,6 +353,10 @@ def build_archive(source, work, captures=None):
     manifest = {str(p.relative_to(folder)): {'sha256':digest(p),'bytes':p.stat().st_size}
                 for p in sorted(folder.rglob('*')) if p.is_file()}
     (folder / 'manifest.json').write_text(json.dumps({'version':1,'cardId':card_id,'files':manifest},indent=2),encoding='utf-8')
+    expanded=sum(p.stat().st_size for p in folder.rglob('*') if p.is_file())
+    if expanded > MAX_BUILD_EXPANDED:
+        print(json.dumps({'event':'archive.resource_limit','reason':'generated_tree','expanded_bytes':expanded,'expanded_limit_bytes':MAX_BUILD_EXPANDED}))
+        raise ArchiveError('resource_limit')
     demo = '[DEMO]' if re.search(r'Discover:\s*\d+\s+tracks?', str(metadata.get('description',''))+' '+str(card.get('title',''))) else ''
     historical = f" [Snapshot {snapshot['label']}]" if snapshot is not None else ''
     filename = f'{category} - {title}{historical}{demo}[{card_id}] ({datetime.now(timezone.utc):%Y-%m-%d}).7z'
@@ -529,7 +533,7 @@ def main():
                     source = client.call('source')
                 if source and source.get('storageMode') == 'drive':
                     from drive_storage import Drive
-                    from archive_inspector import safe_extract, verify_manifest
+                    from archive_inspector import verify_generated_archive
                     token=source.pop('driveToken');folder=source.pop('driveFolder')
                     client.stage='packaging'
                     captures = None
@@ -557,10 +561,7 @@ def main():
                         source['supplementFolder'] = str(supplemental_folder)
                     path=build_drive_archive(source,Path(directory),captures)
                     restored=Path(directory)/'verified';restored.mkdir()
-                    safe_extract(path,restored)
-                    roots=list(restored.iterdir())
-                    if len(roots)!=1 or not roots[0].is_dir():raise ArchiveError('verification_failed')
-                    verify_manifest(roots[0],required=True)
+                    verify_generated_archive(path,restored)
                     if client.lost.is_set():raise ArchiveError('source_unavailable')
                     client.stage='uploading'
                     drive=Drive(token,lambda value:client.call('cold-progress',value),refresh=lambda:client.call('drive-token')['token'])

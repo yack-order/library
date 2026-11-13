@@ -31,7 +31,7 @@ jobs:
           # Keep the archive inspector's existing expanded-size/free-space checks.
           # This disposable media job does not use the preinstalled Android/.NET SDKs.
           free_bytes=$(df -PB1 "$GITHUB_WORKSPACE" | awk 'NR==2 {print $4}')
-          if (( free_bytes < 28 * 1024 * 1024 * 1024 )); then
+          if (( free_bytes < 36 * 1024 * 1024 * 1024 )); then
             sudo rm -rf -- /usr/local/lib/android /usr/share/dotnet
           fi
           df -h "$GITHUB_WORKSPACE"

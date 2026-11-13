@@ -12,7 +12,7 @@ import sys
 import py7zr
 from PIL import Image
 from runner import ArchiveError, digest, strip_source_tags, tag_audio
-from archive_safety import create_verified_archive, safe_filename
+from archive_safety import create_verified_archive, safe_filename, MAX_BUILD_EXPANDED
 from privacy import redact_text, register_sensitive_values, scrub_json
 
 MAX_EXPANDED=8*1024**3
@@ -21,7 +21,7 @@ MAX_FILE=1024**3
 AUDIO={'.mp3','.m4a','.aac','.ogg'}
 
 
-def safe_extract(archive_path,destination):
+def _safe_extract(archive_path,destination,maximum_expanded):
     destination=Path(destination)
     with py7zr.SevenZipFile(archive_path,'r') as archive:
         if archive.needs_password():raise ArchiveError('encrypted_archive')
@@ -41,9 +41,9 @@ def safe_extract(archive_path,destination):
             total+=size
         free=shutil.disk_usage(destination.parent).free
         required=total*2+128*1024**2
-        if total>MAX_EXPANDED or free<required:
+        if total>maximum_expanded or free<required:
             print(json.dumps({'event':'archive.resource_limit','expanded_bytes':total,
-                'expanded_limit_bytes':MAX_EXPANDED,'free_bytes':free,'required_free_bytes':required}))
+                'expanded_limit_bytes':maximum_expanded,'free_bytes':free,'required_free_bytes':required}))
             raise ArchiveError('resource_limit')
         archive.extractall(destination)
     actual=0
@@ -52,7 +52,20 @@ def safe_extract(archive_path,destination):
         if path.is_symlink() or not (stat.S_ISREG(info.st_mode) or stat.S_ISDIR(info.st_mode)) or info.st_nlink>1 and path.is_file():
             raise ArchiveError('unsafe_archive')
         if path.is_file():actual+=info.st_size
-    if actual>MAX_EXPANDED:raise ArchiveError('resource_limit')
+    if actual>maximum_expanded:raise ArchiveError('resource_limit')
+
+def safe_extract(archive_path,destination):
+    """Untrusted imported archives retain the original 8 GiB aggregate limit."""
+    return _safe_extract(archive_path,destination,MAX_EXPANDED)
+
+
+def verify_generated_archive(archive_path,destination):
+    """Verify only runner-owned new builds within their existing 10 GiB budget."""
+    _safe_extract(archive_path,destination,MAX_BUILD_EXPANDED)
+    roots=list(Path(destination).iterdir())
+    if len(roots)!=1 or not roots[0].is_dir():raise ArchiveError('verification_failed')
+    verify_manifest(roots[0],required=True)
+
 
 
 def verify_manifest(folder, required=False):
