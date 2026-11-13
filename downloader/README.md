@@ -16,6 +16,13 @@ resumably to private Drive, verifies a full SHA-256 download readback, and commi
 the receipt. It does not upload a new build to Gofile. Legacy receipt completion
 remains compatible, but new source responses require configured Drive storage.
 
+Acknowledged completed uploads can finish without retrieving the playlist again.
+Recovery verifies the original job property, destination, saved SHA-256, independent
+download, extraction, manifest, CardID and track count. It preserves the saved
+filename, demo/full label and playlist metadata, and never uploads a second copy.
+An explicit verification-only recovery cannot fall back to media fetching or a
+new build; incomplete upload sessions still require their original recovery path.
+
 `storage_runner.py` runs explicitly requested inventory/inspection/import/handover
 jobs and separately enabled on-demand delivery jobs. Source import reads and
 destination import writes use the temporary current-account connections. New

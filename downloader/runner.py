@@ -526,6 +526,18 @@ def main():
                 client.call('cold-complete', {})
                 print('Archive job completed')
                 return 0
+            progress=claimed.get('coldProgress') or {}
+            if not result and (progress.get('uploadedFile') or claimed.get('retainedUploadOnly')):
+                recovery=client.call('drive-token')
+                if recovery.get('cardId') and recovery.get('driveFolder'):
+                    from drive_storage import Drive
+                    client.stage='verifying'
+                    drive=Drive(recovery['token'],refresh=lambda:client.call('drive-token')['token'])
+                    receipt=drive.recover_uploaded(Path(directory),recovery['driveFolder'],os.environ['TOYO_ARCHIVE_JOB'],recovery['cardId'],progress)
+                    client.call('cold-checkpoint',receipt);client.call('cold-complete',{})
+                    print('Retained archive verified and completed');return 0
+                if claimed.get('retainedUploadOnly'):
+                    raise ArchiveError('verification_unavailable')
             if not result:
                 receipt = claimed.get('uploadReceipt')
                 source = None
