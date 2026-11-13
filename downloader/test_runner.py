@@ -15,8 +15,23 @@ from mutagen.id3 import ID3
 import runner
 
 class ArchiveTests(unittest.TestCase):
+    def test_generated_tree_budget_includes_the_final_manifest(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);sample=root/'sample.mp3'
+            subprocess.run(['ffmpeg','-nostdin','-v','error','-f','lavfi','-i','sine=frequency=440:duration=0.2','-c:a','libmp3lame',str(sample)],check=True)
+            raw={'cardId':'abc12','title':'Example','content':{'chapters':[{'tracks':[{'title':'Track','trackUrl':'https://media.test/opaque'}]}]}}
+            public=copy.deepcopy(raw);del public['content']['chapters'][0]['tracks'][0]['trackUrl']
+            def download(url,path,**kwargs):Path(path).write_bytes(sample.read_bytes());return 'audio/mpeg'
+            first=root/'first';first.mkdir()
+            with patch.object(runner,'stream_file',side_effect=download):runner.build_archive({'card':raw,'publicCard':public},first)
+            complete_size=sum(p.stat().st_size for p in (first/'Example').rglob('*') if p.is_file())
+            second=root/'second';second.mkdir()
+            with patch.object(runner,'stream_file',side_effect=download),patch.object(runner,'MAX_BUILD_EXPANDED',complete_size-1):
+                with self.assertRaises(runner.ArchiveError) as caught:runner.build_archive({'card':raw,'publicCard':public},second)
+            self.assertEqual(caught.exception.code,'resource_limit');self.assertFalse(list(second.glob('*.7z')))
+
     def test_historical_snapshot_is_labeled_and_verified_without_changing_demo_labels(self):
-        from archive_inspector import safe_extract, verify_manifest
+        from archive_inspector import verify_generated_archive, verify_manifest
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp);sample=root/'sample.mp3'
             subprocess.run(['ffmpeg','-nostdin','-v','error','-f','lavfi','-i','sine=frequency=440:duration=0.2','-c:a','libmp3lame',str(sample)],check=True)
@@ -30,7 +45,7 @@ class ArchiveTests(unittest.TestCase):
                     with patch.object(runner,'stream_file',side_effect=download):
                         archive=runner.build_drive_archive({'card':raw,'publicCard':public,'sourceSnapshot':snapshot},work)
                     self.assertIn('[Snapshot 2025-01-17]',archive.name);self.assertEqual('[DEMO]' in archive.name,demo)
-                    restored=work/'restored';restored.mkdir();safe_extract(archive,restored)
+                    restored=work/'restored';restored.mkdir();verify_generated_archive(archive,restored)
                     folder=next(restored.iterdir());verify_manifest(folder,required=True)
                     evidence=json.loads((folder/'source-snapshot.json').read_text())
                     self.assertEqual(evidence,{k:v for k,v in snapshot.items() if k!='privateUrl'}|{'kind':'immutable_historical_playlist'})

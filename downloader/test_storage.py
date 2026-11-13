@@ -18,6 +18,49 @@ import storage_runner
 
 
 class InspectionTests(unittest.TestCase):
+    def test_generated_verification_keeps_import_and_safety_limits(self):
+        def member(name='Example/audio',size=768*1024**2):
+            return Mock(filename=name,is_symlink=False,is_junction=False,is_socket=False,uncompressed=size)
+        nine_gib=[member('Example/audio'+str(i)) for i in range(12)]
+        cases=[('import',nine_gib,False,64*1024**3,'resource_limit'),
+               ('generated',nine_gib,False,64*1024**3,None),
+               ('generated',[member('Example/audio'+str(i)) for i in range(14)],False,64*1024**3,'resource_limit'),
+               ('generated',[member(size=archive_inspector.MAX_FILE+1)],False,64*1024**3,'resource_limit'),
+               ('generated',nine_gib,False,18*1024**3,'resource_limit'),
+               ('generated',[member('../escape',1)],False,64*1024**3,'unsafe_archive'),
+               ('generated',[member(size=1)],True,64*1024**3,'encrypted_archive'),
+               ('generated',[member(size=1)]*(archive_inspector.MAX_MEMBERS+1),False,64*1024**3,'resource_limit')]
+        for kind,members,encrypted,free,error in cases:
+            with self.subTest(kind=kind,members=len(members),error=error),tempfile.TemporaryDirectory() as tmp:
+                archive=Mock();archive.files=members;archive.needs_password.return_value=encrypted
+                archive.__enter__=Mock(return_value=archive);archive.__exit__=Mock(return_value=False)
+                def extract(destination):
+                    folder=Path(destination)/'Example';folder.mkdir(parents=True);(folder/'payload').write_bytes(b'x')
+                    (folder/'manifest.json').write_text(json.dumps({'files':{'payload':{'bytes':1,'sha256':hashlib.sha256(b'x').hexdigest()}}}))
+                archive.extractall.side_effect=extract
+                with patch.object(py7zr,'SevenZipFile',return_value=archive),patch.object(archive_inspector.shutil,'disk_usage',return_value=Mock(free=free)):
+                    verify=archive_inspector.safe_extract if kind=='import' else archive_inspector.verify_generated_archive
+                    if error:
+                        with self.assertRaises(ArchiveError) as caught:verify('synthetic',Path(tmp)/'restored')
+                        self.assertEqual(caught.exception.code,error);archive.extractall.assert_not_called()
+                    else:
+                        verify('synthetic',Path(tmp)/'restored');archive.extractall.assert_called_once()
+
+    def test_generated_verification_still_requires_one_root_and_valid_manifest(self):
+        for failure in ['missing_manifest','bad_hash','extra_root']:
+            with self.subTest(failure=failure),tempfile.TemporaryDirectory() as tmp:
+                member=Mock(filename='Example/payload',is_symlink=False,is_junction=False,is_socket=False,uncompressed=1)
+                archive=Mock();archive.files=[member];archive.needs_password.return_value=False
+                archive.__enter__=Mock(return_value=archive);archive.__exit__=Mock(return_value=False)
+                def extract(destination):
+                    folder=Path(destination)/'Example';folder.mkdir(parents=True);(folder/'payload').write_bytes(b'x')
+                    if failure!='missing_manifest':(folder/'manifest.json').write_text(json.dumps({'files':{'payload':{'bytes':1,'sha256':'wrong'}}}))
+                    if failure=='extra_root':(Path(destination)/'unexpected').mkdir()
+                archive.extractall.side_effect=extract
+                with patch.object(py7zr,'SevenZipFile',return_value=archive),patch.object(archive_inspector.shutil,'disk_usage',return_value=Mock(free=64*1024**3)):
+                    with self.assertRaises(ArchiveError) as caught:archive_inspector.verify_generated_archive('synthetic',Path(tmp)/'restored')
+                    self.assertEqual(caught.exception.code,'verification_failed')
+
     def fixture(self,work, *,card='abc12',expected=1,live=False):
         folder=work/'legacy'/'Example';folder.mkdir(parents=True)
         audio=folder/'audio_files';audio.mkdir()
