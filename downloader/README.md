@@ -112,3 +112,8 @@ Media downloads allow at most ten validated HTTPS redirects per attempt so
 public podcast feeds can traverse multiple measurement services. Every hop still
 requires a public address, preserves the descriptive User-Agent, and keeps the
 existing credential-host restrictions. Redirect loops remain bounded.
+
+Script entry points and imported helpers share `archive_errors.ArchiveError`.
+Inspection failures retain their controlled codes even when Python executes
+`runner.py` as `__main__`. Resource and archive-safety limits stop the affected
+job without repeating the same work; the limits themselves remain unchanged.

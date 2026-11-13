@@ -1,9 +1,12 @@
 """Synthetic offline verification: no playlists or provider uploads are used."""
 import copy
+from contextlib import redirect_stdout
 import hashlib
+import io
 import json
 from pathlib import Path
 import subprocess
+import runpy
 import tempfile
 import unittest
 from unittest.mock import patch, Mock
@@ -256,6 +259,27 @@ class OggArchiveTests(unittest.TestCase):
                     self.assertEqual(error.exception.code,expected);self.assertNotIn('secret',str(error.exception))
                     self.assertEqual(session.get.call_count,1);sleep.assert_not_called()
                     self.assertFalse((Path(tmp)/'partial').exists())
+
+
+class ArchiveEntrypointTests(unittest.TestCase):
+    def test_script_entrypoint_preserves_imported_helper_failure_codes(self):
+        from archive_inspector import ArchiveError as HelperError
+        for code in ('resource_limit', 'unsafe_archive', 'verification_failed'):
+            with self.subTest(code=code):
+                namespace=runpy.run_path(runner.__file__,run_name='archive_script_fixture')
+                self.assertIs(namespace['ArchiveError'],HelperError)
+                client=Mock();client.headers={};client.heartbeats=Mock()
+                def call(action,value=None):
+                    if action=='claim':return {'leaseToken':'synthetic-private-lease'}
+                    if action=='source':return {'storageMode':'drive','driveToken':'synthetic-private-token','driveFolder':'synthetic-folder'}
+                    return {}
+                client.call.side_effect=call
+                output=io.StringIO()
+                with patch.dict(namespace['main'].__globals__,{'Client':lambda:client,'build_archive':Mock(side_effect=HelperError(code))}),redirect_stdout(output):
+                    self.assertEqual(namespace['main'](),1)
+                client.call.assert_any_call('fail',{'code':code})
+                self.assertIn('Archive job failed: '+code,output.getvalue())
+                self.assertNotIn('synthetic-private',output.getvalue())
 
 
 class ArchiveHttpClientTests(unittest.TestCase):
