@@ -39,7 +39,11 @@ def safe_extract(archive_path,destination):
             size=member.uncompressed or 0
             if size<0 or size>MAX_FILE:raise ArchiveError('resource_limit')
             total+=size
-        if total>MAX_EXPANDED or shutil.disk_usage(destination.parent).free<total*2+128*1024**2:
+        free=shutil.disk_usage(destination.parent).free
+        required=total*2+128*1024**2
+        if total>MAX_EXPANDED or free<required:
+            print(json.dumps({'event':'archive.resource_limit','expanded_bytes':total,
+                'expanded_limit_bytes':MAX_EXPANDED,'free_bytes':free,'required_free_bytes':required}))
             raise ArchiveError('resource_limit')
         archive.extractall(destination)
     actual=0
