@@ -15,6 +15,26 @@ from mutagen.id3 import ID3
 import runner
 
 class ArchiveTests(unittest.TestCase):
+    def test_drive_build_releases_unpacked_workspace_before_restore_without_overwriting(self):
+        from archive_inspector import safe_extract, verify_manifest
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);sample=root/'sample.mp3'
+            subprocess.run(['ffmpeg','-nostdin','-v','error','-f','lavfi','-i','sine=frequency=440:duration=0.2','-c:a','libmp3lame',str(sample)],check=True)
+            work=root/'job';work.mkdir();sentinel=work/'retained-input';sentinel.write_bytes(b'keep')
+            raw={'cardId':'abc12','title':'Example','content':{'chapters':[{'tracks':[{'title':'Track','trackUrl':'https://media.test/opaque'}]}]}}
+            public=copy.deepcopy(raw);del public['content']['chapters'][0]['tracks'][0]['trackUrl']
+            def download(url,path,**kwargs):Path(path).write_bytes(sample.read_bytes());return 'audio/mpeg'
+            with patch.object(runner,'stream_file',side_effect=download):
+                archive=runner.build_drive_archive({'card':raw,'publicCard':public},work)
+                self.assertEqual(set(work.iterdir()),{archive,sentinel})
+                original=archive.read_bytes()
+                with self.assertRaises(FileExistsError):runner.build_drive_archive({'card':raw,'publicCard':public},work)
+                self.assertEqual(archive.read_bytes(),original);self.assertEqual(sentinel.read_bytes(),b'keep')
+                self.assertEqual(set(work.iterdir()),{archive,sentinel})
+            restored=root/'restored';restored.mkdir();safe_extract(archive,restored)
+            verify_manifest(restored/'Example',required=True)
+            self.assertEqual(len(list(restored.rglob('*.mp3'))),1)
+
     def test_layout_privacy_tags_and_checksums(self):
         with tempfile.TemporaryDirectory() as tmp:
             work = Path(tmp)

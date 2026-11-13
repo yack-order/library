@@ -337,6 +337,16 @@ def build_archive(source, work, captures=None):
     return Path(create_verified_archive(folder, work / filename))
 
 
+def build_drive_archive(source, work, captures=None):
+    # Drop the owned unpacked build tree before independently restoring the 7z.
+    # Keeping both trees wastes a full archive's worth of runner disk space.
+    with tempfile.TemporaryDirectory(prefix='packaging-', dir=work) as packaging:
+        archive = build_archive(source, Path(packaging), captures)
+        published = Path(work) / archive.name
+        os.link(archive, published)  # Never overwrite a file in the job workspace.
+    return published
+
+
 class Client:
     def __init__(self):
         base = os.environ['TOYO_ARCHIVE_API'].rstrip('/')
@@ -520,7 +530,7 @@ def main():
                         from momma_resources import capture_supplements
                         supplemental_folder, _ = capture_supplements(source['supplements'], Path(directory))
                         source['supplementFolder'] = str(supplemental_folder)
-                    path=build_archive(source,Path(directory),captures)
+                    path=build_drive_archive(source,Path(directory),captures)
                     restored=Path(directory)/'verified';restored.mkdir()
                     safe_extract(path,restored)
                     roots=list(restored.iterdir())
