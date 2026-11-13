@@ -4,6 +4,7 @@ import json
 from pathlib import Path
 import re
 import time
+import tempfile
 from urllib.parse import urlencode, urljoin, urlsplit
 
 import requests
@@ -168,6 +169,72 @@ class Drive:
                     if acknowledged!=end+1:raise ArchiveError('drive_failed')
                     offset=acknowledged
         raise ArchiveError('drive_failed')
+
+    def recover_uploaded(self, work, folder, job_id, card_id, progress):
+        """Finish an acknowledged runner upload without fetching media or writing Drive."""
+        try:
+            return self._recover_uploaded(work,folder,job_id,card_id,progress)
+        except ArchiveError:
+            raise
+        except (ValueError,KeyError,TypeError,AttributeError,OSError):
+            raise ArchiveError('verification_failed') from None
+
+    def _recover_uploaded(self, work, folder, job_id, card_id, progress):
+        from archive_inspector import verify_generated_archive
+        if not re.fullmatch(r'[A-Za-z0-9]{5}',str(card_id)) or not isinstance(progress,dict):
+            raise ArchiveError('verification_failed')
+        sha=progress.get('uploadSha256')
+        if not isinstance(sha,str) or not re.fullmatch(r'[a-f0-9]{64}',sha):
+            raise ArchiveError('verification_unavailable')
+        if progress.get('uploadedFile'):
+            file=self.metadata(progress['uploadedFile'])
+        else:
+            # An upload can finish before its final acknowledgement is saved.
+            # Locate only an unambiguous completed original write; never start one.
+            if not progress.get('uploadSession'):
+                raise ArchiveError('verification_unavailable')
+            self.session_url(progress['uploadSession'])
+            if not re.fullmatch(r'[A-Za-z0-9_-]{1,200}',str(folder)) or not re.fullmatch(r'[A-Za-z0-9_-]{1,100}',str(job_id)):
+                raise ArchiveError('verification_failed')
+            query="'%s' in parents and trashed=false and appProperties has { key='toyoJob' and value='%s' } and appProperties has { key='toyoSha256' and value='%s' }" % (folder,job_id,sha)
+            found=self.json('files',q=query,pageSize=2,fields='files(id),nextPageToken',supportsAllDrives='true',includeItemsFromAllDrives='true')
+            files=found.get('files',[])
+            print(json.dumps({'event':'archive.retained_upload','completed_matches':len(files),'additional_matches':bool(found.get('nextPageToken'))}))
+            if not files:raise ArchiveError('verification_unavailable')
+            if len(files)!=1 or found.get('nextPageToken'):raise ArchiveError('verification_failed')
+            file=self.metadata(files[0]['id'])
+        properties=file.get('appProperties',{})
+        filename=file.get('name','')
+        if (file.get('trashed') or file.get('capabilities',{}).get('canDownload') is not True
+                or folder not in file.get('parents',[]) or properties.get('toyoJob')!=job_id
+                or properties.get('toyoSha256')!=sha or not isinstance(filename,str)
+                or len(filename)>240 or re.search(r'[/\\\x00-\x1f]',filename)
+                or not re.search(r'\['+re.escape(card_id)+r'\] \(\d{4}-\d{2}-\d{2}\)\.7z$',filename)):
+            raise ArchiveError('verification_failed')
+        with tempfile.TemporaryDirectory(prefix='retained-upload-',dir=work) as temporary:
+            archive=Path(temporary)/'retained.7z'
+            latest=self.download(file['id'],archive,expected_version=str(file['version']))
+            if digest(archive)!=sha or archive.stat().st_size!=int(file.get('size',0)):
+                raise ArchiveError('verification_failed')
+            expanded=Path(temporary)/'verified';expanded.mkdir()
+            verify_generated_archive(archive,expanded)
+            root=next(expanded.iterdir())
+            manifest=json.loads((root/'manifest.json').read_text())
+            candidates=[p for p in root.glob('*.json') if p.name not in {'manifest.json','source-snapshot.json'}]
+            if len(candidates)!=1 or candidates[0].stat().st_size>4*1024**2:
+                raise ArchiveError('verification_failed')
+            card=json.loads(candidates[0].read_text())
+            if not isinstance(card,dict) or card.get('cardId')!=card_id or manifest.get('cardId')!=card_id:
+                raise ArchiveError('verification_failed')
+            tracks=[t for chapter in card.get('content',{}).get('chapters',[]) for t in chapter.get('tracks',[])]
+            audio=root/'audio_files'
+            if not 1<=len(tracks)<=2000 or not audio.is_dir() or len([p for p in audio.rglob('*') if p.is_file()])!=len(tracks):
+                raise ArchiveError('verification_failed')
+            with archive.open('rb') as handle:md5=hashlib.file_digest(handle,'md5').hexdigest()
+            return {'cardId':card_id,'variant':'demo' if '[DEMO]' in filename else 'full',
+                    'filename':filename,'bytes':archive.stat().st_size,'sha256':sha,'md5':md5,
+                    'driveFileId':file['id'],'driveVersion':str(latest['version']),'verifiedSha256':sha,
+                    'index':{'title':str(card.get('title','Untitled'))[:240],'tracks':len(tracks)}}
 
     def readback(self,file,work,card_id,variant,index,expected_sha):
         restored=Path(work)/'drive-readback.7z'
