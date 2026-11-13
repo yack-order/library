@@ -31,13 +31,8 @@ from mutagen.flac import Picture
 from mutagen.oggvorbis import OggVorbis
 from mutagen.oggopus import OggOpus
 from archive_safety import safe_filename, create_verified_archive
+from archive_errors import ArchiveError
 from privacy import register_sensitive_values, scrub_json, redact_text
-
-
-class ArchiveError(Exception):
-    def __init__(self, code):
-        self.code = code
-        super().__init__(code)
 
 
 AUDIO_FORMATS = {'audio/mpeg': '.mp3', 'audio/mp3': '.mp3', 'audio/aac': '.aac',
