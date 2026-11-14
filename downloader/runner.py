@@ -31,7 +31,7 @@ from mutagen import File as AudioFile
 from mutagen.flac import Picture
 from mutagen.oggvorbis import OggVorbis
 from mutagen.oggopus import OggOpus
-from archive_safety import safe_filename, create_verified_archive, MAX_BUILD_EXPANDED
+from archive_safety import safe_filename, create_verified_archive, MAX_BUILD_EXPANDED, MAX_BUILD_FILE
 from archive_errors import ArchiveError
 from privacy import register_sensitive_values, scrub_json, redact_text
 
@@ -250,7 +250,7 @@ def capture_space_media(source, work):
             key = 'audio:' + str(audio)
             path = work / ('source-audio-' + str(audio))
             try:
-                mime = stream_file(track['trackUrl'], path, allowed=set(AUDIO_FORMATS))
+                mime = stream_file(track['trackUrl'], path, maximum=MAX_BUILD_FILE, allowed=set(AUDIO_FORMATS))
             except ArchiveError:
                 print('Archive resource failed: audio')
                 raise
@@ -322,11 +322,13 @@ def build_archive(source, work, captures=None):
             shutil.copyfile(cached[0], temporary)
             mime = cached[2]
         else:
-            mime = stream_file(private['trackUrl'], temporary, allowed=set(formats))
+            mime = stream_file(private['trackUrl'], temporary, maximum=MAX_BUILD_FILE, allowed=set(formats))
         audio = audio_dir / safe_filename(f'{prefix} - {track_title}', limit=160)
         audio = audio.with_name(audio.name + formats[mime]); temporary.rename(audio)
         strip_source_tags(audio)
         tag_audio(audio, track_title, author, str(card.get('title',title)), category, number, len(tracks), cover)
+        if audio.stat().st_size > MAX_BUILD_FILE:
+            raise ArchiveError('resource_limit')
         display = private.get('display') or chapter.get('display') or {}
         if display.get('icon16x16'):
             cached_icon = next((v[0] for k,v in (captures or {}).items() if k.startswith('image:') and v[1] == display['icon16x16']), None)

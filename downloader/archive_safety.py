@@ -6,7 +6,8 @@ import re
 import shutil
 import tempfile
 
-MAX_BUILD_EXPANDED = 10 * 1024**3
+MAX_BUILD_EXPANDED = 16 * 1024**3
+MAX_BUILD_FILE = 2 * 1024**3
 
 
 def safe_filename(value, fallback="Untitled", limit=180):
