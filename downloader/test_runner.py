@@ -124,6 +124,23 @@ class ArchiveTests(unittest.TestCase):
                 self.assertEqual(output.call_args.args, ('Archive resource failed: ' + kind,))
                 self.assertNotIn('private-token', str(output.call_args_list))
 
+    def test_catalog_build_failure_reports_resource_without_private_details(self):
+        private='https://media.test/private?token=private-token'
+        for stage,kind in [('cover','cover'),('download','audio'),('tags','audio'),('icon','icon')]:
+            raw={'cardId':'abc12','title':'Example','content':{'chapters':[{'tracks':[{'trackUrl':private}]}]}}
+            if stage=='cover':raw['metadata']={'cover':{'imageL':private}}
+            if stage=='icon':raw['content']['chapters'][0]['tracks'][0]['display']={'icon16x16':private}
+            public=copy.deepcopy(raw)
+            def download(url,path,**kwargs):
+                if stage=='download':raise runner.ArchiveError('media_format_unsupported')
+                Path(path).write_bytes(b'audio');return 'audio/mpeg'
+            def image(*args):raise ValueError('private-token: '+private)
+            with self.subTest(stage=stage),tempfile.TemporaryDirectory() as tmp,patch.object(runner,'stream_file',side_effect=download),patch.object(runner,'normalized_image',side_effect=image),patch.object(runner,'strip_source_tags',side_effect=ValueError(private) if stage=='tags' else None),patch.object(runner,'tag_audio'),patch('builtins.print') as output:
+                expected=runner.ArchiveError if stage=='download' else ValueError
+                with self.assertRaises(expected):runner.build_archive({'card':raw,'publicCard':public},Path(tmp))
+                self.assertEqual(output.call_args_list,[unittest.mock.call('Archive resource failed: '+kind)])
+                self.assertNotIn('private-token',str(output.call_args_list))
+
     def test_worker_held_gofile_token_is_used_in_memory_only(self):
         client = Mock()
         client.headers = {}; client.lost.is_set.return_value = False

@@ -3,6 +3,7 @@
 Only opaque job IDs belong in public logs. All private inputs remain in memory
 or the runner's owned temporary directory, never Actions artifacts or caches.
 """
+from contextlib import contextmanager
 import base64
 import hashlib
 import io
@@ -264,6 +265,16 @@ def capture_space_media(source, work):
     return captures, hashes
 
 
+@contextmanager
+def archive_resource(kind):
+    try:
+        yield
+    except Exception:
+        # Fixed resource kinds only; exception text can contain signed source URLs.
+        print('Archive resource failed: ' + kind)
+        raise
+
+
 def build_archive(source, work, captures=None):
     raw = source['card']
     register_sensitive_values(raw)
@@ -299,7 +310,8 @@ def build_archive(source, work, captures=None):
     cover_url = ((raw.get('metadata') or {}).get('cover') or {}).get('imageL')
     if cover_url:
         cached = next((v[0] for k,v in (captures or {}).items() if k.startswith('image:') and v[1] == cover_url), None)
-        normalized_image(cover_url, cover_path, cached)
+        with archive_resource('cover'):
+            normalized_image(cover_url, cover_path, cached)
     cover = cover_path.read_bytes() if cover_path.exists() else None
     (folder / f'{title}.json').write_text(json.dumps(card, indent=2), encoding='utf-8')
     details = {'Title': card.get('title'), 'Author': author, 'CardID': card_id,
@@ -318,21 +330,23 @@ def build_archive(source, work, captures=None):
         prefix = f'{number:0{padding}d}'
         temporary = audio_dir / (prefix + '.download')
         cached = (captures or {}).get('audio:' + str(number-1))
-        if cached:
-            shutil.copyfile(cached[0], temporary)
-            mime = cached[2]
-        else:
-            mime = stream_file(private['trackUrl'], temporary, maximum=MAX_BUILD_FILE, allowed=set(formats))
-        audio = audio_dir / safe_filename(f'{prefix} - {track_title}', limit=160)
-        audio = audio.with_name(audio.name + formats[mime]); temporary.rename(audio)
-        strip_source_tags(audio)
-        tag_audio(audio, track_title, author, str(card.get('title',title)), category, number, len(tracks), cover)
-        if audio.stat().st_size > MAX_BUILD_FILE:
-            raise ArchiveError('resource_limit')
+        with archive_resource('audio'):
+            if cached:
+                shutil.copyfile(cached[0], temporary)
+                mime = cached[2]
+            else:
+                mime = stream_file(private['trackUrl'], temporary, maximum=MAX_BUILD_FILE, allowed=set(formats))
+            audio = audio_dir / safe_filename(f'{prefix} - {track_title}', limit=160)
+            audio = audio.with_name(audio.name + formats[mime]); temporary.rename(audio)
+            strip_source_tags(audio)
+            tag_audio(audio, track_title, author, str(card.get('title',title)), category, number, len(tracks), cover)
+            if audio.stat().st_size > MAX_BUILD_FILE:
+                raise ArchiveError('resource_limit')
         display = private.get('display') or chapter.get('display') or {}
         if display.get('icon16x16'):
             cached_icon = next((v[0] for k,v in (captures or {}).items() if k.startswith('image:') and v[1] == display['icon16x16']), None)
-            normalized_image(display['icon16x16'], images / f'{prefix}.png', cached_icon)
+            with archive_resource('icon'):
+                normalized_image(display['icon16x16'], images / f'{prefix}.png', cached_icon)
         lines.append('\n'.join(f'{k}:: {redact_text(v)}' for k,v in {
             'TrackNumber':prefix,'Title':track_title,'Duration':track.get('duration'),
             'FileSize':track.get('fileSize'),'Channels':track.get('channels'),'Type':track.get('type')}.items() if v is not None))
