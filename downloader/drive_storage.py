@@ -24,9 +24,31 @@ class Drive:
 
     def request(self,method,url,**kwargs):
         headers=dict(kwargs.pop('headers',{}))
+        parsed=urlsplit(url)
+        operation=('upload_status' if headers.get('Content-Length')=='0' else 'upload_chunk') if method=='put' else 'upload_start' if method=='post' else 'download' if 'alt=media' in parsed.query else 'lookup' if parsed.path.rstrip('/')=='/drive/v3/files' else 'metadata'
         for attempt in range(2):
             headers['Authorization']='Bearer '+self.token
-            response=getattr(requests,method)(url,headers=headers,**kwargs)
+            try:
+                response=getattr(requests,method)(url,headers=headers,**kwargs)
+            except requests.exceptions.RequestException as error:
+                kind='timeout' if isinstance(error,requests.exceptions.Timeout) else 'connection' if isinstance(error,requests.exceptions.ConnectionError) else 'request'
+                print(json.dumps({'event':'archive.drive_failure','operation':operation,'kind':kind}))
+                raise
+            if response.status_code>=400:
+                reason='other'
+                # Read only a bounded error body and emit a fixed provider code.
+                # Never log URLs, headers, tokens, exception text or message fields.
+                try:
+                    raw=bytearray()
+                    for chunk in response.iter_content(4096):
+                        raw.extend(chunk)
+                        if len(raw)>16384:break
+                    if len(raw)<=16384:
+                        allowed={'storageQuotaExceeded','userRateLimitExceeded','rateLimitExceeded','dailyLimitExceeded','downloadQuotaExceeded','authError','notFound','insufficientFilePermissions','backendError'}
+                        observed={e.get('reason') for e in json.loads(raw).get('error',{}).get('errors',[])}
+                        reason=next(iter(sorted(observed&allowed)),'other')
+                except Exception:pass
+                print(json.dumps({'event':'archive.drive_failure','operation':operation,'http_status':response.status_code,'reason':reason}))
             if response.status_code!=401 or not self.refresh or attempt:return response
             response.close();self.token=self.refresh()
         raise ArchiveError('reconnect_required')
@@ -118,6 +140,7 @@ class Drive:
         path=Path(path); sha=digest(path); size=path.stat().st_size
         if not 0 < size <= MAX_ARCHIVE: raise ArchiveError('resource_limit')
         resume=resume or {}
+        print(json.dumps({'event':'archive.drive_upload','bytes':size,'saved_session':bool(resume.get('uploadSession')),'same_checkpoint_checksum':resume.get('uploadSha256')==sha}))
         # Locate an acknowledged write after interruption without repeating it.
         if resume.get('uploadedFile'):
             matches=[self.metadata(resume['uploadedFile'])]
@@ -143,7 +166,7 @@ class Drive:
                                json=metadata,timeout=(10,30),allow_redirects=False) as response:
                 if response.status_code not in (200,201) or 'Location' not in response.headers: raise ArchiveError('drive_failed')
                 session=self.session_url(response.headers['Location'])
-            self.checkpoint({'uploadSession':session,'uploadSha256':sha})
+            self.checkpoint({'uploadSession':session,'uploadSha256':sha,'uploadBytes':size})
         session=self.session_url(session)
         offset=0
         # Query the server offset; expired sessions stop rather than silently fork.

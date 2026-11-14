@@ -385,7 +385,7 @@ def build_archive(source, work, captures=None):
     version = source.get('playlistVersion', {}).get('number', 1)
     if version > 1:
         filename = filename[:-3] + f' (v{version}).7z'
-    return Path(create_verified_archive(folder, work / filename))
+    return Path(create_verified_archive(folder, work / filename, reproducible=True))
 
 
 def build_drive_archive(source, work, captures=None):

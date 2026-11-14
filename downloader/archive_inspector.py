@@ -189,7 +189,7 @@ def sanitize_archive(source,work):
     # The downloaded original may have this exact name. Keep output separate
     # so atomic no-overwrite publication does not append a copy counter.
     archives=work/'sanitized';archives.mkdir()
-    archive=Path(create_verified_archive(folder,archives/filename))
+    archive=Path(create_verified_archive(folder,archives/filename,reproducible=True))
     verification=work/'verify';verification.mkdir();safe_extract(archive,verification)
     verify_manifest(verification/folder.name,required=True)
     raw_path=None
