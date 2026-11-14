@@ -156,26 +156,36 @@ class Drive:
             return self.readback(file, path.parent, card_id, variant, index, expected_sha)
         headers={'Authorization':'Bearer '+self.token}
         session=resume.get('uploadSession') if resume.get('uploadSha256')==sha else None
-        if not session:
-            quota=self.json('about',fields='storageQuota').get('storageQuota',{})
-            if quota.get('limit') and int(quota['limit'])-int(quota.get('usage',0))<size:
-                raise ArchiveError('provider_quota_exceeded')
-            metadata={'name':path.name,'parents':[folder], 'appProperties':{'toyoJob':job_id,'toyoSha256':sha}}
-            with self.request('post','https://www.googleapis.com/upload/drive/v3/files?uploadType=resumable&supportsAllDrives=true',
-                               headers={**headers,'Content-Type':'application/json','X-Upload-Content-Type':'application/x-7z-compressed','X-Upload-Content-Length':str(size)},
-                               json=metadata,timeout=(10,30),allow_redirects=False) as response:
-                if response.status_code not in (200,201) or 'Location' not in response.headers: raise ArchiveError('drive_failed')
-                session=self.session_url(response.headers['Location'])
-            self.checkpoint({'uploadSession':session,'uploadSha256':sha,'uploadBytes':size})
-        session=self.session_url(session)
+        saved_session=bool(session)
         offset=0
-        # Query the server offset; expired sessions stop rather than silently fork.
-        with self.request('put',session,headers={**headers,'Content-Length':'0','Content-Range':'bytes */'+str(size)},data=b'',timeout=(10,30),allow_redirects=False) as response:
-            if response.status_code in (200,201):
-                file_id=response.json()['id'];self.checkpoint({'uploadedFile':file_id})
-                return self.readback(self.metadata(file_id),path.parent,card_id,variant,index,sha)
-            if response.status_code != 308: raise ArchiveError('drive_failed')
-            if response.headers.get('Range'):offset=int(response.headers['Range'].rsplit('-',1)[1])+1
+        for probe in range(2):
+            if not session:session=self.start_upload(path,folder,job_id,sha,size)
+            session=self.session_url(session)
+            with self.request('put',session,headers={**headers,'Content-Length':'0','Content-Range':'bytes */'+str(size)},data=b'',timeout=(10,30),allow_redirects=False) as response:
+                if response.status_code in (200,201):
+                    file_id=response.json()['id'];self.checkpoint({'uploadedFile':file_id})
+                    return self.readback(self.metadata(file_id),path.parent,card_id,variant,index,sha)
+                if response.status_code==404 and saved_session and probe==0:
+                    # Google expires resumable sessions. Recheck the exact original
+                    # write before replacing one; unknown/ambiguous outcomes stop.
+                    query="'%s' in parents and trashed=false and appProperties has { key='toyoJob' and value='%s' } and appProperties has { key='toyoSha256' and value='%s' }" % (folder,job_id,sha)
+                    found=self.json('files',q=query,pageSize=2,fields='files(id),nextPageToken',supportsAllDrives='true',includeItemsFromAllDrives='true')
+                    files=found.get('files',[])
+                    if len(files)>1 or found.get('nextPageToken'):raise ArchiveError('verification_failed')
+                    if files:
+                        file=self.metadata(files[0]['id']);properties=file.get('appProperties',{})
+                        if (folder not in file.get('parents',[]) or properties.get('toyoJob')!=job_id
+                                or properties.get('toyoSha256')!=sha or int(file.get('size',0))!=size
+                                or file.get('trashed') or file.get('capabilities',{}).get('canDownload') is not True):
+                            raise ArchiveError('verification_failed')
+                        return self.readback(file,path.parent,card_id,variant,index,sha)
+                    print(json.dumps({'event':'archive.drive_session_expired','completed_matches':0,'replacement_limit':1}))
+                    session=None
+                    continue
+                if response.status_code != 308:raise ArchiveError('drive_failed')
+                if response.headers.get('Range'):offset=int(response.headers['Range'].rsplit('-',1)[1])+1
+                break
+        else:raise ArchiveError('drive_failed')
         with open(path,'rb') as handle:
             handle.seek(offset)
             while offset<size:
@@ -192,6 +202,19 @@ class Drive:
                     if acknowledged!=end+1:raise ArchiveError('drive_failed')
                     offset=acknowledged
         raise ArchiveError('drive_failed')
+
+    def start_upload(self,path,folder,job_id,sha,size):
+        quota=self.json('about',fields='storageQuota').get('storageQuota',{})
+        if quota.get('limit') and int(quota['limit'])-int(quota.get('usage',0))<size:
+            raise ArchiveError('provider_quota_exceeded')
+        metadata={'name':path.name,'parents':[folder],'appProperties':{'toyoJob':job_id,'toyoSha256':sha}}
+        with self.request('post','https://www.googleapis.com/upload/drive/v3/files?uploadType=resumable&supportsAllDrives=true',
+                          headers={'Content-Type':'application/json','X-Upload-Content-Type':'application/x-7z-compressed','X-Upload-Content-Length':str(size)},
+                          json=metadata,timeout=(10,30),allow_redirects=False) as response:
+            if response.status_code not in (200,201) or 'Location' not in response.headers:raise ArchiveError('drive_failed')
+            session=self.session_url(response.headers['Location'])
+        self.checkpoint({'uploadSession':session,'uploadSha256':sha,'uploadBytes':size})
+        return session
 
     def recover_uploaded(self, work, folder, job_id, card_id, progress):
         """Finish an acknowledged runner upload without fetching media or writing Drive."""
