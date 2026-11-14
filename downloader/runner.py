@@ -28,6 +28,7 @@ from mutagen.id3 import ID3, TIT2, TPE1, TALB, TCON, TRCK, APIC, ID3NoHeaderErro
 from mutagen.mp4 import MP4, MP4Cover
 from mutagen.mp3 import MP3
 from mutagen.aac import AAC
+from mutagen.wave import WAVE
 from mutagen import File as AudioFile
 from mutagen.flac import Picture
 from mutagen.oggvorbis import OggVorbis
@@ -39,7 +40,8 @@ from privacy import register_sensitive_values, scrub_json, redact_text
 
 AUDIO_FORMATS = {'audio/mpeg': '.mp3', 'audio/mp3': '.mp3', 'audio/aac': '.aac',
                  'audio/aacp': '.aac', 'audio/mp4': '.m4a', 'audio/x-m4a': '.m4a',
-                 'audio/ogg': '.ogg', 'application/ogg': '.ogg', 'audio/opus': '.ogg'}
+                 'audio/ogg': '.ogg', 'application/ogg': '.ogg', 'audio/opus': '.ogg',
+                 'audio/wav': '.wav', 'audio/x-wav': '.wav'}
 IMAGE_FORMATS = {'PNG':'image/png', 'JPEG':'image/jpeg', 'WEBP':'image/webp', 'GIF':'image/gif'}
 TERMINAL_MEDIA_ERRORS = {'media_access_denied', 'media_unavailable',
                          'media_format_unsupported', 'media_live_unsupported'}
@@ -127,7 +129,7 @@ def stream_file(url, destination, *, maximum=1024**3, allowed=None, attempts=3, 
                                 if audio is None:
                                     audio = AAC(destination)  # ADTS has no extension on an opaque download.
                                 mime = next(value for kind, value in [(MP3, 'audio/mpeg'), (MP4, 'audio/mp4'),
-                                    (AAC, 'audio/aac'), (OggVorbis, 'audio/ogg'), (OggOpus, 'audio/ogg')]
+                                    (AAC, 'audio/aac'), (WAVE, 'audio/wav'), (OggVorbis, 'audio/ogg'), (OggOpus, 'audio/ogg')]
                                     if isinstance(audio, kind) and value in allowed and audio.info.length > 0)
                             except Exception:
                                 raise ArchiveError('media_format_unsupported') from None
@@ -157,18 +159,22 @@ def strip_source_tags(path):
 
 def tag_audio(path, title, author, album, category, number, total, cover):
     """Preserve published credits, chapter order, and cover without source URLs."""
-    if path.suffix == '.mp3':
-        try:
-            tags = ID3(path)
-            tags.clear()
-        except ID3NoHeaderError:
-            tags = ID3()
+    if path.suffix in {'.mp3', '.wav'}:
+        wave = WAVE(path) if path.suffix == '.wav' else None
+        if wave is not None:
+            if wave.tags is None:wave.add_tags()
+            tags = wave.tags
+        else:
+            try:tags = ID3(path)
+            except ID3NoHeaderError:tags = ID3()
+        tags.clear()
         tags.add(TIT2(encoding=3, text=title)); tags.add(TPE1(encoding=3, text=author))
         tags.add(TALB(encoding=3, text=album)); tags.add(TCON(encoding=3, text=category))
         tags.add(TRCK(encoding=3, text=f'{number}/{total}'))
         if cover:
             tags.add(APIC(encoding=3, mime='image/png', type=3, desc='Cover', data=cover))
-        tags.save(path)
+        if wave is not None:wave.save()
+        else:tags.save(path)
     elif path.suffix == '.m4a':
         audio = MP4(path)
         audio.delete()

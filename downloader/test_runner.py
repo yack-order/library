@@ -124,6 +124,36 @@ class ArchiveTests(unittest.TestCase):
                 self.assertEqual(output.call_args.args, ('Archive resource failed: ' + kind,))
                 self.assertNotIn('private-token', str(output.call_args_list))
 
+    def test_mixed_m4a_and_native_wav_archive_preserves_pcm_credits_cover_and_privacy(self):
+        import wave
+        from mutagen.wave import WAVE
+        from mutagen.mp4 import MP4
+        from mutagen.id3 import TXXX
+        from archive_inspector import verify_generated_archive
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);samples={}
+            for suffix,codec in [('.m4a','aac'),('.wav','pcm_s16le')]:
+                path=root/('sample'+suffix)
+                subprocess.run(['ffmpeg','-nostdin','-v','error','-f','lavfi','-i','sine=frequency=440:duration=0.2','-c:a',codec,str(path)],check=True)
+                samples[suffix]=path
+            original=WAVE(samples['.wav']);original.add_tags();original.tags.add(TXXX(encoding=3,desc='credential',text='private-token'));original.save()
+            with wave.open(str(samples['.wav']),'rb') as audio:pcm=audio.readframes(audio.getnframes())
+            image=root/'cover.png';runner.Image.new('RGB',(2,2),'blue').save(image)
+            raw={'cardId':'abc12','title':'Mixed audio','metadata':{'author':'Published Author','cover':{'imageL':'https://media.test/cover?token=private-token'}},'content':{'chapters':[{'tracks':[{'title':'Opening','trackUrl':'https://media.test/first.m4a?token=private-token'},{'title':'Ending','trackUrl':'https://media.test/last.wav?token=private-token'}]}]}}
+            def download(url,path,**kwargs):
+                suffix='.m4a' if 'first.m4a' in url else '.wav' if 'last.wav' in url else '.png'
+                Path(path).write_bytes((image if suffix=='.png' else samples[suffix]).read_bytes())
+                return {'.m4a':'audio/x-m4a','.wav':'audio/wav','.png':'image/png'}[suffix]
+            work=root/'job';work.mkdir()
+            with patch.object(runner,'stream_file',side_effect=download):archive=runner.build_drive_archive({'card':raw,'publicCard':copy.deepcopy(raw)},work)
+            restored=work/'restored';restored.mkdir();verify_generated_archive(archive,restored)
+            folder=next(restored.iterdir());wav=next(folder.rglob('*.wav'));m4a=next(folder.rglob('*.m4a'))
+            with wave.open(str(wav),'rb') as audio:self.assertEqual(audio.readframes(audio.getnframes()),pcm)
+            tags=WAVE(wav).tags;self.assertEqual(str(tags['TIT2']),'Ending');self.assertEqual(str(tags['TPE1']),'Published Author');self.assertEqual(str(tags['TRCK']),'2/2');self.assertTrue(tags.getall('APIC'));self.assertFalse(tags.getall('TXXX'))
+            self.assertEqual(MP4(m4a)['\xa9nam'],['Opening']);self.assertEqual(MP4(m4a)['trkn'],[(1,2)])
+            for file in folder.rglob('*'):
+                if file.is_file():self.assertNotIn(b'private-token',file.read_bytes())
+
     def test_catalog_build_failure_reports_resource_without_private_details(self):
         private='https://media.test/private?token=private-token'
         for stage,kind in [('cover','cover'),('download','audio'),('tags','audio'),('icon','icon')]:
@@ -318,7 +348,7 @@ class OggArchiveTests(unittest.TestCase):
 
     def test_binary_mime_audio_is_recognized_from_finite_supported_bytes(self):
         for suffix, codec, expected in [('.mp3','libmp3lame','audio/mpeg'),('.m4a','aac','audio/mp4'),
-                                      ('.aac','aac','audio/aac'),('.ogg','libopus','audio/ogg')]:
+                                      ('.aac','aac','audio/aac'),('.ogg','libopus','audio/ogg'),('.wav','pcm_s16le','audio/wav')]:
             with self.subTest(suffix=suffix), tempfile.TemporaryDirectory() as tmp:
                 sample=Path(tmp)/('sample'+suffix)
                 subprocess.run(['ffmpeg','-nostdin','-v','error','-f','lavfi','-i','sine=frequency=440:duration=0.2','-c:a',codec,str(sample)],check=True)
