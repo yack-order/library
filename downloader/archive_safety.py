@@ -55,7 +55,7 @@ class Workspace:
         shutil.rmtree(self.path)
 
 
-def create_verified_archive(folder_path, requested_path):
+def create_verified_archive(folder_path, requested_path, *, reproducible=False):
     """Verify a temporary archive, then publish without replacing an existing file.
 
     Failure leaves the owned download workspace intact for manual recovery.
@@ -76,7 +76,19 @@ def create_verified_archive(folder_path, requested_path):
         descriptor, temporary = tempfile.mkstemp(prefix='.yje-archive-', suffix='.7z', dir=requested.parent)
         with os.fdopen(descriptor, 'w+b') as handle:
             with py7zr.SevenZipFile(handle, 'w') as archive:
-                archive.writeall(source, source.name)
+                if reproducible:
+                    # These callers own sanitized work trees, never original sources.
+                    # Stable member order and timestamps let an identical rebuild
+                    # resume the same checksum-bound Drive upload.
+                    members=sorted(source.rglob('*'),key=lambda p:p.relative_to(source).as_posix())
+                    for item in [*members,source]:
+                        if item.is_symlink():raise ValueError('Refusing symlink archive members')
+                        os.utime(item,(946684800,946684800),follow_symlinks=False)
+                    archive.write(source,source.name)
+                    for item in members:
+                        archive.write(item,str(Path(source.name)/item.relative_to(source)).replace('\\','/'))
+                else:
+                    archive.writeall(source, source.name)
             handle.flush()
             os.fsync(handle.fileno())
         with py7zr.SevenZipFile(temporary, 'r') as archive:
