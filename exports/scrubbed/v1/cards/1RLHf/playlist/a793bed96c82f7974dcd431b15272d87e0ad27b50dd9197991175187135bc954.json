@@ -1,0 +1,593 @@
+{
+  "props": {
+    "pageProps": {
+      "card": {
+        "cardId": "1RLHf",
+        "title": "Tic-Tac-Toe",
+        "slug": "2kVFnwjjgKC37uIF1M4s6t",
+        "sortkey": "yoto-tic-tac-toe",
+        "createdAt": "2025-09-08T06:29:00.333Z",
+        "updatedAt": "2025-09-26T13:42:54.331Z",
+        "content": {
+          "config": {
+            "resumeTimeout": 0,
+            "disableTrackNav": true,
+            "disableChapterNav": true,
+            "autoadvance": "none"
+          },
+          "playbackType": "interactive",
+          "editSettings": {
+            "autoOverlayLabels": "chapters",
+            "editKeys": false,
+            "interactiveContent": true
+          },
+          "cover": {
+            "imageL": "https://card-content.yotoplay.com/13w1jqwg5bxuewrkUcpSGLx1pO9RmzyZnkYHNVbmL1_0~/pub/o_m4rEzPUPRVR1N-AKZ_GeU5PTajKAQ2tltaK76MIE8"
+          },
+          "chapters": [
+            {
+              "key": "1000",
+              "title": "Welcome",
+              "duration": 5,
+              "fileSize": 87193,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {},
+              "tracks": [
+                {
+                  "key": "1000",
+                  "title": "Welcome",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 5,
+                  "fileSize": 87193,
+                  "channels": "mono",
+                  "ambient": null,
+                  "display": {
+                    "iconUrl16x16": "https://kristo.work/ttt/api/v1/icons/1000.png"
+                  },
+                  "events": {
+                    "onLhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "1001",
+                        "trackKey": "1001"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "1002",
+                        "trackKey": "1002"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "1001",
+              "title": "Multiplayer Mode",
+              "duration": 14,
+              "fileSize": 222004,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {},
+              "tracks": [
+                {
+                  "key": "1001",
+                  "title": "Multiplayer Mode",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 14,
+                  "fileSize": 222004,
+                  "channels": "mono",
+                  "ambient": null,
+                  "display": {
+                    "iconUrl16x16": "https://kristo.work/ttt/api/v1/icons/1001.png"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "6000",
+                        "trackKey": "6000"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "1002",
+              "title": "Difficulty Selection",
+              "duration": 3,
+              "fileSize": 54147,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {},
+              "tracks": [
+                {
+                  "key": "1002",
+                  "title": "Difficulty Selection",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 3,
+                  "fileSize": 54147,
+                  "channels": "mono",
+                  "ambient": null,
+                  "display": {
+                    "iconUrl16x16": "https://kristo.work/ttt/api/v1/icons/1002.png"
+                  },
+                  "events": {
+                    "onLhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "1003",
+                        "trackKey": "1003"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "1004",
+                        "trackKey": "1004"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "1003",
+              "title": "Easy Mode",
+              "duration": 15,
+              "fileSize": 236650,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {},
+              "tracks": [
+                {
+                  "key": "1003",
+                  "title": "Easy Mode",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 15,
+                  "fileSize": 236650,
+                  "channels": "mono",
+                  "ambient": null,
+                  "display": {
+                    "iconUrl16x16": "https://kristo.work/ttt/api/v1/icons/1003.png"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "2000",
+                        "trackKey": "2000"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "1004",
+              "title": "Difficult Mode",
+              "duration": 11,
+              "fileSize": 173562,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {},
+              "tracks": [
+                {
+                  "key": "1004",
+                  "title": "Difficult Mode",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 11,
+                  "fileSize": 173562,
+                  "channels": "mono",
+                  "ambient": null,
+                  "display": {
+                    "iconUrl16x16": "https://kristo.work/ttt/api/v1/icons/1004.png"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "2000",
+                        "trackKey": "2000"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "2000",
+              "title": "Choose Position",
+              "duration": 90,
+              "fileSize": 1457102,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {},
+              "tracks": [
+                {
+                  "key": "2000",
+                  "title": "Choose Position",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 90,
+                  "fileSize": 1457102,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": {
+                    "iconUrl16x16": "https://kristo.work/ttt/api/v1/icons/2000.png"
+                  },
+                  "events": {
+                    "onLhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "2001",
+                        "trackKey": "2001"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "3000",
+                        "trackKey": "3000"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "2001",
+              "title": "Choose Position",
+              "duration": 90,
+              "fileSize": 1457102,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {},
+              "tracks": [
+                {
+                  "key": "2001",
+                  "title": "Choose Position",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 90,
+                  "fileSize": 1457102,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": {
+                    "iconUrl16x16": "https://kristo.work/ttt/api/v1/icons/2001.png"
+                  },
+                  "events": {
+                    "onLhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "2000",
+                        "trackKey": "2000"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "3000",
+                        "trackKey": "3000"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "3000",
+              "title": "Confirm Selected Move / Game Over",
+              "duration": 0,
+              "fileSize": 0,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {},
+              "tracks": [
+                {
+                  "key": "3000",
+                  "title": "Confirm Selected Move / Game Over",
+                  "format": "mp3",
+                  "type": "stream",
+                  "duration": null,
+                  "fileSize": null,
+                  "ambient": null,
+                  "display": {
+                    "iconUrl16x16": "https://kristo.work/ttt/api/v1/icons/3000.png"
+                  },
+                  "events": {
+                    "onLhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "4001",
+                        "trackKey": "4001"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "2000",
+                        "trackKey": "2000"
+                      }
+                    },
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "2000",
+                        "trackKey": "2000"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "4001",
+              "title": "Exit Confirmation - Sure?",
+              "duration": 3,
+              "fileSize": 48139,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {},
+              "tracks": [
+                {
+                  "key": "4001",
+                  "title": "Exit Confirmation - Sure?",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 3,
+                  "fileSize": 48139,
+                  "channels": "mono",
+                  "ambient": null,
+                  "display": {
+                    "iconUrl16x16": "https://kristo.work/ttt/api/v1/icons/4001.png"
+                  },
+                  "events": {
+                    "onLhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "3000",
+                        "trackKey": "3000"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "1000",
+                        "trackKey": "1000"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "6000",
+              "title": "Choose Position",
+              "duration": 90,
+              "fileSize": 1457102,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {},
+              "tracks": [
+                {
+                  "key": "6000",
+                  "title": "Choose Position",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 90,
+                  "fileSize": 1457102,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": {
+                    "iconUrl16x16": "https://kristo.work/ttt/api/v1/icons/6000.png"
+                  },
+                  "events": {
+                    "onLhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "6001",
+                        "trackKey": "6001"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "6002",
+                        "trackKey": "6002"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "6001",
+              "title": "Choose Position",
+              "duration": 90,
+              "fileSize": 1457102,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {},
+              "tracks": [
+                {
+                  "key": "6001",
+                  "title": "Choose Position",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 90,
+                  "fileSize": 1457102,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": {
+                    "iconUrl16x16": "https://kristo.work/ttt/api/v1/icons/6001.png"
+                  },
+                  "events": {
+                    "onLhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "6000",
+                        "trackKey": "6000"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "6002",
+                        "trackKey": "6002"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "6002",
+              "title": "Confirm Selected Move / Game Over",
+              "duration": 0,
+              "fileSize": 0,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {},
+              "tracks": [
+                {
+                  "key": "6002",
+                  "title": "Confirm Selected Move / Game Over",
+                  "format": "mp3",
+                  "type": "stream",
+                  "duration": null,
+                  "fileSize": null,
+                  "ambient": null,
+                  "display": {
+                    "iconUrl16x16": "https://kristo.work/ttt/api/v1/icons/6002.png"
+                  },
+                  "events": {
+                    "onLhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "6003",
+                        "trackKey": "6003"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "6000",
+                        "trackKey": "6000"
+                      }
+                    },
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "6000",
+                        "trackKey": "6000"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "6003",
+              "title": "Exit Confirmation - Sure?",
+              "duration": 3,
+              "fileSize": 48139,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {},
+              "tracks": [
+                {
+                  "key": "6003",
+                  "title": "Exit Confirmation - Sure?",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 3,
+                  "fileSize": 48139,
+                  "channels": "mono",
+                  "ambient": null,
+                  "display": {
+                    "iconUrl16x16": "https://kristo.work/ttt/api/v1/icons/6003.png"
+                  },
+                  "events": {
+                    "onLhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "6002",
+                        "trackKey": "6002"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "1000",
+                        "trackKey": "1000"
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "metadata": {
+          "category": "activities",
+          "media": {
+            "duration": 141,
+            "fileSize": 2278797
+          },
+          "author": "Kristo",
+          "description": "Get ready for a classic challenge! Play the timeless game of Tic-Tac-Toe right on your Yoto Player. Test your strategy against the computer in both Easy and Hard modes, or grab a friend for some head-to-head, two-player fun. Will you be the champion of Xs and Os?\n\nNote: For the best experience, please let the card fully download to your player before playing.",
+          "cover": {
+            "imageL": "https://card-content.yotoplay.com/13w1jqwg5bxuewrkUcpSGLx1pO9RmzyZnkYHNVbmL1_0~/pub/o_m4rEzPUPRVR1N-AKZ_GeU5PTajKAQ2tltaK76MIE8"
+          }
+        },
+        "createdByClientId": "90v6OFRB0bKTtpSCqT7edO7rlu9je8nb",
+        "shareLinkCreatedAt": "2025-09-08T06:30:09.041Z",
+        "shareCount": 1191,
+        "shareLimit": 0,
+        "shareLinkUrl": "redacted",
+        "sharing": {
+          "linkCreatedAt": "2025-09-08T06:30:09.041Z",
+          "linkUrl": "redacted",
+          "shareCount": 1191,
+          "shareLimit": 0
+        }
+      }
+    }
+  }
+}
