@@ -10,7 +10,7 @@ import time
 import threading
 import uuid
 
-from runner import ArchiveError, Client, digest, upload, verify_upload
+from runner import ArchiveError, Client, digest, upload, verify_upload, report_unexpected_failure
 from drive_storage import Drive
 from archive_inspector import inspect_archive
 from gofile_presence import check_page
@@ -171,6 +171,7 @@ def run_one():
         print('Storage job completed');return 0
     except Exception as error:
         code=error.code if isinstance(error,ArchiveError) else 'processing_failed'
+        if not isinstance(error,ArchiveError):report_unexpected_failure(error,client.stage if client else 'other')
         if client and 'X-Archive-Lease' in client.headers:
             try:client.call('fail',{'code':code})
             except Exception:pass

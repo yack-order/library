@@ -62,4 +62,43 @@ class ArchiveRetryTests(unittest.TestCase):
         self.assertEqual(json.loads(output.getvalue()),{'event':'archive.drive_failure','operation':'metadata','http_status':503,'reason':'other'})
 
 
+    def test_unexpected_failures_never_log_exception_text_or_uncontrolled_stages(self):
+        from runner import report_unexpected_failure
+        for error,kind in [(PermissionError(13,'private /secret/path'),'filesystem'),(ValueError('https://private.test/signed?token=secret'),'metadata'),(requests.exceptions.SSLError('private TLS endpoint'),'tls')]:
+            output=io.StringIO()
+            with contextlib.redirect_stdout(output):report_unexpected_failure(error,'private-stage-secret')
+            value=json.loads(output.getvalue());self.assertEqual(value['kind'],kind);self.assertEqual(value['stage'],'other')
+            self.assertNotIn('private',output.getvalue());self.assertNotIn('secret',output.getvalue())
+
+    def test_both_single_job_entrypoints_emit_safe_unexpected_failure_categories(self):
+        import runner,storage_runner
+        for module,client_name,entry in [(runner,'Client',runner.main),(storage_runner,'StorageClient',storage_runner.run_one)]:
+            client=Mock();client.headers={};client.stage='fetching';client.call.side_effect=ValueError('private endpoint body')
+            output=io.StringIO()
+            with patch.object(module,client_name,return_value=client),contextlib.redirect_stdout(output):
+                self.assertEqual(entry(),1)
+            records=[json.loads(line) for line in output.getvalue().splitlines() if line.startswith('{')]
+            self.assertEqual(records,[{'event':'archive.unexpected_failure','stage':'fetching','kind':'metadata'}]);self.assertNotIn('private',output.getvalue())
+
+
+    def test_inspection_retry_matches_the_existing_zero_timestamp_archive_format(self):
+        import archive_inspector,subprocess
+        with tempfile.TemporaryDirectory() as temporary:
+            base=Path(temporary);source=base/'Original';source.mkdir();audio=source/'audio_files';audio.mkdir()
+            (source/'card.txt').write_text('CardID:: abc12\nTitle:: Example\nAuthor:: Test\nCategory:: Stories\n')
+            (source/'tracks.txt').write_text('TrackNumber:: 1\nTitle:: Tone\nDuration:: 0.1\n')
+            subprocess.run(['ffmpeg','-v','error','-f','lavfi','-i','sine=frequency=440:duration=0.1','-y',str(audio/'01.mp3')],check=True,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
+            original=Path(create_verified_archive(source,base/'Example[abc12] (2024-01-01).7z'))
+            before=hashlib.sha256(original.read_bytes()).hexdigest()
+            def legacy_package(folder,target,**ignored):
+                folder=Path(folder)
+                for item in [*folder.rglob('*'),folder]:os.utime(item,(0,0),follow_symlinks=False)
+                return create_verified_archive(folder,target)
+            first=base/'legacy';first.mkdir()
+            with patch.object(archive_inspector,'create_verified_archive',side_effect=legacy_package):legacy=archive_inspector.sanitize_archive(original,first)
+            second=base/'retry';second.mkdir();current=archive_inspector.sanitize_archive(original,second)
+            self.assertEqual(legacy['sha256'],current['sha256']);self.assertEqual(legacy['bytes'],current['bytes'])
+            self.assertEqual(hashlib.sha256(original.read_bytes()).hexdigest(),before)
+
+
 if __name__=='__main__':unittest.main()
