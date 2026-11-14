@@ -49,6 +49,22 @@ ARCHIVE_USER_AGENT = 'ToyoArchive/1.0 (+https://ui.yackorder.org)'
 MAX_MEDIA_REDIRECTS = 10
 
 
+def report_unexpected_failure(error,stage):
+    # Fixed categories only: exception messages can contain private input URLs.
+    if isinstance(error,requests.exceptions.SSLError):kind='tls'
+    elif isinstance(error,(requests.exceptions.Timeout,subprocess.TimeoutExpired)):kind='timeout'
+    elif isinstance(error,requests.exceptions.ConnectionError):kind='connection'
+    elif isinstance(error,OSError):kind='filesystem'
+    elif isinstance(error,(ValueError,KeyError,TypeError)):kind='metadata'
+    elif isinstance(error,MemoryError):kind='resource'
+    else:kind='other'
+    allowed={'fetching','packaging','uploading','verifying','inspecting','inventory','checking','restoring'}
+    safe_stage=stage if isinstance(stage,str) and stage in allowed else 'other'
+    result={'event':'archive.unexpected_failure','stage':safe_stage,'kind':kind}
+    if kind=='filesystem':result['reason']={2:'missing',13:'permission',28:'no_space',30:'read_only'}.get(error.errno,'other')
+    print(json.dumps(result))
+
+
 def digest(path):
     with open(path, 'rb') as handle:
         return hashlib.file_digest(handle, 'sha256').hexdigest()
@@ -623,6 +639,7 @@ def main():
         return 0
     except Exception as error:
         code = error.code if isinstance(error,ArchiveError) else 'processing_failed'
+        if not isinstance(error,ArchiveError):report_unexpected_failure(error,client.stage if client else 'other')
         if code == 'job_cancelled':
             print('Job cancelled at checkpoint');return 0
         if client and 'X-Archive-Lease' in client.headers:
