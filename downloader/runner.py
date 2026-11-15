@@ -356,11 +356,17 @@ def build_archive(source, work, captures=None):
                'CreatedAt': card.get('createdAt'), 'UpdatedAt': card.get('updatedAt')}
     (folder / 'card.txt').write_text('\n'.join(f'{k}:: {redact_text(v)}' for k,v in details.items() if v is not None)+'\n', encoding='utf-8')
     lines = []; padding = len(str(len(tracks)))
+    podcast_episodes=source.get('podcast',{}).get('episodes')
+    podcast_inventory=[]
+    if podcast_episodes is not None:
+        from podcasts import episode_filenames
+        if len(podcast_episodes)!=len(tracks):raise ArchiveError('podcast_inventory_mismatch')
+        podcast_names=episode_filenames(podcast_episodes)
     formats = AUDIO_FORMATS
     for number, (track, (chapter, private)) in enumerate(zip(tracks, raw_tracks), 1):
         if private.get('type') in {'radio', 'live'}:
             raise ArchiveError('media_live_unsupported')
-        if not private.get('trackUrl'):
+        if not private.get('trackUrl') and not (podcast_episodes and podcast_episodes[number-1].get('retained')):
             raise ArchiveError('media_failed')
         track_title = str(track.get('title') or f'Track {number}')
         prefix = f'{number:0{padding}d}'
@@ -372,10 +378,14 @@ def build_archive(source, work, captures=None):
                 mime = cached[2]
             else:
                 mime = stream_file(private['trackUrl'], temporary, maximum=MAX_BUILD_FILE, allowed=set(formats))
-            audio = audio_dir / safe_filename(f'{prefix} - {track_title}', limit=160)
+            audio = audio_dir / (podcast_names[number-1] if podcast_episodes is not None else safe_filename(f'{prefix} - {track_title}', limit=160))
             audio = audio.with_name(audio.name + formats[mime]); temporary.rename(audio)
-            strip_source_tags(audio)
-            tag_audio(audio, track_title, author, str(card.get('title',title)), category, number, len(tracks), cover)
+            if not (podcast_episodes and podcast_episodes[number-1].get('retained')):
+                strip_source_tags(audio)
+                tag_audio(audio, track_title, author, str(card.get('title',title)), category, number, len(tracks), cover)
+            if podcast_episodes is not None:
+                episode=podcast_episodes[number-1]
+                podcast_inventory.append({'id':episode['id'],'title':track_title,'releasedAt':episode.get('releasedAt'),'releaseDate':episode.get('releaseDate'),'memberPath':str(audio.relative_to(folder)),'sha256':digest(audio),'bytes':audio.stat().st_size})
             if audio.stat().st_size > MAX_BUILD_FILE:
                 raise ArchiveError('resource_limit')
         mapping['audio'].append({**positions[number-1], 'status': 'verified', **file_entry(folder, audio)})
@@ -394,6 +404,8 @@ def build_archive(source, work, captures=None):
         evidence = {key:snapshot[key] for key in ['sha256','label','sourceUpdatedAt','playlistDurationSeconds','trackCount'] if key in snapshot}
         evidence['kind'] = 'immutable_historical_playlist'
         (folder / 'source-snapshot.json').write_text(json.dumps(evidence,indent=2),encoding='utf-8')
+    if podcast_episodes is not None:
+        (folder / 'podcast-episodes.json').write_text(json.dumps(podcast_inventory,indent=2),encoding='utf-8')
     write_map(folder, mapping)
     manifest = {str(p.relative_to(folder)): {'sha256':digest(p),'bytes':p.stat().st_size}
                 for p in sorted(folder.rglob('*')) if p.is_file()}
@@ -405,6 +417,8 @@ def build_archive(source, work, captures=None):
     demo = '[DEMO]' if re.search(r'Discover:\s*\d+\s+tracks?', str(metadata.get('description',''))+' '+str(card.get('title',''))) else ''
     historical = f" [Snapshot {snapshot['label']}]" if snapshot is not None else ''
     filename = f'{category} - {title}{historical}{demo}[{card_id}] ({datetime.now(timezone.utc):%Y-%m-%d}).7z'
+    if source.get('podcast'):
+        filename=filename[:-3]+f' (Volume {source["podcast"]["volume"]}).7z'
     version = source.get('playlistVersion', {}).get('number', 1)
     if version > 1:
         filename = filename[:-3] + f' (v{version}).7z'
@@ -594,6 +608,12 @@ def main():
                     token=source.pop('driveToken');folder=source.pop('driveFolder')
                     client.stage='packaging'
                     captures = None
+                    if source.get('podcast'):
+                        from podcasts import prepare_podcast
+                        retained_drive=Drive(token,refresh=lambda:client.call('drive-token')['token'])
+                        captures=prepare_podcast(source,retained_drive,Path(directory),client)
+                        if captures is None:
+                            print('Retained podcast archive inventoried');return 0
                     if source.get('sourceKind') in {'space', 'momma'}:
                         captures, hashes = capture_space_media(source, Path(directory))
                         image_urls = []
@@ -619,6 +639,9 @@ def main():
                     path=build_drive_archive(source,Path(directory),captures)
                     restored=Path(directory)/'verified';restored.mkdir()
                     verify_generated_archive(path,restored)
+                    if source.get('podcast'):
+                        from podcasts import verified_inventory
+                        client.call('podcast-inventory',verified_inventory(restored,source))
                     if client.lost.is_set():raise ArchiveError('source_unavailable')
                     client.stage='uploading'
                     drive=Drive(token,lambda value:client.call('cold-progress',value),refresh=lambda:client.call('drive-token')['token'])
