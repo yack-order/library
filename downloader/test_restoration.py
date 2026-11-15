@@ -43,7 +43,8 @@ class RestorationTests(unittest.TestCase):
         return output.getvalue()
 
     def card(self):
-        return {'cardId':'abc12','title':'Interactive','metadata':{'author':'Published Author','category':'Stories'},'content':{
+        return {'cardId':'abc12','title':'Interactive','metadata':{'author':'Published Author','category':'Stories','cover':{'imageL':'https://private.test/icon?token=credential'}},'content':{
+            'cover':{'imageL':'https://private.test/icon?token=credential'},
             'playbackType':'interactive','config':{'disableTrackNav':True,'autoadvance':'none'},
             'chapters':[{'key':key,'defaultTrackDisplay':'yoto:#'+'A'*43,
                          'tracks':[{'key':'01','title':'Same title','type':'audio',
@@ -79,7 +80,7 @@ class RestorationTests(unittest.TestCase):
                 self.assertEqual([e['chapterKey'] for e in mapping['audio']],['first','second'])
                 self.assertEqual([e['trackKey'] for e in mapping['audio']],['01','01'])
                 self.assertEqual(len({e['path'] for e in mapping['audio']}),2)
-                self.assertEqual(len(mapping['visuals']),4)
+                self.assertEqual(len(mapping['visuals']),6)
                 for entry in mapping['visuals']:
                     self.assertEqual((folder/entry['path']).read_bytes(),image)
                     self.assertEqual(entry['sha256'],hashlib.sha256(image).hexdigest())
@@ -129,6 +130,10 @@ class RestorationTests(unittest.TestCase):
             for index,entry in enumerate(mapping['audio']):
                 source=folder/entry['path'];target=source.parent/('z.mp3' if index==0 else 'a.mp3')
                 source.rename(target);entry.update(restoration.file_entry(folder,target))
+            cover=next(e for e in mapping['visuals'] if e['pointer']=='/metadata/cover/imageL')
+            old_path=cover['path'];original=folder/old_path;renamed=original.with_name('generic.bin');original.rename(renamed)
+            for entry in mapping['visuals']:
+                if entry.get('path')==old_path:entry.update(restoration.file_entry(folder,renamed))
             restoration.write_map(folder,mapping)
             files={p.relative_to(folder).as_posix():{'bytes':p.stat().st_size,'sha256':restoration.checksum(p)}
                    for p in folder.rglob('*') if p.is_file() and p.name!='manifest.json'}

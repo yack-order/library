@@ -160,11 +160,19 @@ def sanitize_archive(source,work):
     public=without_notes(scrub_json(card)) if card else {'cardId':card_id,'title':title,'metadata':{'author':author,'category':category},'content':{'chapters':[]}}
     mapping=new_map('playlist.json')
     saved_images={}
-    for image in sorted(p for p in root.rglob('*') if p.is_file() and (p.suffix.lower() in {'.png','.apng','.jpg','.jpeg','.gif','.webp'} or (root/'images') in p.parents)):
+    mapped_visuals={e['path'] for e in previous_map['visuals'] if 'path' in e} if previous_map else set()
+    for image in sorted(p for p in root.rglob('*') if p.is_file() and (p.suffix.lower() in {'.png','.apng','.jpg','.jpeg','.gif','.webp'} or (root/'images') in p.parents or p.relative_to(root).as_posix() in mapped_visuals)):
         stem=images/(f'{len(saved_images):04d}-'+safe_filename(redact_text(image.stem),limit=140))
         output,mime=preserve_image(image,stem)
         saved_images[image.relative_to(root).as_posix()]=(output,mime)
     covers=[p for p,mime in saved_images.values() if 'cover' in p.stem.lower()]
+    if previous_map:
+        for pointer in ['/metadata/cover/imageL','/content/cover/imageL']:
+            entry=next((e for e in previous_map['visuals'] if e['pointer']==pointer and 'path' in e),None)
+            if entry:
+                if entry['path'] not in saved_images:raise ArchiveError('verification_failed')
+                covers=[saved_images[entry['path']][0]]
+                break
     cover=cover_png(covers[0]) if covers else None
     used_images=set()
     if previous_map:
