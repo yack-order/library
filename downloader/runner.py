@@ -327,6 +327,7 @@ def build_archive(source, work, captures=None):
     positions = list(track_positions(card))
     saved_visuals = {}
     cover = None
+    cover_url = ((raw.get('metadata') or {}).get('cover') or {}).get('imageL')
     for pointer, reference in visual_references(raw):
         # Only map fields retained in the exported playlist, never private subtrees.
         if not retained_pointer(card, pointer):
@@ -338,7 +339,7 @@ def build_archive(source, work, captures=None):
         is_cover = pointer == '/metadata/cover/imageL'
         if url not in saved_visuals:
             cached = next((v[0] for k,v in (captures or {}).items() if k.startswith('image:') and v[1] == url), None)
-            stem = images / ('cover' if is_cover else f'visual-{len(saved_visuals):04d}')
+            stem = images / ('cover' if url == cover_url else f'visual-{len(saved_visuals):04d}')
             with archive_resource('cover' if is_cover else 'icon'):
                 saved_visuals[url] = normalized_image(url, stem, cached)
                 if sum(p.stat().st_size for p in images.iterdir()) > MAX_BUILD_EXPANDED:
