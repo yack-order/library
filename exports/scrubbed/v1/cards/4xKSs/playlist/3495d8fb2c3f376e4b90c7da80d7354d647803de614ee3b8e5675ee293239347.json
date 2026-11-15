@@ -1,0 +1,503 @@
+{
+  "props": {
+    "pageProps": {
+      "card": {
+        "cardId": "4xKSs",
+        "title": "Les 0 et les 1 ",
+        "slug": "6-système-binaire",
+        "sortkey": "les-0-et-les-1",
+        "userId": "yoto",
+        "clubAvailability": [
+          {
+            "store": "eu"
+          },
+          {
+            "store": "au"
+          },
+          {
+            "store": "ca"
+          },
+          {
+            "store": "us"
+          },
+          {
+            "store": "uk"
+          }
+        ],
+        "createdAt": "2025-01-23T15:47:19.150Z",
+        "updatedAt": "2026-03-13T15:13:26.276Z",
+        "content": {
+          "version": "1",
+          "activity": "yoto_Player",
+          "availability": "",
+          "config": {
+            "resumeTimeout": 86400,
+            "disableChapterNav": true,
+            "disableTrackNav": true
+          },
+          "playbackType": "interactive",
+          "editSettings": {
+            "interactiveContent": true,
+            "transcodeAudioUploads": true,
+            "transcodePreset": "auto"
+          },
+          "cover": {
+            "imageL": "https://card-content.yotoplay.com/yoto/pub/5DZ_MrA6ipkcd2iBvb4RhSGtG72I055cD2uugOrhr5E"
+          },
+          "chapters": [
+            {
+              "key": "101",
+              "title": "Introduction",
+              "duration": 89,
+              "fileSize": 1439616,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/NEqSbTXGIEI8KwAOQuv1cn2xboLavOMjnpDaWV_d6Nw"
+              },
+              "tracks": [
+                {
+                  "key": "101",
+                  "title": "Introduction",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 89,
+                  "fileSize": 1439616,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "102",
+              "title": "Les pixels",
+              "duration": 76,
+              "fileSize": 1225102,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/Rt0p5TxknpzbiSZ-li2p4cDEHQA8jjZfg3Qcv8q2YK0"
+              },
+              "tracks": [
+                {
+                  "key": "102",
+                  "title": "Les pixels",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 76,
+                  "fileSize": 1225102,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "103",
+                        "trackKey": "103"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "103",
+                        "trackKey": "103"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "103",
+              "title": "Le code binaire",
+              "duration": 50,
+              "fileSize": 809980,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/kxQVzjmuW6PVhcfwVMRhSW3udledczLiI0cAlY_ZIKQ"
+              },
+              "tracks": [
+                {
+                  "key": "103",
+                  "title": "Le code binaire",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 50,
+                  "fileSize": 809980,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "104",
+              "title": "Jeu 1 : déchiffrer un code sonore ",
+              "duration": 276,
+              "fileSize": 4467629,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/qeuVrmlsrAXr4o0DLHcGRhGG-W8eU-1mJeBncuf6RqI"
+              },
+              "tracks": [
+                {
+                  "key": "104",
+                  "title": "Jeu 1 : déchiffrer un code sonore ",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 276,
+                  "fileSize": 4467629,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "105",
+              "title": "Encodage binaire des chiffres",
+              "duration": 86,
+              "fileSize": 1400186,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/SzNR31PR9BEMfdyan3XRNInb5XXuAiKKmRP7z1fHKAw"
+              },
+              "tracks": [
+                {
+                  "key": "105",
+                  "title": "Encodage binaire des chiffres",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 86,
+                  "fileSize": 1400186,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "106",
+              "title": "Jeu 2: Encodage des chiffres",
+              "duration": 18,
+              "fileSize": 288181,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/xFfP7xxYq4MlOEzIzgrlA7AQyChce2nV2bJw9whEiDQ"
+              },
+              "tracks": [
+                {
+                  "key": "106",
+                  "title": "Jeu 2: Encodage des chiffres",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 18,
+                  "fileSize": 288181,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "107",
+                        "trackKey": "107"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "107",
+                        "trackKey": "107"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "107",
+              "title": "Jeu 2a question",
+              "duration": 27,
+              "fileSize": 436101,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/ZuOrU0ni1FguRKiWlEvcu2jAdYOPR-oDHFkhweNlyf4"
+              },
+              "tracks": [
+                {
+                  "key": "107",
+                  "title": "Jeu 2a question",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 27,
+                  "fileSize": 436101,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "stop"
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "108",
+                        "trackKey": "108"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "108",
+              "title": "Jeu 2a réponse",
+              "duration": 19,
+              "fileSize": 300433,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/Lp0kH7FXAcL3RJ6d31oWfqO9rkAbOAqrrQlVir4bdt4"
+              },
+              "tracks": [
+                {
+                  "key": "108",
+                  "title": "Jeu 2a réponse",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 19,
+                  "fileSize": 300433,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "109",
+              "title": "Jeu 2b question ",
+              "duration": 20,
+              "fileSize": 317699,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/WWVKz_ID9LJd4uAq2SlEhvwO9qflNTqim8kbRDeWBzs"
+              },
+              "tracks": [
+                {
+                  "key": "109",
+                  "title": "Jeu 2b question ",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 20,
+                  "fileSize": 317699,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "stop"
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "110",
+                        "trackKey": "110"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "110",
+              "title": "Jeu 2b réponse",
+              "duration": 15,
+              "fileSize": 236726,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/rMTK7rXGlPH2XBSzAPdLB63uSJvcWEMaQnhT2CmYiP8"
+              },
+              "tracks": [
+                {
+                  "key": "110",
+                  "title": "Jeu 2b réponse",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 15,
+                  "fileSize": 236726,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "111",
+              "title": "Jeu 2c question",
+              "duration": 22,
+              "fileSize": 363250,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/c55HXDtR85f1DFi0TEyCDlWhhs3d_Rg1CqNYvnZq7Fo"
+              },
+              "tracks": [
+                {
+                  "key": "111",
+                  "title": "Jeu 2c question",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 22,
+                  "fileSize": 363250,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "stop"
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "112",
+                        "trackKey": "112"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "112",
+              "title": "Jeu 2c réponse",
+              "duration": 14,
+              "fileSize": 226728,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/F0siHJEyE47o1eaIqgKMRXlSpOKZefar2mgIowl3Qsg"
+              },
+              "tracks": [
+                {
+                  "key": "112",
+                  "title": "Jeu 2c réponse",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 14,
+                  "fileSize": 226728,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "113",
+              "title": "Bravo ! ",
+              "duration": 79,
+              "fileSize": 1280455,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/jZ2ghHIxsMwPgg5-8qqdaqYrXW88Am8Ydp_ly7l40HU"
+              },
+              "tracks": [
+                {
+                  "key": "113",
+                  "title": "Bravo ! ",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 79,
+                  "fileSize": 1280455,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {}
+                }
+              ]
+            }
+          ]
+        },
+        "metadata": {
+          "category": "activities",
+          "minAge": 4,
+          "maxAge": 10,
+          "media": {
+            "duration": 791,
+            "fileSize": 12792086
+          },
+          "author": "Yoto",
+          "description": "Sixième super pouvoir du codage : le langage binaire. Les ordinateurs ne lisent pas les mots ou les images comme nous, mais ils utilisent un langage spécial composé uniquement de 0 et de 1.\n\nTout – les images, les sons, les chiffres – peut être codé en binaire. Binaire veut dire « composé de deux éléments », et c’est ce code secret qui permet aux machines de tout comprendre.\n\nDans cette carte, les enfants vont s’amuser à :\nDécoder un code sonore pour comprendre comment des sons peuvent être représentés en binaire.\n\nCompter des pixels à l’écran et découvrir le code binaire qui correspond, en interagissant directement avec leur lecteur Yoto.\n\nUne expérience ludique qui montre que derrière chaque ordinateur, console ou tablette, il y a toujours des 0 et des 1 qui travaillent en secret.\n",
+          "seriesorder": 6,
+          "seriestitle": "Coder est un jeu",
+          "cover": {
+            "imageL": "https://card-content.yotoplay.com/yoto/pub/5DZ_MrA6ipkcd2iBvb4RhSGtG72I055cD2uugOrhr5E"
+          },
+          "languages": [
+            "fr"
+          ],
+          "status": {
+            "name": "complete",
+            "updatedAt": "2025-10-09T14:16:56.143Z"
+          }
+        }
+      }
+    }
+  }
+}
