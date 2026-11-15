@@ -80,7 +80,10 @@ def visual_references(value, pointer='', visual=False):
     if isinstance(value, dict):
         for key, item in sorted(value.items()):
             name = key.lower()
-            scope = visual or any(word in name for word in ('image', 'icon', 'cover', 'artwork', 'thumbnail', 'picture', 'display', 'ambient'))
+            image_field = any(word in name for word in ('image', 'icon', 'cover', 'artwork', 'thumbnail', 'picture'))
+            display_field = name in {'display', 'defaulttrackdisplay', 'ambient'}
+            audio_field = any(word in name for word in ('audio', 'stream', 'playback', 'preview', 'download', 'sound', 'music', 'clip'))
+            scope = image_field or ((visual or display_field) and not audio_field)
             path = pointer + '/' + key.replace('~', '~0').replace('/', '~1')
             yield from visual_references(item, path, scope)
     elif isinstance(value, list):
