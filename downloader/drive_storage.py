@@ -140,6 +140,8 @@ class Drive:
         path=Path(path); sha=digest(path); size=path.stat().st_size
         if not 0 < size <= MAX_ARCHIVE: raise ArchiveError('resource_limit')
         resume=resume or {}
+        # Recheck policy immediately before any Drive lookup/session/write.
+        self.checkpoint({'uploadCardId':card_id,'uploadSha256':sha,'uploadBytes':size,'uploadFolder':folder})
         print(json.dumps({'event':'archive.drive_upload','bytes':size,'saved_session':bool(resume.get('uploadSession')),'same_checkpoint_checksum':resume.get('uploadSha256')==sha}))
         # Locate an acknowledged write after interruption without repeating it.
         if resume.get('uploadedFile'):
@@ -153,6 +155,7 @@ class Drive:
             if folder not in file.get('parents',[]) or (properties.get('toyoJob')!=job_id and properties.get('toyoSha256')!=sha):
                 raise ArchiveError('verification_failed')
             expected_sha=file['appProperties'].get('toyoSha256')
+            self.checkpoint({'uploadedFile':file['id'],'uploadCardId':card_id,'uploadSha256':expected_sha,'uploadBytes':size,'uploadFolder':folder})
             return self.readback(file, path.parent, card_id, variant, index, expected_sha)
         headers={'Authorization':'Bearer '+self.token}
         session=resume.get('uploadSession') if resume.get('uploadSha256')==sha else None
@@ -163,7 +166,7 @@ class Drive:
             session=self.session_url(session)
             with self.request('put',session,headers={**headers,'Content-Length':'0','Content-Range':'bytes */'+str(size)},data=b'',timeout=(10,30),allow_redirects=False) as response:
                 if response.status_code in (200,201):
-                    file_id=response.json()['id'];self.checkpoint({'uploadedFile':file_id})
+                    file_id=response.json()['id'];self.checkpoint({'uploadedFile':file_id,'uploadCardId':card_id,'uploadSha256':sha,'uploadBytes':size,'uploadFolder':folder})
                     return self.readback(self.metadata(file_id),path.parent,card_id,variant,index,sha)
                 if response.status_code==404 and saved_session and probe==0:
                     # Google expires resumable sessions. Recheck the exact original
@@ -178,6 +181,7 @@ class Drive:
                                 or properties.get('toyoSha256')!=sha or int(file.get('size',0))!=size
                                 or file.get('trashed') or file.get('capabilities',{}).get('canDownload') is not True):
                             raise ArchiveError('verification_failed')
+                        self.checkpoint({'uploadedFile':file['id'],'uploadCardId':card_id,'uploadSha256':sha,'uploadBytes':size,'uploadFolder':folder})
                         return self.readback(file,path.parent,card_id,variant,index,sha)
                     print(json.dumps({'event':'archive.drive_session_expired','completed_matches':0,'replacement_limit':1}))
                     session=None
@@ -195,7 +199,7 @@ class Drive:
                 with self.request('put',session,headers={**headers,'Content-Type':'application/x-7z-compressed','Content-Length':str(len(chunk)),'Content-Range':f'bytes {offset}-{end}/{size}'},
                                   data=chunk,timeout=(10,120),allow_redirects=False) as response:
                     if response.status_code in (200,201):
-                        file_id=response.json()['id'];self.checkpoint({'uploadedFile':file_id})
+                        file_id=response.json()['id'];self.checkpoint({'uploadedFile':file_id,'uploadCardId':card_id,'uploadSha256':sha,'uploadBytes':size,'uploadFolder':folder})
                         return self.readback(self.metadata(file_id),path.parent,card_id,variant,index,sha)
                     if response.status_code!=308:raise ArchiveError('drive_failed')
                     acknowledged=int(response.headers.get('Range','bytes=0-'+str(end)).rsplit('-',1)[1])+1

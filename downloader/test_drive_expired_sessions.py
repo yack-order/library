@@ -35,6 +35,20 @@ class ExpiredSessionTests(unittest.TestCase):
         self.assertNotIn('private',output.getvalue());self.assertEqual(self.path.read_bytes(),b'archive bytes')
         return result
 
+    def test_policy_preflight_stops_before_any_drive_operation(self):
+        self.drive.checkpoint.side_effect=ArchiveError('source_unavailable')
+        self.drive.json=Mock();self.drive.request=Mock()
+        with self.assertRaises(ArchiveError):self.upload()
+        self.drive.json.assert_not_called();self.drive.request.assert_not_called()
+        self.drive.metadata.assert_not_called()
+
+    def test_completed_acknowledgement_contains_identity_before_readback(self):
+        self.drive.json=Mock(return_value={'files':[self.file]})
+        self.assertEqual(self.upload(),{'verified':True})
+        acknowledgement=self.drive.checkpoint.call_args_list[-1].args[0]
+        self.assertEqual(acknowledgement,{'uploadedFile':'completed-file','uploadCardId':'abc12',
+            'uploadSha256':self.sha,'uploadBytes':self.path.stat().st_size,'uploadFolder':'folder'})
+
     def test_expired_session_rechecks_absence_then_uploads_once_and_reads_back(self):
         self.drive.json=Mock(side_effect=[{'files':[]},{'files':[]},{'storageQuota':{'limit':'100','usage':'0'}}])
         self.drive.request=Mock(side_effect=[response(404),response(200,headers={'Location':'https://www.googleapis.com/upload/drive/new-session'}),response(308),response(200,{'id':'completed-file'})])
