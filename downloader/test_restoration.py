@@ -267,6 +267,16 @@ class RestorationTests(unittest.TestCase):
             source.write_bytes(b'<html>not an image</html>')
             with self.assertRaises(ArchiveError):restoration.image_info(source)
 
+    def test_visual_context_does_not_capture_audio_endpoints(self):
+        card={'content':{'ambient':{'audioUrl':'https://media.test/audio.mp3',
+             'display':{'iconUrl16x16':'https://media.test/icon.gif',
+                        'audio':{'url':'https://media.test/other.mp3'},
+                        'dynamic':{'icon':'yoto:#'+'A'*43}}},
+             'trackDisplayAudioUrl':'https://media.test/track.mp3'}}
+        self.assertEqual(list(restoration.visual_references(card)),[
+            ('/content/ambient/display/dynamic/icon','yoto:#'+'A'*43),
+            ('/content/ambient/display/iconUrl16x16','https://media.test/icon.gif')])
+
     def test_unsupported_visual_reference_is_explicit(self):
         card={'content':{'chapters':[{'display':{'icon16x16':'unsupported:reference'}}]}}
         self.assertEqual(list(restoration.visual_references(card)),[('/content/chapters/0/display/icon16x16','unsupported:reference')])
