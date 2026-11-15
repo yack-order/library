@@ -36,6 +36,8 @@ from mutagen.oggopus import OggOpus
 from archive_safety import safe_filename, create_verified_archive, MAX_BUILD_EXPANDED, MAX_BUILD_FILE
 from archive_errors import ArchiveError
 from privacy import register_sensitive_values, scrub_json, redact_text
+from restoration import (visual_references, visual_url, preserve_image, cover_png,
+                         new_map, file_entry, track_positions, write_map, retained_pointer)
 
 
 AUDIO_FORMATS = {'audio/mpeg': '.mp3', 'audio/mp3': '.mp3', 'audio/aac': '.aac',
@@ -220,16 +222,14 @@ def tag_audio(path, title, author, album, category, number, total, cover):
 
 
 def normalized_image(url, path, prefetched=None):
+    # Historical function name; archive images now retain their original bytes.
     temp = path.with_suffix('.download')
-    if prefetched:
-        import shutil
-        shutil.copyfile(prefetched, temp)
-    else:
-        stream_file(url, temp, maximum=16*1024**2,
-                    allowed={'image/png', 'image/jpeg', 'image/webp', 'image/gif'})
     try:
-        with Image.open(temp) as image:
-            clean=image.convert('RGBA');clean.info.clear();clean.save(path, format='PNG')
+        if prefetched:
+            shutil.copyfile(prefetched, temp)
+        else:
+            stream_file(url, temp, maximum=16*1024**2, allowed=set(IMAGE_FORMATS.values()))
+        return preserve_image(temp, path.with_suffix(''))
     finally:
         temp.unlink(missing_ok=True)
 
@@ -242,28 +242,22 @@ def capture_space_media(source, work):
     hashes = {}
     audio = 0
     image = 0
-    # Capture every image-bearing field, not only the large cover/track icons.
-    def images(value):
-        if isinstance(value, dict):
-            for key, item in sorted(value.items()):
-                if isinstance(item, str) and key.lower() in {'imagel', 'imagem', 'images', 'image', 'icon16x16', 'icon', 'coverimage'} and item.startswith('https://'):
-                    yield item
-                elif isinstance(item, (dict, list)):
-                    yield from images(item)
-        elif isinstance(value, list):
-            for item in value:
-                yield from images(item)
-    for url in images(raw):
+    for pointer, reference in visual_references(raw):
+        url = visual_url(reference)
+        if not url:
+            continue
         key = 'image:' + str(image)
         path = work / ('source-image-' + str(image))
         try:
-            stream_file(url, path, maximum=16*1024**2, allowed={'image/png', 'image/jpeg', 'image/webp', 'image/gif'})
+            stream_file(url, path, maximum=16*1024**2, allowed=set(IMAGE_FORMATS.values()))
         except ArchiveError:
             print('Archive resource failed: image')
             raise
         hashes[key] = digest(path)
         captures[key] = (path, url, None)
         image += 1
+        if sum(v[0].stat().st_size for v in captures.values()) > MAX_BUILD_EXPANDED:
+            raise ArchiveError('resource_limit')
     for chapter in raw.get('content', {}).get('chapters', []):
         for track in chapter.get('tracks', []):
             if track.get('type') in {'radio', 'live'}:
@@ -328,14 +322,33 @@ def build_archive(source, work, captures=None):
         raise ArchiveError('source_unavailable')
     if str((raw.get('content') or {}).get('playbackType', '')).lower() in {'radio', 'live', 'stream'}:
         raise ArchiveError('media_live_unsupported')
-    cover_path = images / 'cover.png'
-    cover_url = ((raw.get('metadata') or {}).get('cover') or {}).get('imageL')
-    if cover_url:
-        cached = next((v[0] for k,v in (captures or {}).items() if k.startswith('image:') and v[1] == cover_url), None)
-        with archive_resource('cover'):
-            normalized_image(cover_url, cover_path, cached)
-    cover = cover_path.read_bytes() if cover_path.exists() else None
-    (folder / f'{title}.json').write_text(json.dumps(card, indent=2), encoding='utf-8')
+    playlist_name = 'playlist.json'
+    mapping = new_map(playlist_name)
+    positions = list(track_positions(card))
+    saved_visuals = {}
+    cover = None
+    for pointer, reference in visual_references(raw):
+        # Only map fields retained in the exported playlist, never private subtrees.
+        if not retained_pointer(card, pointer):
+            continue
+        url = visual_url(reference)
+        if not url:
+            mapping['visuals'].append({'pointer': pointer, 'status': 'unresolved'})
+            continue
+        is_cover = pointer == '/metadata/cover/imageL'
+        if url not in saved_visuals:
+            cached = next((v[0] for k,v in (captures or {}).items() if k.startswith('image:') and v[1] == url), None)
+            stem = images / ('cover' if is_cover else f'visual-{len(saved_visuals):04d}')
+            with archive_resource('cover' if is_cover else 'icon'):
+                saved_visuals[url] = normalized_image(url, stem, cached)
+                if sum(p.stat().st_size for p in images.iterdir()) > MAX_BUILD_EXPANDED:
+                    raise ArchiveError('resource_limit')
+        image_path, mime = saved_visuals[url]
+        mapping['visuals'].append({'pointer': pointer, 'status': 'verified',
+                                  'mimeType': mime, **file_entry(folder, image_path)})
+        if is_cover:
+            cover = cover_png(image_path)
+    (folder / playlist_name).write_text(json.dumps(card, indent=2), encoding='utf-8')
     details = {'Title': card.get('title'), 'Author': author, 'CardID': card_id,
                'Description': metadata.get('description'), 'Category': metadata.get('category'),
                'Languages': metadata.get('languages'), 'Version': card.get('content', {}).get('version'),
@@ -364,21 +377,13 @@ def build_archive(source, work, captures=None):
             tag_audio(audio, track_title, author, str(card.get('title',title)), category, number, len(tracks), cover)
             if audio.stat().st_size > MAX_BUILD_FILE:
                 raise ArchiveError('resource_limit')
-        display = private.get('display') or chapter.get('display') or {}
-        if display.get('icon16x16'):
-            cached_icon = next((v[0] for k,v in (captures or {}).items() if k.startswith('image:') and v[1] == display['icon16x16']), None)
-            with archive_resource('icon'):
-                normalized_image(display['icon16x16'], images / f'{prefix}.png', cached_icon)
+        mapping['audio'].append({**positions[number-1], 'status': 'verified', **file_entry(folder, audio)})
         lines.append('\n'.join(f'{k}:: {redact_text(v)}' for k,v in {
             'TrackNumber':prefix,'Title':track_title,'Duration':track.get('duration'),
             'FileSize':track.get('fileSize'),'Channels':track.get('channels'),'Type':track.get('type')}.items() if v is not None))
         if sum(p.stat().st_size for p in folder.rglob('*') if p.is_file()) > MAX_BUILD_EXPANDED:
             raise ArchiveError('media_failed')
     (folder / 'tracks.txt').write_text('\n\n'.join(lines)+'\n', encoding='utf-8')
-    if captures:
-        for key, (path, url, _) in captures.items():
-            if key.startswith('image:'):
-                normalized_image(url, images / (key.replace(':', '-') + '.png'), path)
     if source.get('supplementFolder'):
         shutil.copytree(source['supplementFolder'], folder / 'supplements')
     if source.get('playlistVersion'):
@@ -388,6 +393,7 @@ def build_archive(source, work, captures=None):
         evidence = {key:snapshot[key] for key in ['sha256','label','sourceUpdatedAt','playlistDurationSeconds','trackCount'] if key in snapshot}
         evidence['kind'] = 'immutable_historical_playlist'
         (folder / 'source-snapshot.json').write_text(json.dumps(evidence,indent=2),encoding='utf-8')
+    write_map(folder, mapping)
     manifest = {str(p.relative_to(folder)): {'sha256':digest(p),'bytes':p.stat().st_size}
                 for p in sorted(folder.rglob('*')) if p.is_file()}
     (folder / 'manifest.json').write_text(json.dumps({'version':1,'cardId':card_id,'files':manifest},indent=2),encoding='utf-8')

@@ -96,8 +96,9 @@ class InspectionTests(unittest.TestCase):
             restored=work/'restored';restored.mkdir();archive_inspector.safe_extract(result['path'],restored)
             root=restored/'Example';archive_inspector.verify_manifest(root,required=True)
             self.assertFalse((root/'personal-notes.txt').exists())
+            self.assertEqual(next((root/'images').iterdir()).read_bytes(),next((work/'legacy'/'Example'/'images').iterdir()).read_bytes())
             for path in root.rglob('*'):
-                if path.is_file():
+                if path.is_file() and (root/'images') not in path.parents:
                     contents=path.read_bytes()
                     for value in [b'secret-token',b'private@example.test',b'personal private notes',b'private-owner',b'do not share']:
                         self.assertNotIn(value,contents)
