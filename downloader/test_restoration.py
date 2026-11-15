@@ -157,6 +157,60 @@ class RestorationTests(unittest.TestCase):
             self.assertEqual([e['trackKey'] for e in mapping['audio']],['01',None])
             self.assertEqual([e['chapterIndex'] for e in mapping['audio']],[0,1])
 
+    def test_repacking_keeps_auxiliary_evidence_and_rebinds_episode_inventory(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);_,folder,_,_=self.build(root)
+            mapping=restoration.verify_map(folder)
+            rows=[]
+            for index,entry in enumerate(mapping['audio']):
+                old=folder/entry['path'];renamed=old.with_name(f'legacy-{index}.mp3');old.rename(renamed)
+                entry.update(restoration.file_entry(folder,renamed))
+                rows.append({'id':('a' if index==0 else 'b')*64,'title':'Episode',
+                             'releaseDate':'2026-11-13','releasedAt':'2026-11-13T12:00:00Z',
+                             'memberPath':entry['path'],'sha256':entry['sha256'],'bytes':entry['bytes'],
+                             'privateUrl':'https://private.test/credential'})
+            restoration.write_map(folder,mapping)
+            (folder/'podcast-episodes.json').write_text(json.dumps(list(reversed(rows))))
+            version={'id':'version-1','number':1,'fingerprint':'f'*64}
+            snapshot={'sha256':'a'*64,'label':'2026-11-13','trackCount':2,'kind':'immutable_historical_playlist'}
+            (folder/'playlist-version.json').write_text(json.dumps({**version,'privateUrl':'https://private.test/credential'}))
+            (folder/'source-snapshot.json').write_text(json.dumps(snapshot))
+            (folder/'auxiliary-array.json').write_text('[1,2]')
+            files={p.relative_to(folder).as_posix():{'bytes':p.stat().st_size,'sha256':restoration.checksum(p)}
+                   for p in folder.rglob('*') if p.is_file() and p.name!='manifest.json'}
+            (folder/'manifest.json').write_text(json.dumps({'files':files}))
+            source=root/'evidence[abc12].7z'
+            with py7zr.SevenZipFile(source,'w') as handle:handle.writeall(folder,'Interactive')
+            work=root/'import';work.mkdir();result=archive_inspector.sanitize_archive(source,work)
+            unpacked=root/'evidence-result';unpacked.mkdir();archive_inspector.safe_extract(result['path'],unpacked)
+            saved=unpacked/'Interactive';archive_inspector.verify_manifest(saved,required=True)
+            again=restoration.verify_map(saved)
+            inventory=json.loads((saved/'podcast-episodes.json').read_text())
+            self.assertEqual([e['id'] for e in inventory],['a'*64,'b'*64])
+            for episode,audio in zip(inventory,again['audio']):
+                self.assertEqual(episode['memberPath'],audio['path'])
+                self.assertEqual(episode['sha256'],audio['sha256'])
+                self.assertEqual(episode['bytes'],audio['bytes'])
+                self.assertNotIn('privateUrl',episode)
+            self.assertEqual(json.loads((saved/'playlist-version.json').read_text()),version)
+            self.assertEqual(json.loads((saved/'source-snapshot.json').read_text()),snapshot)
+
+            for failure in ['path','hash','duplicate','coverage']:
+                with self.subTest(inventory=failure):
+                    bad=copy.deepcopy(rows)
+                    if failure=='path':bad[0]['memberPath']='../escape.mp3'
+                    if failure=='hash':bad[0]['sha256']='0'*64
+                    if failure=='duplicate':bad[1]['id']=bad[0]['id']
+                    if failure=='coverage':bad=bad[:1]
+                    (folder/'podcast-episodes.json').write_text(json.dumps(bad))
+                    files={p.relative_to(folder).as_posix():{'bytes':p.stat().st_size,'sha256':restoration.checksum(p)}
+                           for p in folder.rglob('*') if p.is_file() and p.name!='manifest.json'}
+                    (folder/'manifest.json').write_text(json.dumps({'files':files}))
+                    damaged=root/f'bad-{failure}[abc12].7z'
+                    with py7zr.SevenZipFile(damaged,'w') as handle:handle.writeall(folder,'Interactive')
+                    invalid=root/f'invalid-{failure}';invalid.mkdir()
+                    with self.assertRaises(ArchiveError):archive_inspector.sanitize_archive(damaged,invalid)
+
     def test_mapping_tampering_is_rejected(self):
         for failure in ('unsafe','missing','hash','bytes','pointer','position','manifest','duplicate'):
             with self.subTest(failure=failure),tempfile.TemporaryDirectory() as tmp:

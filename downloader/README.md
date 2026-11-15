@@ -143,7 +143,10 @@ maps are checked against the playlist and file manifest and retain their file
 associations across renaming. Legacy positional audio associations are explicitly
 `legacy_order_unverified`; unknown visual associations are `unresolved` (pointer
 without a file) or `unmapped` (file without a pointer). Missing keys remain null;
-indices disambiguate duplicate keys. Older archives without maps remain readable.
+indices disambiguate duplicate keys. Older archives without maps remain readable. Repacking retains version/snapshot
+evidence and validates podcast episode inventories, rebinding their member paths
+and checksums to the rewritten audio files. Non-card JSON arrays are not mistaken
+for a second playlist.
 
 All saved image files retain their original bytes, including GIF/APNG/WebP frames,
 frame timing, loop/disposal behavior and embedded metadata. Extensions come from
