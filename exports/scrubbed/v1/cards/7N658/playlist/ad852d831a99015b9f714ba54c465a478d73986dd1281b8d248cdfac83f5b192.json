@@ -1,0 +1,743 @@
+{
+  "props": {
+    "pageProps": {
+      "card": {
+        "cardId": "7N658",
+        "title": "Un mot pour tout faire ! ",
+        "slug": "5-fonctions",
+        "sortkey": "un-mot-pour-tout-faire",
+        "userId": "yoto",
+        "clubAvailability": [
+          {
+            "store": "uk"
+          },
+          {
+            "store": "us"
+          },
+          {
+            "store": "ca"
+          },
+          {
+            "store": "eu"
+          },
+          {
+            "store": "au"
+          }
+        ],
+        "createdAt": "2025-01-23T15:47:02.524Z",
+        "updatedAt": "2026-03-13T15:07:44.644Z",
+        "content": {
+          "version": "1",
+          "activity": "yoto_Player",
+          "availability": "",
+          "config": {
+            "resumeTimeout": 86400,
+            "disableChapterNav": true,
+            "disableTrackNav": true
+          },
+          "playbackType": "interactive",
+          "editSettings": {
+            "interactiveContent": true,
+            "transcodeAudioUploads": true,
+            "transcodePreset": "auto"
+          },
+          "cover": {
+            "imageL": "https://card-content.yotoplay.com/yoto/pub/aCyUVsBMuTFyl8OzWMSnjwSPfRK-rZpAIyAKp2e64do"
+          },
+          "chapters": [
+            {
+              "key": "101",
+              "title": "Introduction",
+              "duration": 114,
+              "fileSize": 1840913,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/rMTK7rXGlPH2XBSzAPdLB63uSJvcWEMaQnhT2CmYiP8"
+              },
+              "tracks": [
+                {
+                  "key": "101",
+                  "title": "Introduction",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 114,
+                  "fileSize": 1840913,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "102",
+              "title": "Expliquer les fonctions",
+              "duration": 138,
+              "fileSize": 2229794,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/u0Bfb_5AIgZsc3k9GD9Mp-hXi-Txbl_AmfOr-o3PeYo"
+              },
+              "tracks": [
+                {
+                  "key": "102",
+                  "title": "Expliquer les fonctions",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 138,
+                  "fileSize": 2229794,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "103",
+              "title": "Jeu 1 : inventer des fonctions - question A",
+              "duration": 100,
+              "fileSize": 1610925,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/Umk_WHzOyiM6wmbUG-kEvaBzTdNdxKcyoU5FzIFp67o"
+              },
+              "tracks": [
+                {
+                  "key": "103",
+                  "title": "Jeu 1 : inventer des fonctions - question A",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 100,
+                  "fileSize": 1610925,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "stop"
+                    },
+                    "onLhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "104",
+                        "trackKey": "104"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "105",
+                        "trackKey": "105"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "104",
+              "title": "Bonne réponse",
+              "duration": 19,
+              "fileSize": 305448,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/PV8gyKUOjemRv5pP761yTCeVM026i6VLwQSxe0Dgi0g"
+              },
+              "tracks": [
+                {
+                  "key": "104",
+                  "title": "Bonne réponse",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 19,
+                  "fileSize": 305448,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "106",
+                        "trackKey": "106"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "106",
+                        "trackKey": "106"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "105",
+              "title": "Mauvaise réponse",
+              "duration": 23,
+              "fileSize": 370370,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/ed4Q_X5eLrIrDyNcW4pcCuNRoFpteYcqViIT4afx_YQ"
+              },
+              "tracks": [
+                {
+                  "key": "105",
+                  "title": "Mauvaise réponse",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 23,
+                  "fileSize": 370370,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "106",
+                        "trackKey": "106"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "106",
+                        "trackKey": "106"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "106",
+              "title": "Jeu 1 : inventer des fonctions - question B",
+              "duration": 44,
+              "fileSize": 714817,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/fIq4UA6KUaj3X8HgX_bIYeFoPiSTNhO4JWGrO9pba94"
+              },
+              "tracks": [
+                {
+                  "key": "106",
+                  "title": "Jeu 1 : inventer des fonctions - question B",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 44,
+                  "fileSize": 714817,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "stop"
+                    },
+                    "onLhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "108",
+                        "trackKey": "108"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "107",
+                        "trackKey": "107"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "107",
+              "title": "Bonne réponse",
+              "duration": 20,
+              "fileSize": 323060,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/PV8gyKUOjemRv5pP761yTCeVM026i6VLwQSxe0Dgi0g"
+              },
+              "tracks": [
+                {
+                  "key": "107",
+                  "title": "Bonne réponse",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 20,
+                  "fileSize": 323060,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "109",
+                        "trackKey": "109"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "109",
+                        "trackKey": "109"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "108",
+              "title": "Mauvaise réponse",
+              "duration": 38,
+              "fileSize": 622825,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/ed4Q_X5eLrIrDyNcW4pcCuNRoFpteYcqViIT4afx_YQ"
+              },
+              "tracks": [
+                {
+                  "key": "108",
+                  "title": "Mauvaise réponse",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 38,
+                  "fileSize": 622825,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "109",
+                        "trackKey": "109"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "109",
+                        "trackKey": "109"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "109",
+              "title": "Jeu 1 : inventer des fonctions - question C",
+              "duration": 75,
+              "fileSize": 1222068,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/fIq4UA6KUaj3X8HgX_bIYeFoPiSTNhO4JWGrO9pba94"
+              },
+              "tracks": [
+                {
+                  "key": "109",
+                  "title": "Jeu 1 : inventer des fonctions - question C",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 75,
+                  "fileSize": 1222068,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "stop"
+                    },
+                    "onLhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "110",
+                        "trackKey": "110"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "111",
+                        "trackKey": "111"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "110",
+              "title": "Bonne réponse",
+              "duration": 55,
+              "fileSize": 892889,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/hOHeElrGQitX3v6bbhH_eMKvs7vH6Qw2BO-jnV79MdE"
+              },
+              "tracks": [
+                {
+                  "key": "110",
+                  "title": "Bonne réponse",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 55,
+                  "fileSize": 892889,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "112",
+                        "trackKey": "112"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "111",
+              "title": "Mauvaise réponse",
+              "duration": 61,
+              "fileSize": 990260,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/ed4Q_X5eLrIrDyNcW4pcCuNRoFpteYcqViIT4afx_YQ"
+              },
+              "tracks": [
+                {
+                  "key": "111",
+                  "title": "Mauvaise réponse",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 61,
+                  "fileSize": 990260,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "112",
+                        "trackKey": "112"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "112",
+              "title": "Jeu 2 : Quiz question 1",
+              "duration": 109,
+              "fileSize": 1766700,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/p_yLNC3TPtuo8MNv5WSG0q5aqTPD-WRRRWYkPB0cbjA"
+              },
+              "tracks": [
+                {
+                  "key": "112",
+                  "title": "Jeu 2 : Quiz question 1",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 109,
+                  "fileSize": 1766700,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "stop"
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "113",
+                        "trackKey": "113"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "113",
+              "title": "Jeu 2: Quiz réponse 1",
+              "duration": 38,
+              "fileSize": 623500,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/3lQgPVsf6BHNkPYRq6t4UiVoGCRq0BwXkZJ9QM54I6I"
+              },
+              "tracks": [
+                {
+                  "key": "113",
+                  "title": "Jeu 2: Quiz réponse 1",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 38,
+                  "fileSize": 623500,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "114",
+              "title": "Jeu 2 : Quiz question 2",
+              "duration": 80,
+              "fileSize": 1302191,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/V4xQ0BF46wzmxmUhZ2yYfaWTDNIV_EySao7wUJU5BdE"
+              },
+              "tracks": [
+                {
+                  "key": "114",
+                  "title": "Jeu 2 : Quiz question 2",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 80,
+                  "fileSize": 1302191,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "stop"
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "115",
+                        "trackKey": "115"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "115",
+              "title": "Jeu 2 : Quiz réponse 2",
+              "duration": 24,
+              "fileSize": 382473,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/V4xQ0BF46wzmxmUhZ2yYfaWTDNIV_EySao7wUJU5BdE"
+              },
+              "tracks": [
+                {
+                  "key": "115",
+                  "title": "Jeu 2 : Quiz réponse 2",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 24,
+                  "fileSize": 382473,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "116",
+              "title": "Jeu 2 : Quiz question 3",
+              "duration": 62,
+              "fileSize": 1001844,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/4SRazIPYx3wmzAFi76i057juXT2mR6KX00JsSdXDEJ8"
+              },
+              "tracks": [
+                {
+                  "key": "116",
+                  "title": "Jeu 2 : Quiz question 3",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 62,
+                  "fileSize": 1001844,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "stop"
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "117",
+                        "trackKey": "117"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "117",
+              "title": " Jeu 2 : Quiz réponse 3",
+              "duration": 51,
+              "fileSize": 830776,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/Jw-_0BDIy7VJh-1pZCzoU-hJyXpAYV6bfZzqif9TP7E"
+              },
+              "tracks": [
+                {
+                  "key": "117",
+                  "title": " Jeu 2 : Quiz réponse 3",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 51,
+                  "fileSize": 830776,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "118",
+              "title": "Bravo !",
+              "duration": 62,
+              "fileSize": 998903,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/jZ2ghHIxsMwPgg5-8qqdaqYrXW88Am8Ydp_ly7l40HU"
+              },
+              "tracks": [
+                {
+                  "key": "118",
+                  "title": "Bravo !",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 62,
+                  "fileSize": 998903,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {}
+                }
+              ]
+            }
+          ]
+        },
+        "metadata": {
+          "category": "activities",
+          "minAge": 4,
+          "maxAge": 10,
+          "media": {
+            "duration": 1113,
+            "fileSize": 18029756
+          },
+          "author": "Yoto",
+          "description": "Cinquième super pouvoir du codage : les fonctions. Elles permettent de regrouper plusieurs instructions sous un seul nom, qu’on peut réutiliser à volonté.\n\nLes enfants découvrent que dans la vie, ils utilisent déjà ce principe. Quand tu dis « je m’habille », ça veut dire : mettre une culotte, des chaussettes, un tee-shirt… pas besoin de tout détailler à chaque fois ! Les pros du code font pareil pour simplifier leurs programmes.\n\nDans cette carte, les enfants s’amusent à :\nCréer leur première fonction en aidant Hiha à préparer des crêpes pour une grande fête de carnaval. Toutes les étapes de la recette sont rassemblées sous une seule commande : FaireCrêpes() \n\nDeviner quelle fonction correspond à une liste d’actions données, comme un petit jeu de devinettes pour apprendre à simplifier et organiser les instructions.\n\nUne activité qui montre que coder, c’est aussi savoir simplifier les choses pour aller plus vite.\n",
+          "seriesorder": 5,
+          "seriestitle": "Coder est un jeu",
+          "cover": {
+            "imageL": "https://card-content.yotoplay.com/yoto/pub/aCyUVsBMuTFyl8OzWMSnjwSPfRK-rZpAIyAKp2e64do"
+          },
+          "languages": [
+            "fr"
+          ],
+          "status": {
+            "name": "complete",
+            "updatedAt": "2025-10-09T13:52:34.851Z"
+          }
+        }
+      }
+    }
+  }
+}
