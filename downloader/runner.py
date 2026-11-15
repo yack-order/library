@@ -111,6 +111,8 @@ def stream_file(url, destination, *, maximum=1024**3, allowed=None, attempts=3, 
                         if response.status_code != 200:
                             raise ArchiveError('media_failed')
                         mime = response.headers.get('Content-Type', '').split(';')[0].lower()
+                        if mime == 'image/apng':
+                            mime = 'image/png'  # APNG uses the PNG container; retain its bytes.
                         generic_audio = mime in {'application/octet-stream', 'binary/octet-stream'} and allowed and set(allowed) <= set(AUDIO_FORMATS)
                         generic_image = mime in {'application/octet-stream', 'binary/octet-stream'} and allowed and set(allowed) <= set(IMAGE_FORMATS.values())
                         if allowed and mime not in allowed and not generic_audio and not generic_image:
