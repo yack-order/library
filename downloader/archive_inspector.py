@@ -15,7 +15,7 @@ from runner import ArchiveError, digest, strip_source_tags, tag_audio
 from archive_safety import create_verified_archive, safe_filename, MAX_BUILD_EXPANDED, MAX_BUILD_FILE
 from privacy import redact_text, register_sensitive_values, scrub_json
 from restoration import (MAP_NAME, AUDIO_SUFFIXES, verify_map, new_map, write_map, file_entry,
-                         track_positions, visual_references, preserve_image, cover_png, retained_pointer)
+                         track_positions, visual_references, preserve_image, cover_png, retained_pointer, mapped_path)
 
 MAX_EXPANDED=8*1024**3
 MAX_MEMBERS=10000
@@ -120,6 +120,7 @@ def sanitize_archive(source,work):
         if path.name in {'manifest.json',MAP_NAME}:continue
         if path.stat().st_size>4*1024**2:raise ArchiveError('resource_limit')
         decoded=json.loads(path.read_text(encoding='utf-8-sig'))
+        if not isinstance(decoded,dict):continue
         candidate=decoded.get('card') or decoded.get('props',{}).get('pageProps',{}).get('card') or (decoded if decoded.get('cardId') else None)
         if candidate:
             if card:raise ArchiveError('identity_conflict')
@@ -193,6 +194,18 @@ def sanitize_archive(source,work):
         if name not in used_images:
             mapping['visuals'].append({'pointer':None,'status':'unmapped','mimeType':mime,**file_entry(folder,output)})
     positions=list(track_positions(public))
+    inventory_path=root/'podcast-episodes.json'
+    source_inventory=None;repacked_inventory=[]
+    if inventory_path.is_file() and inventory_path!=raw_source:
+        rows=json.loads(inventory_path.read_text(encoding='utf-8-sig'))
+        if not isinstance(rows,list):raise ArchiveError('verification_failed')
+        source_inventory={};episode_ids=set()
+        for row in rows:
+            if not isinstance(row,dict) or not re.fullmatch(r'[a-f0-9]{64}',str(row.get('id',''))):raise ArchiveError('verification_failed')
+            name=row.get('memberPath');member=mapped_path(root,name)
+            if row['id'] in episode_ids or name in source_inventory or member.stat().st_size!=row.get('bytes') or digest(member)!=row.get('sha256'):raise ArchiveError('verification_failed')
+            episode_ids.add(row['id']);source_inventory[name]=row
+        if set(source_inventory)!={p.relative_to(root).as_posix() for p in audio}:raise ArchiveError('verification_failed')
     lines=[];padding=len(str(len(audio)));duration=0
     for number,path in enumerate(audio,1):
         info=json.loads(subprocess.check_output(['ffprobe','-v','error','-show_entries','format=duration','-of','json',str(path)],timeout=30,stderr=subprocess.DEVNULL))
@@ -205,7 +218,12 @@ def sanitize_archive(source,work):
         strip_source_tags(output);tag_audio(output,track_title,author,title,category,number,len(audio),cover)
         position=positions[number-1] if positions else {'chapterIndex':None,'trackIndex':None,'chapterKey':None,'trackKey':None}
         status=previous_map['audio'][number-1]['status'] if previous_map and all('path' in e for e in previous_map['audio']) else 'legacy_order_unverified'
-        mapping['audio'].append({**position,'status':status,**file_entry(folder,output)})
+        entry=file_entry(folder,output)
+        mapping['audio'].append({**position,'status':status,**entry})
+        if source_inventory is not None:
+            original=source_inventory[path.relative_to(root).as_posix()]
+            row=without_notes(scrub_json({k:original[k] for k in ['id','title','releasedAt','releaseDate'] if k in original}))
+            repacked_inventory.append({**row,'memberPath':entry['path'],'sha256':entry['sha256'],'bytes':entry['bytes']})
         lines.append(f'TrackNumber:: {number:0{padding}d}\nTitle:: {track_title}\nDuration:: {info["format"]["duration"]}')
     (folder/'tracks.txt').write_text('\n\n'.join(lines)+'\n',encoding='utf-8')
     allowed={'Title':title,'Author':author,'CardID':card_id,'Category':category}
@@ -213,6 +231,18 @@ def sanitize_archive(source,work):
         if key in fields:allowed[key]=redact_text(fields[key])
     (folder/'card.txt').write_text('\n'.join(f'{key}:: {value}' for key,value in allowed.items())+'\n',encoding='utf-8')
     (folder/'playlist.json').write_text(json.dumps(public,indent=2),encoding='utf-8')
+    if source_inventory is not None:
+        (folder/'podcast-episodes.json').write_text(json.dumps(repacked_inventory,indent=2),encoding='utf-8')
+    for name,keys in {
+        'playlist-version.json':['id','number','fingerprint'],
+        'source-snapshot.json':['sha256','label','sourceUpdatedAt','playlistDurationSeconds','trackCount','kind']
+    }.items():
+        evidence=root/name
+        if evidence.is_file() and evidence!=raw_source:
+            decoded=json.loads(evidence.read_text(encoding='utf-8-sig'))
+            if not isinstance(decoded,dict):raise ArchiveError('verification_failed')
+            retained=without_notes(scrub_json({k:decoded[k] for k in keys if k in decoded}))
+            (folder/name).write_text(json.dumps(retained,indent=2),encoding='utf-8')
     write_map(folder,mapping)
     files={str(p.relative_to(folder)):{'sha256':digest(p),'bytes':p.stat().st_size} for p in sorted(folder.rglob('*')) if p.is_file()}
     (folder/'manifest.json').write_text(json.dumps({'version':1,'cardId':card_id,'files':files},indent=2),encoding='utf-8')
