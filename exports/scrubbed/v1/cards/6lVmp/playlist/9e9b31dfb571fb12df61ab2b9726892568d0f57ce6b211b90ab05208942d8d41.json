@@ -1,0 +1,326 @@
+{
+  "props": {
+    "pageProps": {
+      "card": {
+        "cardId": "6lVmp",
+        "title": "Mission réussie ",
+        "slug": "8-séquences",
+        "sortkey": "mission-reussie",
+        "userId": "yoto",
+        "clubAvailability": [
+          {
+            "store": "au"
+          },
+          {
+            "store": "eu"
+          },
+          {
+            "store": "us"
+          },
+          {
+            "store": "ca"
+          },
+          {
+            "store": "uk"
+          }
+        ],
+        "createdAt": "2025-01-23T15:47:51.396Z",
+        "updatedAt": "2026-03-13T15:16:49.551Z",
+        "content": {
+          "version": "1",
+          "activity": "yoto_Player",
+          "availability": "",
+          "config": {
+            "resumeTimeout": 86400,
+            "disableChapterNav": true,
+            "disableTrackNav": true
+          },
+          "playbackType": "interactive",
+          "editSettings": {
+            "interactiveContent": true,
+            "transcodeAudioUploads": true,
+            "transcodePreset": "auto"
+          },
+          "cover": {
+            "imageL": "https://card-content.yotoplay.com/yoto/pub/oBIP5LwCz8d5rb5q_a9ufcnPiIex4ypS4rAi1-gwni8"
+          },
+          "chapters": [
+            {
+              "key": "101",
+              "title": "Introduction",
+              "duration": 115,
+              "fileSize": 1857831,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/l_lgrtn81ChnLFHA0m5lYvqXKC-Jt4R0z4P0aiLKYUg"
+              },
+              "tracks": [
+                {
+                  "key": "101",
+                  "title": "Introduction",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 115,
+                  "fileSize": 1857831,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "102",
+              "title": "Variable et valeur",
+              "duration": 146,
+              "fileSize": 2369984,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/u0Bfb_5AIgZsc3k9GD9Mp-hXi-Txbl_AmfOr-o3PeYo"
+              },
+              "tracks": [
+                {
+                  "key": "102",
+                  "title": "Variable et valeur",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 146,
+                  "fileSize": 2369984,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "103",
+              "title": "Jeu garniture",
+              "duration": 212,
+              "fileSize": 3434942,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/Pe-k6ieV7LRXAmw2X_bfVtQQhwdDhQhccwm8oUTtl0I"
+              },
+              "tracks": [
+                {
+                  "key": "103",
+                  "title": "Jeu garniture",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 212,
+                  "fileSize": 3434942,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "104",
+              "title": "Jeu : super pouvoirs",
+              "duration": 119,
+              "fileSize": 1926820,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/fIq4UA6KUaj3X8HgX_bIYeFoPiSTNhO4JWGrO9pba94"
+              },
+              "tracks": [
+                {
+                  "key": "104",
+                  "title": "Jeu : super pouvoirs",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 119,
+                  "fileSize": 1926820,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "stop"
+                    },
+                    "onLhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "106",
+                        "trackKey": "106"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "105",
+                        "trackKey": "105"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "105",
+              "title": "Bonne réponse",
+              "duration": 34,
+              "fileSize": 548233,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/PV8gyKUOjemRv5pP761yTCeVM026i6VLwQSxe0Dgi0g"
+              },
+              "tracks": [
+                {
+                  "key": "105",
+                  "title": "Bonne réponse",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 34,
+                  "fileSize": 548233,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "107",
+                        "trackKey": "107"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "106",
+              "title": "Bonne réponse",
+              "duration": 31,
+              "fileSize": 506793,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/PV8gyKUOjemRv5pP761yTCeVM026i6VLwQSxe0Dgi0g"
+              },
+              "tracks": [
+                {
+                  "key": "106",
+                  "title": "Bonne réponse",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 31,
+                  "fileSize": 506793,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "107",
+              "title": "Bravo !",
+              "duration": 107,
+              "fileSize": 1727314,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/KqAEOAzPlKezaFEdfO3eXwT4ZO9T39Yf9xdCg1zIkfU"
+              },
+              "tracks": [
+                {
+                  "key": "107",
+                  "title": "Bravo !",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 107,
+                  "fileSize": 1727314,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "108",
+              "title": "Crédits",
+              "duration": 28,
+              "fileSize": 457597,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/gMRM6AurpI6ffdAUAtBsqnP-OESQQc8FZTAL9K4ScSk"
+              },
+              "tracks": [
+                {
+                  "key": "108",
+                  "title": "Crédits",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 28,
+                  "fileSize": 457597,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {}
+                }
+              ]
+            }
+          ]
+        },
+        "metadata": {
+          "category": "activities",
+          "minAge": 4,
+          "maxAge": 10,
+          "media": {
+            "duration": 792,
+            "fileSize": 12829514
+          },
+          "author": "Yoto",
+          "description": "Dernier super pouvoir du codage : les variables. Bravo, tu es arrivé au bout de la série !\n\nLes variables, ce sont des petites boîtes magiques qui permettent aux ordinateurs de retenir une information pour la réutiliser plus tard. Par exemple, ton prénom ou le score de ton jeu vidéo.\n\nDans cette carte, les enfants vont comprendre la notion de variables de façon concrète :\nAvec Hiha et la super crêpière automatique, les enfants apprennent à ranger et modifier des informations comme les ingrédients d’une recette pour changer les valeurs d’une variable QuantitéOeufs = 1\n\nEn programmant un robot avec un super pouvoir : les enfants choisissent eux-mêmes la valeur de la variable « superpouvoir » et adaptent les missions du robot en fonction.\n\nUne manière ludique de comprendre que les variables sont la mémoire des programmes, essentielles pour que les ordinateurs puissent fonctionner et interagir avec nous.\n",
+          "seriesorder": 8,
+          "seriestitle": "Coder est un jeu",
+          "cover": {
+            "imageL": "https://card-content.yotoplay.com/yoto/pub/oBIP5LwCz8d5rb5q_a9ufcnPiIex4ypS4rAi1-gwni8"
+          },
+          "languages": [
+            "fr"
+          ],
+          "status": {
+            "name": "complete",
+            "updatedAt": "2025-10-09T15:12:06.908Z"
+          }
+        }
+      }
+    }
+  }
+}
