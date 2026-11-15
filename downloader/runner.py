@@ -455,18 +455,31 @@ class Client:
         self.lost = threading.Event()
 
     def call(self, action, data=None):
+        heartbeat_failures = 0
         while True:
-            with requests.post(f'{self.base}/{action}', json=data or {}, headers=self.headers,
-                               timeout=(10,120), allow_redirects=False) as response:
-                if response.status_code == 423:
-                    # The server renews the lease while this checkpoint waits.
-                    pass
-                elif response.status_code == 410:
-                    raise ArchiveError('job_cancelled')
-                elif response.status_code != 200:
-                    raise ArchiveError('reconnect_required' if action=='source' and response.status_code==409 else 'source_unavailable')
-                else:
-                    return response.json()
+            try:
+                with requests.post(f'{self.base}/{action}', json=data or {}, headers=self.headers,
+                                   timeout=(10,30) if action=='heartbeat' else (10,120), allow_redirects=False) as response:
+                    if response.status_code == 423:
+                        # The server renews the lease while this checkpoint waits.
+                        pass
+                    elif response.status_code == 410:
+                        raise ArchiveError('job_cancelled')
+                    elif action=='heartbeat' and (response.status_code==429 or 500<=response.status_code<600):
+                        raise requests.HTTPError('heartbeat_transient')
+                    elif response.status_code != 200:
+                        raise ArchiveError('reconnect_required' if action=='source' and response.status_code==409 else 'source_unavailable')
+                    else:
+                        return response.json()
+            except (requests.Timeout, requests.ConnectionError, requests.HTTPError):
+                if action!='heartbeat':
+                    raise
+                heartbeat_failures += 1
+                # Retry transient failures well inside the ten-minute server lease.
+                # A rejected/replaced lease (4xx other than 423/429) still stops immediately.
+                if heartbeat_failures>=3 or self.stopped.wait(10*heartbeat_failures):
+                    raise ArchiveError('source_unavailable')
+                continue
             if self.stopped.wait(10):
                 raise ArchiveError('source_unavailable')
 

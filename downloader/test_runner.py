@@ -504,3 +504,61 @@ class ArchiveHttpClientTests(unittest.TestCase):
                 self.assertEqual(call.kwargs['headers']['Accept-Encoding'],'identity')
                 self.assertNotIn('Authorization',call.kwargs['headers'])
                 self.assertFalse(call.kwargs['allow_redirects'])
+
+
+class HeartbeatRetryTests(unittest.TestCase):
+    def client(self):
+        client=object.__new__(runner.Client);client.base='https://ui.yackorder.org/synthetic';client.headers={}
+        client.stopped=Mock();client.stopped.wait.return_value=False;client.lost=runner.threading.Event()
+        client.stage='packaging';return client
+
+    def response(self,status):
+        response=Mock(status_code=status);response.json.return_value={'ok':True}
+        response.__enter__=Mock(return_value=response);response.__exit__=Mock(return_value=False)
+        return response
+
+    def test_transient_server_failure_does_not_end_heartbeats(self):
+        client=self.client();client.stopped.wait.side_effect=[False,False,True]
+        with patch.object(runner.requests,'post',side_effect=[self.response(503),self.response(200)]) as post:
+            client.heartbeats()
+        self.assertFalse(client.lost.is_set());self.assertEqual(post.call_count,2)
+        self.assertEqual([call.args[0] for call in client.stopped.wait.call_args_list],[60,10,60])
+        self.assertEqual(post.call_args.kwargs['timeout'],(10,30))
+
+    def test_timeout_and_rate_limit_can_recover_with_bounded_backoff(self):
+        client=self.client()
+        with patch.object(runner.requests,'post',side_effect=[runner.requests.Timeout(),self.response(429),self.response(200)]) as post:
+            self.assertEqual(client.call('heartbeat'),{'ok':True})
+        self.assertEqual(post.call_count,3);self.assertEqual([call.args[0] for call in client.stopped.wait.call_args_list],[10,20])
+
+    def test_transient_errors_exhaust_after_three_requests(self):
+        client=self.client()
+        with patch.object(runner.requests,'post',side_effect=[self.response(500) for _ in range(3)]) as post:
+            with self.assertRaises(runner.ArchiveError):client.call('heartbeat')
+        self.assertEqual(post.call_count,3)
+
+    def test_permanent_auth_or_lease_rejection_is_never_retried(self):
+        for status in [401,403,409,410]:
+            with self.subTest(status=status):
+                client=self.client()
+                with patch.object(runner.requests,'post',return_value=self.response(status)) as post:
+                    with self.assertRaises(runner.ArchiveError):client.call('heartbeat')
+                self.assertEqual(post.call_count,1);client.stopped.wait.assert_not_called()
+
+    def test_stop_interrupts_transient_backoff(self):
+        client=self.client();client.stopped.wait.return_value=True
+        with patch.object(runner.requests,'post',return_value=self.response(503)) as post:
+            with self.assertRaises(runner.ArchiveError):client.call('heartbeat')
+        self.assertEqual(post.call_count,1)
+
+    def test_other_actions_keep_their_existing_failure_policy(self):
+        client=self.client()
+        with patch.object(runner.requests,'post',return_value=self.response(503)) as post:
+            with self.assertRaises(runner.ArchiveError):client.call('source')
+        self.assertEqual(post.call_count,1);self.assertEqual(post.call_args.kwargs['timeout'],(10,120))
+
+    def test_pause_retains_server_renewal_behavior(self):
+        client=self.client()
+        with patch.object(runner.requests,'post',side_effect=[self.response(423),self.response(200)]):
+            self.assertEqual(client.call('heartbeat'),{'ok':True})
+        client.stopped.wait.assert_called_once_with(10)
