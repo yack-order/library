@@ -406,7 +406,7 @@ class OggArchiveTests(unittest.TestCase):
                     audio=AudioFile(path);self.assertEqual(audio['tracknumber'],[str(number)])
                     self.assertEqual(audio['artist'],['Published Author']);self.assertNotIn('comment',audio)
                     self.assertGreater(audio.info.length,0)
-                    cover=Picture(base64.b64decode(audio['metadata_block_picture'][0]));self.assertEqual(cover.data,next(extracted.rglob('cover.png')).read_bytes())
+                    cover=Picture(base64.b64decode(audio['metadata_block_picture'][0]));self.assertEqual(cover.data,runner.cover_png(next(extracted.rglob('cover.png'))));self.assertEqual(next(extracted.rglob('cover.png')).read_bytes(),image.read_bytes())
                     self.assertNotIn(b'token=secret',path.read_bytes())
                 inspect=work/'inspection';inspect.mkdir()
                 result=sanitize_archive(archive,inspect)

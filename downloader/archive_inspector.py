@@ -14,11 +14,13 @@ from PIL import Image
 from runner import ArchiveError, digest, strip_source_tags, tag_audio
 from archive_safety import create_verified_archive, safe_filename, MAX_BUILD_EXPANDED, MAX_BUILD_FILE
 from privacy import redact_text, register_sensitive_values, scrub_json
+from restoration import (MAP_NAME, AUDIO_SUFFIXES, verify_map, new_map, write_map, file_entry,
+                         track_positions, visual_references, preserve_image, cover_png, retained_pointer)
 
 MAX_EXPANDED=8*1024**3
 MAX_MEMBERS=10000
 MAX_FILE=1024**3
-AUDIO={'.mp3','.m4a','.aac','.ogg'}
+AUDIO=AUDIO_SUFFIXES
 
 
 def _safe_extract(archive_path,destination,maximum_expanded,maximum_file):
@@ -84,6 +86,7 @@ def verify_manifest(folder, required=False):
             if name.startswith('/') or '..' in PurePosixPath(name).parts or '\\' in name:raise ArchiveError('unsafe_archive')
             path=folder/name
             if path.stat().st_size!=entry['bytes'] or digest(path)!=entry['sha256']:raise ArchiveError('verification_failed')
+        verify_map(folder, files)
     except ArchiveError:raise
     except Exception:raise ArchiveError('verification_failed') from None
 
@@ -110,10 +113,11 @@ def sanitize_archive(source,work):
     roots=[p.parent for p in expanded.rglob('card.txt')]
     if len(roots)!=1:raise ArchiveError('identity_conflict')
     root=roots[0];verify_manifest(root)
+    previous_map=verify_map(root)
     fields=text_fields(root/'card.txt')
     card={};raw=None;raw_source=None
     for path in sorted(root.glob('*.json')):
-        if path.name=='manifest.json':continue
+        if path.name in {'manifest.json',MAP_NAME}:continue
         if path.stat().st_size>4*1024**2:raise ArchiveError('resource_limit')
         decoded=json.loads(path.read_text(encoding='utf-8-sig'))
         candidate=decoded.get('card') or decoded.get('props',{}).get('pageProps',{}).get('card') or (decoded if decoded.get('cardId') else None)
@@ -139,6 +143,10 @@ def sanitize_archive(source,work):
     # validated duration/count are inspectable; actual radio/live remains rejected.
     if any(str(track.get('type','')).lower() in {'radio','live'} for track in tracks):raise ArchiveError('incomplete_archive')
     audio=sorted((p for p in root.rglob('*') if p.is_file() and p.suffix.lower() in AUDIO),key=natural)
+    if previous_map and all('path' in entry for entry in previous_map['audio']):
+        mapped=[root/entry['path'] for entry in previous_map['audio']]
+        if set(mapped)!=set(audio):raise ArchiveError('verification_failed')
+        audio=mapped
     track_text=root/'tracks.txt'
     blocks=[]
     if track_text.exists():
@@ -149,16 +157,34 @@ def sanitize_archive(source,work):
     if blocks and len(blocks)!=len(audio):raise ArchiveError('incomplete_archive')
     clean=work/'clean';clean.mkdir();folder=clean/safe_filename(title,limit=120);folder.mkdir()
     out_audio=folder/'audio_files';out_audio.mkdir();images=folder/'images';images.mkdir()
-    image_names=set()
-    for image in (p for p in root.rglob('*') if p.is_file() and p.suffix.lower() in {'.png','.jpg','.jpeg','.gif','.webp'}):
-        if image.stat().st_size>16*1024**2:raise ArchiveError('resource_limit')
-        name=safe_filename(redact_text(image.stem),limit=150)+'.png'
-        if name in image_names:raise ArchiveError('identity_conflict')
-        image_names.add(name)
-        with Image.open(image) as bitmap:
-            if bitmap.width*bitmap.height>25000000:raise ArchiveError('resource_limit')
-            clean_image=bitmap.convert('RGBA');clean_image.info.clear();clean_image.save(images/name,format='PNG')
-    covers=list(images.glob('*cover*.png'));cover=covers[0].read_bytes() if covers else None
+    public=without_notes(scrub_json(card)) if card else {'cardId':card_id,'title':title,'metadata':{'author':author,'category':category},'content':{'chapters':[]}}
+    mapping=new_map('playlist.json')
+    saved_images={}
+    for image in sorted(p for p in root.rglob('*') if p.is_file() and (p.suffix.lower() in {'.png','.apng','.jpg','.jpeg','.gif','.webp'} or (root/'images') in p.parents)):
+        stem=images/(f'{len(saved_images):04d}-'+safe_filename(redact_text(image.stem),limit=140))
+        output,mime=preserve_image(image,stem)
+        saved_images[image.relative_to(root).as_posix()]=(output,mime)
+    covers=[p for p,mime in saved_images.values() if 'cover' in p.stem.lower()]
+    cover=cover_png(covers[0]) if covers else None
+    used_images=set()
+    if previous_map:
+        for entry in previous_map['visuals']:
+            pointer=entry['pointer']
+            if pointer is not None and not retained_pointer(public,pointer):
+                if 'path' not in entry:continue
+                pointer=None
+            replacement={'pointer':pointer,'status':entry['status'] if pointer is not None else 'unmapped'}
+            if 'path' in entry:
+                if entry['path'] not in saved_images:raise ArchiveError('verification_failed')
+                output,mime=saved_images[entry['path']];used_images.add(entry['path'])
+                replacement.update(mimeType=mime,**file_entry(folder,output))
+            mapping['visuals'].append(replacement)
+    else:
+        mapping['visuals']=[{'pointer':pointer,'status':'unresolved'} for pointer,reference in visual_references(card) if retained_pointer(public,pointer)]
+    for name,(output,mime) in saved_images.items():
+        if name not in used_images:
+            mapping['visuals'].append({'pointer':None,'status':'unmapped','mimeType':mime,**file_entry(folder,output)})
+    positions=list(track_positions(public))
     lines=[];padding=len(str(len(audio)));duration=0
     for number,path in enumerate(audio,1):
         info=json.loads(subprocess.check_output(['ffprobe','-v','error','-show_entries','format=duration','-of','json',str(path)],timeout=30,stderr=subprocess.DEVNULL))
@@ -169,14 +195,17 @@ def sanitize_archive(source,work):
         name=safe_filename(f'{number:0{padding}d} - {track_title}',limit=160)+path.suffix.lower()
         output=out_audio/name;shutil.copyfile(path,output)
         strip_source_tags(output);tag_audio(output,track_title,author,title,category,number,len(audio),cover)
+        position=positions[number-1] if positions else {'chapterIndex':None,'trackIndex':None,'chapterKey':None,'trackKey':None}
+        status=previous_map['audio'][number-1]['status'] if previous_map and all('path' in e for e in previous_map['audio']) else 'legacy_order_unverified'
+        mapping['audio'].append({**position,'status':status,**file_entry(folder,output)})
         lines.append(f'TrackNumber:: {number:0{padding}d}\nTitle:: {track_title}\nDuration:: {info["format"]["duration"]}')
     (folder/'tracks.txt').write_text('\n\n'.join(lines)+'\n',encoding='utf-8')
     allowed={'Title':title,'Author':author,'CardID':card_id,'Category':category}
     for key in ['Description','Languages','Version','CreatedAt','UpdatedAt']:
         if key in fields:allowed[key]=redact_text(fields[key])
     (folder/'card.txt').write_text('\n'.join(f'{key}:: {value}' for key,value in allowed.items())+'\n',encoding='utf-8')
-    public=without_notes(scrub_json(card)) if card else {'cardId':card_id,'title':title,'metadata':{'author':author,'category':category},'content':{'chapters':[]}}
     (folder/'playlist.json').write_text(json.dumps(public,indent=2),encoding='utf-8')
+    write_map(folder,mapping)
     files={str(p.relative_to(folder)):{'sha256':digest(p),'bytes':p.stat().st_size} for p in sorted(folder.rglob('*')) if p.is_file()}
     (folder/'manifest.json').write_text(json.dumps({'version':1,'cardId':card_id,'files':files},indent=2),encoding='utf-8')
     for path in folder.rglob('*'):os.utime(path,(0,0),follow_symlinks=False)

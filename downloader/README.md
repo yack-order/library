@@ -126,3 +126,35 @@ Script entry points and imported helpers share `archive_errors.ArchiveError`.
 Inspection failures retain their controlled codes even when Python executes
 `runner.py` as `__main__`. Resource and archive-safety limits stop the affected
 job without repeating the same work; the limits themselves remain unchanged.
+
+## Restoration mappings and original images
+
+Every new build and repacked import includes `restoration-map.json` (schemaVersion
+1), itself covered by `manifest.json`. `playlist` names the exported card JSON.
+`audio` is an ordered array with zero-based chapter/track indices, nullable original
+keys, status, and local path/bytes/SHA-256 for the final tagged file. `visuals`
+records RFC 6901 pointers relative to that card, detected MIME type, status, and
+local path/bytes/SHA-256. Shared images can have multiple pointers to one file.
+Source URLs and credentials are not stored in the mapping. Keys, hierarchy,
+configuration and event rules are not regenerated or normalized.
+
+`verified` describes a captured association, not behavioral equivalence. Imported
+maps are checked against the playlist and file manifest and retain their file
+associations across renaming. Legacy positional audio associations are explicitly
+`legacy_order_unverified`; unknown visual associations are `unresolved` (pointer
+without a file) or `unmapped` (file without a pointer). Missing keys remain null;
+indices disambiguate duplicate keys. Older archives without maps remain readable.
+
+All saved image files retain their original bytes, including GIF/APNG/WebP frames,
+frame timing, loop/disposal behavior and embedded metadata. Extensions come from
+validated file contents, not URLs or input suffixes. The image metadata exception
+is intentional; JSON, logs and audio retain their existing scrubbing. Only a
+transient PNG derivative is used for audio cover tags. Images are limited to 16
+MiB, 25 million pixels per frame, 2,000 frames and 100 million decoded pixels in
+total, in addition to the existing archive budgets. Supported source formats are
+PNG (including APNG), JPEG, GIF and WebP. Unsupported reference schemes remain
+explicitly unresolved; yoto:# references use the fixed public card-content host.
+
+Deferred work: behavior graph validation (toyo-api#171), restore tooling (#172),
+and historical backfill where originals survive (#173). No existing stored archive
+is rewritten by publishing this code, and no full-restoration claim is made.
