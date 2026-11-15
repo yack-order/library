@@ -7,7 +7,7 @@ from pathlib import Path
 import subprocess
 import tempfile
 import unittest
-from unittest.mock import patch
+from unittest.mock import patch, Mock
 
 import py7zr
 from PIL import Image, PngImagePlugin
@@ -70,6 +70,21 @@ class RestorationTests(unittest.TestCase):
         restored=root/'restored';restored.mkdir()
         archive_inspector.verify_generated_archive(archive,restored)
         return archive,restored/'Interactive',image,public
+
+    def test_apng_http_mime_preserves_original_animation_bytes(self):
+        payload=self.image('PNG')
+        response=Mock(status_code=200,is_redirect=False)
+        response.headers={'Content-Type':'image/apng','Content-Length':str(len(payload))}
+        response.iter_content.return_value=[payload]
+        response.__enter__=Mock(return_value=response);response.__exit__=Mock(return_value=False)
+        session=Mock();session.get.return_value=response
+        session.__enter__=Mock(return_value=session);session.__exit__=Mock(return_value=False)
+        with tempfile.TemporaryDirectory() as tmp, patch.object(runner,'public_url',side_effect=lambda url:url), patch.object(runner.requests,'Session',return_value=session):
+            saved,mime=runner.normalized_image('https://images.test/misleading.gif',Path(tmp)/'icon.png')
+            self.assertEqual(mime,'image/png')
+            self.assertEqual(saved.read_bytes(),payload)
+            with Image.open(saved) as image:
+                self.assertEqual(image.n_frames,2);self.assertEqual(image.info['loop'],3)
 
     def test_roundtrip_mapping_and_original_visual_formats(self):
         for kind in ('STATIC','JPEG','GIF','PNG','WEBP'):
