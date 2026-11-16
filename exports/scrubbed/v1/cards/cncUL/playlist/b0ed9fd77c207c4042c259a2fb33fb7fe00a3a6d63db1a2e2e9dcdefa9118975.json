@@ -1,0 +1,920 @@
+{
+  "props": {
+    "pageProps": {
+      "card": {
+        "cardId": "cncUL",
+        "title": "Tout dans l'ordre",
+        "slug": "2-algorithmes",
+        "sortkey": "tout-dans-l-ordre",
+        "userId": "yoto",
+        "clubAvailability": [
+          {
+            "store": "us"
+          },
+          {
+            "store": "uk"
+          },
+          {
+            "store": "ca"
+          },
+          {
+            "store": "eu"
+          },
+          {
+            "store": "au"
+          }
+        ],
+        "createdAt": "2025-01-23T15:46:09.817Z",
+        "updatedAt": "2026-03-13T14:58:29.424Z",
+        "content": {
+          "version": "1",
+          "activity": "yoto_Player",
+          "availability": "",
+          "config": {
+            "resumeTimeout": 86400,
+            "disableChapterNav": true,
+            "disableTrackNav": true
+          },
+          "playbackType": "interactive",
+          "editSettings": {
+            "interactiveContent": true,
+            "transcodeAudioUploads": true,
+            "transcodePreset": "auto"
+          },
+          "cover": {
+            "imageL": "https://card-content.yotoplay.com/yoto/pub/vZlXNPEeOVUkgoBs28B0YjecN8IOS_QGvrt81vjGmcs"
+          },
+          "chapters": [
+            {
+              "key": "101",
+              "title": "Introduction",
+              "duration": 123,
+              "fileSize": 1985256,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/g2bCqc9B3ZGgd1aCCgSeUvpbLRHgU2UFeowtWLOHP0A"
+              },
+              "tracks": [
+                {
+                  "key": "101",
+                  "title": "Introduction",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 123,
+                  "fileSize": 1985256,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "102",
+              "title": "Jeu numéro 1a : Hi-Ha est coincée !",
+              "duration": 29,
+              "fileSize": 461765,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/OzXpk-yzeC_UgjBk8gN-IgkGG1Vq4GCLA0831DvB2fY"
+              },
+              "tracks": [
+                {
+                  "key": "102",
+                  "title": "Jeu numéro 1a : Hi-Ha est coincée !",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 29,
+                  "fileSize": 461765,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "103",
+              "title": "Jeu 1b",
+              "duration": 54,
+              "fileSize": 875393,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/P7pi7GWEffB7-9u2Eb2qDxN-Dm-gmBn-RMPgCBDTyi8"
+              },
+              "tracks": [
+                {
+                  "key": "103",
+                  "title": "Jeu 1b",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 54,
+                  "fileSize": 875393,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "104",
+                        "trackKey": "104"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "104",
+                        "trackKey": "104"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "104",
+              "title": "Jeu 1c",
+              "duration": 22,
+              "fileSize": 352774,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/IUh0qF4ci-yui2eMTkP4UtnoOghFf_qdxztm_9bu64c"
+              },
+              "tracks": [
+                {
+                  "key": "104",
+                  "title": "Jeu 1c",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 22,
+                  "fileSize": 352774,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "105",
+                        "trackKey": "105"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "105",
+                        "trackKey": "105"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "105",
+              "title": "Jeu 1d",
+              "duration": 20,
+              "fileSize": 322730,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/1Dc_QcQQHXTc374s1HS5LmXGTVanlKjcjurbrMbOKhQ"
+              },
+              "tracks": [
+                {
+                  "key": "105",
+                  "title": "Jeu 1d",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 20,
+                  "fileSize": 322730,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "106",
+                        "trackKey": "106"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "106",
+                        "trackKey": "106"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "106",
+              "title": "Jeu 1e",
+              "duration": 14,
+              "fileSize": 232237,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/p9fzAZ3Z20osBY-4XNC3eUVSutOtFimF5A_mKoX6jx4"
+              },
+              "tracks": [
+                {
+                  "key": "106",
+                  "title": "Jeu 1e",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 14,
+                  "fileSize": 232237,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "107",
+              "title": "Jeu 1f",
+              "duration": 23,
+              "fileSize": 376586,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/C9hne2B0TMsNz9MUOZAH3AWba88Yrb6Yp432arUcRlc"
+              },
+              "tracks": [
+                {
+                  "key": "107",
+                  "title": "Jeu 1f",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 23,
+                  "fileSize": 376586,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "108",
+                        "trackKey": "108"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "108",
+                        "trackKey": "108"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "108",
+              "title": "Jeu 1g",
+              "duration": 23,
+              "fileSize": 369082,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/A4f3owUpFWVOP_wXoK8EEg7wQeGCrWI2DwDCMyS_rfw"
+              },
+              "tracks": [
+                {
+                  "key": "108",
+                  "title": "Jeu 1g",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 23,
+                  "fileSize": 369082,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "109",
+              "title": "Jeu 1h",
+              "duration": 68,
+              "fileSize": 1103247,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/P7pi7GWEffB7-9u2Eb2qDxN-Dm-gmBn-RMPgCBDTyi8"
+              },
+              "tracks": [
+                {
+                  "key": "109",
+                  "title": "Jeu 1h",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 68,
+                  "fileSize": 1103247,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "110",
+              "title": "Introduction : Jeu numéro 2",
+              "duration": 21,
+              "fileSize": 344486,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/zSSkg9JHZwR7FyUnNBFieSk1zhybbzTPJAR3Am8RHVU"
+              },
+              "tracks": [
+                {
+                  "key": "110",
+                  "title": "Introduction : Jeu numéro 2",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 21,
+                  "fileSize": 344486,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "111",
+              "title": "Situation 1",
+              "duration": 51,
+              "fileSize": 825586,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/fIq4UA6KUaj3X8HgX_bIYeFoPiSTNhO4JWGrO9pba94"
+              },
+              "tracks": [
+                {
+                  "key": "111",
+                  "title": "Situation 1",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 51,
+                  "fileSize": 825586,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "stop"
+                    },
+                    "onLhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "112",
+                        "trackKey": "112"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "113",
+                        "trackKey": "113"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "112",
+              "title": "Option 1",
+              "duration": 18,
+              "fileSize": 292341,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/-sqzVTXilhb6icPNnGZ7tZXBGGG81Ulr4GslCd5SEqk"
+              },
+              "tracks": [
+                {
+                  "key": "112",
+                  "title": "Option 1",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 18,
+                  "fileSize": 292341,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "114",
+                        "trackKey": "114"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "114",
+                        "trackKey": "114"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "113",
+              "title": "Option 2",
+              "duration": 23,
+              "fileSize": 369005,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/Jw-_0BDIy7VJh-1pZCzoU-hJyXpAYV6bfZzqif9TP7E"
+              },
+              "tracks": [
+                {
+                  "key": "113",
+                  "title": "Option 2",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 23,
+                  "fileSize": 369005,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "114",
+                        "trackKey": "114"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "114",
+                        "trackKey": "114"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "114",
+              "title": "Situation 2",
+              "duration": 56,
+              "fileSize": 898746,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/fIq4UA6KUaj3X8HgX_bIYeFoPiSTNhO4JWGrO9pba94"
+              },
+              "tracks": [
+                {
+                  "key": "114",
+                  "title": "Situation 2",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 56,
+                  "fileSize": 898746,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "stop"
+                    },
+                    "onLhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "115",
+                        "trackKey": "115"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "116",
+                        "trackKey": "116"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "115",
+              "title": "Option 1",
+              "duration": 30,
+              "fileSize": 484346,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/wki5KUP4Gs2uoUcxUmpRBssrHLYmJppxC0aR9YKCRXs"
+              },
+              "tracks": [
+                {
+                  "key": "115",
+                  "title": "Option 1",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 30,
+                  "fileSize": 484346,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "117",
+                        "trackKey": "117"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "117",
+                        "trackKey": "117"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "116",
+              "title": "Option 2",
+              "duration": 37,
+              "fileSize": 600724,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/Dch1LXXkGchCrvgEZ6T1n9tOGnv63if9hm3-iqPfYZ8"
+              },
+              "tracks": [
+                {
+                  "key": "116",
+                  "title": "Option 2",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 37,
+                  "fileSize": 600724,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "117",
+                        "trackKey": "117"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "117",
+                        "trackKey": "117"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "117",
+              "title": "Situation 3",
+              "duration": 44,
+              "fileSize": 720029,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/fIq4UA6KUaj3X8HgX_bIYeFoPiSTNhO4JWGrO9pba94"
+              },
+              "tracks": [
+                {
+                  "key": "117",
+                  "title": "Situation 3",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 44,
+                  "fileSize": 720029,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "stop"
+                    },
+                    "onLhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "118",
+                        "trackKey": "118"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "119",
+                        "trackKey": "119"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "118",
+              "title": "Option 1",
+              "duration": 9,
+              "fileSize": 154537,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/ed4Q_X5eLrIrDyNcW4pcCuNRoFpteYcqViIT4afx_YQ"
+              },
+              "tracks": [
+                {
+                  "key": "118",
+                  "title": "Option 1",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 9,
+                  "fileSize": 154537,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "120",
+                        "trackKey": "120"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "120",
+                        "trackKey": "120"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "119",
+              "title": "Option 2",
+              "duration": 7,
+              "fileSize": 112768,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/PV8gyKUOjemRv5pP761yTCeVM026i6VLwQSxe0Dgi0g"
+              },
+              "tracks": [
+                {
+                  "key": "119",
+                  "title": "Option 2",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 7,
+                  "fileSize": 112768,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "120",
+              "title": "Conclusion Jeu 2",
+              "duration": 50,
+              "fileSize": 804125,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/krQgB5XfOuhDpZfcVmoSEgfmg2k4F6oxdkXUoXgl_tA"
+              },
+              "tracks": [
+                {
+                  "key": "120",
+                  "title": "Conclusion Jeu 2",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 50,
+                  "fileSize": 804125,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "121",
+              "title": "Jeu 3 : Devinette",
+              "duration": 69,
+              "fileSize": 1121567,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/lLGcocdR3b4zh9HrJuLf8AZTnL9CqLy9O79kSrajw7Y"
+              },
+              "tracks": [
+                {
+                  "key": "121",
+                  "title": "Jeu 3 : Devinette",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 69,
+                  "fileSize": 1121567,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "stop"
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "122",
+                        "trackKey": "122"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "122",
+              "title": "Réponse",
+              "duration": 35,
+              "fileSize": 564188,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/Lp0kH7FXAcL3RJ6d31oWfqO9rkAbOAqrrQlVir4bdt4"
+              },
+              "tracks": [
+                {
+                  "key": "122",
+                  "title": "Réponse",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 35,
+                  "fileSize": 564188,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "123",
+              "title": "Conclusion",
+              "duration": 52,
+              "fileSize": 846674,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/jZ2ghHIxsMwPgg5-8qqdaqYrXW88Am8Ydp_ly7l40HU"
+              },
+              "tracks": [
+                {
+                  "key": "123",
+                  "title": "Conclusion",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 52,
+                  "fileSize": 846674,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {}
+                }
+              ]
+            }
+          ]
+        },
+        "metadata": {
+          "category": "activities",
+          "minAge": 4,
+          "maxAge": 10,
+          "media": {
+            "duration": 878,
+            "fileSize": 14218192
+          },
+          "author": "Yoto",
+          "description": "Deuxième super pouvoir du codage : les algorithmes. Après avoir découvert les instructions, les enfants apprennent qu’on peut les ranger dans un plan bien organisé. Un algorithme, c’est une suite d’étapes qui permet de résoudre un problème ou de réaliser une tâche.\n\nLes algorithmes sont partout : en informatique bien sûr, mais aussi dans la cuisine, dans les jeux ou même pour ranger sa chambre !\n\nÀ travers des exemples simples et parlants, comme s’habiller ou préparer un repas, les enfants comprennent que beaucoup d’actions de la vie courante reposent sur des suites d’instructions. Ils découvrent aussi que certaines étapes se répètent régulièrement, comme enfiler ses chaussettes ou ranger ses affaires.\n\nDans cette carte, le robot Hiha propose deux activités interactives :\nAider Hiha à trouver la sortie : Hiha est coincé, les enfants doivent deviner les instructions dans le bon ordre en interagissant avec les icônes qui apparaissent sur le lecteur Yoto.\n\nDeviner les algorithmes du quotidien : à partir de situations familières comme faire des crêpes ou ranger sa chambre, les enfants apprennent à reconnaître et reconstituer des algorithmes.\n\nUne façon ludique de découvrir que la logique des algorithmes est partout autour de nous.\n",
+          "seriesorder": 2,
+          "seriestitle": "Coder est un jeu",
+          "cover": {
+            "imageL": "https://card-content.yotoplay.com/yoto/pub/vZlXNPEeOVUkgoBs28B0YjecN8IOS_QGvrt81vjGmcs"
+          },
+          "languages": [
+            "fr"
+          ],
+          "status": {
+            "name": "complete",
+            "updatedAt": "2025-10-08T16:28:11.178Z"
+          }
+        }
+      }
+    }
+  }
+}
