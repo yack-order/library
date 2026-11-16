@@ -78,12 +78,15 @@ class Drive:
         return self.json('files/'+file_id, supportsAllDrives='true',
                          fields='id,name,parents,version,size,md5Checksum,sha256Checksum,trashed,capabilities(canDownload),appProperties')
 
-    def download(self, file_id, path, *, maximum=MAX_ARCHIVE, expected_version=None, probe=False, allow_trashed=False):
+    def download(self, file_id, path, *, maximum=MAX_ARCHIVE, expected_version=None, probe=False, allow_trashed=False, expected_sha256=None):
         metadata = self.metadata(file_id)
         if (metadata.get('trashed') and not allow_trashed) or not metadata.get('capabilities', {}).get('canDownload'):
             raise ArchiveError('source_unavailable')
         if expected_version and str(metadata.get('version')) != str(expected_version):
-            raise ArchiveError('source_changed')
+            # Drive revisions include metadata changes. Only the original SHA-256
+            # permits drift; a range probe cannot verify the complete bytes.
+            if probe or not expected_sha256 or metadata.get('sha256Checksum') != expected_sha256:
+                raise ArchiveError('source_changed')
         if int(metadata.get('size', 0)) > maximum:
             raise ArchiveError('resource_limit')
         url = 'https://www.googleapis.com/drive/v3/files/'+file_id+'?alt=media&supportsAllDrives=true'
@@ -119,6 +122,8 @@ class Drive:
                         with open(path, 'rb') as handle:
                             if hashlib.file_digest(handle, 'md5').hexdigest() != metadata['md5Checksum']:
                                 raise ArchiveError('verification_failed')
+                    if expected_sha256 and digest(path) != expected_sha256:
+                        raise ArchiveError('verification_failed')
                     return metadata
             raise ArchiveError('drive_failed')
         except ArchiveError:

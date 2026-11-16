@@ -161,6 +161,25 @@ class InspectionTests(unittest.TestCase):
 
 
 class DeliveryTests(unittest.TestCase):
+    def test_revision_drift_requires_provider_and_downloaded_sha256(self):
+        payload=b'preserved archive';sha=hashlib.sha256(payload).hexdigest()
+        metadata={'version':'2','size':str(len(payload)),'sha256Checksum':sha,'md5Checksum':hashlib.md5(payload).hexdigest(),'capabilities':{'canDownload':True}}
+        for provider_sha,body,expected,error in [(sha,payload,sha,None),(None,payload,sha,'source_changed'),('c'*64,payload,sha,'source_changed'),(sha,payload,None,'source_changed'),(sha,b'X'*len(payload),sha,'verification_failed')]:
+            with self.subTest(provider_sha=provider_sha,body=body,expected=expected),tempfile.TemporaryDirectory() as tmp:
+                drive=Drive('private-token');drive.metadata=Mock(return_value={**metadata,'sha256Checksum':provider_sha,'md5Checksum':hashlib.md5(body).hexdigest()})
+                response=Mock(status_code=200,is_redirect=False,headers={});response.iter_content.return_value=[body]
+                response.__enter__=Mock(return_value=response);response.__exit__=Mock(return_value=False)
+                with patch.object(drive,'request',return_value=response) as request,patch('drive_storage.public_url',side_effect=lambda url:url):
+                    path=Path(tmp)/'archive.7z'
+                    if error:
+                        with self.assertRaises(ArchiveError) as caught:drive.download('file',path,expected_version='1',expected_sha256=expected)
+                        self.assertEqual(caught.exception.code,error)
+                        if error=='source_changed':request.assert_not_called()
+                        self.assertFalse(path.exists())
+                    else:
+                        self.assertEqual(drive.download('file',path,expected_version='1',expected_sha256=expected)['version'],'2')
+                        self.assertEqual(path.read_bytes(),payload)
+
     def test_preserved_copy_checks_never_request_drive_or_upload(self):
         for presence in ['present','missing','unknown']:
             with self.subTest(presence=presence),tempfile.TemporaryDirectory() as tmp,patch.object(storage_runner,'check_page',return_value=presence),patch.object(storage_runner,'Drive') as drive,patch.object(storage_runner,'upload') as upload:
@@ -211,6 +230,7 @@ class DeliveryTests(unittest.TestCase):
             source=self.source();client=Mock();storage_runner.deliver(client,source,Path(tmp))
             self.assertEqual(constructor.call_args.args,('private-runtime-token',))
             self.assertTrue(callable(constructor.call_args.kwargs['refresh']))
+            self.assertEqual(drive.download.call_args.kwargs['expected_sha256'],source['object']['sha256'])
             self.assertEqual(upload.call_args.args[1],'private-gofile-token')
             self.assertNotIn('import',str(client.call.call_args_list))
 
