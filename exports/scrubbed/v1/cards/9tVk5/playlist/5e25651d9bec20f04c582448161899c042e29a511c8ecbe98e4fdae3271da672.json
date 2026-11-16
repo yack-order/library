@@ -1,0 +1,1008 @@
+{
+  "props": {
+    "pageProps": {
+      "card": {
+        "cardId": "9tVk5",
+        "title": "1, 2, 3... Instructions ! ",
+        "slug": "1-instructions",
+        "sortkey": "1-2-3-instructions",
+        "userId": "yoto",
+        "clubAvailability": [
+          {
+            "store": "au"
+          },
+          {
+            "store": "eu"
+          },
+          {
+            "store": "ca"
+          },
+          {
+            "store": "us"
+          },
+          {
+            "store": "uk"
+          }
+        ],
+        "createdAt": "2025-01-23T15:45:48.405Z",
+        "updatedAt": "2026-03-13T14:54:55.616Z",
+        "content": {
+          "version": "1",
+          "activity": "yoto_Player",
+          "availability": "",
+          "config": {
+            "resumeTimeout": 86400,
+            "disableChapterNav": true,
+            "disableTrackNav": true
+          },
+          "playbackType": "interactive",
+          "editSettings": {
+            "interactiveContent": true,
+            "transcodeAudioUploads": true,
+            "transcodePreset": "auto"
+          },
+          "cover": {
+            "imageL": "https://card-content.yotoplay.com/yoto/pub/E_th_QYuStrIy8exM6f4-5X531NpWXgX38Q6N2S0fxI"
+          },
+          "chapters": [
+            {
+              "key": "101",
+              "title": "Introduction",
+              "duration": 120,
+              "fileSize": 1947338,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/InKMUu5w-OTU4K1LbvmZ533aSmldf-_Z-PjMXv24yUw"
+              },
+              "tracks": [
+                {
+                  "key": "101",
+                  "title": "Introduction",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 120,
+                  "fileSize": 1947338,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "102",
+              "title": "Jeu 1 : Faire une tartine",
+              "duration": 72,
+              "fileSize": 1160870,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/UFUzOnxiDNeAOIHYfLwBLE4CLXiV_22rQKatrVN9cTg"
+              },
+              "tracks": [
+                {
+                  "key": "102",
+                  "title": "Jeu 1 : Faire une tartine",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 72,
+                  "fileSize": 1160870,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "103",
+                        "trackKey": "103"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "103",
+                        "trackKey": "103"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "103",
+              "title": "Instruction a",
+              "duration": 31,
+              "fileSize": 505541,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/UFUzOnxiDNeAOIHYfLwBLE4CLXiV_22rQKatrVN9cTg"
+              },
+              "tracks": [
+                {
+                  "key": "103",
+                  "title": "Instruction a",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 31,
+                  "fileSize": 505541,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "104",
+                        "trackKey": "104"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "104",
+                        "trackKey": "104"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "104",
+              "title": "Instruction b",
+              "duration": 27,
+              "fileSize": 434635,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/Pe-k6ieV7LRXAmw2X_bfVtQQhwdDhQhccwm8oUTtl0I"
+              },
+              "tracks": [
+                {
+                  "key": "104",
+                  "title": "Instruction b",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 27,
+                  "fileSize": 434635,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "105",
+                        "trackKey": "105"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "105",
+                        "trackKey": "105"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "105",
+              "title": "Instruction c",
+              "duration": 32,
+              "fileSize": 513681,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/AfILzmqn2W-XNfxyujLyHGsaM2o0RIJgYzsGcezmsiM"
+              },
+              "tracks": [
+                {
+                  "key": "105",
+                  "title": "Instruction c",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 32,
+                  "fileSize": 513681,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "106",
+                        "trackKey": "106"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "106",
+                        "trackKey": "106"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "106",
+              "title": "Instruction d",
+              "duration": 33,
+              "fileSize": 539481,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/dwOH6DG9AGntMrl5wRsw34hN0UBE33XIpam8f67zAz8"
+              },
+              "tracks": [
+                {
+                  "key": "106",
+                  "title": "Instruction d",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 33,
+                  "fileSize": 539481,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "107",
+                        "trackKey": "107"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "107",
+                        "trackKey": "107"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "107",
+              "title": "Instruction e",
+              "duration": 23,
+              "fileSize": 373006,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/ZNJdEvI6PajgkHLF5b3zHK79RwhgGaAflqYZbIP7taI"
+              },
+              "tracks": [
+                {
+                  "key": "107",
+                  "title": "Instruction e",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 23,
+                  "fileSize": 373006,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "108",
+                        "trackKey": "108"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "108",
+                        "trackKey": "108"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "108",
+              "title": "Instruction f",
+              "duration": 23,
+              "fileSize": 374715,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/ZNJdEvI6PajgkHLF5b3zHK79RwhgGaAflqYZbIP7taI"
+              },
+              "tracks": [
+                {
+                  "key": "108",
+                  "title": "Instruction f",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 23,
+                  "fileSize": 374715,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "109",
+                        "trackKey": "109"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "109",
+                        "trackKey": "109"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "109",
+              "title": "Instruction g et résultat",
+              "duration": 53,
+              "fileSize": 861450,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/-SqWlLK_15ploAuKNA-najC8vUz1C42_YdOvfmDwvWE"
+              },
+              "tracks": [
+                {
+                  "key": "109",
+                  "title": "Instruction g et résultat",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 53,
+                  "fileSize": 861450,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "110",
+              "title": "Jeu 2 : Se laver les mains",
+              "duration": 38,
+              "fileSize": 609742,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/Umk_WHzOyiM6wmbUG-kEvaBzTdNdxKcyoU5FzIFp67o"
+              },
+              "tracks": [
+                {
+                  "key": "110",
+                  "title": "Jeu 2 : Se laver les mains",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 38,
+                  "fileSize": 609742,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "111",
+              "title": "Question 1",
+              "duration": 55,
+              "fileSize": 898003,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/fIq4UA6KUaj3X8HgX_bIYeFoPiSTNhO4JWGrO9pba94"
+              },
+              "tracks": [
+                {
+                  "key": "111",
+                  "title": "Question 1",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 55,
+                  "fileSize": 898003,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "stop"
+                    },
+                    "onLhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "113",
+                        "trackKey": "113"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "112",
+                        "trackKey": "112"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "112",
+              "title": "Bonne réponse 1",
+              "duration": 22,
+              "fileSize": 351048,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/PV8gyKUOjemRv5pP761yTCeVM026i6VLwQSxe0Dgi0g"
+              },
+              "tracks": [
+                {
+                  "key": "112",
+                  "title": "Bonne réponse 1",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 22,
+                  "fileSize": 351048,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "114",
+                        "trackKey": "114"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "114",
+                        "trackKey": "114"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "113",
+              "title": "Mauvaise réponse  1",
+              "duration": 25,
+              "fileSize": 402141,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/ed4Q_X5eLrIrDyNcW4pcCuNRoFpteYcqViIT4afx_YQ"
+              },
+              "tracks": [
+                {
+                  "key": "113",
+                  "title": "Mauvaise réponse  1",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 25,
+                  "fileSize": 402141,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "114",
+                        "trackKey": "114"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "114",
+                        "trackKey": "114"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "114",
+              "title": "Question 2",
+              "duration": 46,
+              "fileSize": 747616,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/fIq4UA6KUaj3X8HgX_bIYeFoPiSTNhO4JWGrO9pba94"
+              },
+              "tracks": [
+                {
+                  "key": "114",
+                  "title": "Question 2",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 46,
+                  "fileSize": 747616,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "stop"
+                    },
+                    "onLhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "115",
+                        "trackKey": "115"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "116",
+                        "trackKey": "116"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "115",
+              "title": "Bonne réponse 2",
+              "duration": 18,
+              "fileSize": 293377,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/PV8gyKUOjemRv5pP761yTCeVM026i6VLwQSxe0Dgi0g"
+              },
+              "tracks": [
+                {
+                  "key": "115",
+                  "title": "Bonne réponse 2",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 18,
+                  "fileSize": 293377,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "117",
+                        "trackKey": "117"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "117",
+                        "trackKey": "117"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "116",
+              "title": "Mauvaise réponse 2",
+              "duration": 22,
+              "fileSize": 358284,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/ed4Q_X5eLrIrDyNcW4pcCuNRoFpteYcqViIT4afx_YQ"
+              },
+              "tracks": [
+                {
+                  "key": "116",
+                  "title": "Mauvaise réponse 2",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 22,
+                  "fileSize": 358284,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "117",
+                        "trackKey": "117"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "117",
+                        "trackKey": "117"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "117",
+              "title": "Question 3",
+              "duration": 48,
+              "fileSize": 776898,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/fIq4UA6KUaj3X8HgX_bIYeFoPiSTNhO4JWGrO9pba94"
+              },
+              "tracks": [
+                {
+                  "key": "117",
+                  "title": "Question 3",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 48,
+                  "fileSize": 776898,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "stop"
+                    },
+                    "onLhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "118",
+                        "trackKey": "118"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "119",
+                        "trackKey": "119"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "118",
+              "title": "Bonne réponse 3",
+              "duration": 16,
+              "fileSize": 254009,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/PV8gyKUOjemRv5pP761yTCeVM026i6VLwQSxe0Dgi0g"
+              },
+              "tracks": [
+                {
+                  "key": "118",
+                  "title": "Bonne réponse 3",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 16,
+                  "fileSize": 254009,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "120",
+                        "trackKey": "120"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "120",
+                        "trackKey": "120"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "119",
+              "title": "Mauvaise réponse 3",
+              "duration": 21,
+              "fileSize": 346542,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/ed4Q_X5eLrIrDyNcW4pcCuNRoFpteYcqViIT4afx_YQ"
+              },
+              "tracks": [
+                {
+                  "key": "119",
+                  "title": "Mauvaise réponse 3",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 21,
+                  "fileSize": 346542,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "120",
+                        "trackKey": "120"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "120",
+                        "trackKey": "120"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "120",
+              "title": "Fin du jeu",
+              "duration": 51,
+              "fileSize": 831427,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/fgN_GC1xPZC7d867wL_y4vyac1dC1lcq-oL-738FAsM"
+              },
+              "tracks": [
+                {
+                  "key": "120",
+                  "title": "Fin du jeu",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 51,
+                  "fileSize": 831427,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "121",
+              "title": "Jeu 3 : Dessin surprise ",
+              "duration": 50,
+              "fileSize": 813689,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/SqCzb61LEnSwRsVxHtD67BnPKaize76IA6We8-IPydg"
+              },
+              "tracks": [
+                {
+                  "key": "121",
+                  "title": "Jeu 3 : Dessin surprise ",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 50,
+                  "fileSize": 813689,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "stop"
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "122",
+                        "trackKey": "122"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "122",
+              "title": "Dessin surprise",
+              "duration": 173,
+              "fileSize": 2802678,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/SqCzb61LEnSwRsVxHtD67BnPKaize76IA6We8-IPydg"
+              },
+              "tracks": [
+                {
+                  "key": "122",
+                  "title": "Dessin surprise",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 173,
+                  "fileSize": 2802678,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "123",
+              "title": "Révélation du dessin surprise",
+              "duration": 61,
+              "fileSize": 979900,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/WYDxKDFy5r_w9K2ovAO-BQi5nVPd4R0iP0sekAot3Yk"
+              },
+              "tracks": [
+                {
+                  "key": "123",
+                  "title": "Révélation du dessin surprise",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 61,
+                  "fileSize": 979900,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "124",
+              "title": "Félicitations et transition vers les algorithmes",
+              "duration": 61,
+              "fileSize": 992110,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/zHz4rsUzXGgR2ur6e44G1m6V-XWBe8XElTyvk8fo6ro"
+              },
+              "tracks": [
+                {
+                  "key": "124",
+                  "title": "Félicitations et transition vers les algorithmes",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 61,
+                  "fileSize": 992110,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {}
+                }
+              ]
+            }
+          ]
+        },
+        "metadata": {
+          "category": "activities",
+          "minAge": 4,
+          "maxAge": 10,
+          "media": {
+            "duration": 1121,
+            "fileSize": 18168181
+          },
+          "author": "Yoto",
+          "description": "Premier super pouvoir du codage : donner des instructions claires. Dans cette carte, les enfants découvrent qu’il faut suivre des étapes précises et dans le bon ordre pour que tout fonctionne. Comme une recette de cuisine, où il faut mélanger les ingrédients dans le bon ordre avant de les faire cuire !\nLes instructions, ce sont de petites consignes simples : « saute à pieds joints », « ferme les yeux », « ouvre la bouche ». Les pros du code savent que c’est grâce à ces suites d’ordres que les ordinateurs et les robots comprennent ce qu’ils doivent faire.\nDans cette carte, le robot Hiha propose trois activités ludiques qui permettent de mettre en pratique la logique des instructions :\nFaire une tartine : deviner les étapes de préparation dans l’ordre pour obtenir le bon résultat, une bonne tartine de confiture. Miam !\n\n\nSe laver les mains : un enchaînement d’actions simples qui doit être respecté dans le bon ordre.\n\n\nDessiner avec moi : suivre une série d’instructions claires et dans le bon ordre pour réaliser un dessin. \nUne première approche amusante qui montre que coder, c’est apprendre à penser par étapes et à organiser ses idées.\n",
+          "seriesorder": 1,
+          "seriestitle": "Coder est un jeu",
+          "cover": {
+            "imageL": "https://card-content.yotoplay.com/yoto/pub/E_th_QYuStrIy8exM6f4-5X531NpWXgX38Q6N2S0fxI"
+          },
+          "languages": [
+            "fr"
+          ],
+          "status": {
+            "name": "complete",
+            "updatedAt": "2025-10-08T13:58:03.970Z"
+          }
+        }
+      }
+    }
+  }
+}
