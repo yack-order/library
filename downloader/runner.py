@@ -595,6 +595,8 @@ def main():
         claimed = client.call('claim'); client.headers['X-Archive-Lease'] = claimed['leaseToken']
         heartbeat = threading.Thread(target=client.heartbeats, daemon=True); heartbeat.start()
         with tempfile.TemporaryDirectory(prefix='toyo-archive-') as directory:
+            if claimed.get('uploadUncertain'):
+                raise ArchiveError('upload_uncertain')
             result = claimed.get('verifiedResult')
             if result and result.get('storageMode') == 'drive':
                 client.call('cold-complete', {})
@@ -617,6 +619,11 @@ def main():
                 source = None
                 if not receipt:
                     source = client.call('source')
+                if source and source.get('storageMode') == 'gofile-check':
+                    from gofile_presence import check_page
+                    presence=check_page(source['pageUrl'],source['filename'])
+                    client.call('myo-presence',{'presence':presence})
+                    print('Temporary archive presence checked');return 0
                 if source and source.get('storageMode') == 'drive':
                     from drive_storage import Drive
                     from archive_inspector import verify_generated_archive
@@ -674,6 +681,11 @@ def main():
                     path = build_archive(source, Path(directory))
                     if client.lost.is_set():
                         raise ArchiveError('source_unavailable')
+                    if source.get('storageMode') == 'gofile-only':
+                        from archive_inspector import verify_generated_archive
+                        restored=Path(directory)/'verified';restored.mkdir()
+                        verify_generated_archive(path,restored)
+                        client.call('gofile-intent',{})
                     client.stage = 'uploading'
                     result = upload(path, gofile_token, on_uploaded=lambda receipt: client.call('receipt', receipt))
                 client.call('checkpoint', result)

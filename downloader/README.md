@@ -168,3 +168,7 @@ is rewritten by publishing this code, and no full-restoration claim is made.
 Preservation jobs have a distinct server-side origin and exact object identity. Storage delivery copies original bytes, validates the Drive version/SHA-256 and retains provider size/MD5 acknowledgement. After verified Drive deletion, `checkOnly` inputs contain no Drive or upload credential: the runner checks the existing public page and never uploads or restores. Unknown page results remain unknown.
 
 An eligible promoted podcast can reuse its retained Gofile bytes through the normal public page; bounded streaming and exact length/SHA-256 checks precede extraction. Ambiguous download controls or browser challenges stop recovery. Expired volumes retain their history; currently authorized source episodes can populate a new bounded volume after promotion.
+
+## Creator-requested MYO delivery
+
+`gofile-only` sources use the existing bounded, scrubbed archive builder and generated-archive verification. A durable server-side upload intent precedes the only upload; an uncertain upload is held for recovery. Stored receipts resume verification without fetching source or uploading again. `gofile-check` sources only check the exact filename on the existing public Gofile page. Neither mode receives Drive credentials or enables restoration, cold-storage registration, updates, or rebuilding on expiry. Completion and email retries are independent.
