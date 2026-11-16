@@ -172,3 +172,7 @@ An eligible promoted podcast can reuse its retained Gofile bytes through the nor
 ## Creator-requested MYO delivery
 
 `gofile-only` sources use the existing bounded, scrubbed archive builder and generated-archive verification. A durable server-side upload intent precedes the only upload; an uncertain upload is held for recovery. Stored receipts resume verification without fetching source or uploading again. `gofile-check` sources only check the exact filename on the existing public Gofile page. Neither mode receives Drive credentials or enables restoration, cold-storage registration, updates, or rebuilding on expiry. Completion and email retries are independent.
+
+## Public Sooper Books archives
+
+`sooperbooks.py` builds provider-specific archives from public website manifests supplied by TOYO. It preserves MP3 and artwork bytes without retagging or transcoding, includes publisher attribution and CC BY-NC-ND 4.0 information, and uses the existing private Drive upload/readback and Gofile delivery pipeline. Storage identities retain the `sooperbooks:` namespace; they are not Yoto CardIDs. Complete series and chaptered books retain publisher order, including specials and credits. Sooper Books downloads are public through TOYO's dedicated provider endpoints. Other providers keep their existing authorization.
