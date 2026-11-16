@@ -48,6 +48,7 @@ class WebsiteArchiveTests(unittest.TestCase):
             with patch('drive_storage.requests.post') as post,patch('drive_storage.requests.put') as put:
                 recovered=drive.recover_uploaded(root,'folder-id','original-job','sooperbooks:Book1',{'uploadedFile':'saved-file-id','uploadSha256':sha})
             self.assertEqual(recovered['cardId'],'sooperbooks:Book1');self.assertEqual(recovered['index']['tracks'],2)
+            drive.download.assert_called_once_with('saved-file-id',drive.download.call_args.args[1],expected_version='1',expected_sha256=sha)
             post.assert_not_called();put.assert_not_called()
             path=next((folder/'audio_files').iterdir());path.write_bytes(b'changed')
             from archive_inspector import verify_manifest
