@@ -1,0 +1,845 @@
+{
+  "props": {
+    "pageProps": {
+      "card": {
+        "cardId": "fh5Fq",
+        "title": "À la découverte de New York",
+        "slug": "à-la-découverte-de-new-york",
+        "sortkey": "à-la-découverte-de-new-york",
+        "userId": "yoto",
+        "scanToAdd": false,
+        "clubAvailability": [
+          {
+            "store": "uk"
+          },
+          {
+            "store": "us"
+          },
+          {
+            "store": "ca"
+          },
+          {
+            "store": "eu"
+          },
+          {
+            "store": "au"
+          }
+        ],
+        "createdAt": "2025-06-03T10:11:57.253Z",
+        "updatedAt": "2026-05-20T10:13:48.483Z",
+        "content": {
+          "version": "1",
+          "activity": "yoto_Player",
+          "availability": "",
+          "config": {
+            "resumeTimeout": 2592000,
+            "onlineOnly": false
+          },
+          "playbackType": "interactive",
+          "editSettings": {
+            "autoOverlayLabels": "disabled",
+            "interactiveContent": true,
+            "transcodeAudioUploads": true,
+            "transcodePreset": "auto"
+          },
+          "cover": {
+            "imageL": "https://card-content.yotoplay.com/yoto/pub/qGUniuaa1Hwr0VLj73iqYw2niUxSRd_I2o8vlpt5yTk"
+          },
+          "chapters": [
+            {
+              "key": "dPPMoqXwwU",
+              "title": "Welcome !",
+              "duration": 55,
+              "fileSize": 893148,
+              "hasStreams": false,
+              "overlayLabel": "1",
+              "overlayLabelOverride": "1",
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/p_yLNC3TPtuo8MNv5WSG0q5aqTPD-WRRRWYkPB0cbjA"
+              },
+              "tracks": [
+                {
+                  "key": "7azc_6ugMc",
+                  "title": "Welcome !",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 55,
+                  "fileSize": 893148,
+                  "channels": "stereo",
+                  "overlayLabel": "1",
+                  "overlayLabelOverride": "1",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/p_yLNC3TPtuo8MNv5WSG0q5aqTPD-WRRRWYkPB0cbjA"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "H_yQmupxl5",
+                        "trackKey": "tlWeapSWm2"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "DjV7wAyX-K",
+                        "trackKey": "3HJE6n4vwm"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "H_yQmupxl5",
+              "title": "Meet Teddy",
+              "duration": 112,
+              "fileSize": 1812419,
+              "hasStreams": false,
+              "overlayLabel": "2",
+              "overlayLabelOverride": "2",
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/qRwgKDsRZQ0gHCrwhG9sjh3eYBaFSPUvGIufuizJ0Os"
+              },
+              "tracks": [
+                {
+                  "key": "tlWeapSWm2",
+                  "title": "Meet Teddy",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 112,
+                  "fileSize": 1812419,
+                  "channels": "stereo",
+                  "overlayLabel": "2",
+                  "overlayLabelOverride": "2",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/qRwgKDsRZQ0gHCrwhG9sjh3eYBaFSPUvGIufuizJ0Os"
+                  },
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "DjV7wAyX-K",
+              "title": "Off to New York City",
+              "duration": 195,
+              "fileSize": 3159799,
+              "hasStreams": false,
+              "overlayLabel": "3",
+              "overlayLabelOverride": "3",
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/FLQ6c_NQz_aPpME657BMNufMyZGruEPcaoGVdCZgb8g"
+              },
+              "tracks": [
+                {
+                  "key": "3HJE6n4vwm",
+                  "title": "Off to New York City",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 195,
+                  "fileSize": 3159799,
+                  "channels": "stereo",
+                  "overlayLabel": "3",
+                  "overlayLabelOverride": "3",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/FLQ6c_NQz_aPpME657BMNufMyZGruEPcaoGVdCZgb8g"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "aKtzf5ZN6p",
+                        "trackKey": "-2KFK6yF7e"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "aKtzf5ZN6p",
+                        "trackKey": "-2KFK6yF7e"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "aKtzf5ZN6p",
+              "title": "A Day in NYC with Teddy",
+              "duration": 114,
+              "fileSize": 1844355,
+              "hasStreams": false,
+              "overlayLabel": "4",
+              "overlayLabelOverride": "4",
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/AZUkTSNz2uhRBbGBJEymzaYI5rHeFapL61giGiXdEdQ"
+              },
+              "tracks": [
+                {
+                  "key": "-2KFK6yF7e",
+                  "title": "A Day in NYC with Teddy",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 114,
+                  "fileSize": 1844355,
+                  "channels": "stereo",
+                  "overlayLabel": "4",
+                  "overlayLabelOverride": "4",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/AZUkTSNz2uhRBbGBJEymzaYI5rHeFapL61giGiXdEdQ"
+                  },
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "MfoGbDlu9B",
+              "title": "A Day in NYC with Teddy",
+              "duration": 83,
+              "fileSize": 1335150,
+              "hasStreams": false,
+              "overlayLabel": "5",
+              "overlayLabelOverride": "5",
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/j-bhNE57Hk4993kU8ZQgRa6MTwG1rBAHdCMKTPI-VCo"
+              },
+              "tracks": [
+                {
+                  "key": "aMyB2rsaK1",
+                  "title": "A Day in NYC with Teddy",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 83,
+                  "fileSize": 1335150,
+                  "channels": "stereo",
+                  "overlayLabel": "5",
+                  "overlayLabelOverride": "5",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/j-bhNE57Hk4993kU8ZQgRa6MTwG1rBAHdCMKTPI-VCo"
+                  },
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "tKuZ4U4EUZ",
+              "title": "A Day in NYC with Teddy",
+              "duration": 101,
+              "fileSize": 1640823,
+              "hasStreams": false,
+              "overlayLabel": "6",
+              "overlayLabelOverride": "6",
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/0Ns1AiqBju0HtWOSP3gOFALI_YEiaFdNxK6hRelnqjU"
+              },
+              "tracks": [
+                {
+                  "key": "j1rYOCMjW6",
+                  "title": "A Day in NYC with Teddy",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 101,
+                  "fileSize": 1640823,
+                  "channels": "stereo",
+                  "overlayLabel": "6",
+                  "overlayLabelOverride": "6",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/0Ns1AiqBju0HtWOSP3gOFALI_YEiaFdNxK6hRelnqjU"
+                  },
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "JW4IhYMizc",
+              "title": "A Day in NYC with Teddy",
+              "duration": 168,
+              "fileSize": 2711820,
+              "hasStreams": false,
+              "overlayLabel": "7",
+              "overlayLabelOverride": "7",
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/0_M5llXDFHF5l8NMf0zUJaZgQAtTSbyr2wzzk4bbRS4"
+              },
+              "tracks": [
+                {
+                  "key": "RNyy3IIrD3",
+                  "title": "A Day in NYC with Teddy",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 168,
+                  "fileSize": 2711820,
+                  "channels": "stereo",
+                  "overlayLabel": "7",
+                  "overlayLabelOverride": "7",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/0_M5llXDFHF5l8NMf0zUJaZgQAtTSbyr2wzzk4bbRS4"
+                  },
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "NDjV8UqHsU",
+              "title": "A Day in NYC with Teddy",
+              "duration": 103,
+              "fileSize": 1672840,
+              "hasStreams": false,
+              "overlayLabel": "8",
+              "overlayLabelOverride": "8",
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/sTrQobnhkzioJzmUmyhGiMJc1edh0Y9yQGrx21UnaTk"
+              },
+              "tracks": [
+                {
+                  "key": "0QIWXjMXO7",
+                  "title": "A Day in NYC with Teddy",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 103,
+                  "fileSize": 1672840,
+                  "channels": "stereo",
+                  "overlayLabel": "8",
+                  "overlayLabelOverride": "8",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/sTrQobnhkzioJzmUmyhGiMJc1edh0Y9yQGrx21UnaTk"
+                  },
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "rQbeh3iw7A",
+              "title": "Games with Teddy",
+              "duration": 155,
+              "fileSize": 2507522,
+              "hasStreams": false,
+              "overlayLabel": "9",
+              "overlayLabelOverride": "9",
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/pfh-eJfo1sxUuPDNi46t0qBP3d9LRDJnfIiwHg_49jg"
+              },
+              "tracks": [
+                {
+                  "key": "Lm9RN8mtyj",
+                  "title": "Games with Teddy",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 155,
+                  "fileSize": 2507522,
+                  "channels": "stereo",
+                  "overlayLabel": "9",
+                  "overlayLabelOverride": "9",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/pfh-eJfo1sxUuPDNi46t0qBP3d9LRDJnfIiwHg_49jg"
+                  },
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "j_m83v79Vp",
+              "title": "Games with Teddy",
+              "duration": 38,
+              "fileSize": 617893,
+              "hasStreams": false,
+              "overlayLabel": "10",
+              "overlayLabelOverride": "10",
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/o_zZFXh6IBYDwiT_0ptAPvkVycZF0uy5srYo16TjyAU"
+              },
+              "tracks": [
+                {
+                  "key": "JzSrcV2GIK",
+                  "title": "Games with Teddy",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 38,
+                  "fileSize": 617893,
+                  "channels": "stereo",
+                  "overlayLabel": "10",
+                  "overlayLabelOverride": "10",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/o_zZFXh6IBYDwiT_0ptAPvkVycZF0uy5srYo16TjyAU"
+                  },
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "dbsWnRRhEM",
+              "title": "Games with Teddy",
+              "duration": 30,
+              "fileSize": 491343,
+              "hasStreams": false,
+              "overlayLabel": "11",
+              "overlayLabelOverride": "11",
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/efvT3NkpZSQPNr1fRLx6i2rVQoyyF98TZsm5CHj_Akg"
+              },
+              "tracks": [
+                {
+                  "key": "Bv0bpYVmkf",
+                  "title": "Games with Teddy",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 30,
+                  "fileSize": 491343,
+                  "channels": "stereo",
+                  "overlayLabel": "11",
+                  "overlayLabelOverride": "11",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/efvT3NkpZSQPNr1fRLx6i2rVQoyyF98TZsm5CHj_Akg"
+                  },
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "Ph4aXTGDqH",
+              "title": "Games with Teddy",
+              "duration": 43,
+              "fileSize": 693732,
+              "hasStreams": false,
+              "overlayLabel": "12",
+              "overlayLabelOverride": "12",
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/9dr6k38FdUTJn9h1OAJ6D0JRQPTOfz366nvNIJ986nU"
+              },
+              "tracks": [
+                {
+                  "key": "MOy_ChIW3K",
+                  "title": "Games with Teddy",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 43,
+                  "fileSize": 693732,
+                  "channels": "stereo",
+                  "overlayLabel": "12",
+                  "overlayLabelOverride": "12",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/9dr6k38FdUTJn9h1OAJ6D0JRQPTOfz366nvNIJ986nU"
+                  },
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "nkSNx0g3z1",
+              "title": "Games with Teddy",
+              "duration": 45,
+              "fileSize": 735790,
+              "hasStreams": false,
+              "overlayLabel": "13",
+              "overlayLabelOverride": "13",
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/Fu_4ro7RhW4ISSHgUWpyqFa5i0hsUg6iFuxReg6ifv8"
+              },
+              "tracks": [
+                {
+                  "key": "EPU7Lj96Uy",
+                  "title": "Games with Teddy",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 45,
+                  "fileSize": 735790,
+                  "channels": "stereo",
+                  "overlayLabel": "13",
+                  "overlayLabelOverride": "13",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/Fu_4ro7RhW4ISSHgUWpyqFa5i0hsUg6iFuxReg6ifv8"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "stop"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "IS4ra3ofbH",
+              "title": "Games with Teddy",
+              "duration": 13,
+              "fileSize": 214569,
+              "hasStreams": false,
+              "overlayLabel": "14",
+              "overlayLabelOverride": "14",
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/ghVXNBM-5Bw-QTHoU363-UhfsDSJse-KYefJeQPzj04"
+              },
+              "tracks": [
+                {
+                  "key": "HUdp9LLHFN",
+                  "title": "Games with Teddy",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 13,
+                  "fileSize": 214569,
+                  "channels": "stereo",
+                  "overlayLabel": "14",
+                  "overlayLabelOverride": "14",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/ghVXNBM-5Bw-QTHoU363-UhfsDSJse-KYefJeQPzj04"
+                  },
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "WwAZTULLkK",
+              "title": "Games with Teddy",
+              "duration": 37,
+              "fileSize": 595721,
+              "hasStreams": false,
+              "overlayLabel": "15",
+              "overlayLabelOverride": "15",
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/Fu_4ro7RhW4ISSHgUWpyqFa5i0hsUg6iFuxReg6ifv8"
+              },
+              "tracks": [
+                {
+                  "key": "ZwdXS-vijS",
+                  "title": "Games with Teddy",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 37,
+                  "fileSize": 595721,
+                  "channels": "stereo",
+                  "overlayLabel": "15",
+                  "overlayLabelOverride": "15",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/Fu_4ro7RhW4ISSHgUWpyqFa5i0hsUg6iFuxReg6ifv8"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "stop"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "69pJkz0Tud",
+              "title": "Games with Teddy",
+              "duration": 17,
+              "fileSize": 275028,
+              "hasStreams": false,
+              "overlayLabel": "16",
+              "overlayLabelOverride": "16",
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/3Zp5zRKau5bP4EHKpxZ9SAkI4ar_nEZWyJn9_-tIMWc"
+              },
+              "tracks": [
+                {
+                  "key": "LAqCj53gQk",
+                  "title": "Games with Teddy",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 17,
+                  "fileSize": 275028,
+                  "channels": "stereo",
+                  "overlayLabel": "16",
+                  "overlayLabelOverride": "16",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/3Zp5zRKau5bP4EHKpxZ9SAkI4ar_nEZWyJn9_-tIMWc"
+                  },
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "g3svJbVSOE",
+              "title": "Games with Teddy",
+              "duration": 27,
+              "fileSize": 435390,
+              "hasStreams": false,
+              "overlayLabel": "17",
+              "overlayLabelOverride": "17",
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/Fu_4ro7RhW4ISSHgUWpyqFa5i0hsUg6iFuxReg6ifv8"
+              },
+              "tracks": [
+                {
+                  "key": "le0q8sZMFT",
+                  "title": "Games with Teddy",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 27,
+                  "fileSize": 435390,
+                  "channels": "stereo",
+                  "overlayLabel": "17",
+                  "overlayLabelOverride": "17",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/Fu_4ro7RhW4ISSHgUWpyqFa5i0hsUg6iFuxReg6ifv8"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "stop"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "0T_p2H7CUf",
+              "title": "Games with Teddy",
+              "duration": 29,
+              "fileSize": 470689,
+              "hasStreams": false,
+              "overlayLabel": "18",
+              "overlayLabelOverride": "18",
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/gVkQHRCsNFhknB6KTqk5r-qK5yWGmb3tH3rPWYwnsE0"
+              },
+              "tracks": [
+                {
+                  "key": "8FwugELsuz",
+                  "title": "Games with Teddy",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 29,
+                  "fileSize": 470689,
+                  "channels": "stereo",
+                  "overlayLabel": "18",
+                  "overlayLabelOverride": "18",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/gVkQHRCsNFhknB6KTqk5r-qK5yWGmb3tH3rPWYwnsE0"
+                  },
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "itiBKDY5kf",
+              "title": "Well done!",
+              "duration": 46,
+              "fileSize": 750059,
+              "hasStreams": false,
+              "overlayLabel": "19",
+              "overlayLabelOverride": "19",
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/pfh-eJfo1sxUuPDNi46t0qBP3d9LRDJnfIiwHg_49jg"
+              },
+              "tracks": [
+                {
+                  "key": "Y3EV9hLqCW",
+                  "title": "Well done!",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 46,
+                  "fileSize": 750059,
+                  "channels": "stereo",
+                  "overlayLabel": "19",
+                  "overlayLabelOverride": "19",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/pfh-eJfo1sxUuPDNi46t0qBP3d9LRDJnfIiwHg_49jg"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "stop"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "bcwjISRWX4",
+              "title": "New York City Song ",
+              "duration": 109,
+              "fileSize": 1768500,
+              "hasStreams": false,
+              "overlayLabel": "20",
+              "overlayLabelOverride": "20",
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/AZUkTSNz2uhRBbGBJEymzaYI5rHeFapL61giGiXdEdQ"
+              },
+              "tracks": [
+                {
+                  "key": "Ep7Ega_MAI",
+                  "title": "New York City Song ",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 109,
+                  "fileSize": 1768500,
+                  "channels": "stereo",
+                  "overlayLabel": "20",
+                  "overlayLabelOverride": "20",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/AZUkTSNz2uhRBbGBJEymzaYI5rHeFapL61giGiXdEdQ"
+                  },
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "YauT3MQvF1",
+              "title": "Bye bye!",
+              "duration": 62,
+              "fileSize": 997167,
+              "hasStreams": false,
+              "overlayLabel": "21",
+              "overlayLabelOverride": "21",
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/anXeeIlqkU_KiBxJsvkrLzOcqiQ2X4f31ptES60Ybw4"
+              },
+              "tracks": [
+                {
+                  "key": "7r3VyrCGhw",
+                  "title": "Bye bye!",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 62,
+                  "fileSize": 997167,
+                  "channels": "stereo",
+                  "overlayLabel": "21",
+                  "overlayLabelOverride": "21",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/anXeeIlqkU_KiBxJsvkrLzOcqiQ2X4f31ptES60Ybw4"
+                  },
+                  "events": {}
+                }
+              ]
+            }
+          ]
+        },
+        "metadata": {
+          "category": "activities",
+          "minAge": 3,
+          "maxAge": 10,
+          "media": {
+            "duration": 1582,
+            "fileSize": 25623757
+          },
+          "abridged": false,
+          "description": "Teddy t'emmène dans l'une des villes les plus célèbres du monde : taxis jaunes, gratte-ciel vertigineux, Central Park et spectacles de Broadway !\n\nDans cette aventure, Teddy plonge votre enfant dans l'effervescence des rues de New York. De la Statue de la Liberté à Central Park, en passant par les théâtres illuminés de Broadway, la ville qui ne dort jamais réserve des émotions à chaque coin de rue !\n\nDans cette carte, votre enfant va :\n\n🗣️ Répéter des mots et expressions sur la vie new-yorkaise en anglais avec Teddy\n\n🎭 Mimer trois actions avec son corps : applaudir comme devant un spectacle de Broadway, danser et mimer un ascenseur qui monte… et qui redescend !\n\n🎧 Deviner les sons emblématiques de New York : le klaxon des taxis, l'aboiement d'un chien dans Central Park et la corne de brume du ferry\n\n🎵 Chanter la New York City Song sur l'air de la comptine Incy Wincy Spider, pour retenir tous les mots découverts pendant l'aventure\n\n🔗 Retrouvez les paroles des chansons de Teddy sur Yoto Space\n\nℹ️ Cette carte fait partie du pack \"L'Anglais est un jeu\" : 8 aventures sonores pour une première immersion ludique dans la langue anglaise, dès 3 ans.\n",
+          "seriestitle": "L'anglais est un jeu",
+          "author": "Yoto",
+          "narrators": [],
+          "accents": [],
+          "authors": [
+            "Yoto"
+          ],
+          "copyrights": [
+            "©"
+          ],
+          "cover": {
+            "imageL": "https://card-content.yotoplay.com/yoto/pub/qGUniuaa1Hwr0VLj73iqYw2niUxSRd_I2o8vlpt5yTk"
+          },
+          "languages": [
+            "fr"
+          ],
+          "status": {
+            "name": "complete",
+            "updatedAt": "2026-05-05T11:10:40.449Z"
+          }
+        }
+      }
+    }
+  }
+}
