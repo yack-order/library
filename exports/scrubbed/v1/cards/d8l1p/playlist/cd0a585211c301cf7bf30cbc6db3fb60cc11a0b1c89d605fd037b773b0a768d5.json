@@ -1,0 +1,1028 @@
+{
+  "props": {
+    "pageProps": {
+      "card": {
+        "cardId": "d8l1p",
+        "title": "Antarctique",
+        "slug": "antartique",
+        "sortkey": "antarctique",
+        "userId": "yoto",
+        "clubAvailability": [
+          {
+            "store": "uk"
+          },
+          {
+            "store": "us"
+          },
+          {
+            "store": "ca"
+          },
+          {
+            "store": "eu"
+          },
+          {
+            "store": "au"
+          }
+        ],
+        "createdAt": "2025-01-23T16:23:58.161Z",
+        "updatedAt": "2026-11-09T08:35:26.125Z",
+        "content": {
+          "version": "1",
+          "activity": "yoto_Player",
+          "availability": "",
+          "config": {
+            "resumeTimeout": 2592000,
+            "disableTrackNav": true,
+            "shuffle": []
+          },
+          "playbackType": "interactive",
+          "editSettings": {
+            "autoOverlayLabels": "disabled",
+            "interactiveContent": true,
+            "transcodeAudioUploads": true,
+            "transcodePreset": "speech_compressed"
+          },
+          "cover": {
+            "imageL": "https://card-content.yotoplay.com/yoto/pub/kh3a4pNes_s_CCbto5qpfINlO2S8zlnuPcjCV7_Jzck"
+          },
+          "chapters": [
+            {
+              "key": "01",
+              "title": "Antarctique",
+              "duration": 1244,
+              "fileSize": 7417945,
+              "hasStreams": false,
+              "ambient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/5vVVqWdT5pT5iMkE9LX_7ltkEy6zL3hvZf7hJKRHf64"
+              },
+              "tracks": [
+                {
+                  "key": "01",
+                  "title": "Antarctique",
+                  "format": "opus",
+                  "type": "audio",
+                  "duration": 1244,
+                  "fileSize": 7417945,
+                  "channels": "mono",
+                  "ambient": null,
+                  "display": null,
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "101",
+              "title": "Quiz - Introduction",
+              "duration": 24,
+              "fileSize": 151898,
+              "hasStreams": false,
+              "ambient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/fqAuu4nSrOwNU-xbNVsGG-Om_PEe3S161UJ-nTXeBIQ"
+              },
+              "tracks": [
+                {
+                  "key": "101",
+                  "title": "Quiz - Introduction",
+                  "format": "opus",
+                  "type": "audio",
+                  "duration": 24,
+                  "fileSize": 151898,
+                  "channels": "mono",
+                  "ambient": null,
+                  "display": null,
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "102",
+              "title": "Quiz - Question 1 ",
+              "duration": 63,
+              "fileSize": 367214,
+              "hasStreams": false,
+              "ambient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/InKMUu5w-OTU4K1LbvmZ533aSmldf-_Z-PjMXv24yUw"
+              },
+              "tracks": [
+                {
+                  "key": "104",
+                  "title": "Quiz - Question 1",
+                  "format": "opus",
+                  "type": "audio",
+                  "duration": 14,
+                  "fileSize": 89960,
+                  "channels": "mono",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/fIq4UA6KUaj3X8HgX_bIYeFoPiSTNhO4JWGrO9pba94"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "stop"
+                    },
+                    "onLhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "102",
+                        "trackKey": "103"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "102",
+                        "trackKey": "102"
+                      }
+                    }
+                  }
+                },
+                {
+                  "key": "102",
+                  "title": "Quiz - Question 1 - Correct",
+                  "format": "opus",
+                  "type": "audio",
+                  "duration": 25,
+                  "fileSize": 140579,
+                  "channels": "mono",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/PV8gyKUOjemRv5pP761yTCeVM026i6VLwQSxe0Dgi0g"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "110",
+                        "trackKey": "110"
+                      }
+                    }
+                  }
+                },
+                {
+                  "key": "103",
+                  "title": "Quiz - Question 1 - Incorrect",
+                  "format": "opus",
+                  "type": "audio",
+                  "duration": 24,
+                  "fileSize": 136675,
+                  "channels": "mono",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/ed4Q_X5eLrIrDyNcW4pcCuNRoFpteYcqViIT4afx_YQ"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "110",
+                        "trackKey": "110"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "110",
+              "title": "Quiz - Question 2",
+              "duration": 56,
+              "fileSize": 331060,
+              "hasStreams": false,
+              "ambient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/g2bCqc9B3ZGgd1aCCgSeUvpbLRHgU2UFeowtWLOHP0A"
+              },
+              "tracks": [
+                {
+                  "key": "110",
+                  "title": "Quiz - Question 2",
+                  "format": "opus",
+                  "type": "audio",
+                  "duration": 18,
+                  "fileSize": 109687,
+                  "channels": "mono",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/fIq4UA6KUaj3X8HgX_bIYeFoPiSTNhO4JWGrO9pba94"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "stop"
+                    },
+                    "onLhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "110",
+                        "trackKey": "109"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "110",
+                        "trackKey": "108"
+                      }
+                    }
+                  }
+                },
+                {
+                  "key": "108",
+                  "title": "Quiz - Question 2 - Correct",
+                  "format": "opus",
+                  "type": "audio",
+                  "duration": 19,
+                  "fileSize": 110409,
+                  "channels": "mono",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/PV8gyKUOjemRv5pP761yTCeVM026i6VLwQSxe0Dgi0g"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "113",
+                        "trackKey": "113"
+                      }
+                    }
+                  }
+                },
+                {
+                  "key": "109",
+                  "title": "Quiz - Question 2 - Incorrect",
+                  "format": "opus",
+                  "type": "audio",
+                  "duration": 19,
+                  "fileSize": 110964,
+                  "channels": "mono",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/ed4Q_X5eLrIrDyNcW4pcCuNRoFpteYcqViIT4afx_YQ"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "113",
+                        "trackKey": "113"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "113",
+              "title": "Quiz - Question 3",
+              "duration": 62,
+              "fileSize": 376185,
+              "hasStreams": false,
+              "ambient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/Lp0kH7FXAcL3RJ6d31oWfqO9rkAbOAqrrQlVir4bdt4"
+              },
+              "tracks": [
+                {
+                  "key": "113",
+                  "title": "Quiz - Question 3",
+                  "format": "opus",
+                  "type": "audio",
+                  "duration": 16,
+                  "fileSize": 102016,
+                  "channels": "mono",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/fIq4UA6KUaj3X8HgX_bIYeFoPiSTNhO4JWGrO9pba94"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "stop"
+                    },
+                    "onLhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "113",
+                        "trackKey": "111"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "113",
+                        "trackKey": "112"
+                      }
+                    }
+                  }
+                },
+                {
+                  "key": "111",
+                  "title": "Quiz - Question 3 - Correct",
+                  "format": "opus",
+                  "type": "audio",
+                  "duration": 22,
+                  "fileSize": 131895,
+                  "channels": "mono",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/PV8gyKUOjemRv5pP761yTCeVM026i6VLwQSxe0Dgi0g"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "116",
+                        "trackKey": "116"
+                      }
+                    }
+                  }
+                },
+                {
+                  "key": "112",
+                  "title": "Quiz - Question 3 - Incorrect",
+                  "format": "opus",
+                  "type": "audio",
+                  "duration": 24,
+                  "fileSize": 142274,
+                  "channels": "mono",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/ed4Q_X5eLrIrDyNcW4pcCuNRoFpteYcqViIT4afx_YQ"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "116",
+                        "trackKey": "116"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "116",
+              "title": "Quiz - Question 4",
+              "duration": 81,
+              "fileSize": 482718,
+              "hasStreams": false,
+              "ambient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/0H-Jh1ujRclugtZfXmTas84MTMfvkSYp7VeF8aEB1pw"
+              },
+              "tracks": [
+                {
+                  "key": "116",
+                  "title": "Quiz - Question 4",
+                  "format": "opus",
+                  "type": "audio",
+                  "duration": 21,
+                  "fileSize": 127391,
+                  "channels": "mono",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/fIq4UA6KUaj3X8HgX_bIYeFoPiSTNhO4JWGrO9pba94"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "stop"
+                    },
+                    "onLhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "116",
+                        "trackKey": "114"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "116",
+                        "trackKey": "115"
+                      }
+                    }
+                  }
+                },
+                {
+                  "key": "114",
+                  "title": "Quiz - Question 4 - Correct",
+                  "format": "opus",
+                  "type": "audio",
+                  "duration": 30,
+                  "fileSize": 175815,
+                  "channels": "mono",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/PV8gyKUOjemRv5pP761yTCeVM026i6VLwQSxe0Dgi0g"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "119",
+                        "trackKey": "119"
+                      }
+                    }
+                  }
+                },
+                {
+                  "key": "115",
+                  "title": "Quiz - Question 4 - Incorrect",
+                  "format": "opus",
+                  "type": "audio",
+                  "duration": 30,
+                  "fileSize": 179512,
+                  "channels": "mono",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/ed4Q_X5eLrIrDyNcW4pcCuNRoFpteYcqViIT4afx_YQ"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "119",
+                        "trackKey": "119"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "119",
+              "title": "Quiz - Question 5",
+              "duration": 81,
+              "fileSize": 468377,
+              "hasStreams": false,
+              "ambient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/rMTK7rXGlPH2XBSzAPdLB63uSJvcWEMaQnhT2CmYiP8"
+              },
+              "tracks": [
+                {
+                  "key": "119",
+                  "title": "Quiz - Question 5",
+                  "format": "opus",
+                  "type": "audio",
+                  "duration": 19,
+                  "fileSize": 115117,
+                  "channels": "mono",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/fIq4UA6KUaj3X8HgX_bIYeFoPiSTNhO4JWGrO9pba94"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "stop"
+                    },
+                    "onLhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "119",
+                        "trackKey": "117"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "119",
+                        "trackKey": "118"
+                      }
+                    }
+                  }
+                },
+                {
+                  "key": "117",
+                  "title": "Quiz - Question 5 - Correct",
+                  "format": "opus",
+                  "type": "audio",
+                  "duration": 30,
+                  "fileSize": 170585,
+                  "channels": "mono",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/PV8gyKUOjemRv5pP761yTCeVM026i6VLwQSxe0Dgi0g"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "122",
+                        "trackKey": "122"
+                      }
+                    }
+                  }
+                },
+                {
+                  "key": "118",
+                  "title": "Quiz - Question 5 - Incorrect",
+                  "format": "opus",
+                  "type": "audio",
+                  "duration": 32,
+                  "fileSize": 182675,
+                  "channels": "mono",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/ed4Q_X5eLrIrDyNcW4pcCuNRoFpteYcqViIT4afx_YQ"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "122",
+                        "trackKey": "122"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "122",
+              "title": "Quiz - Question 6",
+              "duration": 70,
+              "fileSize": 411515,
+              "hasStreams": false,
+              "ambient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/NEqSbTXGIEI8KwAOQuv1cn2xboLavOMjnpDaWV_d6Nw"
+              },
+              "tracks": [
+                {
+                  "key": "122",
+                  "title": "Quiz - Question 6",
+                  "format": "opus",
+                  "type": "audio",
+                  "duration": 16,
+                  "fileSize": 100693,
+                  "channels": "mono",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/fIq4UA6KUaj3X8HgX_bIYeFoPiSTNhO4JWGrO9pba94"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "stop"
+                    },
+                    "onLhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "122",
+                        "trackKey": "121"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "122",
+                        "trackKey": "120"
+                      }
+                    }
+                  }
+                },
+                {
+                  "key": "120",
+                  "title": "Quiz - Question 6 - Correct",
+                  "format": "opus",
+                  "type": "audio",
+                  "duration": 27,
+                  "fileSize": 154773,
+                  "channels": "mono",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/PV8gyKUOjemRv5pP761yTCeVM026i6VLwQSxe0Dgi0g"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "125",
+                        "trackKey": "125"
+                      }
+                    }
+                  }
+                },
+                {
+                  "key": "121",
+                  "title": "Quiz - Question 6 - Incorrect",
+                  "format": "opus",
+                  "type": "audio",
+                  "duration": 27,
+                  "fileSize": 156049,
+                  "channels": "mono",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/ed4Q_X5eLrIrDyNcW4pcCuNRoFpteYcqViIT4afx_YQ"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "125",
+                        "trackKey": "125"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "125",
+              "title": "Quiz - Question 7",
+              "duration": 69,
+              "fileSize": 413520,
+              "hasStreams": false,
+              "ambient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/oCHl1M8m7Exe9w_uKeuD5-6pgTYu3lzi3hlPqXUiY6E"
+              },
+              "tracks": [
+                {
+                  "key": "125",
+                  "title": "Quiz - Question 7",
+                  "format": "opus",
+                  "type": "audio",
+                  "duration": 17,
+                  "fileSize": 106238,
+                  "channels": "mono",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/fIq4UA6KUaj3X8HgX_bIYeFoPiSTNhO4JWGrO9pba94"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "stop"
+                    },
+                    "onLhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "125",
+                        "trackKey": "124"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "125",
+                        "trackKey": "123"
+                      }
+                    }
+                  }
+                },
+                {
+                  "key": "123",
+                  "title": "Quiz - Question 7 - Correct",
+                  "format": "opus",
+                  "type": "audio",
+                  "duration": 26,
+                  "fileSize": 153419,
+                  "channels": "mono",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/PV8gyKUOjemRv5pP761yTCeVM026i6VLwQSxe0Dgi0g"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "128",
+                        "trackKey": "128"
+                      }
+                    }
+                  }
+                },
+                {
+                  "key": "124",
+                  "title": "Quiz - Question 7 - Incorrect",
+                  "format": "opus",
+                  "type": "audio",
+                  "duration": 26,
+                  "fileSize": 153863,
+                  "channels": "mono",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/ed4Q_X5eLrIrDyNcW4pcCuNRoFpteYcqViIT4afx_YQ"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "128",
+                        "trackKey": "128"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "128",
+              "title": "Quiz - Question 8",
+              "duration": 49,
+              "fileSize": 294721,
+              "hasStreams": false,
+              "ambient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/l_lgrtn81ChnLFHA0m5lYvqXKC-Jt4R0z4P0aiLKYUg"
+              },
+              "tracks": [
+                {
+                  "key": "128",
+                  "title": "Quiz - Question 8",
+                  "format": "opus",
+                  "type": "audio",
+                  "duration": 15,
+                  "fileSize": 92717,
+                  "channels": "mono",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/fIq4UA6KUaj3X8HgX_bIYeFoPiSTNhO4JWGrO9pba94"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "stop"
+                    },
+                    "onLhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "128",
+                        "trackKey": "126"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "128",
+                        "trackKey": "127"
+                      }
+                    }
+                  }
+                },
+                {
+                  "key": "126",
+                  "title": "Quiz - Question 8 - Correct",
+                  "format": "opus",
+                  "type": "audio",
+                  "duration": 17,
+                  "fileSize": 101356,
+                  "channels": "mono",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/PV8gyKUOjemRv5pP761yTCeVM026i6VLwQSxe0Dgi0g"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "131",
+                        "trackKey": "131"
+                      }
+                    }
+                  }
+                },
+                {
+                  "key": "127",
+                  "title": "Quiz - Question 8 - Incorrect",
+                  "format": "opus",
+                  "type": "audio",
+                  "duration": 17,
+                  "fileSize": 100648,
+                  "channels": "mono",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/ed4Q_X5eLrIrDyNcW4pcCuNRoFpteYcqViIT4afx_YQ"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "131",
+                        "trackKey": "131"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "131",
+              "title": "Quiz - Question 9",
+              "duration": 56,
+              "fileSize": 325926,
+              "hasStreams": false,
+              "ambient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/zyiyRYt6dNMDaMYuXOkQQ8jN4C6_sE4oWzdCvc2_bE8"
+              },
+              "tracks": [
+                {
+                  "key": "131",
+                  "title": "Quiz - Question 9",
+                  "format": "opus",
+                  "type": "audio",
+                  "duration": 16,
+                  "fileSize": 97252,
+                  "channels": "mono",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/fIq4UA6KUaj3X8HgX_bIYeFoPiSTNhO4JWGrO9pba94"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "stop"
+                    },
+                    "onLhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "131",
+                        "trackKey": "129"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "131",
+                        "trackKey": "130"
+                      }
+                    }
+                  }
+                },
+                {
+                  "key": "129",
+                  "title": "Quiz - Question 9 - Correct",
+                  "format": "opus",
+                  "type": "audio",
+                  "duration": 20,
+                  "fileSize": 112011,
+                  "channels": "mono",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/PV8gyKUOjemRv5pP761yTCeVM026i6VLwQSxe0Dgi0g"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "107",
+                        "trackKey": "107"
+                      }
+                    }
+                  }
+                },
+                {
+                  "key": "130",
+                  "title": "Quiz - Question 9 - Incorrect",
+                  "format": "opus",
+                  "type": "audio",
+                  "duration": 20,
+                  "fileSize": 116663,
+                  "channels": "mono",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/ed4Q_X5eLrIrDyNcW4pcCuNRoFpteYcqViIT4afx_YQ"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "107",
+                        "trackKey": "107"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "107",
+              "title": "Quiz - Question 10",
+              "duration": 76,
+              "fileSize": 454267,
+              "hasStreams": false,
+              "ambient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/AXu4LhB9lb7kPPtDfJb1Q7pBmwNqtGHX2eLhBosAKd4"
+              },
+              "tracks": [
+                {
+                  "key": "107",
+                  "title": "Quiz - Question 10",
+                  "format": "opus",
+                  "type": "audio",
+                  "duration": 18,
+                  "fileSize": 112064,
+                  "channels": "mono",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/fIq4UA6KUaj3X8HgX_bIYeFoPiSTNhO4JWGrO9pba94"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "stop"
+                    },
+                    "onLhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "107",
+                        "trackKey": "105"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "107",
+                        "trackKey": "106"
+                      }
+                    }
+                  }
+                },
+                {
+                  "key": "105",
+                  "title": "Quiz - Question 10 - Correct",
+                  "format": "opus",
+                  "type": "audio",
+                  "duration": 28,
+                  "fileSize": 167007,
+                  "channels": "mono",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/PV8gyKUOjemRv5pP761yTCeVM026i6VLwQSxe0Dgi0g"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "stop"
+                    }
+                  }
+                },
+                {
+                  "key": "106",
+                  "title": "Quiz - Question 10 - Incorrect",
+                  "format": "opus",
+                  "type": "audio",
+                  "duration": 30,
+                  "fileSize": 175196,
+                  "channels": "mono",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/ed4Q_X5eLrIrDyNcW4pcCuNRoFpteYcqViIT4afx_YQ"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "stop"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "metadata": {
+          "category": "activities",
+          "minAge": 6,
+          "maxAge": 12,
+          "media": {
+            "duration": 1931,
+            "fileSize": 11495346
+          },
+          "author": "Yoto",
+          "description": "Rejoignez la colo des CosmoPotes pour un Tour du Monde Express !\n\nAprès avoir brillamment exploré les huit planètes dans le Système Solaire, Chloé et Malick sont de retour sur Terre pour une aventure géographique : la Mission Sept Continents !\n\nAccompagnés de leur fidèle Super Vaisseau et de leur petit robot orbitant ultra-technologique, Orbi, nos CosmoPotes se lancent dans un tour du monde pour visiter des pays incroyables et découvrir les cultures de chacun.\n\nPréparez-vous à une expédition riche en découvertes :\n\nDes rencontres animalières incroyables : Des orangs-outans de la forêt tropicale indonésienne aux majestueux manchots empereurs de l'Antarctique.\nDes monuments grandioses à explorer : Du Colisée de Rome à la Grande Muraille de Chine, en passant par le sommet vertigineux du Burj Khalifa à Dubaï.\nDes saveurs du monde à goûter : Du délicieux sushi du Japon au couscous parfumé du Maroc, sans oublier la fameuse pizza italienne !\n\nÀ la fin de chaque carte, attendez-vous à des quiz interactifs pour tester vos nouvelles connaissances ! Ce voyage unique laissera à votre enfant une profonde appréciation de ce qui rend notre planète si riche et spéciale.\n\nCe pack inclut 7 cartes : \nEurope\nAmérique du Nord et Amérique Centrale\nAfrique\nAsie\nAntarctique\nAmérique du Sud\nOcéanie\n",
+          "abridged": false,
+          "seriesorder": 5,
+          "seriestitle": "Les 7 continents, un voyage extraordinaire",
+          "accents": [],
+          "copyrights": [],
+          "narrators": [],
+          "authors": [
+            "Yoto"
+          ],
+          "cover": {
+            "imageL": "https://card-content.yotoplay.com/yoto/pub/kh3a4pNes_s_CCbto5qpfINlO2S8zlnuPcjCV7_Jzck"
+          },
+          "languages": [
+            "fr"
+          ],
+          "status": {
+            "name": "complete",
+            "updatedAt": "2025-11-24T15:08:32.849Z"
+          }
+        }
+      }
+    }
+  }
+}
