@@ -1,0 +1,616 @@
+{
+  "props": {
+    "pageProps": {
+      "card": {
+        "cardId": "cwQcA",
+        "title": "ET/OU",
+        "slug": "4-logique-booléenne",
+        "sortkey": "et-ou",
+        "userId": "yoto",
+        "clubAvailability": [
+          {
+            "store": "uk"
+          },
+          {
+            "store": "us"
+          },
+          {
+            "store": "ca"
+          },
+          {
+            "store": "eu"
+          },
+          {
+            "store": "au"
+          }
+        ],
+        "createdAt": "2025-01-23T15:46:44.906Z",
+        "updatedAt": "2026-03-13T15:05:34.240Z",
+        "content": {
+          "version": "1",
+          "activity": "yoto_Player",
+          "availability": "",
+          "config": {
+            "resumeTimeout": 86400,
+            "disableChapterNav": true,
+            "disableTrackNav": true
+          },
+          "playbackType": "interactive",
+          "editSettings": {
+            "interactiveContent": true,
+            "transcodeAudioUploads": true,
+            "transcodePreset": "auto"
+          },
+          "cover": {
+            "imageL": "https://card-content.yotoplay.com/yoto/pub/5C0d3-sl7dweIM2qo6MKoqTxhvLrmKFKdHBiFLszL7k"
+          },
+          "chapters": [
+            {
+              "key": "101",
+              "title": "Introduction",
+              "duration": 82,
+              "fileSize": 1330520,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/0H-Jh1ujRclugtZfXmTas84MTMfvkSYp7VeF8aEB1pw"
+              },
+              "tracks": [
+                {
+                  "key": "101",
+                  "title": "Introduction",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 82,
+                  "fileSize": 1330520,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "102",
+              "title": "Logique booléenne",
+              "duration": 55,
+              "fileSize": 885278,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/eUEQny_2uFWbi5_JwFrvmQAeRoay8uFDfUfvrO1t3sE"
+              },
+              "tracks": [
+                {
+                  "key": "102",
+                  "title": "Logique booléenne",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 55,
+                  "fileSize": 885278,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "103",
+              "title": "Jeu 1a : ET / OU dans la vie courante",
+              "duration": 98,
+              "fileSize": 1580652,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/jDy2TRQZgBbZ2rBMadIEgbzkXrBZZES4F_hGCdVtz5A"
+              },
+              "tracks": [
+                {
+                  "key": "103",
+                  "title": "Jeu 1a : ET / OU dans la vie courante",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 98,
+                  "fileSize": 1580652,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "104",
+              "title": "Jeu 1b : ET / OU dans la vie courante",
+              "duration": 91,
+              "fileSize": 1469340,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/99i8i93d17yfLxD9cDjXfgSL6B9A0XfIkJo513VYJ0U"
+              },
+              "tracks": [
+                {
+                  "key": "104",
+                  "title": "Jeu 1b : ET / OU dans la vie courante",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 91,
+                  "fileSize": 1469340,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "105",
+              "title": "Jeu 2a : Portes logiques ",
+              "duration": 54,
+              "fileSize": 881480,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/sWbJz--9TNzxcm8tXa8DvMCxD-GgroqFuoHtlYAzTm4"
+              },
+              "tracks": [
+                {
+                  "key": "105",
+                  "title": "Jeu 2a : Portes logiques ",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 54,
+                  "fileSize": 881480,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "106",
+                        "trackKey": "106"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "106",
+                        "trackKey": "106"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "106",
+              "title": "Jeu 2b : Portes logiques ",
+              "duration": 23,
+              "fileSize": 378674,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/sWbJz--9TNzxcm8tXa8DvMCxD-GgroqFuoHtlYAzTm4"
+              },
+              "tracks": [
+                {
+                  "key": "106",
+                  "title": "Jeu 2b : Portes logiques ",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 23,
+                  "fileSize": 378674,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "107",
+                        "trackKey": "107"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "107",
+                        "trackKey": "107"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "107",
+              "title": "Jeu 2c : Portes logiques ",
+              "duration": 50,
+              "fileSize": 807386,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/p6B2HIcXa30x7oUgRBvMKHcyIOY_oL2W_pgOKStftCk"
+              },
+              "tracks": [
+                {
+                  "key": "107",
+                  "title": "Jeu 2c : Portes logiques ",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 50,
+                  "fileSize": 807386,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "stop"
+                    },
+                    "onLhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "108",
+                        "trackKey": "108"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "109",
+                        "trackKey": "109"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "108",
+              "title": "Bonne réponse",
+              "duration": 18,
+              "fileSize": 288197,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/PV8gyKUOjemRv5pP761yTCeVM026i6VLwQSxe0Dgi0g"
+              },
+              "tracks": [
+                {
+                  "key": "108",
+                  "title": "Bonne réponse",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 18,
+                  "fileSize": 288197,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "110",
+                        "trackKey": "110"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "109",
+              "title": "Mauvaise réponse",
+              "duration": 15,
+              "fileSize": 250194,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/ed4Q_X5eLrIrDyNcW4pcCuNRoFpteYcqViIT4afx_YQ"
+              },
+              "tracks": [
+                {
+                  "key": "109",
+                  "title": "Mauvaise réponse",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 15,
+                  "fileSize": 250194,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "110",
+                        "trackKey": "110"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "110",
+              "title": "Jeu 3a : Portes logiques",
+              "duration": 41,
+              "fileSize": 662652,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/GnWnJhGBEGL5U20Ai93g9LL14dgOPwOQRhz5RjhtHF8"
+              },
+              "tracks": [
+                {
+                  "key": "110",
+                  "title": "Jeu 3a : Portes logiques",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 41,
+                  "fileSize": 662652,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "stop"
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "111",
+                        "trackKey": "111"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "111",
+              "title": "Jeu 3b : Portes logiques",
+              "duration": 30,
+              "fileSize": 492289,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/ED71vJ0DSy9WGdOEOgMKFeer4FOjOCQchuCdulytO34"
+              },
+              "tracks": [
+                {
+                  "key": "111",
+                  "title": "Jeu 3b : Portes logiques",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 30,
+                  "fileSize": 492289,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "stop"
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "112",
+                        "trackKey": "112"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "112",
+              "title": "Jeu 3c : Portes logiques",
+              "duration": 42,
+              "fileSize": 675117,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/ED71vJ0DSy9WGdOEOgMKFeer4FOjOCQchuCdulytO34"
+              },
+              "tracks": [
+                {
+                  "key": "112",
+                  "title": "Jeu 3c : Portes logiques",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 42,
+                  "fileSize": 675117,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "stop"
+                    },
+                    "onLhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "114",
+                        "trackKey": "114"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "113",
+                        "trackKey": "113"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "113",
+              "title": "Bonne réponse",
+              "duration": 27,
+              "fileSize": 431510,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/PV8gyKUOjemRv5pP761yTCeVM026i6VLwQSxe0Dgi0g"
+              },
+              "tracks": [
+                {
+                  "key": "113",
+                  "title": "Bonne réponse",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 27,
+                  "fileSize": 431510,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "115",
+                        "trackKey": "115"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "114",
+              "title": "Mauvaise réponse",
+              "duration": 30,
+              "fileSize": 489526,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/ed4Q_X5eLrIrDyNcW4pcCuNRoFpteYcqViIT4afx_YQ"
+              },
+              "tracks": [
+                {
+                  "key": "114",
+                  "title": "Mauvaise réponse",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 30,
+                  "fileSize": 489526,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "115",
+                        "trackKey": "115"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "115",
+              "title": "Bravo !",
+              "duration": 78,
+              "fileSize": 1262826,
+              "hasStreams": false,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/jZ2ghHIxsMwPgg5-8qqdaqYrXW88Am8Ydp_ly7l40HU"
+              },
+              "tracks": [
+                {
+                  "key": "115",
+                  "title": "Bravo !",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 78,
+                  "fileSize": 1262826,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": null,
+                  "events": {}
+                }
+              ]
+            }
+          ]
+        },
+        "metadata": {
+          "category": "activities",
+          "minAge": 4,
+          "maxAge": 10,
+          "media": {
+            "duration": 734,
+            "fileSize": 11885641
+          },
+          "author": "Yoto",
+          "description": "Quatrième super pouvoir du codage : la logique booléenne. Grâce à elle, les ordinateurs et les robots peuvent prendre des décisions. Par exemple : avancer si la porte est ouverte, ou s’arrêter si elle est fermée.\n\nLes pros du code utilisent les fameux ET / OU pour créer des programmes capables de réagir selon les situations.\n\nDans cette carte, les enfants jouent avec ces logiques à travers des petits défis du quotidien :\n\nDes situations de la vie quotidienne : choisir un parfum de glace, lire un livre… à chaque fois, ils apprennent à utiliser ET et OU pour prendre une décision.\n\nLe jeu des portes : deux interrupteurs contrôlent une porte. Selon les conditions, elle s’ouvre ou reste fermée. Les enfants doivent comprendre et tester différentes combinaisons pour voir ce qui se passe.\n\nIls découvrent ainsi que les ordinateurs n’ont pas de magie, mais une logique qui leur permet de prendre la bonne décision au bon moment.\n\nUne carte qui montre que les ordinateurs savent aussi prendre des décisions !\n",
+          "seriesorder": 4,
+          "seriestitle": "Coder est un jeu",
+          "cover": {
+            "imageL": "https://card-content.yotoplay.com/yoto/pub/5C0d3-sl7dweIM2qo6MKoqTxhvLrmKFKdHBiFLszL7k"
+          },
+          "languages": [
+            "fr"
+          ],
+          "status": {
+            "name": "complete",
+            "updatedAt": "2025-10-09T13:16:25.178Z"
+          }
+        }
+      }
+    }
+  }
+}
