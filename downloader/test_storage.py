@@ -161,6 +161,17 @@ class InspectionTests(unittest.TestCase):
 
 
 class DeliveryTests(unittest.TestCase):
+    def test_preserved_copy_checks_never_request_drive_or_upload(self):
+        for presence in ['present','missing','unknown']:
+            with self.subTest(presence=presence),tempfile.TemporaryDirectory() as tmp,patch.object(storage_runner,'check_page',return_value=presence),patch.object(storage_runner,'Drive') as drive,patch.object(storage_runner,'upload') as upload:
+                client=Mock();source={'checkOnly':True,'checkpoint':{},'object':{'filename':'Archive.7z'},'hot':{'pageUrl':'https://gofile.io/d/example'}}
+                if presence=='unknown':
+                    with self.assertRaises(ArchiveError):storage_runner.deliver(client,source,Path(tmp))
+                    self.assertFalse(any(call.args[0]=='complete' for call in client.call.call_args_list))
+                else:
+                    storage_runner.deliver(client,source,Path(tmp));self.assertEqual(client.call.call_args.args,('complete',{'presence':presence}))
+                drive.assert_not_called();upload.assert_not_called()
+
     def test_recovered_provider_metadata_checks_the_existing_page_without_uploading(self):
         source=self.source();payload=b'archive bytes';md5=hashlib.md5(payload).hexdigest()
         receipt={'filename':'Example.7z','bytes':len(payload),'sha256':source['object']['sha256'],'contentId':'file-id',

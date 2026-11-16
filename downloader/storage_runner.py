@@ -100,6 +100,11 @@ def seed(client,source,work):
 def deliver(client,source,work):
     client.stage='checking'
     checkpoint=source['checkpoint'];object=source['object']
+    if source.get('checkOnly'):
+        presence=check_page(source['hot']['pageUrl'],object['filename']) if source.get('hot') else 'missing'
+        client.call('page-result',{'presence':presence})
+        if presence=='unknown':raise ArchiveError('page_unknown')
+        client.call('complete',{'presence':presence});return
     if checkpoint.get('hotReceipt'):
         receipt=verify_upload(checkpoint['hotReceipt'])
         if receipt['verification']=='provider-metadata':
@@ -117,7 +122,7 @@ def deliver(client,source,work):
     client.stage='restoring'
     drive=Drive(source['runtimeToken'],refresh=lambda:client.call('source')['runtimeToken']);path=work/object['filename']
     if path.name!=object['filename']:raise ArchiveError('unsafe_archive')
-    metadata=drive.download(object['drive_file_id'],path,maximum=object['bytes'],expected_version=object['drive_version'])
+    metadata=drive.download(object['drive_file_id'],path,maximum=object['bytes'],expected_version=object['drive_version'],allow_trashed=source.get('preservation',False))
     if source['destinationFolder'] not in metadata.get('parents',[]) or digest(path)!=object['sha256']:
         raise ArchiveError('verification_failed')
     client.call('upload-intent',{});client.stage='uploading'
