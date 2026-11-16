@@ -1,0 +1,702 @@
+{
+  "props": {
+    "pageProps": {
+      "card": {
+        "cardId": "e7pRl",
+        "title": "Le sport en Australie et en Nouvelle-Zélande",
+        "slug": "le-sport-en-australie-et-en-nouvelle-zélande",
+        "sortkey": "le-sport-en-australie-et-en-nouvelle-zélande",
+        "userId": "yoto",
+        "scanToAdd": false,
+        "clubAvailability": [
+          {
+            "store": "uk"
+          },
+          {
+            "store": "us"
+          },
+          {
+            "store": "ca"
+          },
+          {
+            "store": "eu"
+          },
+          {
+            "store": "au"
+          }
+        ],
+        "createdAt": "2025-06-03T10:10:49.929Z",
+        "updatedAt": "2026-06-04T09:51:06.683Z",
+        "content": {
+          "version": "1",
+          "activity": "yoto_Player",
+          "availability": "",
+          "config": {
+            "resumeTimeout": 2592000,
+            "onlineOnly": false
+          },
+          "playbackType": "interactive",
+          "editSettings": {
+            "autoOverlayLabels": "disabled",
+            "interactiveContent": true,
+            "transcodeAudioUploads": true,
+            "transcodePreset": "auto"
+          },
+          "cover": {
+            "imageL": "https://card-content.yotoplay.com/yoto/pub/Kffu6Nd0njWURxTvOEQy62KtlKxP2SezX2Wy3Z_RxgI"
+          },
+          "chapters": [
+            {
+              "key": "jSeYqm32Bd",
+              "title": "Welcome !",
+              "duration": 55,
+              "fileSize": 893148,
+              "hasStreams": false,
+              "overlayLabel": "1",
+              "overlayLabelOverride": "1",
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/p_yLNC3TPtuo8MNv5WSG0q5aqTPD-WRRRWYkPB0cbjA"
+              },
+              "tracks": [
+                {
+                  "key": "2KPG6HChj3",
+                  "title": "Welcome !",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 55,
+                  "fileSize": 893148,
+                  "channels": "stereo",
+                  "overlayLabel": "1",
+                  "overlayLabelOverride": "1",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/p_yLNC3TPtuo8MNv5WSG0q5aqTPD-WRRRWYkPB0cbjA"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "JX_9EBPwZx",
+                        "trackKey": "pjE_V7SQpe"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "kK703XuGae",
+                        "trackKey": "9isXMjrpR5"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "JX_9EBPwZx",
+              "title": "Meet Teddy",
+              "duration": 112,
+              "fileSize": 1812419,
+              "hasStreams": false,
+              "overlayLabel": "2",
+              "overlayLabelOverride": "2",
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/qRwgKDsRZQ0gHCrwhG9sjh3eYBaFSPUvGIufuizJ0Os"
+              },
+              "tracks": [
+                {
+                  "key": "pjE_V7SQpe",
+                  "title": "Meet Teddy",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 112,
+                  "fileSize": 1812419,
+                  "channels": "stereo",
+                  "overlayLabel": "2",
+                  "overlayLabelOverride": "2",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/qRwgKDsRZQ0gHCrwhG9sjh3eYBaFSPUvGIufuizJ0Os"
+                  },
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "kK703XuGae",
+              "title": "Off to Australia and New Zealand! ",
+              "duration": 231,
+              "fileSize": 3733972,
+              "hasStreams": false,
+              "overlayLabel": "3",
+              "overlayLabelOverride": "3",
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/6PPHCqXner5iW3ShYG-gKqS367dz3t4Tc6cH3BgPPrU"
+              },
+              "tracks": [
+                {
+                  "key": "9isXMjrpR5",
+                  "title": "Off to Australia and New Zealand! ",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 231,
+                  "fileSize": 3733972,
+                  "channels": "stereo",
+                  "overlayLabel": "3",
+                  "overlayLabelOverride": "3",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/VYkrH4kDdtVQ3nF_i3V9T9wCR6Kn6n7fCDQejjsMAow"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "uYWEQt_IUT",
+                        "trackKey": "WXE9qSsFlr"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "uYWEQt_IUT",
+                        "trackKey": "WXE9qSsFlr"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "uYWEQt_IUT",
+              "title": "Discover Australia with Teddy",
+              "duration": 77,
+              "fileSize": 1242773,
+              "hasStreams": false,
+              "overlayLabel": "4",
+              "overlayLabelOverride": "4",
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/LKqdHc7cepJkTpqGT3Gy2vXYsYrpWga18kJ7D9aa0os"
+              },
+              "tracks": [
+                {
+                  "key": "WXE9qSsFlr",
+                  "title": "Discover Australia with Teddy",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 77,
+                  "fileSize": 1242773,
+                  "channels": "stereo",
+                  "overlayLabel": "4",
+                  "overlayLabelOverride": "4",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/LKqdHc7cepJkTpqGT3Gy2vXYsYrpWga18kJ7D9aa0os"
+                  },
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "5- Discover Australi",
+              "title": "Discover Australia with Teddy",
+              "displayOverlay": " Discover Australi",
+              "duration": 120,
+              "fileSize": 1358167,
+              "hasStreams": false,
+              "overlayLabel": "5",
+              "overlayLabelOverride": "5",
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/BQgKNo2RYWFahO31l2GaGLPcGWna-mGzW2ZQJur_Hus"
+              },
+              "tracks": [
+                {
+                  "key": "5- Discover Australi",
+                  "title": "Discover Australia with Teddy",
+                  "format": "opus",
+                  "type": "audio",
+                  "displayOverlay": " Discover Australia with Teddy 2",
+                  "duration": 120,
+                  "fileSize": 1358167,
+                  "channels": "stereo",
+                  "overlayLabel": "5",
+                  "overlayLabelOverride": "5",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/BQgKNo2RYWFahO31l2GaGLPcGWna-mGzW2ZQJur_Hus"
+                  },
+                  "events": {},
+                  "preset": "compression_minimal"
+                }
+              ]
+            },
+            {
+              "key": "ajxo5gpras",
+              "title": "Discover Australia with Teddy",
+              "duration": 106,
+              "fileSize": 1707666,
+              "hasStreams": false,
+              "overlayLabel": "6",
+              "overlayLabelOverride": "6",
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/Vmz7lIRtYlLWGObRr1AJUEgVNpTl0p10W746kimbWUY"
+              },
+              "tracks": [
+                {
+                  "key": "hEeyv-GkEn",
+                  "title": "Discover Australia with Teddy",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 106,
+                  "fileSize": 1707666,
+                  "channels": "stereo",
+                  "overlayLabel": "6",
+                  "overlayLabelOverride": "6",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/Vmz7lIRtYlLWGObRr1AJUEgVNpTl0p10W746kimbWUY"
+                  },
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "cMM2zWifV9",
+              "title": "Discover New Zealand with Teddy",
+              "duration": 77,
+              "fileSize": 1252536,
+              "hasStreams": false,
+              "overlayLabel": "7",
+              "overlayLabelOverride": "7",
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/RriAAaVtG4W3Y2swKNybdcRq4Bbz2luiZTQ8bYpTEoc"
+              },
+              "tracks": [
+                {
+                  "key": "ki4-RvrxPb",
+                  "title": "Discover New Zealand with Teddy",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 77,
+                  "fileSize": 1252536,
+                  "channels": "stereo",
+                  "overlayLabel": "7",
+                  "overlayLabelOverride": "7",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/RriAAaVtG4W3Y2swKNybdcRq4Bbz2luiZTQ8bYpTEoc"
+                  },
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "EXCSk5UH1v",
+              "title": "Discover New Zealand with Teddy",
+              "duration": 86,
+              "fileSize": 1383592,
+              "hasStreams": false,
+              "overlayLabel": "8",
+              "overlayLabelOverride": "8",
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/Ccki7fzXGZcgmGHbueX_RFsRWIARzy4k6WhxVm1X5IQ"
+              },
+              "tracks": [
+                {
+                  "key": "g49QlTgvS-",
+                  "title": "Discover New Zealand with Teddy",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 86,
+                  "fileSize": 1383592,
+                  "channels": "stereo",
+                  "overlayLabel": "8",
+                  "overlayLabelOverride": "8",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/Ccki7fzXGZcgmGHbueX_RFsRWIARzy4k6WhxVm1X5IQ"
+                  },
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "U6Zo-iQUAB",
+              "title": "Discover New Zealand with Teddy",
+              "duration": 183,
+              "fileSize": 2956021,
+              "hasStreams": false,
+              "overlayLabel": "9",
+              "overlayLabelOverride": "9",
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/hxUaOUNBZi8cXXYDXEr8m_kERYjJuEUYDN3Dy7bHuEI"
+              },
+              "tracks": [
+                {
+                  "key": "B8iXnOJUOJ",
+                  "title": "Discover New Zealand with Teddy",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 183,
+                  "fileSize": 2956021,
+                  "channels": "stereo",
+                  "overlayLabel": "9",
+                  "overlayLabelOverride": "9",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/hxUaOUNBZi8cXXYDXEr8m_kERYjJuEUYDN3Dy7bHuEI"
+                  },
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "t8P1OmkHnI",
+              "title": "Games with Teddy",
+              "duration": 151,
+              "fileSize": 2443699,
+              "hasStreams": false,
+              "overlayLabel": "10",
+              "overlayLabelOverride": "10",
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/pfh-eJfo1sxUuPDNi46t0qBP3d9LRDJnfIiwHg_49jg"
+              },
+              "tracks": [
+                {
+                  "key": "JT46GZvRjz",
+                  "title": "Games with Teddy",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 151,
+                  "fileSize": 2443699,
+                  "channels": "stereo",
+                  "overlayLabel": "10",
+                  "overlayLabelOverride": "10",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/pfh-eJfo1sxUuPDNi46t0qBP3d9LRDJnfIiwHg_49jg"
+                  },
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "WjaHpE0Yxz",
+              "title": "Games with Teddy",
+              "duration": 43,
+              "fileSize": 703511,
+              "hasStreams": false,
+              "overlayLabel": "11",
+              "overlayLabelOverride": "11",
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/rvwuOmC0frAHnAwAuq_V20LEaL1cqr5vJYl2lDmneRQ"
+              },
+              "tracks": [
+                {
+                  "key": "s8XjeGoPYJ",
+                  "title": "Games with Teddy",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 43,
+                  "fileSize": 703511,
+                  "channels": "stereo",
+                  "overlayLabel": "11",
+                  "overlayLabelOverride": "11",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/rvwuOmC0frAHnAwAuq_V20LEaL1cqr5vJYl2lDmneRQ"
+                  },
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "YUfyTD2Ivp",
+              "title": "Games with Teddy",
+              "duration": 32,
+              "fileSize": 522886,
+              "hasStreams": false,
+              "overlayLabel": "12",
+              "overlayLabelOverride": "12",
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/ecgoXG3A_f4fKolH8gq-1WElPwImK90fQ7VQdR7QRH8"
+              },
+              "tracks": [
+                {
+                  "key": "7s2ZNgw3pi",
+                  "title": "Games with Teddy",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 32,
+                  "fileSize": 522886,
+                  "channels": "stereo",
+                  "overlayLabel": "12",
+                  "overlayLabelOverride": "12",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/ecgoXG3A_f4fKolH8gq-1WElPwImK90fQ7VQdR7QRH8"
+                  },
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "J3MABZqS1i",
+              "title": "Games with Teddy",
+              "duration": 33,
+              "fileSize": 530021,
+              "hasStreams": false,
+              "overlayLabel": "13",
+              "overlayLabelOverride": "13",
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/Ccki7fzXGZcgmGHbueX_RFsRWIARzy4k6WhxVm1X5IQ"
+              },
+              "tracks": [
+                {
+                  "key": "BcmRglkgvV",
+                  "title": "Games with Teddy",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 33,
+                  "fileSize": 530021,
+                  "channels": "stereo",
+                  "overlayLabel": "13",
+                  "overlayLabelOverride": "13",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/Ccki7fzXGZcgmGHbueX_RFsRWIARzy4k6WhxVm1X5IQ"
+                  },
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "6QrpQP51wS",
+              "title": "Games with Teddy",
+              "duration": 30,
+              "fileSize": 479702,
+              "hasStreams": false,
+              "overlayLabel": "14",
+              "overlayLabelOverride": "14",
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/-acm43G-y4HPWCb9nI6XEyeOqwe0xmOBUvqU6-Ja5ts"
+              },
+              "tracks": [
+                {
+                  "key": "O7fbKSsCxq",
+                  "title": "Games with Teddy",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 30,
+                  "fileSize": 479702,
+                  "channels": "stereo",
+                  "overlayLabel": "14",
+                  "overlayLabelOverride": "14",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/-acm43G-y4HPWCb9nI6XEyeOqwe0xmOBUvqU6-Ja5ts"
+                  },
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "QRrlVbid_2",
+              "title": "Well done!",
+              "duration": 49,
+              "fileSize": 788738,
+              "hasStreams": false,
+              "overlayLabel": "15",
+              "overlayLabelOverride": "15",
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/pfh-eJfo1sxUuPDNi46t0qBP3d9LRDJnfIiwHg_49jg"
+              },
+              "tracks": [
+                {
+                  "key": "G3h9JXP3w9",
+                  "title": "Well done!",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 49,
+                  "fileSize": 788738,
+                  "channels": "stereo",
+                  "overlayLabel": "15",
+                  "overlayLabelOverride": "15",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/pfh-eJfo1sxUuPDNi46t0qBP3d9LRDJnfIiwHg_49jg"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "stop"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "sfDDnWO6pT",
+              "title": "Oceania sports song",
+              "duration": 56,
+              "fileSize": 902161,
+              "hasStreams": false,
+              "overlayLabel": "16",
+              "overlayLabelOverride": "16",
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/JsKSRxI7FV7ZDe4-6K6DD4Q0WEcqc_2HNxfmas0wHQw"
+              },
+              "tracks": [
+                {
+                  "key": "rzYwcsxX8H",
+                  "title": "Oceania sports song",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 56,
+                  "fileSize": 902161,
+                  "channels": "stereo",
+                  "overlayLabel": "16",
+                  "overlayLabelOverride": "16",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/JsKSRxI7FV7ZDe4-6K6DD4Q0WEcqc_2HNxfmas0wHQw"
+                  },
+                  "events": {}
+                }
+              ]
+            },
+            {
+              "key": "bOwCWc5QGY",
+              "title": "Bye bye!",
+              "duration": 59,
+              "fileSize": 950962,
+              "hasStreams": false,
+              "overlayLabel": "17",
+              "overlayLabelOverride": "17",
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/yoto/anXeeIlqkU_KiBxJsvkrLzOcqiQ2X4f31ptES60Ybw4"
+              },
+              "tracks": [
+                {
+                  "key": "UnJ7Z-6AIi",
+                  "title": "Bye bye!",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 59,
+                  "fileSize": 950962,
+                  "channels": "stereo",
+                  "overlayLabel": "17",
+                  "overlayLabelOverride": "17",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/yoto/anXeeIlqkU_KiBxJsvkrLzOcqiQ2X4f31ptES60Ybw4"
+                  },
+                  "events": {}
+                }
+              ]
+            }
+          ]
+        },
+        "metadata": {
+          "category": "activities",
+          "minAge": 3,
+          "maxAge": 10,
+          "media": {
+            "duration": 1500,
+            "fileSize": 23661974
+          },
+          "abridged": false,
+          "author": "Yoto",
+          "description": "Teddy t'emmène entre l'Australie et la Nouvelle-Zélande : deux pays d'îles, de surf, de rugby, de kangourous et de moutons à perte de vue !\n\nDans cette aventure, Teddy explore deux pays aux paysages splendides, où les eaux turquoise invitent à surfer et à faire de la voile, où les matchs de rugby font vibrer les stades… et où des animaux absolument adorables attendent d'être découverts !\n\nDans cette carte, votre enfant va :\n\n🗣️ Répéter des mots et expressions autour du sport et de la nature en anglais avec Teddy\n\n🎭 Mimer quatre actions avec son corps : nager, courir, tirer dans un ballon de rugby et sauter comme un kangourou !\n\n🎵 Chanter l'Oceania Sports Song sur l'air de la comptine Les Crocodiles, pour retenir tous les mots découverts pendant l'aventure\n\n🔗 Retrouvez les paroles des chansons de Teddy sur Yoto Space\n\nℹ️ Cette carte fait partie du pack \"L'Anglais est un jeu\" : 8 aventures sonores pour une première immersion ludique dans la langue anglaise, dès 3 ans.\n",
+          "seriestitle": "L'anglas est un jeu",
+          "narrators": [],
+          "accents": [
+            "EU French"
+          ],
+          "authors": [
+            "Yoto"
+          ],
+          "copyrights": [
+            "© ℗ 2026 Yoto Ltd. Produit par Clap Audio."
+          ],
+          "cover": {
+            "imageL": "https://card-content.yotoplay.com/yoto/pub/Kffu6Nd0njWURxTvOEQy62KtlKxP2SezX2Wy3Z_RxgI"
+          },
+          "languages": [
+            "fr"
+          ],
+          "status": {
+            "name": "complete",
+            "updatedAt": "2026-05-05T10:29:31.315Z"
+          }
+        }
+      }
+    }
+  }
+}
