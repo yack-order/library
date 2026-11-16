@@ -28,7 +28,7 @@ class RetainedUploadTests(unittest.TestCase):
         metadata={'id':'saved-file-id','name':name,'parents':['folder-id'],'version':'7','size':str(path.stat().st_size),'capabilities':{'canDownload':True},'appProperties':{'toyoJob':'original-job','toyoSha256':sha}}
         drive=Drive('private-token');drive.metadata=Mock(return_value=metadata)
         def download(_id,target,**kwargs):
-            self.assertEqual(_id,'saved-file-id');self.assertEqual(kwargs,{'expected_version':'7'});shutil.copyfile(path,target);return metadata
+            self.assertEqual(_id,'saved-file-id');self.assertEqual(kwargs,{'expected_version':'7','expected_sha256':metadata['appProperties']['toyoSha256']});shutil.copyfile(path,target);return metadata
         drive.download=Mock(side_effect=download)
         return drive,metadata,{'uploadedFile':'saved-file-id','uploadSha256':sha},path
 

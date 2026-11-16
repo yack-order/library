@@ -180,6 +180,23 @@ class DeliveryTests(unittest.TestCase):
                         self.assertEqual(drive.download('file',path,expected_version='1',expected_sha256=expected)['version'],'2')
                         self.assertEqual(path.read_bytes(),payload)
 
+    def test_upload_readback_verifies_known_sha_across_metadata_revision(self):
+        payload=b'preserved archive';sha=hashlib.sha256(payload).hexdigest()
+        metadata={'version':'2','size':str(len(payload)),'sha256Checksum':sha,'capabilities':{'canDownload':True}}
+        for body,error in [(payload,None),(b'X'*len(payload),'verification_failed')]:
+            with self.subTest(body=body),tempfile.TemporaryDirectory() as tmp:
+                drive=Drive('private-token');drive.metadata=Mock(return_value=metadata)
+                response=Mock(status_code=200,is_redirect=False,headers={});response.iter_content.return_value=[body]
+                response.__enter__=Mock(return_value=response);response.__exit__=Mock(return_value=False)
+                with patch.object(drive,'request',return_value=response),patch('drive_storage.public_url',side_effect=lambda url:url):
+                    if error:
+                        with self.assertRaises(ArchiveError) as caught:drive.readback({'id':'file','version':'1','name':'archive.7z'},Path(tmp),'abc12','full',{},sha)
+                        self.assertEqual(caught.exception.code,error)
+                    else:
+                        result=drive.readback({'id':'file','version':'1','name':'archive.7z'},Path(tmp),'abc12','full',{},sha)
+                        self.assertEqual(result['verifiedSha256'],sha);self.assertEqual(result['driveVersion'],'2')
+                    self.assertFalse((Path(tmp)/'drive-readback.7z').exists())
+
     def test_preserved_copy_checks_never_request_drive_or_upload(self):
         for presence in ['present','missing','unknown']:
             with self.subTest(presence=presence),tempfile.TemporaryDirectory() as tmp,patch.object(storage_runner,'check_page',return_value=presence),patch.object(storage_runner,'Drive') as drive,patch.object(storage_runner,'upload') as upload:

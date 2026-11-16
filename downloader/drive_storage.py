@@ -268,7 +268,7 @@ class Drive:
             raise ArchiveError('verification_failed')
         with tempfile.TemporaryDirectory(prefix='retained-upload-',dir=work) as temporary:
             archive=Path(temporary)/'retained.7z'
-            latest=self.download(file['id'],archive,expected_version=str(file['version']))
+            latest=self.download(file['id'],archive,expected_version=str(file['version']),expected_sha256=sha)
             if digest(archive)!=sha or archive.stat().st_size!=int(file.get('size',0)):
                 raise ArchiveError('verification_failed')
             expanded=Path(temporary)/'verified';expanded.mkdir()
@@ -294,7 +294,7 @@ class Drive:
     def readback(self,file,work,card_id,variant,index,expected_sha):
         restored=Path(work)/'drive-readback.7z'
         try:
-            latest=self.download(file['id'],restored,expected_version=str(file['version']))
+            latest=self.download(file['id'],restored,expected_version=str(file['version']),expected_sha256=expected_sha)
             sha=digest(restored)
             if not expected_sha or sha!=expected_sha:raise ArchiveError('verification_failed')
             with open(restored,'rb') as handle:md5=hashlib.file_digest(handle,'md5').hexdigest()
