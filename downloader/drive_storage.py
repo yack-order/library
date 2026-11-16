@@ -78,9 +78,9 @@ class Drive:
         return self.json('files/'+file_id, supportsAllDrives='true',
                          fields='id,name,parents,version,size,md5Checksum,sha256Checksum,trashed,capabilities(canDownload),appProperties')
 
-    def download(self, file_id, path, *, maximum=MAX_ARCHIVE, expected_version=None, probe=False):
+    def download(self, file_id, path, *, maximum=MAX_ARCHIVE, expected_version=None, probe=False, allow_trashed=False):
         metadata = self.metadata(file_id)
-        if metadata.get('trashed') or not metadata.get('capabilities', {}).get('canDownload'):
+        if (metadata.get('trashed') and not allow_trashed) or not metadata.get('capabilities', {}).get('canDownload'):
             raise ArchiveError('source_unavailable')
         if expected_version and str(metadata.get('version')) != str(expected_version):
             raise ArchiveError('source_changed')

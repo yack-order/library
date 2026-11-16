@@ -161,3 +161,10 @@ explicitly unresolved; yoto:# references use the fixed public card-content host.
 Deferred work: behavior graph validation (toyo-api#171), restore tooling (#172),
 and historical backfill where originals survive (#173). No existing stored archive
 is rewritten by publishing this code, and no full-restoration claim is made.
+
+
+## Podcast last-call copies
+
+Preservation jobs have a distinct server-side origin and exact object identity. Storage delivery copies original bytes, validates the Drive version/SHA-256 and retains provider size/MD5 acknowledgement. After verified Drive deletion, `checkOnly` inputs contain no Drive or upload credential: the runner checks the existing public page and never uploads or restores. Unknown page results remain unknown.
+
+An eligible promoted podcast can reuse its retained Gofile bytes through the normal public page; bounded streaming and exact length/SHA-256 checks precede extraction. Ambiguous download controls or browser challenges stop recovery. Expired volumes retain their history; currently authorized source episodes can populate a new bounded volume after promotion.

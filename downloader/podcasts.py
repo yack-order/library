@@ -24,7 +24,12 @@ def restore_previous(podcast,drive,work):
     previous=podcast.get('previous')
     if not previous:return None
     from archive_inspector import verify_generated_archive
-    path=work/'previous.7z';drive.download(previous['fileId'],path,maximum=previous['bytes'])
+    path=work/'previous.7z'
+    if previous.get('pageUrl'):
+        from gofile_presence import download_page
+        try:download_page(previous['pageUrl'],previous['filename'],path,previous['bytes'])
+        except Exception:raise ArchiveError('podcast_previous_archive_unavailable') from None
+    else:drive.download(previous['fileId'],path,maximum=previous['bytes'])
     if path.stat().st_size!=previous['bytes'] or digest(path)!=previous['sha256']:raise ArchiveError('verification_failed')
     restored=work/'previous';restored.mkdir();verify_generated_archive(path,restored)
     path.unlink()

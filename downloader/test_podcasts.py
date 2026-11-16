@@ -7,10 +7,23 @@ import copy
 import runner
 import unittest
 from unittest.mock import Mock,patch
-from podcasts import episode_filenames,prepare_podcast,verified_inventory
+from podcasts import episode_filenames,prepare_podcast,verified_inventory,restore_previous
 from runner import ArchiveError
 
 class PodcastTests(unittest.TestCase):
+    def test_preserved_previous_uses_bounded_public_download_and_checks_sha256(self):
+        data=b'exact archived bytes';sha=hashlib.sha256(data).hexdigest()
+        with tempfile.TemporaryDirectory() as tmp:
+            work=Path(tmp);drive=Mock();previous={'pageUrl':'https://gofile.io/d/example','filename':'Archive.7z','bytes':len(data),'sha256':sha}
+            def download(url,name,path,maximum):
+                self.assertEqual(maximum,len(data));path.write_bytes(data)
+            def verify(path,restored):(restored/'archive').mkdir()
+            with patch('gofile_presence.download_page',side_effect=download),patch('archive_inspector.verify_generated_archive',side_effect=verify):
+                self.assertEqual(restore_previous({'previous':previous},drive,work).name,'archive')
+            drive.download.assert_not_called()
+        with tempfile.TemporaryDirectory() as tmp,patch('gofile_presence.download_page',side_effect=lambda url,name,path,maximum:path.write_bytes(b'wrong')):
+            with self.assertRaises(ArchiveError):restore_previous({'previous':previous},Mock(),Path(tmp))
+
     def test_release_date_names_and_collisions(self):
         rows=[{'id':'a'*64,'releaseDate':'2026-11-13','title':'Same / Title'},
               {'id':'b'*64,'releaseDate':'2026-11-13','title':'Same / Title'},
