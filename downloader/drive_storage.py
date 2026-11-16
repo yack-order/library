@@ -231,7 +231,7 @@ class Drive:
 
     def _recover_uploaded(self, work, folder, job_id, card_id, progress):
         from archive_inspector import verify_generated_archive
-        if not re.fullmatch(r'[A-Za-z0-9]{5}',str(card_id)) or not isinstance(progress,dict):
+        if not re.fullmatch(r'(?:[A-Za-z0-9]{5}|sooperbooks:[A-Za-z0-9_-]{1,184})',str(card_id)) or not isinstance(progress,dict):
             raise ArchiveError('verification_failed')
         sha=progress.get('uploadSha256')
         if not isinstance(sha,str) or not re.fullmatch(r'[a-f0-9]{64}',sha):
@@ -259,7 +259,7 @@ class Drive:
                 or folder not in file.get('parents',[]) or properties.get('toyoJob')!=job_id
                 or properties.get('toyoSha256')!=sha or not isinstance(filename,str)
                 or len(filename)>240 or re.search(r'[/\\\x00-\x1f]',filename)
-                or not re.search(r'\['+re.escape(card_id)+r'\] \(\d{4}-\d{2}-\d{2}\)\.7z$',filename)):
+                or not re.search(r'\['+re.escape(card_id.removeprefix('sooperbooks:'))+r'\] \(\d{4}-\d{2}-\d{2}\)\.7z$',filename)):
             raise ArchiveError('verification_failed')
         with tempfile.TemporaryDirectory(prefix='retained-upload-',dir=work) as temporary:
             archive=Path(temporary)/'retained.7z'

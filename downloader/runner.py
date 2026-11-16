@@ -658,7 +658,11 @@ def main():
                         from momma_resources import capture_supplements
                         supplemental_folder, _ = capture_supplements(source['supplements'], Path(directory))
                         source['supplementFolder'] = str(supplemental_folder)
-                    path=build_drive_archive(source,Path(directory),captures)
+                    if source.get('sourceKind') == 'sooperbooks':
+                        from sooperbooks import build_sooperbooks_archive
+                        path=build_sooperbooks_archive(source,Path(directory))
+                    else:
+                        path=build_drive_archive(source,Path(directory),captures)
                     restored=Path(directory)/'verified';restored.mkdir()
                     verify_generated_archive(path,restored)
                     if source.get('podcast'):
