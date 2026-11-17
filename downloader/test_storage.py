@@ -99,21 +99,22 @@ class InspectionTests(unittest.TestCase):
                     with self.assertRaises(ArchiveError) as caught:archive_inspector.verify_generated_archive('synthetic',Path(tmp)/'restored')
                     self.assertEqual(caught.exception.code,'verification_failed')
 
-    def test_mislabeled_ogg_audio_is_remuxed_without_transcoding(self):
-        with tempfile.TemporaryDirectory() as tmp:
-            work=Path(tmp);self.fixture(work);folder=work/'legacy'/'Example'
-            sample=next((folder/'audio_files').glob('*.mp3'));sample.unlink()
-            subprocess.run(['ffmpeg','-nostdin','-v','error','-f','lavfi','-i','sine=frequency=440:duration=0.2',
-                            '-c:a','libopus','-f','ogg',str(sample)],check=True)
-            source=work/'Mislabeled [abc12].zip'
-            with zipfile.ZipFile(source,'w') as archive:
-                for path in folder.rglob('*'):
-                    if path.is_file():archive.write(path,str(path.relative_to(folder.parent)))
-            out=work/'out';out.mkdir();result=archive_inspector.sanitize_archive(source,out)
-            audio=list((out/'clean').rglob('*.ogg'));self.assertEqual(len(audio),1)
-            codec=subprocess.check_output(['ffprobe','-v','error','-show_entries','stream=codec_name','-of','json',str(audio[0])])
-            self.assertEqual(json.loads(codec)['streams'][0]['codec_name'],'opus')
-            self.assertEqual(result['tracks'],1)
+    def test_ogg_opus_inputs_are_remuxed_without_transcoding(self):
+        for suffix in ['.mp3','.opus']:
+            with self.subTest(source_suffix=suffix),tempfile.TemporaryDirectory() as tmp:
+                work=Path(tmp);self.fixture(work);folder=work/'legacy'/'Example'
+                sample=next((folder/'audio_files').glob('*.mp3'));sample.unlink();sample=sample.with_suffix(suffix)
+                subprocess.run(['ffmpeg','-nostdin','-v','error','-f','lavfi','-i','sine=frequency=440:duration=0.2',
+                                '-c:a','libopus','-f','ogg',str(sample)],check=True)
+                source=work/'Mislabeled [abc12].zip'
+                with zipfile.ZipFile(source,'w') as archive:
+                    for path in folder.rglob('*'):
+                        if path.is_file():archive.write(path,str(path.relative_to(folder.parent)))
+                out=work/'out';out.mkdir();result=archive_inspector.sanitize_archive(source,out)
+                audio=list((out/'clean').rglob('*.ogg'));self.assertEqual(len(audio),1)
+                codec=subprocess.check_output(['ffprobe','-v','error','-show_entries','stream=codec_name','-of','json',str(audio[0])])
+                self.assertEqual(json.loads(codec)['streams'][0]['codec_name'],'opus')
+                self.assertEqual(result['tracks'],1)
 
     def test_drive_zip_with_card_json_preserves_metadata_and_sanitizes_copy(self):
         with tempfile.TemporaryDirectory() as tmp:
