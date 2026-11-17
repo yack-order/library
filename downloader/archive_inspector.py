@@ -22,7 +22,8 @@ from restoration import (MAP_NAME, AUDIO_SUFFIXES, verify_map, new_map, write_ma
 MAX_EXPANDED=8*1024**3
 MAX_MEMBERS=10000
 MAX_FILE=1024**3
-AUDIO=AUDIO_SUFFIXES
+# Native .opus backups use the same Ogg container; normalized output stays .ogg.
+AUDIO=AUDIO_SUFFIXES|{'.opus'}
 
 
 def _safe_extract(archive_path,destination,maximum_expanded,maximum_file):
