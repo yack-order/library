@@ -5,6 +5,8 @@ from pathlib import Path
 import subprocess
 import tempfile
 import unittest
+import zipfile
+import stat
 from unittest.mock import Mock, patch
 
 import py7zr
@@ -18,6 +20,30 @@ import storage_runner
 
 
 class InspectionTests(unittest.TestCase):
+    def test_legacy_and_json_preview_labels_are_preserved_without_changing_sources(self):
+        cases=[('Discover: 1 track',None,False,'demo'),
+               ('Story: A preview',None,False,'demo'),
+               ('Discover: 1 track','Discover: The full card',False,'full'),
+               ('Original playlist','Discover: A preview',False,'demo'),
+               ('Original playlist','Discover: The full card',True,'demo'),
+               ('Discover the science',None,False,'full')]
+        for legacy_description,json_description,explicit_demo,variant in cases:
+            with self.subTest(legacy=legacy_description,json=json_description,explicit=explicit_demo),tempfile.TemporaryDirectory() as tmp:
+                work=Path(tmp);self.fixture(work);folder=work/'legacy'/'Example'
+                with (folder/'card.txt').open('a') as handle:handle.write('Description:: '+legacy_description+'\n')
+                if json_description is None:(folder/'playlist.json').unlink()
+                else:
+                    raw=json.loads((folder/'playlist.json').read_text());raw['card']['metadata']['description']=json_description
+                    (folder/'playlist.json').write_text(json.dumps(raw))
+                source=work/('Legacy'+('[DEMO]' if explicit_demo else '')+'[abc12].zip')
+                with zipfile.ZipFile(source,'w') as archive:
+                    for path in folder.rglob('*'):
+                        if path.is_file():archive.write(path,str(path.relative_to(folder.parent)))
+                before=source.read_bytes();out=work/'out';out.mkdir();result=archive_inspector.sanitize_archive(source,out)
+                self.assertEqual(result['variant'],variant);self.assertEqual('[DEMO]' in Path(result['path']).name,variant=='demo')
+                self.assertEqual(source.read_bytes(),before);self.assertEqual(result['sourceSha256'],hashlib.sha256(before).hexdigest())
+                self.assertEqual(result['tracks'],1)
+
     def test_generated_verification_keeps_import_and_safety_limits(self):
         def member(name='Example/audio',size=768*1024**2):
             return Mock(filename=name,is_symlink=False,is_junction=False,is_socket=False,uncompressed=size)
@@ -64,6 +90,54 @@ class InspectionTests(unittest.TestCase):
                 with patch.object(py7zr,'SevenZipFile',return_value=archive),patch.object(archive_inspector.shutil,'disk_usage',return_value=Mock(free=64*1024**3)):
                     with self.assertRaises(ArchiveError) as caught:archive_inspector.verify_generated_archive('synthetic',Path(tmp)/'restored')
                     self.assertEqual(caught.exception.code,'verification_failed')
+
+    def test_mislabeled_ogg_audio_is_remuxed_without_transcoding(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            work=Path(tmp);self.fixture(work);folder=work/'legacy'/'Example'
+            sample=next((folder/'audio_files').glob('*.mp3'));sample.unlink()
+            subprocess.run(['ffmpeg','-nostdin','-v','error','-f','lavfi','-i','sine=frequency=440:duration=0.2',
+                            '-c:a','libopus','-f','ogg',str(sample)],check=True)
+            source=work/'Mislabeled [abc12].zip'
+            with zipfile.ZipFile(source,'w') as archive:
+                for path in folder.rglob('*'):
+                    if path.is_file():archive.write(path,str(path.relative_to(folder.parent)))
+            out=work/'out';out.mkdir();result=archive_inspector.sanitize_archive(source,out)
+            audio=list((out/'clean').rglob('*.ogg'));self.assertEqual(len(audio),1)
+            codec=subprocess.check_output(['ffprobe','-v','error','-show_entries','stream=codec_name','-of','json',str(audio[0])])
+            self.assertEqual(json.loads(codec)['streams'][0]['codec_name'],'opus')
+            self.assertEqual(result['tracks'],1)
+
+    def test_drive_zip_with_card_json_preserves_metadata_and_sanitizes_copy(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            work=Path(tmp);original,raw=self.fixture(work)
+            folder=work/'legacy'/'Example'
+            (folder/'card.txt').unlink()
+            (folder/'playlist.json').rename(folder/'card.json')
+            (folder/'.backup-state.json').write_text('{"email":"private@example.test"}')
+            source=work/'Example [abc12].zip'
+            with zipfile.ZipFile(source,'w') as archive:
+                for path in folder.rglob('*'):
+                    if path.is_file():archive.write(path,str(path.relative_to(folder.parent)))
+            before=source.read_bytes();out=work/'out';out.mkdir()
+            result=archive_inspector.sanitize_archive(source,out)
+            self.assertEqual(result['cardId'],'abc12');self.assertEqual(result['tracks'],1)
+            self.assertEqual(Path(result['rawMetadata']).read_text(),raw)
+            self.assertEqual(source.read_bytes(),before)
+            self.assertTrue(Path(result['path']).name.endswith('[abc12].7z'))
+            clean=next((out/'clean').iterdir())
+            self.assertFalse((clean/'.backup-state.json').exists())
+            self.assertNotIn('private-owner',(clean/'playlist.json').read_text())
+
+    def test_zip_rejects_traversal_symlinks_duplicates_and_oversized_members(self):
+        for names,mode,limit in [(['../outside'],0,None),(['Example/file'],stat.S_IFLNK|0o777,None),
+                                  (['Example/file','Example/file'],0,None),(['Example/file'],0,0)]:
+            with self.subTest(names=names,mode=mode,limit=limit),tempfile.TemporaryDirectory() as tmp:
+                work=Path(tmp);source=work/'bad.zip'
+                with zipfile.ZipFile(source,'w') as archive:
+                    for name in names:
+                        info=zipfile.ZipInfo(name);info.external_attr=mode<<16;archive.writestr(info,b'x')
+                with patch.object(archive_inspector,'MAX_FILE',limit if limit is not None else archive_inspector.MAX_FILE):
+                    with self.assertRaises(ArchiveError):archive_inspector.safe_extract(source,work/'out')
 
     def fixture(self,work, *,card='abc12',expected=1,live=False):
         folder=work/'legacy'/'Example';folder.mkdir(parents=True)

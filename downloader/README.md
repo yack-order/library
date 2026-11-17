@@ -176,3 +176,7 @@ An eligible promoted podcast can reuse its retained Gofile bytes through the nor
 ## Public Sooper Books archives
 
 `sooperbooks.py` builds provider-specific archives from public website manifests supplied by TOYO. It preserves MP3 and artwork bytes without retagging or transcoding, includes publisher attribution and CC BY-NC-ND 4.0 information, and uses the existing private Drive upload/readback and Gofile delivery pipeline. Storage identities retain the `sooperbooks:` namespace; they are not Yoto CardIDs. Complete series and chaptered books retain publisher order, including specials and credits. Sooper Books downloads are public through TOYO's dedicated provider endpoints. Other providers keep their existing authorization.
+
+### Legacy imports and preview labels
+
+The inspector keeps explicit `[DEMO]` labels and recognizes the Catalog’s Discover preview descriptions in playlist JSON or legacy `card.txt`. Full-card marketing descriptions remain full. ZIP and 7z imports retain the same path, encryption and size guards; mislabeled audio extensions are corrected by detecting and losslessly remuxing the original container.
