@@ -12,10 +12,26 @@ from unittest.mock import Mock, patch
 import requests
 import py7zr
 from archive_safety import create_verified_archive
+import archive_safety
 from drive_storage import Drive
 
 
 class ArchiveRetryTests(unittest.TestCase):
+    def test_fast_large_packing_preserves_every_byte_and_atomic_reproducible_publication(self):
+        data=os.urandom(128*1024)
+        with tempfile.TemporaryDirectory() as temporary,patch.object(archive_safety,'FAST_PACK_THRESHOLD',1024):
+            parent=Path(temporary);source=parent/'Example';source.mkdir();(source/'audio.mp3').write_bytes(data)
+            (source/'manifest.json').write_text(json.dumps({'audioSha256':hashlib.sha256(data).hexdigest()}))
+            requested=parent/'archive.7z';requested.write_bytes(b'keep existing output')
+            first=Path(create_verified_archive(source,requested,reproducible=True,fast_large=True))
+            second=Path(create_verified_archive(source,parent/'second.7z',reproducible=True,fast_large=True))
+            self.assertEqual(requested.read_bytes(),b'keep existing output')
+            self.assertEqual(first.read_bytes(),second.read_bytes())
+            restored=parent/'restored'
+            with py7zr.SevenZipFile(first) as opened:opened.extractall(restored)
+            self.assertEqual((restored/'Example/audio.mp3').read_bytes(),data)
+            self.assertEqual(json.loads((restored/'Example/manifest.json').read_text())['audioSha256'],hashlib.sha256(data).hexdigest())
+
     def test_owned_archives_have_identical_bytes_across_member_order_and_local_timestamps(self):
         hashes=[]
         with tempfile.TemporaryDirectory() as temporary:

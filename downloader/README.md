@@ -180,3 +180,5 @@ An eligible promoted podcast can reuse its retained Gofile bytes through the nor
 ### Legacy imports and preview labels
 
 The inspector keeps explicit `[DEMO]` labels and recognizes the Catalog’s Discover preview descriptions in playlist JSON or legacy `card.txt`. Full-card marketing descriptions remain full. ZIP and 7z imports retain the same path, encryption and size guards; mislabeled audio extensions are corrected by detecting and losslessly remuxing the original container.
+
+Fresh inspections with at least 512 MiB of sanitized content use fast lossless LZMA2 packing. Verification, CPU, memory, member and archive-size limits are unchanged. A retained upload checksum, session or file keeps the original packing strategy; completed inspection artifacts are reused. Generated archives keep their existing reproducible packing. A child killed by the CPU/resource guard is reported as `resource_limit`, rather than archive corruption.

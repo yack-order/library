@@ -8,6 +8,7 @@ import tempfile
 
 MAX_BUILD_EXPANDED = 16 * 1024**3
 MAX_BUILD_FILE = 2 * 1024**3
+FAST_PACK_THRESHOLD = 512 * 1024**2
 
 
 def safe_filename(value, fallback="Untitled", limit=180):
@@ -55,7 +56,7 @@ class Workspace:
         shutil.rmtree(self.path)
 
 
-def create_verified_archive(folder_path, requested_path, *, reproducible=False):
+def create_verified_archive(folder_path, requested_path, *, reproducible=False, fast_large=False):
     """Verify a temporary archive, then publish without replacing an existing file.
 
     Failure leaves the owned download workspace intact for manual recovery.
@@ -69,13 +70,19 @@ def create_verified_archive(folder_path, requested_path, *, reproducible=False):
         if source.is_symlink() or not source.is_dir():
             raise ValueError('Invalid archive source')
         expected = {source.name}
+        source_bytes = 0
         for item in source.rglob('*'):
             if item.is_symlink():
                 raise ValueError('Refusing symlink archive members')
             expected.add(str(Path(source.name) / item.relative_to(source)).replace('\\', '/'))
+            if item.is_file():source_bytes += item.stat().st_size
         descriptor, temporary = tempfile.mkstemp(prefix='.yje-archive-', suffix='.7z', dir=requested.parent)
         with os.fdopen(descriptor, 'w+b') as handle:
-            with py7zr.SevenZipFile(handle, 'w') as archive:
+            # Already-compressed audio gains little from the default CPU-heavy
+            # preset. Opt in only for fresh large inspections; retained uploads
+            # and generated archives keep their existing checksum strategy.
+            filters=[{'id':py7zr.FILTER_LZMA2,'preset':0}] if fast_large and source_bytes>=FAST_PACK_THRESHOLD else None
+            with py7zr.SevenZipFile(handle, 'w', filters=filters) as archive:
                 if reproducible:
                     # These callers own sanitized work trees, never original sources.
                     # Stable member order and timestamps let an identical rebuild

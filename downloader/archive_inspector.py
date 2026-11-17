@@ -5,6 +5,7 @@ import os
 from pathlib import Path, PurePosixPath
 import re
 import shutil
+import signal
 import stat
 import subprocess
 import sys
@@ -127,7 +128,7 @@ def natural(path):
     return [int(x) if x.isdigit() else x.casefold() for x in re.split(r'(\d+)',path.name)]
 
 
-def sanitize_archive(source,work):
+def sanitize_archive(source,work,*,fast_large=False):
     source=Path(source);work=Path(work);expanded=work/'expanded';expanded.mkdir()
     safe_extract(source,expanded)
     roots=list({p.parent for name in ('card.txt','card.json') for p in expanded.rglob(name)})
@@ -282,7 +283,7 @@ def sanitize_archive(source,work):
     # The downloaded original may have this exact name. Keep output separate
     # so atomic no-overwrite publication does not append a copy counter.
     archives=work/'sanitized';archives.mkdir()
-    archive=Path(create_verified_archive(folder,archives/filename))
+    archive=Path(create_verified_archive(folder,archives/filename,**({'fast_large':True} if fast_large else {})))
     verification=work/'verify';verification.mkdir();safe_extract(archive,verification)
     verify_manifest(verification/folder.name,required=True)
     raw_path=None
@@ -295,12 +296,15 @@ def sanitize_archive(source,work):
             'index':{'title':title[:240],'tracks':len(audio),'author':author[:500],'category':category[:100],'duration':duration}}
 
 
-def inspect_archive(source,work):
+def inspect_archive(source,work,*,fast_large=False):
     result=Path(work)/'inspection.json'
     command=[sys.executable,str(Path(__file__).resolve()),'--inspect',str(source),str(work)]
+    if fast_large:command.append('--fast-large')
     try:
         completed=subprocess.run(command,timeout=1200,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
-        if not result.exists():raise ArchiveError('unsafe_archive')
+        if not result.exists():
+            if completed.returncode in {-signal.SIGKILL,-signal.SIGXCPU}:raise ArchiveError('resource_limit')
+            raise ArchiveError('unsafe_archive')
         data=json.loads(result.read_text())
         if completed.returncode or data.get('error'):raise ArchiveError(data.get('error','processing_failed'))
         return data
@@ -314,7 +318,7 @@ if __name__=='__main__':
     resource.setrlimit(resource.RLIMIT_CPU,(1100,1100))
     result=Path(sys.argv[3])/'inspection.json'
     try:
-        output=sanitize_archive(sys.argv[2],sys.argv[3]);code=0
+        output=sanitize_archive(sys.argv[2],sys.argv[3],fast_large='--fast-large' in sys.argv[4:]);code=0
     except Exception as error:
         output={'error':error.code if isinstance(error,ArchiveError) else 'unsafe_archive'};code=1
     result.write_text(json.dumps(output),encoding='utf-8');result.chmod(0o600)
