@@ -52,6 +52,19 @@ class ArchiveTests(unittest.TestCase):
                     for file in folder.rglob('*'):
                         if file.suffix in {'.json','.txt'}:self.assertNotIn('token=secret',file.read_text())
 
+    def test_generated_archives_use_catalog_preview_descriptions_and_preserve_full_marketing_text(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);sample=root/'sample.mp3'
+            subprocess.run(['ffmpeg','-nostdin','-v','error','-f','lavfi','-i','sine=frequency=440:duration=0.2','-c:a','libmp3lame',str(sample)],check=True)
+            for index,(description,demo) in enumerate([('Discover: A preview',True),('Story: Prologue',True),('Discover the science',False)]):
+                with self.subTest(description=description):
+                    work=root/str(index);work.mkdir()
+                    card={'cardId':'abc12','title':'Example','metadata':{'description':description},'content':{'chapters':[{'tracks':[{'title':'Track','trackUrl':'https://media.test/opaque'}]}]}}
+                    public=copy.deepcopy(card);del public['content']['chapters'][0]['tracks'][0]['trackUrl']
+                    def download(url,path,**kwargs):Path(path).write_bytes(sample.read_bytes());return 'audio/mpeg'
+                    with patch.object(runner,'stream_file',side_effect=download):archive=runner.build_archive({'card':card,'publicCard':public},work)
+                    self.assertEqual('[DEMO]' in archive.name,demo)
+
     def test_historical_snapshot_label_cannot_inject_paths(self):
         with tempfile.TemporaryDirectory() as tmp, patch.object(runner,'stream_file') as download:
             card={'cardId':'abc12','title':'Example'}

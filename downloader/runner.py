@@ -416,7 +416,8 @@ def build_archive(source, work, captures=None):
     if expanded > MAX_BUILD_EXPANDED:
         print(json.dumps({'event':'archive.resource_limit','reason':'generated_tree','expanded_bytes':expanded,'expanded_limit_bytes':MAX_BUILD_EXPANDED}))
         raise ArchiveError('resource_limit')
-    demo = '[DEMO]' if re.search(r'Discover:\s*\d+\s+tracks?', str(metadata.get('description',''))+' '+str(card.get('title',''))) else ''
+    from archive_labels import is_demo_archive
+    demo = '[DEMO]' if is_demo_archive(description=metadata.get('description') or card.get('description'),title=card.get('title')) else ''
     historical = f" [Snapshot {snapshot['label']}]" if snapshot is not None else ''
     filename = f'{category} - {title}{historical}{demo}[{card_id}] ({datetime.now(timezone.utc):%Y-%m-%d}).7z'
     if source.get('podcast'):

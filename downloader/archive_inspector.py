@@ -8,6 +8,7 @@ import shutil
 import stat
 import subprocess
 import sys
+import zipfile
 
 import py7zr
 from PIL import Image
@@ -25,6 +26,25 @@ AUDIO=AUDIO_SUFFIXES
 
 def _safe_extract(archive_path,destination,maximum_expanded,maximum_file):
     destination=Path(destination)
+    if zipfile.is_zipfile(archive_path):
+        with zipfile.ZipFile(archive_path) as archive:
+            members=archive.infolist();names=set();total=0
+            if len(members)>MAX_MEMBERS:raise ArchiveError('resource_limit')
+            for member in members:
+                name=member.filename;parts=PurePosixPath(name).parts;canonical=str(PurePosixPath(name))
+                mode=member.external_attr>>16
+                if (member.orig_filename!=name or not parts or canonical!=name.rstrip('/') or name.startswith(('/','\\')) or '\\' in name or ':' in name or
+                        any(part in ('..','.') for part in parts) or '\x00' in name or canonical in names or
+                        stat.S_IFMT(mode) not in (0,stat.S_IFREG,stat.S_IFDIR)):
+                    raise ArchiveError('unsafe_archive')
+                names.add(canonical)
+                if member.flag_bits&1:raise ArchiveError('encrypted_archive')
+                if member.file_size<0 or member.file_size>maximum_file:raise ArchiveError('resource_limit')
+                total+=member.file_size
+            if total>maximum_expanded or shutil.disk_usage(destination.parent).free<total*2+128*1024**2:
+                raise ArchiveError('resource_limit')
+            archive.extractall(destination)
+        return
     with py7zr.SevenZipFile(archive_path,'r') as archive:
         if archive.needs_password():raise ArchiveError('encrypted_archive')
         if len(archive.files)>MAX_MEMBERS:raise ArchiveError('resource_limit')
@@ -110,7 +130,7 @@ def natural(path):
 def sanitize_archive(source,work):
     source=Path(source);work=Path(work);expanded=work/'expanded';expanded.mkdir()
     safe_extract(source,expanded)
-    roots=[p.parent for p in expanded.rglob('card.txt')]
+    roots=list({p.parent for name in ('card.txt','card.json') for p in expanded.rglob(name)})
     if len(roots)!=1:raise ArchiveError('identity_conflict')
     root=roots[0];verify_manifest(root)
     previous_map=verify_map(root)
@@ -128,7 +148,7 @@ def sanitize_archive(source,work):
     ids=set()
     if card.get('cardId'):ids.add(str(card['cardId']))
     if fields.get('CardID'):ids.add(fields['CardID'])
-    filename_id=re.search(r'\[([A-Za-z0-9]{5})\](?:\s*\(\d{4}-\d{2}-\d{2}\))?(?:\s*\(\d+\))?\.7z$',source.name,re.I)
+    filename_id=re.search(r'\[([A-Za-z0-9]{5})\](?:\s*\(\d{4}-\d{2}-\d{2}\))?(?:\s*\(\d+\))?\.(?:7z|zip)$',source.name,re.I)
     if filename_id:ids.add(filename_id[1])
     if len(ids)!=1 or not re.fullmatch(r'[A-Za-z0-9]{5}',next(iter(ids),'')):raise ArchiveError('identity_conflict')
     card_id=next(iter(ids))
@@ -138,7 +158,8 @@ def sanitize_archive(source,work):
     title=redact_text(card.get('title') or fields.get('Title') or 'Untitled')
     author=redact_text(metadata.get('author') or fields.get('Author') or 'Unknown')
     category=redact_text(metadata.get('category') or fields.get('Category') or 'Unknown')
-    demo='[DEMO]' in source.name or bool(re.search(r'Discover:\s*\d+\s+tracks?',str(metadata.get('description',''))+' '+title))
+    from archive_labels import is_demo_archive
+    demo=is_demo_archive(source.name,metadata.get('description') or card.get('description') or fields.get('Description',''),title)
     tracks=[track for chapter in card.get('content',{}).get('chapters',[]) for track in chapter.get('tracks',[])]
     # Yoto labels finite podcast files as stream. Complete extracted files with
     # validated duration/count are inspectable; actual radio/live remains rejected.
@@ -208,12 +229,17 @@ def sanitize_archive(source,work):
         if set(source_inventory)!={p.relative_to(root).as_posix() for p in audio}:raise ArchiveError('verification_failed')
     lines=[];padding=len(str(len(audio)));duration=0
     for number,path in enumerate(audio,1):
-        info=json.loads(subprocess.check_output(['ffprobe','-v','error','-show_entries','format=duration','-of','json',str(path)],timeout=30,stderr=subprocess.DEVNULL))
+        info=json.loads(subprocess.check_output(['ffprobe','-v','error','-show_entries','format=duration,format_name','-of','json',str(path)],timeout=30,stderr=subprocess.DEVNULL))
         if float(info.get('format',{}).get('duration',0))<=0:raise ArchiveError('incomplete_archive')
+        # Backups can label Ogg Opus files as .mp3. Match the actual container
+        # before remuxing so metadata removal never requires audio transcoding.
+        formats=set(info['format'].get('format_name','').split(','))
+        suffix=next((extension for container,extension in [('mp3','.mp3'),('ogg','.ogg'),('aac','.aac'),('mp4','.m4a'),('wav','.wav')] if container in formats),None)
+        if not suffix:raise ArchiveError('media_format_unsupported')
         duration+=float(info['format']['duration'])
         track=tracks[number-1] if tracks else dict(re.findall(r'^([^\r\n:]+)::\s*(.*)$',blocks[number-1],re.M))
         track_title=redact_text(track.get('title') or track.get('Title') or path.stem)
-        name=safe_filename(f'{number:0{padding}d} - {track_title}',limit=160)+path.suffix.lower()
+        name=safe_filename(f'{number:0{padding}d} - {track_title}',limit=160)+suffix
         output=out_audio/name;shutil.copyfile(path,output)
         strip_source_tags(output);tag_audio(output,track_title,author,title,category,number,len(audio),cover)
         position=positions[number-1] if positions else {'chapterIndex':None,'trackIndex':None,'chapterKey':None,'trackKey':None}
@@ -249,7 +275,7 @@ def sanitize_archive(source,work):
     for path in folder.rglob('*'):os.utime(path,(0,0),follow_symlinks=False)
     os.utime(folder,(0,0))
     # Copy counters belong to the source download, not the published archive.
-    stem=re.sub(r'(?:\s+\(\d+\))+$','',redact_text(source.name[:-3]))
+    stem=re.sub(r'(?:\s+\(\d+\))+$','',redact_text(source.stem))
     if f'[{card_id}]' not in stem:stem+=f'[{card_id}]'
     if demo and '[DEMO]' not in stem:stem=stem.replace(f'[{card_id}]',f'[DEMO][{card_id}]')
     filename=safe_filename(stem,limit=230)+'.7z'
