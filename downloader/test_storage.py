@@ -7,6 +7,7 @@ import tempfile
 import unittest
 import zipfile
 import stat
+import signal
 from unittest.mock import Mock, patch
 
 import py7zr
@@ -20,6 +21,13 @@ import storage_runner
 
 
 class InspectionTests(unittest.TestCase):
+    def test_child_resource_kills_are_limits_and_other_unexplained_exits_stay_unsafe(self):
+        for returncode,expected in [(-signal.SIGKILL,'resource_limit'),(-signal.SIGXCPU,'resource_limit'),(1,'unsafe_archive')]:
+            with self.subTest(returncode=returncode),tempfile.TemporaryDirectory() as tmp,patch.object(archive_inspector.subprocess,'run',return_value=Mock(returncode=returncode)) as process:
+                with self.assertRaises(ArchiveError) as error:archive_inspector.inspect_archive('original.7z',Path(tmp),fast_large=True)
+                self.assertEqual(error.exception.code,expected)
+                self.assertEqual(process.call_args.args[0][-1],'--fast-large')
+
     def test_legacy_and_json_preview_labels_are_preserved_without_changing_sources(self):
         cases=[('Discover: 1 track',None,False,'demo'),
                ('Story: A preview',None,False,'demo'),
@@ -393,8 +401,19 @@ class InspectionReuseTests(unittest.TestCase):
         source={'kind':'inspect','readToken':'reader','writeToken':'writer','destinationFolder':'private-folder','checkpoint':{},'candidate':{'source_file':'source-private-file','source_parent':'source-folder','source_version':'1','filename':'Example.7z'}}
         with tempfile.TemporaryDirectory() as tmp,patch.dict(os.environ,{'TOYO_ARCHIVE_JOB':'job'}),patch.object(storage_runner,'Drive',side_effect=[write,read]),patch.object(storage_runner,'inspect_archive',return_value={'path':'sanitized.7z','cardId':'abc12','variant':'full','sha256':'a'*64,'bytes':123,'title':'Example','tracks':1,'sourceSha256':'c'*64,'index':receipt['index']}) as inspect:
             storage_runner.seed(client,source,Path(tmp));inspect.assert_called_once();write.upload.assert_called_once()
+            self.assertTrue(inspect.call_args.kwargs['fast_large'])
             published=next(call.args[1] for call in client.call.call_args_list if call.args[0]=='inspection')
             self.assertEqual(published['receipt'],receipt);self.assertEqual(published['formatVersion'],1)
+
+    def test_retained_inspection_uploads_keep_the_original_packing_strategy(self):
+        import os
+        for field in ['uploadSha256','uploadSession','uploadedFile']:
+            with self.subTest(field=field),tempfile.TemporaryDirectory() as tmp:
+                receipt=self.receipt();read=Mock();read.metadata.return_value={'parents':['source-folder']};write=Mock();write.upload.return_value=receipt
+                source={'kind':'inspect','readToken':'reader','writeToken':'writer','destinationFolder':'private-folder','checkpoint':{field:'retained'},'candidate':{'source_file':'source-file','source_parent':'source-folder','source_version':'1','filename':'Example.7z'}}
+                result={'path':'sanitized.7z','cardId':'abc12','variant':'full','sha256':'a'*64,'bytes':123,'title':'Example','tracks':1,'sourceSha256':'c'*64,'index':receipt['index']}
+                with patch.dict(os.environ,{'TOYO_ARCHIVE_JOB':'job'}),patch.object(storage_runner,'Drive',side_effect=[write,read]),patch.object(storage_runner,'inspect_archive',return_value=result) as inspect:
+                    storage_runner.seed(Mock(),source,Path(tmp));self.assertFalse(inspect.call_args.kwargs['fast_large'])
 
     def test_acknowledged_inspection_and_completed_import_resume_without_repacking(self):
         for checkpoint,kind in [({'inspectionArtifact':{'receipt':self.receipt()}},'inspect'),({'coldReceipt':self.receipt()},'import')]:

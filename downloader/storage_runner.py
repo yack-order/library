@@ -82,7 +82,8 @@ def seed(client,source,work):
         raise ArchiveError('unsafe_archive')
     read.download(candidate['source_file'],original,expected_version=candidate['source_version'])
     client.stage='inspecting'
-    result=inspect_archive(original,work)
+    retained_upload=any(checkpoint.get(key) for key in ['uploadSha256','uploadSession','uploadedFile'])
+    result=inspect_archive(original,work,fast_large=not retained_upload)
     if result.get('rawMetadata') and not checkpoint.get('stagedMetadata'):
         # Preserve exact JSON privately now; normal ingestion waits for import.
         import requests
