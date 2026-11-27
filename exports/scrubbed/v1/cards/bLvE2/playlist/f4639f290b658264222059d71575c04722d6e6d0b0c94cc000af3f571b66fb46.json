@@ -1,0 +1,2628 @@
+{
+  "props": {
+    "pageProps": {
+      "card": {
+        "cardId": "bLvE2",
+        "title": "How to Be a Hero",
+        "slug": "2GzCT6SiK4jHhGQwZdwqqb",
+        "sortkey": "2GzCT6SiK4jHhGQwZdwqqb",
+        "availability": "free",
+        "createdAt": "2025-11-26T00:45:23.343Z",
+        "updatedAt": "2026-02-25T14:56:47.534Z",
+        "content": {
+          "config": {
+            "resumeTimeout": 0,
+            "autoadvance": "none",
+            "disableChapterNav": true,
+            "disableTrackNav": true
+          },
+          "playbackType": "interactive",
+          "editSettings": {
+            "autoOverlayLabels": "disabled",
+            "editKeys": false,
+            "interactiveContent": true
+          },
+          "chapters": [
+            {
+              "key": "00",
+              "title": "Intro",
+              "duration": 14,
+              "fileSize": 222651,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/AnAJrIkx2tVr1Isd0LMX7bU92auBVZLC43WzR5yggK0"
+              },
+              "tracks": [
+                {
+                  "key": "00",
+                  "title": "Intro",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 14,
+                  "fileSize": 222651,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/AnAJrIkx2tVr1Isd0LMX7bU92auBVZLC43WzR5yggK0"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "01",
+                        "trackKey": "01"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "01",
+                        "trackKey": "01"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "01",
+              "title": "Burning House - Intro",
+              "duration": 20,
+              "fileSize": 324427,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/kNHlr5sdcjxragCEu97meTD_M1uaMrcD75gJcqEnybg"
+              },
+              "tracks": [
+                {
+                  "key": "01",
+                  "title": "Burning House - Intro",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 20,
+                  "fileSize": 324427,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/kNHlr5sdcjxragCEu97meTD_M1uaMrcD75gJcqEnybg"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "02",
+                        "trackKey": "02"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "02",
+                        "trackKey": "02"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "02",
+              "title": "Burning House - Choice 1",
+              "duration": 17,
+              "fileSize": 223827,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/wmXN1N6PLkizsTVl2yKTy14fJtYgIVkTvFeVaKeJ8pY"
+              },
+              "tracks": [
+                {
+                  "key": "02",
+                  "title": "Burning House - Choice 1",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 17,
+                  "fileSize": 223827,
+                  "channels": "mono",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/wmXN1N6PLkizsTVl2yKTy14fJtYgIVkTvFeVaKeJ8pY"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "02",
+                        "trackKey": "02"
+                      }
+                    },
+                    "onLhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "03",
+                        "trackKey": "03"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "04",
+                        "trackKey": "04"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "03",
+              "title": "Burning House - Main Door",
+              "duration": 17,
+              "fileSize": 281358,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/m42HvInZl_7FAQp-S_cUk2IH6GdUaU_jTTfkD2pQOOc"
+              },
+              "tracks": [
+                {
+                  "key": "03",
+                  "title": "Burning House - Main Door",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 17,
+                  "fileSize": 281358,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/m42HvInZl_7FAQp-S_cUk2IH6GdUaU_jTTfkD2pQOOc"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "05",
+                        "trackKey": "05"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "05",
+                        "trackKey": "05"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "04",
+              "title": "Burning House - Side Window",
+              "duration": 20,
+              "fileSize": 318654,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/0NflJEBxg9g3WzIErB8rvu4oywBvYBrPUO5oJSgzLEs"
+              },
+              "tracks": [
+                {
+                  "key": "04",
+                  "title": "Burning House - Side Window",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 20,
+                  "fileSize": 318654,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/0NflJEBxg9g3WzIErB8rvu4oywBvYBrPUO5oJSgzLEs"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "06",
+                        "trackKey": "06"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "06",
+                        "trackKey": "06"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "05",
+              "title": "Burning House - Choice 2",
+              "duration": 15,
+              "fileSize": 192353,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/wmXN1N6PLkizsTVl2yKTy14fJtYgIVkTvFeVaKeJ8pY"
+              },
+              "tracks": [
+                {
+                  "key": "05",
+                  "title": "Burning House - Choice 2",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 15,
+                  "fileSize": 192353,
+                  "channels": "mono",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/wmXN1N6PLkizsTVl2yKTy14fJtYgIVkTvFeVaKeJ8pY"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "05",
+                        "trackKey": "05"
+                      }
+                    },
+                    "onLhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "07",
+                        "trackKey": "07"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "08",
+                        "trackKey": "08"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "06",
+              "title": "Burning House - Choice 3",
+              "duration": 16,
+              "fileSize": 210518,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/wmXN1N6PLkizsTVl2yKTy14fJtYgIVkTvFeVaKeJ8pY"
+              },
+              "tracks": [
+                {
+                  "key": "06",
+                  "title": "Burning House - Choice 3",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 16,
+                  "fileSize": 210518,
+                  "channels": "mono",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/wmXN1N6PLkizsTVl2yKTy14fJtYgIVkTvFeVaKeJ8pY"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "06",
+                        "trackKey": "06"
+                      }
+                    },
+                    "onLhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "09",
+                        "trackKey": "09"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "10",
+                        "trackKey": "10"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "07",
+              "title": "Burning House - Fire",
+              "duration": 16,
+              "fileSize": 264437,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/PUL6NDq5be4F1_BzO7hElmavoUGBixSOJQ2xWWnp08E"
+              },
+              "tracks": [
+                {
+                  "key": "07",
+                  "title": "Burning House - Fire",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 16,
+                  "fileSize": 264437,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/PUL6NDq5be4F1_BzO7hElmavoUGBixSOJQ2xWWnp08E"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "01",
+                        "trackKey": "01"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "01",
+                        "trackKey": "01"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "08",
+              "title": "Burning House - Freeze",
+              "duration": 15,
+              "fileSize": 236810,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/4_wyv7lKUn9B4H3_Ok89IqyiKnxCf-cQ1PVtrh32nRU"
+              },
+              "tracks": [
+                {
+                  "key": "08",
+                  "title": "Burning House - Freeze",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 15,
+                  "fileSize": 236810,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/4_wyv7lKUn9B4H3_Ok89IqyiKnxCf-cQ1PVtrh32nRU"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "11",
+                        "trackKey": "11"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "11",
+                        "trackKey": "11"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "09",
+              "title": "Burning House - Shadow",
+              "duration": 12,
+              "fileSize": 189845,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/CBlFU1Rwv5zRYfMm_VBC9BgRObClvs4YGs4U45Nnyc0"
+              },
+              "tracks": [
+                {
+                  "key": "09",
+                  "title": "Burning House - Shadow",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 12,
+                  "fileSize": 189845,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/CBlFU1Rwv5zRYfMm_VBC9BgRObClvs4YGs4U45Nnyc0"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "11",
+                        "trackKey": "11"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "11",
+                        "trackKey": "11"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "10",
+              "title": "Burning House - Marshmellows",
+              "duration": 14,
+              "fileSize": 218213,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/NVmLGGgaFC9pwstDKSPGQ0l5nkwutNIKIDunr4yU_TA"
+              },
+              "tracks": [
+                {
+                  "key": "10",
+                  "title": "Burning House - Marshmellows",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 14,
+                  "fileSize": 218213,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/NVmLGGgaFC9pwstDKSPGQ0l5nkwutNIKIDunr4yU_TA"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "11",
+                        "trackKey": "11"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "11",
+                        "trackKey": "11"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "11",
+              "title": "Burning House - Outro",
+              "duration": 11,
+              "fileSize": 153230,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/Zly_4q9RnrHCQ2gKM57kr4QJ-rJG8T6z1U4JEhbFw8U"
+              },
+              "tracks": [
+                {
+                  "key": "11",
+                  "title": "Burning House - Outro",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 11,
+                  "fileSize": 153230,
+                  "channels": "mono",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/Zly_4q9RnrHCQ2gKM57kr4QJ-rJG8T6z1U4JEhbFw8U"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "12",
+                        "trackKey": "12"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "12",
+                        "trackKey": "12"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "12",
+              "title": "Royal Garden - Intro",
+              "duration": 23,
+              "fileSize": 376644,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/71qH-uiWSSRUyh7t09AJN6RC9kDl6DNXAAaSQ-IxKWw"
+              },
+              "tracks": [
+                {
+                  "key": "12",
+                  "title": "Royal Garden - Intro",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 23,
+                  "fileSize": 376644,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/71qH-uiWSSRUyh7t09AJN6RC9kDl6DNXAAaSQ-IxKWw"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "13",
+                        "trackKey": "13"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "13",
+                        "trackKey": "13"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "13",
+              "title": "Royal Garden - Choice 1",
+              "duration": 17,
+              "fileSize": 279937,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/wmXN1N6PLkizsTVl2yKTy14fJtYgIVkTvFeVaKeJ8pY"
+              },
+              "tracks": [
+                {
+                  "key": "13",
+                  "title": "Royal Garden - Choice 1",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 17,
+                  "fileSize": 279937,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/wmXN1N6PLkizsTVl2yKTy14fJtYgIVkTvFeVaKeJ8pY"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "13",
+                        "trackKey": "13"
+                      }
+                    },
+                    "onLhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "14",
+                        "trackKey": "14"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "15",
+                        "trackKey": "15"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "14",
+              "title": "Royal Garden - Ask Return Flower",
+              "duration": 13,
+              "fileSize": 209158,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/u3wSUMLQ5UzW6SZVUjTz6Oq9qOoZUWWVcsEjswVG-BA"
+              },
+              "tracks": [
+                {
+                  "key": "14",
+                  "title": "Royal Garden - Ask Return Flower",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 13,
+                  "fileSize": 209158,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/u3wSUMLQ5UzW6SZVUjTz6Oq9qOoZUWWVcsEjswVG-BA"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "16",
+                        "trackKey": "16"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "16",
+                        "trackKey": "16"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "15",
+              "title": "Royal Garden - Befriend",
+              "duration": 30,
+              "fileSize": 483155,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/DUH0Ojzs-596GWrPtVUIX4VmVtzMXW2Gq8B4NxZZpu0"
+              },
+              "tracks": [
+                {
+                  "key": "15",
+                  "title": "Royal Garden - Befriend",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 30,
+                  "fileSize": 483155,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/DUH0Ojzs-596GWrPtVUIX4VmVtzMXW2Gq8B4NxZZpu0"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "17",
+                        "trackKey": "17"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "17",
+                        "trackKey": "17"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "16",
+              "title": "Royal Garden - Choice 2",
+              "duration": 17,
+              "fileSize": 281593,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/wmXN1N6PLkizsTVl2yKTy14fJtYgIVkTvFeVaKeJ8pY"
+              },
+              "tracks": [
+                {
+                  "key": "16",
+                  "title": "Royal Garden - Choice 2",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 17,
+                  "fileSize": 281593,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/wmXN1N6PLkizsTVl2yKTy14fJtYgIVkTvFeVaKeJ8pY"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "16",
+                        "trackKey": "16"
+                      }
+                    },
+                    "onLhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "18",
+                        "trackKey": "18"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "19",
+                        "trackKey": "19"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "17",
+              "title": "Royal Garden - Choice 3",
+              "duration": 17,
+              "fileSize": 280122,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/wmXN1N6PLkizsTVl2yKTy14fJtYgIVkTvFeVaKeJ8pY"
+              },
+              "tracks": [
+                {
+                  "key": "17",
+                  "title": "Royal Garden - Choice 3",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 17,
+                  "fileSize": 280122,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/wmXN1N6PLkizsTVl2yKTy14fJtYgIVkTvFeVaKeJ8pY"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "17",
+                        "trackKey": "17"
+                      }
+                    },
+                    "onLhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "20",
+                        "trackKey": "20"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "21",
+                        "trackKey": "21"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "18",
+              "title": "Royal Garden - Give Flowers",
+              "duration": 22,
+              "fileSize": 360417,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/SPy3AcigDLcWJP65TqdjLMcZaMxa4MzJ69nUNeKtydc"
+              },
+              "tracks": [
+                {
+                  "key": "18",
+                  "title": "Royal Garden - Give Flowers",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 22,
+                  "fileSize": 360417,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/SPy3AcigDLcWJP65TqdjLMcZaMxa4MzJ69nUNeKtydc"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "22",
+                        "trackKey": "22"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "22",
+                        "trackKey": "22"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "19",
+              "title": "Royal Garden - Keep Flowers",
+              "duration": 20,
+              "fileSize": 318246,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/zCT_Hk1xPCXjNoDH1DOExIotagnXHZsNKVuRD-Khkpk"
+              },
+              "tracks": [
+                {
+                  "key": "19",
+                  "title": "Royal Garden - Keep Flowers",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 20,
+                  "fileSize": 318246,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/zCT_Hk1xPCXjNoDH1DOExIotagnXHZsNKVuRD-Khkpk"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "12",
+                        "trackKey": "12"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "12",
+                        "trackKey": "12"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "20",
+              "title": "Royal Garden - Trade Flowers",
+              "duration": 18,
+              "fileSize": 287919,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/ODMF652ZmiIUjxx-4Px5snkK_4R5t4rgFs6LyCywJds"
+              },
+              "tracks": [
+                {
+                  "key": "20",
+                  "title": "Royal Garden - Trade Flowers",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 18,
+                  "fileSize": 287919,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/ODMF652ZmiIUjxx-4Px5snkK_4R5t4rgFs6LyCywJds"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "22",
+                        "trackKey": "22"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "22",
+                        "trackKey": "22"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "21",
+              "title": "Royal Garden - Live Among Gnomes",
+              "duration": 12,
+              "fileSize": 201089,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/lDuLv_FG3T-OFT0yOZAzZ0WQNwhP_a-kTF_V7TzcrGM"
+              },
+              "tracks": [
+                {
+                  "key": "21",
+                  "title": "Royal Garden - Live Among Gnomes",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 12,
+                  "fileSize": 201089,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/lDuLv_FG3T-OFT0yOZAzZ0WQNwhP_a-kTF_V7TzcrGM"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "12",
+                        "trackKey": "12"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "12",
+                        "trackKey": "12"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "22",
+              "title": "Royal Garden - Outro",
+              "duration": 10,
+              "fileSize": 161484,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/snS6vrJvbQuEqFxcxXZQd7CFEFvq3rcvnBBrPzzPDKw"
+              },
+              "tracks": [
+                {
+                  "key": "22",
+                  "title": "Royal Garden - Outro",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 10,
+                  "fileSize": 161484,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/snS6vrJvbQuEqFxcxXZQd7CFEFvq3rcvnBBrPzzPDKw"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "23",
+                        "trackKey": "23"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "23",
+                        "trackKey": "23"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "23",
+              "title": "Mansion - Intro",
+              "duration": 46,
+              "fileSize": 751674,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/nNxa1LmHgg61QUgaE1jPWvojmUmWTlTif1U3cyAii6o"
+              },
+              "tracks": [
+                {
+                  "key": "23",
+                  "title": "Mansion - Intro",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 46,
+                  "fileSize": 751674,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/nNxa1LmHgg61QUgaE1jPWvojmUmWTlTif1U3cyAii6o"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "24",
+                        "trackKey": "24"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "24",
+                        "trackKey": "24"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "24",
+              "title": "Mansion - Choice 1",
+              "duration": 17,
+              "fileSize": 282696,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/wmXN1N6PLkizsTVl2yKTy14fJtYgIVkTvFeVaKeJ8pY"
+              },
+              "tracks": [
+                {
+                  "key": "24",
+                  "title": "Mansion - Choice 1",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 17,
+                  "fileSize": 282696,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/wmXN1N6PLkizsTVl2yKTy14fJtYgIVkTvFeVaKeJ8pY"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "24",
+                        "trackKey": "24"
+                      }
+                    },
+                    "onLhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "25",
+                        "trackKey": "25"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "26",
+                        "trackKey": "26"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "25",
+              "title": "Mansion - Library",
+              "duration": 29,
+              "fileSize": 470546,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/v35S23L437taGqEk0E9md8jReLFTPU4AQKl0Lmv5Uv8"
+              },
+              "tracks": [
+                {
+                  "key": "25",
+                  "title": "Mansion - Library",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 29,
+                  "fileSize": 470546,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/v35S23L437taGqEk0E9md8jReLFTPU4AQKl0Lmv5Uv8"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "27",
+                        "trackKey": "27"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "27",
+                        "trackKey": "27"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "26",
+              "title": "Mansion - Cellar",
+              "duration": 17,
+              "fileSize": 284612,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/guMcOCUsn3kj7qROsooN2NuP5HM6kVe-2hIuupWEM2o"
+              },
+              "tracks": [
+                {
+                  "key": "26",
+                  "title": "Mansion - Cellar",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 17,
+                  "fileSize": 284612,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/guMcOCUsn3kj7qROsooN2NuP5HM6kVe-2hIuupWEM2o"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "28",
+                        "trackKey": "28"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "28",
+                        "trackKey": "28"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "27",
+              "title": "Mansion - Choice 2",
+              "duration": 20,
+              "fileSize": 332613,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/wmXN1N6PLkizsTVl2yKTy14fJtYgIVkTvFeVaKeJ8pY"
+              },
+              "tracks": [
+                {
+                  "key": "27",
+                  "title": "Mansion - Choice 2",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 20,
+                  "fileSize": 332613,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/wmXN1N6PLkizsTVl2yKTy14fJtYgIVkTvFeVaKeJ8pY"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "27",
+                        "trackKey": "27"
+                      }
+                    },
+                    "onLhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "29",
+                        "trackKey": "29"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "30",
+                        "trackKey": "30"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "28",
+              "title": "Mansion - Choice 3",
+              "duration": 18,
+              "fileSize": 300843,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/wmXN1N6PLkizsTVl2yKTy14fJtYgIVkTvFeVaKeJ8pY"
+              },
+              "tracks": [
+                {
+                  "key": "28",
+                  "title": "Mansion - Choice 3",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 18,
+                  "fileSize": 300843,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/wmXN1N6PLkizsTVl2yKTy14fJtYgIVkTvFeVaKeJ8pY"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "28",
+                        "trackKey": "28"
+                      }
+                    },
+                    "onLhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "31",
+                        "trackKey": "31"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "32",
+                        "trackKey": "32"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "29",
+              "title": "Mansion - Dig",
+              "duration": 26,
+              "fileSize": 425324,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/zIHJt0I9ILw0QZ6EcDX0a4fEv4Sx4tbcSs8-x1EfKtI"
+              },
+              "tracks": [
+                {
+                  "key": "29",
+                  "title": "Mansion - Dig",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 26,
+                  "fileSize": 425324,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/zIHJt0I9ILw0QZ6EcDX0a4fEv4Sx4tbcSs8-x1EfKtI"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "23",
+                        "trackKey": "23"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "23",
+                        "trackKey": "23"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "30",
+              "title": "Mansion - Floorboard",
+              "duration": 20,
+              "fileSize": 330760,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/vm-j864LD4MfEPhIsoq1YwL2XDtKydkmEC5CTjRiNbI"
+              },
+              "tracks": [
+                {
+                  "key": "30",
+                  "title": "Mansion - Floorboard",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 20,
+                  "fileSize": 330760,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/vm-j864LD4MfEPhIsoq1YwL2XDtKydkmEC5CTjRiNbI"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "33",
+                        "trackKey": "33"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "33",
+                        "trackKey": "33"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "31",
+              "title": "Mansion - Break Box",
+              "duration": 17,
+              "fileSize": 275808,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/ZFQJn8jgKCRl5H8tG_P5IM63JF2fK9t84yeI3NhFSFw"
+              },
+              "tracks": [
+                {
+                  "key": "31",
+                  "title": "Mansion - Break Box",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 17,
+                  "fileSize": 275808,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/ZFQJn8jgKCRl5H8tG_P5IM63JF2fK9t84yeI3NhFSFw"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "23",
+                        "trackKey": "23"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "23",
+                        "trackKey": "23"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "32",
+              "title": "Mansion - Ceilingboard",
+              "duration": 30,
+              "fileSize": 484720,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/mPanYYlZZfn96n8LWkHcR_mVeTYrgRb4pxA_IGeTKHo"
+              },
+              "tracks": [
+                {
+                  "key": "32",
+                  "title": "Mansion - Ceilingboard",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 30,
+                  "fileSize": 484720,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/mPanYYlZZfn96n8LWkHcR_mVeTYrgRb4pxA_IGeTKHo"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "33",
+                        "trackKey": "33"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "33",
+                        "trackKey": "33"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "33",
+              "title": "Mansion - Outro",
+              "duration": 14,
+              "fileSize": 231590,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/idzbpyi9ucjYfVWrfR637M6WkBKZsrP-34x7e5XFV4Y"
+              },
+              "tracks": [
+                {
+                  "key": "33",
+                  "title": "Mansion - Outro",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 14,
+                  "fileSize": 231590,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/idzbpyi9ucjYfVWrfR637M6WkBKZsrP-34x7e5XFV4Y"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "34",
+                        "trackKey": "34"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "34",
+                        "trackKey": "34"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "34",
+              "title": "Snowy Mountain - Intro",
+              "duration": 21,
+              "fileSize": 340163,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/oI7RRd4JsWSqI7OBx_YVWtTCgtAzjiQhof5K72bNkp4"
+              },
+              "tracks": [
+                {
+                  "key": "34",
+                  "title": "Snowy Mountain - Intro",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 21,
+                  "fileSize": 340163,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/oI7RRd4JsWSqI7OBx_YVWtTCgtAzjiQhof5K72bNkp4"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "35",
+                        "trackKey": "35"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "35",
+                        "trackKey": "35"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "35",
+              "title": "Snowy Mountain - Choice 1",
+              "duration": 18,
+              "fileSize": 293762,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/wmXN1N6PLkizsTVl2yKTy14fJtYgIVkTvFeVaKeJ8pY"
+              },
+              "tracks": [
+                {
+                  "key": "35",
+                  "title": "Snowy Mountain - Choice 1",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 18,
+                  "fileSize": 293762,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/wmXN1N6PLkizsTVl2yKTy14fJtYgIVkTvFeVaKeJ8pY"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "35",
+                        "trackKey": "35"
+                      }
+                    },
+                    "onLhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "36",
+                        "trackKey": "36"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "37",
+                        "trackKey": "37"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "36",
+              "title": "Snowy Mountain - Spin",
+              "duration": 10,
+              "fileSize": 168524,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/EZZ_qMGwGtx2gcK93qs7IIMr9Fuby_rWVdMY9QyYHnI"
+              },
+              "tracks": [
+                {
+                  "key": "36",
+                  "title": "Snowy Mountain - Spin",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 10,
+                  "fileSize": 168524,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/EZZ_qMGwGtx2gcK93qs7IIMr9Fuby_rWVdMY9QyYHnI"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "38",
+                        "trackKey": "38"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "38",
+                        "trackKey": "38"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "37",
+              "title": "Snowy Mountain - Shield Toss",
+              "duration": 6,
+              "fileSize": 106591,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/cd1ER_RSkqNV5xr2BckvMmQo3xbvcTdr4byLmER12Lw"
+              },
+              "tracks": [
+                {
+                  "key": "37",
+                  "title": "Snowy Mountain - Shield Toss",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 6,
+                  "fileSize": 106591,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/cd1ER_RSkqNV5xr2BckvMmQo3xbvcTdr4byLmER12Lw"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "39",
+                        "trackKey": "39"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "39",
+                        "trackKey": "39"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "38",
+              "title": "Snowy Mountain - Choice 2",
+              "duration": 18,
+              "fileSize": 295219,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/wmXN1N6PLkizsTVl2yKTy14fJtYgIVkTvFeVaKeJ8pY"
+              },
+              "tracks": [
+                {
+                  "key": "38",
+                  "title": "Snowy Mountain - Choice 2",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 18,
+                  "fileSize": 295219,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/wmXN1N6PLkizsTVl2yKTy14fJtYgIVkTvFeVaKeJ8pY"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "38",
+                        "trackKey": "38"
+                      }
+                    },
+                    "onLhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "40",
+                        "trackKey": "40"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "41",
+                        "trackKey": "41"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "39",
+              "title": "Snowy Mountain - Choice 3",
+              "duration": 19,
+              "fileSize": 306204,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/wmXN1N6PLkizsTVl2yKTy14fJtYgIVkTvFeVaKeJ8pY"
+              },
+              "tracks": [
+                {
+                  "key": "39",
+                  "title": "Snowy Mountain - Choice 3",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 19,
+                  "fileSize": 306204,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/wmXN1N6PLkizsTVl2yKTy14fJtYgIVkTvFeVaKeJ8pY"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "39",
+                        "trackKey": "39"
+                      }
+                    },
+                    "onLhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "42",
+                        "trackKey": "42"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "43",
+                        "trackKey": "43"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "40",
+              "title": "Snowy Mountain - Mirage",
+              "duration": 13,
+              "fileSize": 206047,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/8FebzhOHgEQPEhBU8LxnMjTc6J07Xh_ssSjHGhLU2HI"
+              },
+              "tracks": [
+                {
+                  "key": "40",
+                  "title": "Snowy Mountain - Mirage",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 13,
+                  "fileSize": 206047,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/8FebzhOHgEQPEhBU8LxnMjTc6J07Xh_ssSjHGhLU2HI"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "44",
+                        "trackKey": "44"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "44",
+                        "trackKey": "44"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "41",
+              "title": "Snowy Mountain - Climb",
+              "duration": 15,
+              "fileSize": 242998,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/fkDjTO0gLCA3udF1zKLXD24ZdjTdYEw8BEs71Hq9aRM"
+              },
+              "tracks": [
+                {
+                  "key": "41",
+                  "title": "Snowy Mountain - Climb",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 15,
+                  "fileSize": 242998,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/fkDjTO0gLCA3udF1zKLXD24ZdjTdYEw8BEs71Hq9aRM"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "34",
+                        "trackKey": "34"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "34",
+                        "trackKey": "34"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "42",
+              "title": "Snowy Mountain - Leap",
+              "duration": 16,
+              "fileSize": 267517,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/I6jfwODJEx-T0AcRseJgxPavcdtikJ7RBNuwZliEbDk"
+              },
+              "tracks": [
+                {
+                  "key": "42",
+                  "title": "Snowy Mountain - Leap",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 16,
+                  "fileSize": 267517,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/I6jfwODJEx-T0AcRseJgxPavcdtikJ7RBNuwZliEbDk"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "34",
+                        "trackKey": "34"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "34",
+                        "trackKey": "34"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "43",
+              "title": "Snowy Mountain - Flute",
+              "duration": 26,
+              "fileSize": 416749,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/feD4F6Xi19d9HF4rEwWtkYeC655CtcHcDA0Ib5UcgNQ"
+              },
+              "tracks": [
+                {
+                  "key": "43",
+                  "title": "Snowy Mountain - Flute",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 26,
+                  "fileSize": 416749,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/feD4F6Xi19d9HF4rEwWtkYeC655CtcHcDA0Ib5UcgNQ"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "44",
+                        "trackKey": "44"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "44",
+                        "trackKey": "44"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "44",
+              "title": "Snowy Mountain - Outro",
+              "duration": 12,
+              "fileSize": 188781,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/_mEECIqaq-N6WDJ4QLI26VKjxUhcOtK5WZrStONeyns"
+              },
+              "tracks": [
+                {
+                  "key": "44",
+                  "title": "Snowy Mountain - Outro",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 12,
+                  "fileSize": 188781,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/_mEECIqaq-N6WDJ4QLI26VKjxUhcOtK5WZrStONeyns"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "45",
+                        "trackKey": "45"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "45",
+                        "trackKey": "45"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "45",
+              "title": "Observatory - Intro",
+              "duration": 20,
+              "fileSize": 332672,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/B1KDP6AuEBCPFfK0g0di4HRhOCxR-w-vpSlj6kVhgAs"
+              },
+              "tracks": [
+                {
+                  "key": "45",
+                  "title": "Observatory - Intro",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 20,
+                  "fileSize": 332672,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/B1KDP6AuEBCPFfK0g0di4HRhOCxR-w-vpSlj6kVhgAs"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "46",
+                        "trackKey": "46"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "46",
+                        "trackKey": "46"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "46",
+              "title": "Observatory - Choice 1",
+              "duration": 20,
+              "fileSize": 326456,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/wmXN1N6PLkizsTVl2yKTy14fJtYgIVkTvFeVaKeJ8pY"
+              },
+              "tracks": [
+                {
+                  "key": "46",
+                  "title": "Observatory - Choice 1",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 20,
+                  "fileSize": 326456,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/wmXN1N6PLkizsTVl2yKTy14fJtYgIVkTvFeVaKeJ8pY"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "46",
+                        "trackKey": "46"
+                      }
+                    },
+                    "onLhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "47",
+                        "trackKey": "47"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "48",
+                        "trackKey": "48"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "47",
+              "title": "Observatory - Constellation",
+              "duration": 10,
+              "fileSize": 157061,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/WnQ-gl0U5aPdOpkRmY5Bf49J0dnMN_guUQh7iLcfMKA"
+              },
+              "tracks": [
+                {
+                  "key": "47",
+                  "title": "Observatory - Constellation",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 10,
+                  "fileSize": 157061,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/WnQ-gl0U5aPdOpkRmY5Bf49J0dnMN_guUQh7iLcfMKA"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "49",
+                        "trackKey": "49"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "49",
+                        "trackKey": "49"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "48",
+              "title": "Observatory - Comet",
+              "duration": 7,
+              "fileSize": 109084,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/_7CzVIVcBy2D_K-A0Sn4MHlaykP1sd0y7NmGdPTccl0"
+              },
+              "tracks": [
+                {
+                  "key": "48",
+                  "title": "Observatory - Comet",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 7,
+                  "fileSize": 109084,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/_7CzVIVcBy2D_K-A0Sn4MHlaykP1sd0y7NmGdPTccl0"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "50",
+                        "trackKey": "50"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "50",
+                        "trackKey": "50"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "49",
+              "title": "Observatory - Choice 2",
+              "duration": 19,
+              "fileSize": 315747,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/wmXN1N6PLkizsTVl2yKTy14fJtYgIVkTvFeVaKeJ8pY"
+              },
+              "tracks": [
+                {
+                  "key": "49",
+                  "title": "Observatory - Choice 2",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 19,
+                  "fileSize": 315747,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/wmXN1N6PLkizsTVl2yKTy14fJtYgIVkTvFeVaKeJ8pY"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "49",
+                        "trackKey": "49"
+                      }
+                    },
+                    "onLhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "51",
+                        "trackKey": "51"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "52",
+                        "trackKey": "52"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "50",
+              "title": "Observatory - Choice 3",
+              "duration": 19,
+              "fileSize": 309880,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/wmXN1N6PLkizsTVl2yKTy14fJtYgIVkTvFeVaKeJ8pY"
+              },
+              "tracks": [
+                {
+                  "key": "50",
+                  "title": "Observatory - Choice 3",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 19,
+                  "fileSize": 309880,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/wmXN1N6PLkizsTVl2yKTy14fJtYgIVkTvFeVaKeJ8pY"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "50",
+                        "trackKey": "50"
+                      }
+                    },
+                    "onLhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "53",
+                        "trackKey": "53"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "54",
+                        "trackKey": "54"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "51",
+              "title": "Observatory - Telescope",
+              "duration": 24,
+              "fileSize": 385363,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/V0APu-QUyc7AHuad6vusSV4gwtgffkyYqRshCx7VyrA"
+              },
+              "tracks": [
+                {
+                  "key": "51",
+                  "title": "Observatory - Telescope",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 24,
+                  "fileSize": 385363,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/V0APu-QUyc7AHuad6vusSV4gwtgffkyYqRshCx7VyrA"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "55",
+                        "trackKey": "55"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "55",
+                        "trackKey": "55"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "52",
+              "title": "Observatory - Tea Leaves",
+              "duration": 22,
+              "fileSize": 365740,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/23uHxo-13OZHJuIBwYX42ChQ459gqz6S8Ej9Q-HNHgU"
+              },
+              "tracks": [
+                {
+                  "key": "52",
+                  "title": "Observatory - Tea Leaves",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 22,
+                  "fileSize": 365740,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/23uHxo-13OZHJuIBwYX42ChQ459gqz6S8Ej9Q-HNHgU"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "45",
+                        "trackKey": "45"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "45",
+                        "trackKey": "45"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "53",
+              "title": "Observatory - Charts",
+              "duration": 21,
+              "fileSize": 348557,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/JpRh-sczHEQPKF4l3VINUIZJ0Cb7qS27dxLBZfhh0Ss"
+              },
+              "tracks": [
+                {
+                  "key": "53",
+                  "title": "Observatory - Charts",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 21,
+                  "fileSize": 348557,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/JpRh-sczHEQPKF4l3VINUIZJ0Cb7qS27dxLBZfhh0Ss"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "55",
+                        "trackKey": "55"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "55",
+                        "trackKey": "55"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "54",
+              "title": "Observatory - Magnifying Glass",
+              "duration": 16,
+              "fileSize": 267749,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/4pstmgyYJHLmmRVOZ90nm5UsEZwUt7ifLaFT3e5CUPU"
+              },
+              "tracks": [
+                {
+                  "key": "54",
+                  "title": "Observatory - Magnifying Glass",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 16,
+                  "fileSize": 267749,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/4pstmgyYJHLmmRVOZ90nm5UsEZwUt7ifLaFT3e5CUPU"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "45",
+                        "trackKey": "45"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "45",
+                        "trackKey": "45"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "55",
+              "title": "Observatory - Outro",
+              "duration": 17,
+              "fileSize": 283289,
+              "ambient": null,
+              "defaultTrackDisplay": null,
+              "defaultTrackAmbient": null,
+              "availableFrom": null,
+              "display": {
+                "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/U7-9EFehxf7YeHXp8FS-EdNYlpITJmo6kwwt7FL0ZQs"
+              },
+              "tracks": [
+                {
+                  "key": "55",
+                  "title": "Observatory - Outro",
+                  "format": "aac",
+                  "type": "audio",
+                  "duration": 17,
+                  "fileSize": 283289,
+                  "channels": "stereo",
+                  "ambient": null,
+                  "display": {
+                    "icon16x16": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/U7-9EFehxf7YeHXp8FS-EdNYlpITJmo6kwwt7FL0ZQs"
+                  },
+                  "events": {
+                    "onEnd": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "00",
+                        "trackKey": "00"
+                      }
+                    },
+                    "onRhb": {
+                      "cmd": "goto",
+                      "params": {
+                        "chapterKey": "00",
+                        "trackKey": "00"
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          ],
+          "hidden": false
+        },
+        "metadata": {
+          "hidden": false,
+          "category": "activities",
+          "media": {
+            "duration": 1009,
+            "fileSize": 16281426
+          },
+          "description": "Welcome to Hero University, where you'll learn How to Be a Hero. You'll be thrown endlessly into heroic situations, where you must decide what path to take. Visit royal gardens, snowy mountaintops, and wealthy mansions as you discover How to Be a Hero.\n\nThis is an interactive audio adventure that requires a Yoto Player or a Yoto Mini to play. Recommended for ages 5-13.",
+          "order": "111",
+          "list": [],
+          "cover": {
+            "imageL": "https://card-content.yotoplay.com/1hhd6T2yZ-44ASwOa2mOEtosWNvTjyqUZ1KfqDtpbsW0~/pub/kfBRYPFEX7nmQ-o37IYAXLNpgzz1Im2fDTqDXCLnNtU"
+          }
+        },
+        "deleted": false,
+        "createdByClientId": "UkUgPVlnEij8Qrx7WEwQ7l3GwOw0wSQx",
+        "shareLinkCreatedAt": "2025-11-26T00:46:58.431Z",
+        "shareCount": 3824,
+        "shareLimit": 0,
+        "readOnly": true,
+        "shareLinkUrl": "redacted",
+        "sharing": {
+          "linkCreatedAt": "2025-11-26T00:46:58.431Z",
+          "linkUrl": "redacted",
+          "shareCount": 3824,
+          "shareLimit": 0
+        }
+      }
+    }
+  }
+}
