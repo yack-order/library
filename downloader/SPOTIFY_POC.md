@@ -5,6 +5,12 @@ Actions tab, on `main`, with a public Spotify playlist URL and `both`, `spotdown
 or `spotidown`. The example playlist is `7jlh29r2ASMKfqZKgEAuHz`. This workflow
 does not import anything into Yoto or change Toyo production data.
 
+Choose `browser_mode: headed` to run ordinary non-headless Chromium under Xvfb
+on the Linux runner, or leave `headless` selected for the original mode. Xvfb
+provides a virtual display; it does not provide human interaction or change
+challenge handling. Results record the selected browser mode. See the
+[Playwright CI guidance](https://playwright.dev/python/docs/ci#running-headed).
+
 The runner follows the normal websites in Chromium, using separate contexts:
 
 * Spotdown.org: paste the playlist URL, wait for metadata, click **Download Now

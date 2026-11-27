@@ -13,6 +13,12 @@ on:
         default: both
         type: choice
         options: [both, spotdown, spotidown]
+      browser_mode:
+        description: Chromium display mode (headed uses Xvfb)
+        required: true
+        default: headless
+        type: choice
+        options: [headless, headed]
 permissions:
   contents: read
 concurrency:
@@ -36,7 +42,7 @@ jobs:
       - name: Install browser and media dependencies
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y --no-install-recommends ffmpeg
+          sudo apt-get install -y --no-install-recommends ffmpeg xvfb xauth
           python -m pip install -r downloader/requirements.txt
           python -m playwright install --with-deps chromium
       - name: Run offline proof-of-concept tests
@@ -45,9 +51,10 @@ jobs:
         env:
           PLAYLIST_URL: ${{ inputs.playlist_url }}
           PROVIDER: ${{ inputs.provider }}
+          BROWSER_MODE: ${{ inputs.browser_mode }}
           GOFILE_TOKEN: ${{ secrets.GOFILE_TOKEN }}
           POC_OUTPUT: ${{ runner.temp }}/spotify-poc-results
-        run: python downloader/spotify_poc.py
+        run: xvfb-run --auto-servernum python downloader/spotify_poc.py
       - name: Publish sanitized diagnostics only
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2

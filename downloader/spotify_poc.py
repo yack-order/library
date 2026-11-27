@@ -337,7 +337,8 @@ async def run_provider(browser, provider, url, root, token):
     page.on('response', lambda response: state.schedule(state.response(response)))
     page.on('requestfailed', state.request_failed)
     page.on('download', lambda download: state.schedule(state.save(download)))
-    result = {'provider': provider, 'status': 'failed', 'expectedTracks': 0, 'downloadedTracks': 0}
+    result = {'provider': provider, 'browserMode': os.environ.get('BROWSER_MODE', 'headless'),
+              'status': 'failed', 'expectedTracks': 0, 'downloadedTracks': 0}
     try:
         print(f'{provider}: starting website test', flush=True)
         try:
@@ -407,6 +408,9 @@ async def main():
     selected = os.environ.get('PROVIDER', 'both')
     if selected not in {'both', 'spotdown', 'spotidown'}:
         raise POCError('invalid_provider')
+    browser_mode = os.environ.get('BROWSER_MODE', 'headless')
+    if browser_mode not in {'headless', 'headed'}:
+        raise POCError('invalid_browser_mode')
     token = os.environ.get('GOFILE_TOKEN', '')
     if not token:
         raise POCError('gofile_token_missing')
@@ -414,7 +418,7 @@ async def main():
     root.mkdir(parents=True, exist_ok=True)
     providers = ['spotdown', 'spotidown'] if selected == 'both' else [selected]
     async with async_playwright() as playwright:
-        browser = await playwright.chromium.launch(headless=True)
+        browser = await playwright.chromium.launch(headless=browser_mode == 'headless')
         try:
             results = []
             for provider in providers:
