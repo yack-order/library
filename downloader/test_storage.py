@@ -21,6 +21,28 @@ import storage_runner
 
 
 class InspectionTests(unittest.TestCase):
+    def test_fresh_large_inspection_can_finish_after_the_normal_budget_but_retained_and_small_work_stays_bounded(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);source=root/'large.7z'
+            with source.open('wb') as handle:handle.truncate(archive_inspector.LARGE_TIME_THRESHOLD)
+            for fresh in (True,False):
+                work=root/str(fresh);work.mkdir()
+                def finish_after_normal_budget(command,*,timeout,**kwargs):
+                    if timeout<1500:raise subprocess.TimeoutExpired(command,timeout)
+                    (work/'inspection.json').write_text(json.dumps({'cardId':'abc12','verified':True}))
+                    return Mock(returncode=0)
+                with self.subTest(fresh=fresh),patch.object(archive_inspector.subprocess,'run',side_effect=finish_after_normal_budget) as process:
+                    if fresh:
+                        self.assertEqual(archive_inspector.inspect_archive(source,work,fast_large=True),{'cardId':'abc12','verified':True})
+                        self.assertEqual(process.call_args.kwargs['timeout'],2400)
+                        self.assertEqual(archive_inspector.inspection_limits(source,fast_large=True),(2300,2400))
+                    else:
+                        with self.assertRaises(ArchiveError) as error:archive_inspector.inspect_archive(source,work)
+                        self.assertEqual(error.exception.code,'resource_limit')
+                        self.assertEqual(process.call_args.kwargs['timeout'],1200)
+            with source.open('wb') as handle:handle.truncate(archive_inspector.LARGE_TIME_THRESHOLD-1)
+            self.assertEqual(archive_inspector.inspection_limits(source,fast_large=True),(1100,1200))
+
     def test_child_resource_kills_are_limits_and_other_unexplained_exits_stay_unsafe(self):
         for returncode,expected in [(-signal.SIGKILL,'resource_limit'),(-signal.SIGXCPU,'resource_limit'),(1,'unsafe_archive')]:
             with self.subTest(returncode=returncode),tempfile.TemporaryDirectory() as tmp,patch.object(archive_inspector.subprocess,'run',return_value=Mock(returncode=returncode)) as process:

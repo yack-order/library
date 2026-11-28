@@ -22,8 +22,16 @@ from restoration import (MAP_NAME, AUDIO_SUFFIXES, verify_map, new_map, write_ma
 MAX_EXPANDED=8*1024**3
 MAX_MEMBERS=10000
 MAX_FILE=1024**3
+LARGE_TIME_THRESHOLD=4*1024**3
 # Native .opus backups use the same Ogg container; normalized output stays .ogg.
 AUDIO=AUDIO_SUFFIXES|{'.opus'}
+
+
+def inspection_limits(source,*,fast_large=False):
+    """Fresh large copies get bounded extra time; retained packing keeps its budget."""
+    try:size=Path(source).stat().st_size
+    except OSError:size=0
+    return (2300,2400) if fast_large and size>=LARGE_TIME_THRESHOLD else (1100,1200)
 
 
 def _safe_extract(archive_path,destination,maximum_expanded,maximum_file):
@@ -303,8 +311,10 @@ def inspect_archive(source,work,*,fast_large=False):
     result=Path(work)/'inspection.json'
     command=[sys.executable,str(Path(__file__).resolve()),'--inspect',str(source),str(work)]
     if fast_large:command.append('--fast-large')
+    cpu_seconds,wall_seconds=inspection_limits(source,fast_large=fast_large)
+    if wall_seconds>1200:print(json.dumps({'event':'archive.inspection_budget','cpu_seconds':cpu_seconds,'wall_seconds':wall_seconds}))
     try:
-        completed=subprocess.run(command,timeout=1200,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
+        completed=subprocess.run(command,timeout=wall_seconds,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
         if not result.exists():
             if completed.returncode in {-signal.SIGKILL,-signal.SIGXCPU}:raise ArchiveError('resource_limit')
             raise ArchiveError('unsafe_archive')
@@ -318,7 +328,8 @@ if __name__=='__main__':
     import resource
     resource.setrlimit(resource.RLIMIT_FSIZE,(MAX_EXPANDED,MAX_EXPANDED))
     if sys.platform=='linux':resource.setrlimit(resource.RLIMIT_AS,(2*1024**3,2*1024**3))
-    resource.setrlimit(resource.RLIMIT_CPU,(1100,1100))
+    cpu_seconds,_=inspection_limits(sys.argv[2],fast_large='--fast-large' in sys.argv[4:])
+    resource.setrlimit(resource.RLIMIT_CPU,(cpu_seconds,cpu_seconds))
     result=Path(sys.argv[3])/'inspection.json'
     try:
         output=sanitize_archive(sys.argv[2],sys.argv[3],fast_large='--fast-large' in sys.argv[4:]);code=0
