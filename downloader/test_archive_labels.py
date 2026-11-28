@@ -5,7 +5,7 @@ from archive_labels import is_demo_archive
 
 class ArchiveLabelTests(unittest.TestCase):
     def test_catalog_preview_descriptions_and_full_card_exclusions(self):
-        for description in ['Discover: A preview', 'Discover: 3 tracks',
+        for description in ['Check out this preview of the first book in the Diary of a Wimpy Kid series', 'Discover: A preview', 'Discover: 3 tracks',
                             'DISCOVER: A PREVIEW', 'Story: The first chapter',
                             'Introduction: Prologue', 'Chapter 1: The Beginning',
                             'Chapter one', '2 tracks Full Card: 25 tracks. Available: Until December']:
