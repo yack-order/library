@@ -1,14 +1,14 @@
 """Explicit preview evidence, in parity with src/domain/preview.ts."""
 import re
 
-FULL_OFFER = re.compile(r'\b(?:listen to|enjoy|discover)\s+(?:(?:the|this|a)\s+)?(?:full(?:[- ]length)?|complete|entire)\s+(?:card|recording|collection|book)\b|\bdiscover\s*:\s*(?:the\s+)?full\s+card\b|\bthis\s+is\s+(?:the\s+|a\s+)?full\s+card\b|\b(?:à découvrir\s*:\s*)?la carte entière\b', re.I)
-WHOLE_PACK_CARD = re.compile(r'\b(?:one|1|a)\s+card\s+from\b[^\n]{0,160}\bpack\b', re.I)
+FULL_OFFER = re.compile(r'\b(?:listen to|enjoy|discover)\s+(?:(?:the|this|a)\s+)?(?:full(?:[- ]length)?|complete|entire)\s+(?:card|recording|collection|book)\b|\bdiscover\s*:\s*(?:the\s+)?full\s+card\b|\bthis\s+is\s+(?:the\s+|a\s+)?full\s+card\b|(?:^|\n)\s*à découvrir\s*:\s*(?:(?:la\s+)?carte entière|tous les chapitres)\b', re.I)
+WHOLE_PACK_CARD = re.compile(r'\b(?:one|1|a)\s+card\s+from\b|\b(?:one|1|a)\s+recipe\s+from\b[^\n]{0,160}\bpack\b', re.I)
 PATTERNS = [
  ('preview_terms', r'\b(?:(?:a|this|another|free|splashy)\s+preview|preview\s+(?:of|from)|(?:ten-joke|free)\s+taster|free\s+sample|(?:a|an|this)\s+(?:audio\s+)?excerpt)\b'),
  ('chapter_offer', r'\b(?:listen to|enjoy|jump into|immerse yourself in|delve into|dive into)\b[^.!?\n]{0,160}\bfirst\s+chapter\b|\bfree\s+first\s+chapter\b|\bfirst\s+chapter\b[^.!?\n]{0,100}\bfor\s+free\b'),
  ('minutes_offer', r'\b(?:listen to|enjoy|hear)\b[^.!?\n]{0,100}\bfirst\s+(?:\d+|one|two|three|four|five|ten)\s+minutes?\b'),
- ('discover_partial_offer', r'(?:^|\n)\s*discover\s*:\s*(?:(?:\d+|one|two|three|four|five|six|seven|eight|nine|ten)\s+(?:tracks?|minutes?|mins?)\b|track\s+\d+\b|[^\n]{0,100}\b(?:first|1st|prologue|one|half|sneak peek|sneak peak|[1-9]\d*\s+(?:full\s+)?(?:songs?|stor(?:y|ies)|draw[- ]alongs?))\b)'),
- ('french_excerpt', r'à découvrir\s*:\s*(?:un|le premier|[0-9]+)\s+chapitres?\b'),
+ ('discover_partial_offer', r'(?:^|\n)\s*discover\s*:\s*(?:(?:\d+|one|two|three|four|five|six|seven|eight|nine|ten)\s+(?:tracks?|minutes?|mins?)\b|track\s+\d+\b|[^\n]{0,100}\b(?:first|1st|prologue|one|half|sneak peek|sneak peak|[1-9]\d*\s+(?:full\s+)?(?:songs?|stor(?:y|ies)|activit(?:y|ies)|draw[- ]alongs?))\b)'),
+ ('french_excerpt', r'(?:^|\n)\s*à découvrir\s*:\s*(?:(?:\d+(?:er)?|un|une|le premier)\s+(?:chapitres?|pistes?|histoires?|contes?|comptines?|mots?)\b|le prologue\b)'),
  ('standalone_excerpt', r'^\s*(?:chapter\s+(?:1|one)(?:\s*:[^\n]*)?|(?:introduction|(?:a\s+)?story)\s*:\s*prologue)\s*$'),
  ('partial_track_offer', r'\b[0-9]+ tracks?\s+Full Card:\s*[0-9]+ tracks?\.\s*Available:')
 ]
