@@ -238,6 +238,8 @@ def normalized_image(url, path, prefetched=None):
 
 def capture_space_media(source, work):
     raw = source['card']
+    from archive_labels import is_withdrawal_notice
+    if is_withdrawal_notice(raw):raise ArchiveError('source_unavailable')
     if str((raw.get('content') or {}).get('playbackType', '')).lower() in {'radio', 'live', 'stream'}:
         raise ArchiveError('media_live_unsupported')
     captures = {}
@@ -417,7 +419,7 @@ def build_archive(source, work, captures=None):
         print(json.dumps({'event':'archive.resource_limit','reason':'generated_tree','expanded_bytes':expanded,'expanded_limit_bytes':MAX_BUILD_EXPANDED}))
         raise ArchiveError('resource_limit')
     from archive_labels import is_demo_archive
-    demo = '[DEMO]' if is_demo_archive(description=metadata.get('description') or card.get('description'),title=card.get('title')) else ''
+    demo = '[DEMO]' if is_demo_archive(description=metadata.get('description') or card.get('description'),user_id=card.get('userId'),track_count=sum(len(c.get('tracks',[])) for c in card.get('content',{}).get('chapters',[]))) else ''
     historical = f" [Snapshot {snapshot['label']}]" if snapshot is not None else ''
     filename = f'{category} - {title}{historical}{demo}[{card_id}] ({datetime.now(timezone.utc):%Y-%m-%d}).7z'
     if source.get('podcast'):
