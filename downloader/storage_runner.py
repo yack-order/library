@@ -93,7 +93,10 @@ def seed(client,source,work):
             if response.status_code!=200:raise ArchiveError('identity_conflict')
         finally:response.close()
     client.stage='uploading'
-    receipt=write.upload(result['path'],source['destinationFolder'],os.environ['TOYO_ARCHIVE_JOB'],result['cardId'],result['variant'],result['index'],checkpoint)
+    folder=source['destinationFolder']
+    if source.get('organizedStorage'):
+        folder=client.call('storage-folder',{'cardId':result['cardId']})['folder']
+    receipt=write.upload(result['path'],folder,os.environ['TOYO_ARCHIVE_JOB'],result['cardId'],result['variant'],result['index'],checkpoint)
     inspection={key:result[key] for key in ['cardId','variant','sha256','bytes','title','tracks','sourceSha256']}
     client.call('inspection',{**inspection,'formatVersion':1,'receipt':receipt});client.call('complete',{})
 
@@ -150,7 +153,7 @@ def handover(client,source,work):
             current=drive.metadata(object['drive_file_id']);version=str(current['version'])
             changed=version!=object['drive_version']
             metadata=drive.download(object['drive_file_id'],work/'read-probe',maximum=object['bytes'],expected_version=version,probe=not changed)
-            if source['destinationFolder'] not in metadata.get('parents',[]):raise ArchiveError('verification_failed')
+            if object.get('drive_folder',source['destinationFolder']) not in metadata.get('parents',[]):raise ArchiveError('verification_failed')
             item={'id':object['id'],'driveVersion':version}
             if changed:
                 checksum=digest(work/'read-probe')

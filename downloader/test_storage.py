@@ -342,6 +342,27 @@ class DeliveryTests(unittest.TestCase):
             with self.assertRaises(ArchiveError):storage_runner.deliver(Mock(),self.source(),Path(tmp))
             upload.assert_not_called()
 
+    def test_nested_cold_restore_uses_exact_registered_parent_and_preserves_bytes(self):
+        payload=b'archive bytes';drive=Mock();source=self.source()
+        source['destinationFolder']='registered_card_folder';source['hot']=None
+        def download(file,path,**kwargs):
+            self.assertEqual(file,source['object']['drive_file_id'])
+            Path(path).write_bytes(payload);return {'parents':['registered_card_folder']}
+        drive.download.side_effect=download
+        with tempfile.TemporaryDirectory() as tmp,patch.object(storage_runner,'Drive',return_value=drive),patch.object(storage_runner,'upload') as upload:
+            client=Mock();storage_runner.deliver(client,source,Path(tmp))
+            self.assertEqual(Path(upload.call_args.args[0]).read_bytes(),payload)
+            self.assertIn('upload-intent',[c.args[0] for c in client.call.call_args_list])
+
+    def test_nested_restore_rejects_wrong_parent_before_gofile_upload(self):
+        source=self.source();source['destinationFolder']='registered_card_folder';source['hot']=None
+        drive=Mock()
+        def download(file,path,**kwargs):Path(path).write_bytes(b'archive bytes');return {'parents':['unrelated_folder']}
+        drive.download.side_effect=download
+        with tempfile.TemporaryDirectory() as tmp,patch.object(storage_runner,'Drive',return_value=drive),patch.object(storage_runner,'upload') as upload:
+            with self.assertRaises(ArchiveError):storage_runner.deliver(Mock(),source,Path(tmp))
+            upload.assert_not_called()
+
     def test_uncertain_upload_is_not_blindly_repeated(self):
         source=self.source();source['checkpoint']={'uploadStarted':True}
         with tempfile.TemporaryDirectory() as tmp,patch.object(storage_runner,'check_page') as check,patch.object(storage_runner,'Drive') as drive,patch.object(storage_runner,'upload') as upload:
