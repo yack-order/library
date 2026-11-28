@@ -160,8 +160,8 @@ def sanitize_archive(source,work,*,fast_large=False):
     title=redact_text(card.get('title') or fields.get('Title') or 'Untitled')
     author=redact_text(metadata.get('author') or fields.get('Author') or 'Unknown')
     category=redact_text(metadata.get('category') or fields.get('Category') or 'Unknown')
-    from archive_labels import is_demo_archive
-    demo=is_demo_archive(source.name,metadata.get('description') or card.get('description') or fields.get('Description',''),title)
+    from archive_labels import is_demo_archive, is_withdrawal_notice
+    if is_withdrawal_notice(card):raise ArchiveError('incomplete_archive')
     tracks=[track for chapter in card.get('content',{}).get('chapters',[]) for track in chapter.get('tracks',[])]
     # Yoto labels finite podcast files as stream. Complete extracted files with
     # validated duration/count are inspectable; actual radio/live remains rejected.
@@ -179,6 +179,7 @@ def sanitize_archive(source,work,*,fast_large=False):
     expected=len(tracks) or len(blocks)
     if not audio or len(audio)>2000 or not expected or len(audio)!=expected:raise ArchiveError('incomplete_archive')
     if blocks and len(blocks)!=len(audio):raise ArchiveError('incomplete_archive')
+    demo=is_demo_archive(source.name,metadata.get('description') or card.get('description') or fields.get('Description',''),user_id=card.get('userId'),verified_source=bool(raw and tracks),track_count=len(tracks))
     clean=work/'clean';clean.mkdir();folder=clean/safe_filename(title,limit=120);folder.mkdir()
     out_audio=folder/'audio_files';out_audio.mkdir();images=folder/'images';images.mkdir()
     public=without_notes(scrub_json(card)) if card else {'cardId':card_id,'title':title,'metadata':{'author':author,'category':category},'content':{'chapters':[]}}
@@ -278,6 +279,7 @@ def sanitize_archive(source,work,*,fast_large=False):
     os.utime(folder,(0,0))
     # Copy counters belong to the source download, not the published archive.
     stem=re.sub(r'(?:\s+\(\d+\))+$','',redact_text(source.stem))
+    if not demo:stem=re.sub(r'\[DEMO\]','',stem,flags=re.I)
     if f'[{card_id}]' not in stem:stem+=f'[{card_id}]'
     if demo and '[DEMO]' not in stem:stem=stem.replace(f'[{card_id}]',f'[DEMO][{card_id}]')
     filename=safe_filename(stem,limit=230)+'.7z'

@@ -33,7 +33,7 @@ class InspectionTests(unittest.TestCase):
                ('Story: A preview',None,False,'demo'),
                ('Discover: 1 track','Discover: The full card',False,'full'),
                ('Original playlist','Discover: A preview',False,'demo'),
-               ('Original playlist','Discover: The full card',True,'demo'),
+               ('Original playlist','Discover: The full card',True,'full'),
                ('Discover the science',None,False,'full')]
         for legacy_description,json_description,explicit_demo,variant in cases:
             with self.subTest(legacy=legacy_description,json=json_description,explicit=explicit_demo),tempfile.TemporaryDirectory() as tmp:
@@ -41,7 +41,7 @@ class InspectionTests(unittest.TestCase):
                 with (folder/'card.txt').open('a') as handle:handle.write('Description:: '+legacy_description+'\n')
                 if json_description is None:(folder/'playlist.json').unlink()
                 else:
-                    raw=json.loads((folder/'playlist.json').read_text());raw['card']['metadata']['description']=json_description
+                    raw=json.loads((folder/'playlist.json').read_text());raw['card']['metadata']['description']=json_description;raw['card']['userId']='yoto'
                     (folder/'playlist.json').write_text(json.dumps(raw))
                 source=work/('Legacy'+('[DEMO]' if explicit_demo else '')+'[abc12].zip')
                 with zipfile.ZipFile(source,'w') as archive:
