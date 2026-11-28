@@ -39,6 +39,7 @@ class ExplicitEvidenceParityTests(unittest.TestCase):
         self.assertFalse(is_demo_archive('Old [DEMO].7z', 'Discover: Listen to the full card for free!', user_id='yoto', verified_source=True))
         self.assertFalse(is_demo_archive('Old [DEMO].7z', 'Discover the meaning of friendship.', user_id='yoto', verified_source=True))
         self.assertTrue(is_demo_archive('Old.7z', 'In this free preview, hear one song.', user_id='yoto', verified_source=True))
+        self.assertFalse(is_demo_archive('Legacy[DEMO].7z', 'Discover this full length card', verified_source=True))
 
     def test_complete_track_inventory_overrides_stale_preview_text(self):
         self.assertFalse(is_demo_archive(description='Discover: 2 tracks. Full Card: 19 tracks.', user_id='yoto', track_count=19))

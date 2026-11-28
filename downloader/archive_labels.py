@@ -21,10 +21,18 @@ def preview_evidence(value, track_count=None):
         return {'kind': 'full', 'rule': 'whole_card_from_pack'}
     if FULL_OFFER.search(description):
         return {'kind': 'full', 'rule': 'explicit_full_offer'}
-    offered = re.search(r'\bDiscover\s*:\s*(\d+)\s+tracks?\b', description, re.I)
-    total = re.search(r'\bFull Card\s*:\s*(\d+)\s+tracks?\b', description, re.I)
-    if offered and total and (int(offered[1]) >= int(total[1]) or track_count is not None and track_count >= int(total[1])):
-        return {'kind': 'full', 'rule': 'complete_track_count'}
+    english_offer = re.search(r'\bDiscover\s*:\s*(\d+)\s+(tracks?|chapters?|stor(?:y|ies)|songs?|minutes?|mins?)\b', description, re.I)
+    english_total = re.search(r'\bFull Card\s*:\s*(\d+)\s+(tracks?|chapters?|stor(?:y|ies)|songs?|minutes?|mins?)\b', description, re.I)
+    french_offer = re.search(r'(?:^|\n)\s*à découvrir\s*:\s*(\d+)\s+(pistes?|chapitres?|histoires?|contes?|comptines?|mots?)\b', description, re.I)
+    french_total = re.search(r"\bCarte sur l[’']e-shop\s*:\s*(\d+)\s+(pistes?|chapitres?|histoires?|contes?|comptines?|mots?)\b", description, re.I)
+    def unit(s):
+        s = s.lower()
+        if s == 'stories': return 'story'
+        if re.fullmatch(r'mins?|minutes?', s): return 'minute'
+        return s[:-1] if s.endswith('s') else s
+    for offered, total in [(english_offer, english_total), (french_offer, french_total)]:
+        if offered and total and unit(offered[2]) == unit(total[2]) and (int(offered[1]) >= int(total[1]) or track_count is not None and unit(total[2]) in ('track', 'piste') and track_count >= int(total[1])):
+            return {'kind': 'full', 'rule': 'complete_track_count'}
     for name, pattern in PATTERNS:
         if pattern.search(description):
             return {'kind': 'preview', 'rule': name}
@@ -40,7 +48,7 @@ def is_demo_archive(filename='', description='', title='', *, user_id=None, veri
     if creator and creator != 'yoto':
         return marker and not verified_source
     evidence = preview_evidence(description, track_count)
-    if verified_source and creator == 'yoto':
+    if verified_source and (creator == 'yoto' or evidence['kind'] == 'full'):
         return evidence['kind'] == 'preview'
     return marker or evidence['kind'] == 'preview'
 
