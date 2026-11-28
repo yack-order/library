@@ -21,8 +21,8 @@ def preview_evidence(value, track_count=None):
         return {'kind': 'full', 'rule': 'whole_card_from_pack'}
     if FULL_OFFER.search(description):
         return {'kind': 'full', 'rule': 'explicit_full_offer'}
-    english_offer = re.search(r'\bDiscover\s*:\s*(\d+)\s+(tracks?|chapters?|stories|songs?|minutes?|mins?)\b', description, re.I)
-    english_total = re.search(r'\bFull Card\s*:\s*(\d+)\s+(tracks?|chapters?|stories|songs?|minutes?|mins?)\b', description, re.I)
+    english_offer = re.search(r'\bDiscover\s*:\s*(\d+)\s+(tracks?|chapters?|stor(?:y|ies)|songs?|minutes?|mins?)\b', description, re.I)
+    english_total = re.search(r'\bFull Card\s*:\s*(\d+)\s+(tracks?|chapters?|stor(?:y|ies)|songs?|minutes?|mins?)\b', description, re.I)
     french_offer = re.search(r'(?:^|\n)\s*à découvrir\s*:\s*(\d+)\s+(pistes?|chapitres?|histoires?|contes?|comptines?|mots?)\b', description, re.I)
     french_total = re.search(r"\bCarte sur l[’']e-shop\s*:\s*(\d+)\s+(pistes?|chapitres?|histoires?|contes?|comptines?|mots?)\b", description, re.I)
     def unit(s):
