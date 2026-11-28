@@ -1,3 +1,4 @@
+import json
 import threading
 import unittest
 from unittest.mock import Mock, patch
@@ -16,6 +17,7 @@ class JobControlsTests(unittest.TestCase):
         response=Mock()
         response.status_code=status
         response.json.return_value=body
+        response.content=json.dumps(body).encode()
         response.__enter__=Mock(return_value=response)
         response.__exit__=Mock(return_value=False)
         return response
@@ -35,3 +37,25 @@ class JobControlsTests(unittest.TestCase):
         with self.assertRaises(ArchiveError) as error:client.call('complete')
         self.assertEqual(error.exception.code,'job_cancelled')
         client.stopped.wait.assert_not_called()
+
+    @patch('runner.requests.post')
+    def test_only_explicit_api_codes_diagnose_withdrawal_or_reconnect(self,post):
+        for action in ('claim','source','complete'):
+            for body,expected in [({'code':'archive_withdrawn'},'archive_withdrawn'),
+                                  ({'code':'reconnect_required'},'reconnect_required'),
+                                  ({'error':'Cold archive unavailable'},'source_unavailable'),
+                                  ({'code':'private-provider-detail'},'source_unavailable'),
+                                  (['reconnect_required'],'source_unavailable')]:
+                with self.subTest(action=action,body=body):
+                    client=self.client();post.reset_mock()
+                    post.return_value=self.response(409,body)
+                    with self.assertRaises(ArchiveError) as error:client.call(action)
+                    self.assertEqual(error.exception.code,expected)
+                    post.assert_called_once();client.stopped.wait.assert_not_called()
+
+    @patch('runner.requests.post')
+    def test_malformed_or_oversized_errors_stay_generic(self,post):
+        for raw in (b'not json',b'{"code":"reconnect_required","error":"'+b'x'*16384+b'"}',b'\xff'):
+            client=self.client();response=self.response(409);response.content=raw;post.return_value=response
+            with self.assertRaises(ArchiveError) as error:client.call('source')
+            self.assertEqual(error.exception.code,'source_unavailable')

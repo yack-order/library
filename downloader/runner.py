@@ -471,7 +471,18 @@ class Client:
                     elif action=='heartbeat' and (response.status_code==429 or 500<=response.status_code<600):
                         raise requests.HTTPError('heartbeat_transient')
                     elif response.status_code != 200:
-                        raise ArchiveError('reconnect_required' if action=='source' and response.status_code==409 else 'source_unavailable')
+                        code='source_unavailable'
+                        # HTTP 409 also means unavailable content or an expired
+                        # lease. Only explicit, allowlisted API codes are trusted.
+                        raw=response.content
+                        if isinstance(raw,bytes) and len(raw)<=16384:
+                            try:
+                                error=json.loads(raw)
+                                if isinstance(error,dict) and error.get('code') in ('archive_withdrawn','reconnect_required'):
+                                    code=error['code']
+                            except (ValueError,UnicodeError):
+                                pass
+                        raise ArchiveError(code)
                     else:
                         return response.json()
             except (requests.Timeout, requests.ConnectionError, requests.HTTPError):
