@@ -121,7 +121,9 @@ def deliver(client,source,work):
     if checkpoint.get('uploadStarted'):raise ArchiveError('upload_uncertain')
     presence=check_page(source['hot']['pageUrl'],object['filename']) if source.get('hot') else 'missing'
     client.call('page-result',{'presence':presence})
-    if presence=='unknown':raise ArchiveError('page_unknown')
+    # New servers explicitly permit cold restoration after an inconclusive hot
+    # check. Preserve the observed result; older servers retain their policy.
+    if presence=='unknown' and not source.get('restoreUnknown'):raise ArchiveError('page_unknown')
     if presence=='present':client.call('complete',{'presence':'present'});return
     client.stage='restoring'
     drive=Drive(source['runtimeToken'],refresh=lambda:client.call('source')['runtimeToken']);path=work/object['filename']

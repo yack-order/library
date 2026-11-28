@@ -322,17 +322,21 @@ class DeliveryTests(unittest.TestCase):
                 else:storage_runner.deliver(client,self.source(),Path(tmp))
                 drive.assert_not_called();upload.assert_not_called()
 
-    def test_missing_page_restores_exact_bytes_with_runtime_credentials_only(self):
-        payload=b'archive bytes';drive=Mock()
-        def download(file,path,**kwargs):Path(path).write_bytes(payload);return {'parents':['private-folder']}
-        drive.download.side_effect=download
-        with tempfile.TemporaryDirectory() as tmp,patch.object(storage_runner,'check_page',return_value='missing'),patch.object(storage_runner,'Drive',return_value=drive) as constructor,patch.object(storage_runner,'upload') as upload:
-            source=self.source();client=Mock();storage_runner.deliver(client,source,Path(tmp))
-            self.assertEqual(constructor.call_args.args,('private-runtime-token',))
-            self.assertTrue(callable(constructor.call_args.kwargs['refresh']))
-            self.assertEqual(drive.download.call_args.kwargs['expected_sha256'],source['object']['sha256'])
-            self.assertEqual(upload.call_args.args[1],'private-gofile-token')
-            self.assertNotIn('import',str(client.call.call_args_list))
+    def test_missing_or_unknown_page_restores_exact_verified_bytes(self):
+        for presence in ['missing','unknown']:
+            with self.subTest(presence=presence),tempfile.TemporaryDirectory() as tmp:
+                payload=b'archive bytes';drive=Mock();source=self.source();source['restoreUnknown']=True
+                def download(file,path,**kwargs):Path(path).write_bytes(payload);return {'parents':['private-folder']}
+                drive.download.side_effect=download
+                with patch.object(storage_runner,'check_page',return_value=presence),patch.object(storage_runner,'Drive',return_value=drive) as constructor,patch.object(storage_runner,'upload') as upload:
+                    client=Mock();storage_runner.deliver(client,source,Path(tmp))
+                    self.assertEqual(constructor.call_args.args,('private-runtime-token',))
+                    self.assertTrue(callable(constructor.call_args.kwargs['refresh']))
+                    self.assertEqual(drive.download.call_args.kwargs['expected_sha256'],source['object']['sha256'])
+                    self.assertEqual(upload.call_args.args[1],'private-gofile-token')
+                    client.call.assert_any_call('page-result',{'presence':presence})
+                    client.call.assert_any_call('upload-intent',{})
+                    self.assertEqual(client.call.call_args.args,('complete',{'presence':'missing'}))
 
     def test_checksum_mismatch_never_reaches_gofile(self):
         drive=Mock()
