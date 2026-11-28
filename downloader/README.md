@@ -184,3 +184,5 @@ The inspector keeps explicit `[DEMO]` labels and recognizes the Catalog’s Disc
 Fresh inspections with at least 512 MiB of sanitized content use fast lossless LZMA2 packing. Verification, CPU, memory, member and archive-size limits are unchanged. A retained upload checksum, session or file keeps the original packing strategy; completed inspection artifacts are reused. Generated archives keep their existing reproducible packing. A child killed by the CPU/resource guard is reported as `resource_limit`, rather than archive corruption.
 
 Legacy `.opus` inputs are counted as audio and losslessly remuxed to the existing `.ogg` output format. Track-count, codec, privacy and full verification checks remain in force.
+
+Cold-to-hot delivery: when the API sets `restoreUnknown`, an inconclusive Gofile page check restores the preserved cold archive just like a missing page. The observed result remains unknown; checksum, size, provider-receipt and uncertain-upload reconciliation checks still apply. Older APIs retain their previous behavior. Temporary podcast check-only jobs without cold storage cannot restore.
